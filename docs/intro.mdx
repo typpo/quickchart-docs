@@ -1,0 +1,58 @@
+---
+sidebar_position: 1
+---
+
+import ChartExample from './components/ChartExample';
+
+# Intro
+
+**QuickChart** is a web service that generates chart images on-the-fly. These images are suitable for embedding in email, SMS, chatbots, and other formats. Charts are rendered by Chart.js, a popular open-source charting library.
+
+Do you have questions? Don't hesitate to ask in our [community](https://community.quickchart.io) or [send us a message](mailto:support@quickchart.io).
+
+# Getting started
+
+QuickChart works by taking [Chart.js configurations](https://www.chartjs.org/docs/2.9.4/getting-started/) and rendering them on the backend as an image. You may send your chart configuration in JSON or Javascript format using a simple URL or through POST request.
+
+For example, take this simple Chart.js configuration:
+
+```javascript
+{
+  type: 'bar',                                // Show a bar chart
+  data: {
+    labels: [2012, 2013, 2014, 2015, 2016],   // Set X-axis labels
+    datasets: [{
+      label: 'Users',                         // Create the 'Users' dataset
+      data: [120, 60, 50, 180, 120]           // Add data to the chart
+    }]
+  }
+}
+```
+
+We'll pack this Chart.js object into the `/chart` URL endpoint:
+
+```
+https://quickchart.io/chart?c={type:'bar',data:{labels:[2012,2013,2014,2015,2016],datasets:[{label:'Users',data:[120,60,50,180,120]}]}}
+```
+
+The URL generates this chart image, a rendering of the Chart.js config above:
+
+export const chart1 = `
+`;
+
+<ChartExample
+  config={`{
+  type: 'bar',                                // Show a bar chart
+  data: {
+    labels: [2012, 2013, 2014, 2015, 2016],   // Set X-axis labels
+    datasets: [{
+      label: 'Users',                         // Create the 'Users' dataset
+      data: [120, 60, 50, 180, 120]           // Add data to the chart
+    }]
+  }
+}`}
+/>
+
+Make adjustments to this example - try editing the chart and replacing "bar" with "line" or "pie" to get different types of chart, change the legend labels, or add another dataset to get a grouped bar chart.
+
+Because QuickChart is built on open-source chart libraries, our charts are flexible and highly customizable. Explore the documentation below to learn more or [view more examples](/gallery/).
