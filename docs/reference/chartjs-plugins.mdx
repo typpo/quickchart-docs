@@ -1,0 +1,54 @@
+---
+sidebar_position: 11
+---
+
+# Using Chart.js plugins and addons
+
+## Pre-installed plugins
+
+QuickChart comes with some Chart.js plugins pre-installed. They are:
+
+- [chartjs-plugin-datalabels](https://github.com/chartjs/chartjs-plugin-datalabels) - add highly customized data labels
+- [chartjs-plugin-annotation](https://github.com/chartjs/chartjs-plugin-annotation) - add annotations, lines, and text
+- [chartjs-plugin-piechart-outlabels](https://github.com/Neckster/chartjs-plugin-piechart-outlabels) - add labels outside your pie graph
+- [chartjs-chart-radial-gauge](https://github.com/pandameister/chartjs-chart-radial-gauge) - adds the radialGauge chart type
+- [chartjs-chart-box-and-violin-plot](https://github.com/datavisyn/chartjs-chart-box-and-violin-plot) - adds the boxPlot, horizontalBoxPlot, violin, and horizontalViolin chart types
+- [chartjs-plugin-doughnutlabel](https://github.com/ciprianciurea/chartjs-plugin-doughnutlabel) - ability to display text in the center of doughnut charts
+- [chartjs-plugin-colorschemes](https://nagix.github.io/chartjs-plugin-colorschemes/) - lets you choose from predefined color schemes (including well-known schemes from Excel and Tableau)
+
+Use these plugins as you please in your chart config - no need to import anything extra.
+
+:::caution
+Chart.js v3 only supports the datalabels and annotation plugins.
+:::
+
+// TODO update this
+
+## Add custom plugins
+
+As with any Chart.js chart, it's possible to add custom inline plugins by setting the `plugins` attribute in your chart config. Setting a custom `plugins` object will override the plugins built into QuickChart.
+
+Here's an example that adds some extra space between a pie chart and its legend. Note that the global `Chart` object is available to the plugin:
+
+```js
+{
+  "type": "pie",
+  "data": {
+    "labels": ["Yes", "No", "Maybe"],
+    "datasets": [{
+      "backgroundColor": ["#FF3784", "#36A2EB", "#4BC0C0"],
+      "data": [3, 24, 12]
+    }]
+  },
+  "plugins": [{
+    "beforeInit": function(chart, options) {
+      Chart.Legend.prototype.afterFit = function() {
+        // Add 50 pixels of height below the legend.
+        this.height = this.height + 50;
+      };
+    }
+  }]
+}
+```
+
+It is also possible to add a logo to charts or watermark a chart. For more information, see our [Watermark API](TODO).

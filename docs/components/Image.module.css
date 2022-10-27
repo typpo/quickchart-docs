@@ -1,7 +1,11 @@
 .container {
   text-align: center;
+  margin: auto;
   border: 1px solid #eee;
-  margin-bottom: 2em;
   padding: 2em;
-  padding-bottom: 0;
+  margin-bottom: 2em;
+}
+
+.caption {
+  font-size: 0.8em;
 }

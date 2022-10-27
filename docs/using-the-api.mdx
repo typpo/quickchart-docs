@@ -3,7 +3,7 @@ sidebar_position: 2
 ---
 
 import CodeWithHighlights from './components/CodeWithHighlights';
-import ImageWithCaption from './components/ImageWithCaption';
+import Image from './components/Image';
 
 # Using the API
 
@@ -107,7 +107,7 @@ Note that if you want to include Javascript code in `chart` (e.g. to format labe
 
 Errors that prevent the chart from rendering will return a non-200 HTTP status code, most commonly `400 Bad Request`. In most cases, the error will be rendered in the requested image format. If an error is rendered in an image, it is also included as a string in the `X-quickchart-error` HTTP header.
 
-<ImageWithCaption
+<Image
   src="https://quickchart.io/images/docs/chart_invalid_token.png"
   caption="An example error due to invalid chart config - not URL encoded."
 />

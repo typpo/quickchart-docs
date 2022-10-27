@@ -1,0 +1,144 @@
+---
+sidebar_position: 1
+---
+
+# Using Javascript functions
+
+Some chart configs include Javascript functions. This requires special treatment if you're sending a POST request.
+
+Be sure to send the `chart` parameter as a _string_, not as a JSON object.
+
+## Example
+
+Here's an example of a POST request. Note that this payload is _valid_ JSON and the `chart` object is a string containing Javascript or JSON:
+
+```json
+{
+  "backgroundColor": "transparent",
+  "width": 500,
+  "height": 300,
+  "format": "png",
+  // highlight-next-line
+  "chart": "{type:'bar',data:{labels:['January','February','March','April','May'],datasets:[{label:'Dogs',data:[50,60,70,180,190]}]},options:{scales:{yAxes:[{ticks:{callback:function(value){return'$'+value;}}}]}}}"
+}
+```
+
+You can send a POST request using any programming language. We could, for example, put the above JSON in a file called `chart_request.json` and send it via curl:
+
+```sh
+$ curl -X POST \
+     -H "Content-Type: application/json" \
+     -d @chart_request.json \
+     'https://quickchart.io/chart' > chart.png
+```
+
+## Building chart objects in Javascript
+
+To illustrate the above, here are a few Javascript examples showing how to build a raw chart definition containing a function:
+
+### Option 1: Build the config as a string
+
+Build the config as a string, not an object. This is the most straightforward way.
+
+```js
+const chartStr = `{
+  type: 'bar',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May'],
+    datasets: [{
+      label: 'Dogs',
+      data: [ 50, 60, 70, 180, 190 ]
+    }]
+  },
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          callback: function(value) {
+            return '$' + value;
+          }
+        }
+      }],
+    },
+  },
+}`;
+
+console.log(encodeURIComponent(chartStr));
+```
+
+### Option 2: Build the config as a JSON object
+
+Construct your chart as a JSON object. Later, substitute your Javascript function.
+
+```js
+const chartObj = {
+  type: 'bar',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May'],
+    datasets: [
+      {
+        label: 'Dogs',
+        data: [50, 60, 70, 180, 190],
+      },
+    ],
+  },
+  options: {
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            callback: '__CALLBACK_PLACEHOLDER__',
+          },
+        },
+      ],
+    },
+  },
+};
+
+const myFormatterFunction = function (value) {
+  return '$' + value;
+};
+const chartStr = JSON.stringify(chartObj).replace(
+  '"__CALLBACK_PLACEHOLDER__"',
+  myFormatterFunction.toString(),
+);
+
+console.log(encodeURIComponent(chartStr));
+```
+
+### Option 3: Use quickchart-js
+
+[quickchart-js](https://github.com/typpo/quickchart-js) uses [javascript-stringify](https://github.com/blakeembrey/javascript-stringify) to serialize a normal Javascript object containing a function.
+
+```js
+const QuickChart = require('quickchart-js');
+
+const myChart = new QuickChart();
+myChart.setConfig({
+  type: 'bar',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May'],
+    datasets: [
+      {
+        label: 'Dogs',
+        data: [50, 60, 70, 180, 190],
+      },
+    ],
+  },
+  options: {
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            callback: function (value) {
+              return '$' + value;
+            },
+          },
+        },
+      ],
+    },
+  },
+});
+
+console.log(myChart.getUrl());
+```
