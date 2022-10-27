@@ -1,0 +1,54 @@
+---
+sidebar_position: 10
+---
+
+import ChartExample from '../components/ChartExample';
+
+# Smoothing & Rounding Edges
+
+## Line charts
+
+Line charts can be smoothed by setting the `lineTension` attribute on the dataset. For example:
+
+```js
+{
+  data: {
+    datasets: [
+      {
+        // ...
+        lineTension: 0.4,
+      },
+    ];
+  }
+}
+```
+
+## Bar charts
+
+A built-in plugin is available to users who want to round the corners of their bar charts. To round corners, set `options.plugins.roundedBars` to true:
+
+```js
+{
+  // ...
+  options: {
+    plugins: {
+      roundedBars: true;
+    }
+  }
+}
+```
+
+You may also specify the pixel radius of the rounded corners using the `cornerRadius` property:
+
+```js
+{
+  // ...
+  options: {
+    plugins: {
+      roundedBars: {
+        cornerRadius: 20;
+      }
+    }
+  }
+}
+```

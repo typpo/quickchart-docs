@@ -1,0 +1,322 @@
+---
+sidebar_position: 4
+---
+
+import ChartExample from '../components/ChartExample';
+
+# Labels
+
+There are several different types of labels: axis labels, tick labels, and data labels.
+
+## Customizing axis labels
+
+X axis tick labels are controlled by the `data.labels` array. [This example chart](https://quickchart.io/sandbox/) uses the `labels` attribute to control the X axis display.
+
+Y axis tick labels are automatically generated based on values unless you are using a [categorical axis](<https://quickchart.io/sandbox/#%7B%0A%20%20type%3A%20%27line%27%2C%0A%20%20data%3A%20%7B%0A%20%20%20%20xLabels%3A%20%5B%27January%27%2C%20%27February%27%2C%20%27March%27%2C%20%27April%27%2C%20%27May%27%2C%20%27June%27%2C%20%27July%27%5D%2C%0A%20%20%20%20yLabels%3A%20%5B%0A%20%20%20%20%20%20%27%27%2C%0A%20%20%20%20%20%20%27Request%20Added%27%2C%0A%20%20%20%20%20%20%27Request%20Viewed%27%2C%0A%20%20%20%20%20%20%27Request%20Accepted%27%2C%0A%20%20%20%20%20%20%27Request%20Solved%27%2C%0A%20%20%20%20%20%20%27Solving%20Confirmed%27%2C%0A%20%20%20%20%5D%2C%0A%20%20%20%20datasets%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20label%3A%20%27My%20First%20dataset%27%2C%0A%20%20%20%20%20%20%20%20data%3A%20%5B%0A%20%20%20%20%20%20%20%20%20%20%27%27%2C%0A%20%20%20%20%20%20%20%20%20%20%27Request%20Added%27%2C%0A%20%20%20%20%20%20%20%20%20%20%27Request%20Added%27%2C%0A%20%20%20%20%20%20%20%20%20%20%27Request%20Added%27%2C%0A%20%20%20%20%20%20%20%20%20%20%27Request%20Viewed%27%2C%0A%20%20%20%20%20%20%20%20%20%20%27Request%20Viewed%27%2C%0A%20%20%20%20%20%20%20%20%20%20%27Request%20Viewed%27%2C%0A%20%20%20%20%20%20%20%20%5D%2C%0A%20%20%20%20%20%20%20%20fill%3A%20false%2C%0A%20%20%20%20%20%20%20%20borderColor%3A%20%27rgb(255%2C%2099%2C%20132)%27%2C%0A%20%20%20%20%20%20%20%20backgroundColor%3A%20%27rgb(255%2C%2099%2C%20132)%27%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%7D%2C%0A%20%20options%3A%20%7B%0A%20%20%20%20title%3A%20%7B%0A%20%20%20%20%20%20display%3A%20true%2C%0A%20%20%20%20%20%20text%3A%20%27Chart%20with%20Non%20Numeric%20Y%20Axis%27%2C%0A%20%20%20%20%7D%2C%0A%20%20%20%20scales%3A%20%7B%0A%20%20%20%20%20%20xAxes%3A%20%5B%0A%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20display%3A%20true%2C%0A%20%20%20%20%20%20%20%20%20%20scaleLabel%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20display%3A%20true%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20labelString%3A%20%27Month%27%2C%0A%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%5D%2C%0A%20%20%20%20%20%20yAxes%3A%20%5B%0A%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20type%3A%20%27category%27%2C%0A%20%20%20%20%20%20%20%20%20%20position%3A%20%27left%27%2C%0A%20%20%20%20%20%20%20%20%20%20display%3A%20true%2C%0A%20%20%20%20%20%20%20%20%20%20scaleLabel%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20display%3A%20true%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20labelString%3A%20%27Request%20State%27%2C%0A%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20ticks%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20reverse%3A%20true%2C%0A%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%5D%2C%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%7D%0A>).
+
+### Scale labels
+
+The `axis.scaleLabel` property controls the text that appears alongside the axis. Here's an example config:
+
+<ChartExample
+  showEditor
+  config={`{
+  type: 'bar',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May'],
+    datasets: [
+      { label: 'Dogs', data: [50, 60, 70, 180, 190] },
+    ],
+  },
+  options: {
+  scales: {
+    xAxes: [
+      {
+        scaleLabel: {
+          display: true,
+          fontColor: '#00ff00',
+          fontSize: 20,
+          fontStyle: 'bold',
+          labelString: 'Month',
+        },
+      },
+    ],
+    yAxes: [
+      {
+        scaleLabel: {
+          display: true,
+          labelString: '# Users',
+          fontColor: '#ff0000',
+          fontSize: 20,
+          fontStyle: 'bold',
+        },
+      },
+    ]
+  }
+}
+}`}
+/>
+
+Learn more about scale title configuration [here](https://www.chartjs.org/docs/2.9.4/axes/labelling.html#scale-title-configuration).
+
+## Customizing tick labels
+
+"Ticks" are the data markings that run along the axis. To format tick label, use the `options.scales.<xAxes/yAxes>.ticks` property.
+
+There are many ways to customize tick values. For further reading, see:
+
+- [Chart.js custom tick formatting](TODO)
+- [Chart.js docs on configuring ticks](https://www.chartjs.org/docs/2.9.4/axes/cartesian/#tick-configuration)
+
+### Chart "tick" attributes
+
+| Attribute Name  |                                                                                                             Description                                                                                                             |
+| :-------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|       min       |                                                                                                     Minimum value for the scale                                                                                                     |
+|       max       |                                                                                                     Maximum value for the scale                                                                                                     |
+|  suggestedMin   |                                    Soft minimum value for the scale. The chart will use this minimum by default, but the minimum will be overridden if data value is less than suggested value.                                     |
+|  suggestedMax   |                                   Soft maximum value for the scale. The chart will use this maximum by default, but the maximum will be overridden if data value is greater than suggested value.                                   |
+|    callback     |                                                               A Javascript function that is passed the value of the tick. The return value is displayed on the graph.                                                               |
+|   sampleSize    |        The number of ticks to examine when deciding how many labels will fit. Setting a smaller value will render faster, but is less accurate in cases with large variance in label length. Defaults to sampling all ticks.        |
+|    autoSkip     | If true, automatically calculates how many labels can be shown and hides labels that will overlap. Labels will be rotated up to maxRotation before skipping. Turn autoSkip off to show all labels no matter what. Defaults to true. |
+| autoSkipPadding |                                                                        Padding between ticks on the horizontal axis when autoSkip is enabled. Defaults to 0                                                                         |
+|   labelOffset   |                                                                       Distance in pixels to offset the label from the center point of the tick. Defaults to 0                                                                       |
+|   maxRotation   |                                          Maximum rotation for tick labels in degrees. Labels are rotated to make room for other labels. Only applies to horizontal scales. Defaults to 50                                           |
+|   minRotation   |                                                                         Minimum rotation for tick labels. Only applies to horizontal scales. Defaults to 0.                                                                         |
+|     mirror      |                                       If true, flips tick labels around the axis, displaying them inside the chart instead of outside. Only applicable to vertical scales. Defaults to false.                                       |
+|     padding     |                                                                                 Padding between tick labels and the axis, in pixels. Defaults to 0.                                                                                 |
+
+Below is an example that formats Y axis ticks as currency. The `callback` function localizes the currency, adding commas (or other delimeter) to the thousands place. You can use this technique to add percentage symbols and other label formats to your chart:
+
+<ChartExample
+  showEditor
+  config={`{
+  type: 'line',
+  data: {
+    labels: [2016, 2017, 2018, 2019, 2020],
+    datasets: [
+      {
+        label: 'Dollars',
+        data: [1000, 1234, 2020, 2005, 1300],
+      }
+    ],
+  },
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          min: 0,
+          max: 5000,
+          callback: (val) => {
+            return '$' + val.toLocaleString();
+          },
+        }
+      }]
+    }
+  },
+}`}
+/>
+
+### tickFormat: A helper plugin for custom Tick Labels
+
+Writing a Javascript function can be a hassle. If your labels are not complex, the built-in `tickFormat` plugin allows you to apply common formatting needs without having to write Javascript. This can be simpler than writing the code yourself.
+
+Use `options.plugins.tickFormat` to set options for formatting axis tick labels. The `tickFormat` object supports `locale`, `prefix`, `suffix` attributes, as well as all options supported by Javascript's [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat).
+
+#### tickFormat attributes
+
+|    Attribute Name     |                                                                                                  Description                                                                                                  |
+| :-------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|        locale         |                                                              An Intl.Locale string such as en-US (default), fr-FR, de-DE, en-GB. Full list here                                                               |
+|        prefix         |                                                                                        String to prepend to tick label                                                                                        |
+|        suffix         |                                                                                        String to append to tick label                                                                                         |
+|         style         |                 The formatting style to use. Default is decimal. decimal for plain number formatting currency for currency formatting percent for percent formatting unit for unit formatting                 |
+|       currency        |                    The currency to use in currency formatting. Possible values are the ISO 4217 currency codes, such as USD for the US dollar or EUR for the euro. Requires style=currency                    |
+|         unit          |                                         The unit to use in unit formatting, such as kilometers, megabyte, percent, etc. Must be a supported unit. Requires style=unit                                         |
+| minimumFractionDigits |                                                        The minimum number of fraction digits to use. Useful to determine the number of decimals shown.                                                        |
+|      useGrouping      |                                               true to display grouping separators in numbers, such as the thousands separator. false to disable. Defaults true.                                               |
+|     More options      | Number formatting is highly configurable. View Intl.NumberFormat documentation for the full list of options, including ability to control significant digits, scientific and engineering notation, and so on. |
+
+In this example, we add thousands commas to numbers on the numeric axis:
+
+```js
+// ... Add commas or decimals
+options: {
+  plugins: {
+    tickFormat: {
+      locale: 'en-US',   // en-US is the default locale
+      useGrouping: true
+    }
+  }
+}
+```
+
+This example will put a dollar symbol before each value and display two decimals of precision:
+
+```js
+// ... Show as currency
+options: {
+  plugins: {
+    tickFormat: {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 2,
+    }
+  }
+}
+```
+
+This tick formatter will append the letter "k" to every value:
+
+```js
+// ... Add suffix
+options: {
+  plugins: {
+    tickFormat: {
+      suffix: 'k';
+    }
+  }
+}
+```
+
+## Data labels
+
+QuickChart supports the [Chart.js data labels plugin](https://chartjs-plugin-datalabels.netlify.app/) for adding custom data labels in your chart area. Labels can be added to an assortment of chart types, including bar, line, and scatter.
+
+See this example configuration using datalabels.
+
+<ChartExample
+  showEditor
+  config={`{
+  type: 'bar',
+  data: {
+    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+    datasets: [
+      {
+        label: 'Users (thousands)',
+        data: [50, 60, 70, 180],
+        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+        borderColor: 'rgb(54, 162, 235)',
+        borderWidth: 1,
+      },
+    ],
+  },
+  options: {
+    plugins: {
+      datalabels: {
+        anchor: 'end',
+        align: 'top',
+        color: '#fff',
+        backgroundColor: 'rgba(34, 139, 34, 0.6)',
+        borderColor: 'rgba(34, 139, 34, 1.0)',
+        borderWidth: 1,
+        borderRadius: 5,
+        formatter: (value) => {
+          return value + 'k';
+        },
+      },
+    },
+  },
+}`}
+/>
+
+Learn more:
+
+- [Positioning data labels](https://chartjs-plugin-datalabels.netlify.app/guide/positioning.html)
+- [Formatting and styling data labels](https://chartjs-plugin-datalabels.netlify.app/guide/formatting.html)
+
+## Multi-line labels
+
+All labels support the newline character, `\n`. Use this character to introduce a line break.
+
+## Annotation and label plugins
+
+In order to extend annotation and labeling capabilities beyond Chart.js defaults, we provide three additional Chart.js plugins:
+
+- Data Labels - [chartjs-plugin-datalabels](https://github.com/chartjs/chartjs-plugin-datalabels)
+- Annotations - [chartjs-plugin-annotation](https://github.com/chartjs/chartjs-plugin-annotation)
+- Outlabels - [chartjs-plugin-piechart-outlabels](https://github.com/Neckster/chartjs-plugin-piechart-outlabels)
+
+These plugins allow you to add various markup to your chart. Have a look at the documentation for each plugin to learn more about the possibilities.
+
+Here's an example that uses Chart.js data labels _and_ annotations:
+
+<ChartExample
+  showEditor
+  config={`{
+  type: 'line',
+  data: {
+    labels: [1,2,3,4,5],
+    datasets: [{
+      label: 'Rainfall',
+      data: [ 200, 90, 120, 400, 500 ],
+      fill: false,
+      borderColor: 'green',
+      backgroundColor: 'green',
+    }]
+  },
+  options: {
+    annotation: {
+      annotations: [{
+        type: 'line',
+        mode: 'vertical',
+        scaleID: 'x-axis-0',
+        value: 2,
+        borderColor: 'red',
+        borderWidth: 4,
+        label: {
+          enabled: true,
+          content: 'Something changed'
+        }
+      }, {
+        type: 'box',
+        xScaleID: 'x-axis-0',
+        yScaleID: 'y-axis-0',
+        xMin: 3,
+        xMax: 5,
+        backgroundColor: 'rgba(200, 200, 200, 0.2)',
+        borderColor: '#ccc',
+      }]
+    },
+    plugins: {
+      datalabels: {
+        display: true,
+        align: 'bottom',
+        backgroundColor: '#ccc',
+        borderRadius: 3
+      },
+    }
+  }
+}`}
+/>
+
+Here's an example of a pie chart with outlabels, using the `outlabeledPie` type:
+
+<ChartExample
+  showEditor
+  config={`{
+  "type": "outlabeledPie",
+  "data": {
+    "labels": ["ONE", "TWO", "THREE", "FOUR", "FIVE"],
+    "datasets": [{
+        "backgroundColor": ["#FF3784", "#36A2EB", "#4BC0C0", "#F77825", "#9966FF"],
+        "data": [1, 2, 3, 4, 5]
+    }]
+  },
+  "options": {
+    "plugins": {
+      "legend": false,
+      "outlabels": {
+        "text": "%l %p",
+        "color": "white",
+        "stretch": 35,
+        "font": {
+          "resizable": true,
+          "minSize": 12,
+          "maxSize": 18
+        }
+      }
+    }
+  }
+}`}
+/>

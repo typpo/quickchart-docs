@@ -1,0 +1,89 @@
+---
+sidebar_position: 8
+---
+
+import ChartExample from '../components/ChartExample';
+
+# Point style
+
+Points (also referred to as "markers") may appear in a line, sparkline, radar, or bubble chart. Point style can be configured globally using the options.elements.point object. See [Chart.js point configuration](https://www.chartjs.org/docs/2.9.4/configuration/elements.html#point-configuration) for more details.
+
+You may configure the following properties on the `options.elements.point` object:
+
+#### Properties of `options.elements.point`
+
+|      Name       |                                                                                                                       Description                                                                                                                        |
+| :-------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| backgroundColor |                                                                                              Fill color for points with inner space (e.g. circle, triangle)                                                                                              |
+|   borderColor   |                                                                    Color for points without inner space (e.g. star), border color for points with inner space (e.g. circle, triangle)                                                                    |
+|   borderWidth   |                                                                                                          Border width in pixels. Defaults to 1                                                                                                           |
+|     radius      |                                                                                                                  Point radius in pixels                                                                                                                  |
+|    rotation     |                                                                                                           Rotation of point shape, in degrees                                                                                                            |
+|   pointStyle    | Determines the shape of the point. Use this to customize the markers on your charts. One of the following values: circle, cross, crossRot, dash, line, rect, rectRounded, rectRot, star, triangle. Paid accounts may also use a custom image as a point. |
+
+To configure only the points for a specific data series, have a look at the Chart.js documentation for individual dataset properties. In particular, lines and radar charts can customize their points by setting the following. You may configure the following properties on the `datasets` object.
+
+#### Properties of `datasets` that can be used for point customization
+
+|         Name         |                                                                                              Description                                                                                               |
+| :------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| pointBackgroundColor |                                                                     Fill color for points with inner space (e.g. circle, triangle)                                                                     |
+|   pointBorderColor   |                                           Color for points without inner space (e.g. star), border color for points with inner space (e.g. circle, triangle)                                           |
+|   pointBorderWidth   |                                                                                 Border width in pixels. Defaults to 1                                                                                  |
+|     pointRadius      |                                                                                         Point radius in pixels                                                                                         |
+|    pointRotation     |                                                                                  Rotation of point shape, in degrees                                                                                   |
+|      pointStyle      | Determines the shape of the point. One of the following values: circle, cross, crossRot, dash, line, rect, rectRounded, rectRot, star, triangle. Paid accounts may also use a custom image as a point. |
+
+Here's an example of a chart with heavy usage of custom point styles:
+
+<ChartExample
+  showEditor
+  config={`{
+  type: 'line',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    datasets: [
+      {
+        data: [-15, -80, 79, -11, -5, 33, -57],
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        fill: false,
+        borderDash: [5, 5],
+        pointRadius: 15,
+        pointStyle: 'triangle',
+      },
+      {
+        data: [-86, 59, -70, -40, 40, 33, 16],
+        backgroundColor: 'rgb(54, 162, 235)',
+        borderColor: 'rgb(54, 162, 235)',
+        fill: false,
+        borderDash: [5, 5],
+        pointRadius: [2, 4, 6, 18, 0, 12, 20],
+        pointStyle: 'cross',
+      },
+      {
+        data: [59, -65, -33, 0, -79, 95, -53],
+        backgroundColor: 'rgb(75, 192, 192)',
+        borderColor: 'rgb(75, 192, 192)',
+        fill: false,
+        pointRadius: 15,
+        pointStyle: 'star',
+      },
+      {
+        data: [73, 83, -19, 74, 16, -12, 8],
+        backgroundColor: 'rgb(255, 205, 86)',
+        borderColor: 'rgb(255, 205, 86)',
+        fill: false,
+        pointStyle: 'rect',
+      },
+    ],
+  },
+  options: {
+    legend: {
+      display: false,
+    },
+  },
+}`}
+/>
+
+For more examples of charts with different point styles, see the [chart gallery](https://quickchart.io/gallery/#line-charts).

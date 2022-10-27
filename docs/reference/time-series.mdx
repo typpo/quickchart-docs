@@ -1,0 +1,124 @@
+---
+sidebar_position: 10
+---
+
+import ChartExample from '../components/ChartExample';
+
+# Time series
+
+Date and time series axes automatically handle calendar dates. To create a time series axis, set its type to `time`:
+
+```js
+{
+  // ...
+  options: {
+    scales: {
+      xAxes: [
+        {
+          type: 'time',
+        },
+      ];
+    }
+  }
+}
+```
+
+In order to use this axis, specify your data as XY coordinates, with X values defining the dates:
+
+```js
+// ...
+data: [
+  {
+    x: new Date('1990-10-25'),
+    y: 1,
+  },
+  {
+    x: new Date(), // Default to now
+    y: 10,
+  },
+];
+```
+
+You don't have to use a `Date` object. Strings are converted from most unambiguous date formats using [moment.js](https://momentjs.com/docs/#/parsing/) (Chart.js v2) or [Luxon](https://moment.github.io/luxon/#/?id=luxon) (Chart.js v3):
+
+```js
+// ...
+data: [
+  {
+    x: '25 Oct 1990 06:00',
+    y: 1,
+  },
+  {
+    x: '1990-10-26 14:00',
+    y: 10,
+  },
+];
+```
+
+Further configuration is possible by providing a `time` object to the scale. All parameters below are optional:
+
+## Properties of `time` axes
+
+|      Name      |                                                                                            Description                                                                                            |
+| :------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|      unit      | If set, force the axis unit to be this type. If not set, an appropriate unit will be automatically detected. Supported units: millisecond, second, minute, hour, day, week, month, quarter, year. |
+|    minUnit     |                                                                               The minimum unit of time to display.                                                                                |
+|    stepSize    |                                                                               The number of units between gridlines                                                                               |
+| displayFormats |                                          Customizes how different time units are displayed on the chart. See docs for detail on how to set this object.                                           |
+|   isoWeekday   |                                                          If true, set the first day of the week to Monday. Otherwise, defaults to Sunday                                                          |
+|     parser     |                               Customizes the parser for datetime values in the data object. See moment.js for valid date string formats (e.g. YYYY MMM D h:mm:ss).                                |
+|     round      |                                                     If set, dates will be rounded to the start of this unit. See supported time units above.                                                      |
+
+## Example
+
+In this configuration example, we use a custom datetime parser and a custom display:
+
+<ChartExample
+  showEditor
+  config={`{
+  "type": "line",
+  "data": {
+    "datasets": [
+      {
+        "label": "Time series example",
+        "fill": false,
+        "data": [
+          {
+            "x": "06/14/2020 09:08",
+            "y": -29
+          },
+          {
+            "x": "06/19/2020 09:08",
+            "y": -34
+          },
+          {
+            "x": "06/21/2020 09:08",
+            "y": -62
+          },
+          {
+            "x": "06/29/2020 09:08",
+            "y": 1
+          }
+        ]
+      }
+    ]
+  },
+  "options": {
+    "scales": {
+      "xAxes": [{
+        "type": "time",
+        "time": {
+          "parser": "MM/DD/YYYY HH:mm",
+          "displayFormats": {
+            "day": "MMM DD YYYY"
+          }
+        }
+      }]
+    }
+  }
+}`}
+/>
+
+## Learn more
+
+For more advanced usage, learn about [Time Cartesian axes](https://www.chartjs.org/docs/2.9.4/axes/cartesian/time.html).

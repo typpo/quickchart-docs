@@ -1,0 +1,64 @@
+---
+sidebar_position: 1
+---
+
+import ChartExample from '../components/ChartExample';
+
+# Chart title
+
+The chart title is a label that appears on the top, left, bottom, or right of the chart.
+
+## Chart.js v2 (default)
+
+Customize your chart title by providing an `options.title` object.
+
+You may specify a list of strings to show a multi-line title or subtitle. You may also set position, fontSize, fontFamily, fontColor, padding, and other attributes. See full Chart.js [title documentation](https://www.chartjs.org/docs/2.9.4/configuration/title.html) for more.
+
+The example below sets `options.title.display` to true and `options.title.text` to "Basic chart title" in order to show a title at the top of the chart.
+
+<ChartExample
+  showEditor
+  config={`{
+  type: 'bar',
+  data: {
+    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+    datasets: [{
+      label: 'Users',
+      data: [50, 60, 70, 180]
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Basic chart title'
+    }
+  }
+}`}
+/>
+
+## Chart.js v3
+
+In v3, the `title` object has moved into `options.plugins`. See [title documentation](https://www.chartjs.org/docs/latest/configuration/title.html).
+
+<ChartExample
+  showEditor
+  version={3}
+  config={`{
+  type: 'bar',
+  data: {
+    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+    datasets: [{
+      label: 'Users',
+      data: [50, 60, 70, 180]
+    }]
+  },
+  options: {
+    plugins: {
+      title: {
+        display: true,
+        text: 'Basic chart title'
+      }
+    }
+  }
+}`}
+/>

@@ -55,4 +55,20 @@ export const chart1 = `
 
 Make adjustments to this example - try editing the chart and replacing "bar" with "line" or "pie" to get different types of chart, change the legend labels, or add another dataset to get a grouped bar chart.
 
-Because QuickChart is built on open-source chart libraries, our charts are flexible and highly customizable. Explore the documentation below to learn more or [view more examples](/gallery/).
+## Customization
+
+QuickChart is built on open-source chart libraries, so our charts are flexible and highly customizable. **[View more examples](https://quickchart.io/gallery/)** of charts or edit the chart configuration below:
+
+<ChartExample
+  showEditor
+  config={`{
+  type: 'bar',                                // Show a bar chart
+  data: {
+    labels: [2012, 2013, 2014, 2015, 2016],   // Set X-axis labels
+    datasets: [{
+      label: 'Users',                         // Create the 'Users' dataset
+      data: [120, 60, 50, 180, 120]           // Add data to the chart
+    }]
+  }
+}`}
+/>

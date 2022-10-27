@@ -1,0 +1,38 @@
+---
+sidebar_position: 5
+---
+
+import ChartExample from '../components/ChartExample';
+
+# Legend
+
+The chart legend can be customized via the `options.legend` property ([more information on chart legend](https://www.chartjs.org/docs/2.9.4/configuration/legend.html)).
+
+In the example below, we choose to show the legend by setting `display` to true, and then set the `position` and `align` properties to move it where we want to see it.
+
+<ChartExample
+  showEditor
+  config={`{
+  type: 'line',
+  data: {
+    labels: [2016, 2017, 2018, 2019, 2020],
+    datasets: [
+      {
+        label: 'Dollars',
+        data: [1000, 1234, 2020, 2005, 1300],
+      },
+      {
+        label: 'Users',
+        data: [50, 150, 250, 350, 400],
+      }
+    ],
+  },
+  options: {
+    legend: {
+      display: true,
+      position: 'right',
+      align: 'start'
+    }
+  }
+}`}
+/>

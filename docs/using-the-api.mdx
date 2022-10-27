@@ -2,46 +2,91 @@
 sidebar_position: 2
 ---
 
+import CodeWithHighlights from './components/CodeWithHighlights';
 import ImageWithCaption from './components/ImageWithCaption';
 
 # Using the API
 
 ## API parameters
 
-The chart endpoint `https://quickchart.io/chart` accepts these query parameters:
+The chart endpoint `https://quickchart.io/chart` accepts query parameters listed below.
 
-- **`chart`**: Javascript/JSON definition of the chart. Use a Chart.js configuration object. Abbreviated as `c`
+Combine these parameters in your query string. For example:
 
-:::tip
-[URL-encode](https://www.urlencoder.io/) your chart configuration. If not encoded, you may run into problems with special characters or syntax errors in your program. You may also use base64 encoding (see `encoding` option).
-:::
+<CodeWithHighlights code="https://quickchart.io/chart?**width**=500&**height**=300&**format**=pdf&**c**={...}" />
 
-- **`width=500`**: Width of the image. Abbreviated as `w`.  Defaults to 500.
+If you prefer not to construct the URL yourself, [client libraries](TODO) are available in many programming languages.
 
-- **`height=300`**: Height of the image. Abbreviated as `h`.  Defaults to 300.
-- **`devicePixelRatio=2.0`**: Device pixel ratio of the output. Defaults to `2.0` for retina. Image width and height are multiplied by this value. Accepted values: `1` or `2`.
-- **`backgroundColor=transparent`**: Background of the chart canvas. Accepts rgb (rgb(255,255,120)), colors (red), and URL-encoded hex values (%23ff00ff). Abbreviated as `bkg`.  Defaults to `transparent`.
-- **`version=2.9.4`**: Chart.js version. Setting version to `3` enables latest stable [Chart.js v3](https://www.chartjs.org/docs/latest/configuration/) support. Abbreviated as `v`.  Defaults to latest version of [Chart.js v2](https://www.chartjs.org/docs/2.9.4/charts/line.html).
-- **`format=png`** Format of your output. Supported output formats are PNG, WebP, SVG, and PDF. Abbreviated as `f`.  Defaults to `png`.
-- **`encoding=url`**: Encoding of your "chart" parameter. Accepted values are `url` and `base64`.  Defaults to `url`.
+### chart
 
-Combine these parameters in your query string. For example: `/chart?width=500&height=300&format=pdf&c={...}`.
+- Type: Javascript or JSON object
+- Required: yes
+- Parameter name: `chart` or `c`
 
-Numerous [client libraries](TODO) are available so you do not need to construct the URL yourself, if you prefer.
+Chart.js configuration object to render. This is the definition of the chart in Javascript or JSON format.
 
-## Handling errors
+We recommend that you [URL-encode](https://www.urlencoder.io/) your chart configuration. If not encoded, you will run into problems with special characters or syntax errors in your program. You may also use base64 encoding (see `encoding` option).
 
-Errors that prevent the chart from rendering will return a non-200 HTTP status code, most commonly `400 Bad Request`. In most cases, the error will be rendered in the requested image format. If an error is rendered in an image, it is also included as a string in the `X-quickchart-error` HTTP header.
+### width
 
-<ImageWithCaption src="https://quickchart.io/images/docs/chart_invalid_token.png" caption="An example error due to invalid chart config - not URL encoded."/>
+- Type: integer
+- Default: 500
+- Parameter name: `width` or `w`
 
-**Invalid or unexpected token**: Invalid Chart.js configurations may return errors similar to this one. The most common cause of this error is that the caller forgot to URL-encode the chart variable. The next most common cause is invalid JSON/Javascript syntax in the chart configuration.
+Width of the image in pixels.
 
-**Cannot read property &lt;X&gt; of undefined** and **&lt;X&gt; is not a function**: Access to certain Chart.js internals, used especially in plugins, is restricted due to potential for abuse. [Contact us](mailto:support@quickchart.io) to get whitelisted for these features.
+### height
 
-## Advanced API
+- Type: integer
+- Default: 300
+- Parameter name: `height` or `h`
 
-### POST endpoint
+Height of the image in pixels.
+
+### devicePixelRatio
+
+- Type: integer
+- Accepted values: `1` or `2`
+- Default: `2`
+
+Device pixel ratio of the output. Image width and height are multiplied by this value. Defaults to `2.0` to ensure best image support on Retina devices.
+
+### backgroundColor
+
+- Type: string
+- Accepted values: rgb, hex, hsl, color names
+- Default: `transparent`
+- Parameter name: `backgroundColor` or `bkg`
+
+Background of the chart canvas. Accepts rgb format (rgb(255,255,120)), colors (red), and URL-encoded hex values (%23ff00ff).
+
+### version
+
+- Type: string
+- Accepted values: `2`, `3`, or any valid Chart.js version string
+- Default: `2.9.4`
+- Parameter name: `version` or `v`
+
+Chart.js version. Setting version to `3` enables latest stable [Chart.js v3](https://www.chartjs.org/docs/latest/configuration/) support. Defaults to latest version of [Chart.js v2](https://www.chartjs.org/docs/2.9.4/charts/line.html).
+
+### format
+
+- Type: string
+- Accepted values: `png`, `webp`, `svg`, `pdf`
+- Default: `png`
+- Parameter name: `format` or `f`
+
+Format of your output.
+
+### encoding
+
+- Type: string
+- Accepted values: `url` or `base64`
+- Default: `url`
+
+Encoding of your `chart` parameter.
+
+## POST endpoint
 
 If your chart is large or complicated, you may prefer to send a POST request rather than a GET request. This avoids limitations on URL length and means you don't have to worry about URL encoding. The /chart POST endpoint returns a chart. It takes the standard [request parameters](TODO) as a JSON object:
 
@@ -57,6 +102,21 @@ If your chart is large or complicated, you may prefer to send a POST request rat
 ```
 
 Note that if you want to include Javascript code in `chart` (e.g. to format labels), you'll have to send the entire `chart` parameter as a string rather than a JSON object. For examples, see documentation on using [JS Functions](TODO).
+
+## Handling errors
+
+Errors that prevent the chart from rendering will return a non-200 HTTP status code, most commonly `400 Bad Request`. In most cases, the error will be rendered in the requested image format. If an error is rendered in an image, it is also included as a string in the `X-quickchart-error` HTTP header.
+
+<ImageWithCaption
+  src="https://quickchart.io/images/docs/chart_invalid_token.png"
+  caption="An example error due to invalid chart config - not URL encoded."
+/>
+
+**Invalid or unexpected token**: Invalid Chart.js configurations may return errors similar to this one. The most common cause of this error is that the caller forgot to URL-encode the chart variable. The next most common cause is invalid JSON/Javascript syntax in the chart configuration.
+
+**Cannot read property &lt;X&gt; of undefined** and **&lt;X&gt; is not a function**: Access to certain Chart.js internals, used especially in plugins, is restricted due to potential for abuse. [Contact us](mailto:support@quickchart.io) to get whitelisted for these features.
+
+## Advanced API
 
 ### Short URLs
 
@@ -98,7 +158,6 @@ You will get a response that looks like this:
 ```json
 {
   "success": true,
-  // highlight-next-line
   "url": "https://quickchart.io/chart/render/9a560ba4-ab71-4d1e-89ea-ce4741e9d232"
 }
 ```
@@ -124,22 +183,27 @@ Customize a template by adding URL parameters to the template URL. The following
 
 For example, this URL will take template `zf-abc-123` and update its title to "New title":
 
-```
-https://quickchart.io/chart/render/zf-abc-123?title=New title
-```
+<CodeWithHighlights code="https://quickchart.io/chart/render/zf-abc-123**?title=New title**" />
 
 We can add a labels URL parameter:
 
-```
-https://quickchart.io/chart/render/zf-abc-123?title=New title&labels=Q1,Q2,Q3,Q4
-```
+<CodeWithHighlights code="https://quickchart.io/chart/render/zf-abc-123?title=New title**&labels=Q1,Q2,Q3,Q4**" />
 
 Or even override multiple datasets:
 
-```
-https://quickchart.io/chart/render/zf-abc-123?data1=40,60,80,100&data2=5,6,7,8
-```
+<CodeWithHighlights code="https://quickchart.io/chart/render/zf-abc-123**?data1=40,60,80,100&data2=5,6,7,8**" />
 
 In addition to plain numbers, templates also accept (x, y) data values and arbitrary JSON objects.
 
 An example walkthrough with a live template can be viewed [here](TODO).
+
+## Postman examples
+
+We've put together a public Postman collection for the QuickChart API. Use it here:
+
+<a
+  style={{ verticalAlign: '-webkit-baseline-middle', marginLeft: '0.25em' }}
+  href="https://www.postman.com/speeding-flare-926667/workspace/7385c90d-e985-49fe-8257-90bab6c7823e/request/11849833-67d60b0c-988e-4b1d-baa7-7a95da2aa479"
+>
+  <img loading="lazy" src="https://run.pstmn.io/button.svg" />
+</a>

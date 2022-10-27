@@ -4,17 +4,18 @@ sidebar_position: 4
 
 # Client libraries
 
-You don't need a library to use QuickChart.  To use QuickChart without a library, simply build a QuickChart URL as described in [API parameters](TODO).
+You don't need a library to use QuickChart. To use QuickChart without a library, simply build a QuickChart URL as described in [API parameters](TODO).
 
-For your convenience, we've released several optional client libraries for your convenience:
+Some optional client libraries exist for your convenience:
 
-  - [quickchart-js](https://github.com/typpo/quickchart-js) - Javascript
-  - [quickchart-python](https://github.com/typpo/quickchart-python) - Python
-  - [quickchart-ruby](https://github.com/typpo/quickchart-ruby) - Ruby
-  - [quickchart-php](https://github.com/typpo/quickchart-php) - PHP
-  - [quickchart-csharp](https://github.com/typpo/quickchart-csharp) - C#
-  - [quickchart-java](https://github.com/typpo/quickchart-java) - Java
-  - [chartjs-to-image](https://www.npmjs.com/package/chartjs-to-image) - Javascript package for Chart.js images
+- [quickchart-js](https://github.com/typpo/quickchart-js) - Javascript
+- [quickchart-python](https://github.com/typpo/quickchart-python) - Python
+- [quickchart-ruby](https://github.com/typpo/quickchart-ruby) - Ruby
+- [quickchart-php](https://github.com/typpo/quickchart-php) - PHP
+- [quickchart-csharp](https://github.com/typpo/quickchart-csharp) - C#
+- [quickchart-java](https://github.com/typpo/quickchart-java) - Java
+- [quickchart-go](https://github.com/henomis/quickchart-go) - Go (third-party)
+- [chartjs-to-image](https://www.npmjs.com/package/chartjs-to-image) - Javascript package for Chart.js images
 
 ## Javascript/Node
 
@@ -29,7 +30,7 @@ myChart
     type: 'bar',
     data: {
       labels: ['Hello world', 'Foo bar'],
-      datasets: [{ label: 'Foo', data: [1, 2] }]
+      datasets: [{ label: 'Foo', data: [1, 2] }],
     },
   })
   .setWidth(800)
@@ -70,4 +71,159 @@ print(qc.get_url())
 
 Read the [full Python tutorial](TODO) or see details on the [quickchart-python](https://github.com/typpo/quickchart-python) project page.
 
-TODO https://docusaurus.io/docs/markdown-features/code-blocks
+## Ruby
+
+Run `gem install quickchart` to install the QuickChart Ruby gem:
+
+```ruby
+require 'quickchart'
+
+qc = QuickChart.new(
+  {
+    type: "bar",
+    data: {
+      labels: ["Hello world", "Test"],
+      datasets: [{
+        label: "Foo",
+        data: [1, 2]
+      }]
+    }
+  },
+  width: 600,
+  height: 300,
+  device_pixel_ratio: 2.0,
+)
+
+# Print the chart URL
+puts qc.get_url
+```
+
+Learn more about chart generation in Ruby at the [quickchart-ruby](https://github.com/typpo/quickchart-ruby) repository.
+
+## PHP
+
+Run `composer require ianw/quickchart` to install the QuickChart PHP library:
+
+```php
+require 'quickchart'
+
+$qc = new QuickChart(array(
+  'width' => 600,
+  'height' => 300,
+));
+
+$qc->setConfig('{
+  type: "bar",
+  data: {
+    labels: ["Hello world", "Test"],
+    datasets: [{
+      label: "Foo",
+      data: [1, 2]
+    }]
+  }
+}');
+
+// Print the chart URL
+echo $qc->getUrl();
+```
+
+See the PHP QuickChart client at the [quickchart-php](http://github.com/typpo/quickchart-php) repository.
+
+## C#
+
+Add the [QuickChart package](https://www.nuget.org/packages/QuickChart) from NuGet. Then use the `Chart` object provided by the `QuickChart` namespace:
+
+```csharp
+namespace QuickChartExample
+{
+    public class SimpleExample
+    {
+        static void Main(string[] args) {
+            Chart qc = new Chart();
+
+            qc.Width = 500;
+            qc.Height = 300;
+            qc.Config = @"{
+              type: 'bar',
+              data: {
+                labels: ['Hello world', 'Test'],
+                datasets: [{
+                  label: 'Foo',
+                  data: [1, 2]
+                }]
+              }
+            }"
+
+            Console.WriteLine(qc.GetUrl());
+        }
+    }
+}
+```
+
+The C# QuickChart client is available on NuGet and at the [quickchart-csharp](https://github.com/typpo/quickchart-csharp) repository.
+
+## Java
+
+Add the QuickChart package from [Maven Central](https://search.maven.org/search?q=a:QuickChart). If you use Maven or Gradle, you can add it to your config ([view details](https://github.com/typpo/quickchart-java)).
+
+This library provides an `io.quickchart` package that contains a `QuickChart` class:
+
+```java
+import io.quickchart.QuickChart;
+
+public class PrintUrlExample {
+
+	public static void main(String[] args) {
+		QuickChart chart = new QuickChart();
+		chart.setWidth(500);
+		chart.setHeight(300);
+		chart.setConfig("{"
+				+ "    type: 'bar',"
+				+ "    data: {"
+				+ "        labels: ['Q1', 'Q2', 'Q3', 'Q4'],"
+				+ "        datasets: [{"
+				+ "            label: 'Users',"
+				+ "            data: [50, 60, 70, 180]"
+				+ "        }]"
+				+ "    }"
+				+ "}"
+		);
+
+		System.out.println(chart.getUrl());
+	}
+}
+```
+
+The Java library is open-source and accessible on [Github](https://github.com/typpo/quickchart-java).
+
+## Go
+
+A third-party [QuickChart Go](https://github.com/henomis/quickchart-go) library is available on Github. It can be used like so:
+
+```go
+qc := quickchartgo.New()
+
+qc.Config = chartConfig
+qc.Config := `{
+  type: 'bar',
+  data: {
+    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+    datasets: [{
+    label: 'Users',
+    data: [50, 60, 70, 180]
+    }]
+  }
+}`
+
+qc.Width = 500;
+qc.Height = 300;
+qc.Version = "2.9.4";
+
+fmt.Println(qc.GetUrl());
+```
+
+## Other programming languages
+
+QuickChart is not limited to the listed libraries. You can create a QuickChart URL in any language by building a URL string. Because building a URL string is a matter of string concatenation, this can be done in any language.
+
+See the [API Parameters](TODO) documentation to learn how to build a URL that renders a chart image. If you need help, please [reach out](mailto:support@quickchart.io) and we will help you implement in your preferred programming language.

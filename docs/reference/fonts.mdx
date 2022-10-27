@@ -1,0 +1,66 @@
+---
+sidebar_position: 6
+---
+
+import ChartExample from '../components/ChartExample';
+
+# Fonts
+
+QuickChart supports all [Google Noto](https://www.google.com/get/noto/) fonts. Custom fonts are available upon request.
+
+To change font size and style, you may set values for each component of the graph:
+
+- For the legend, use `options.legend.labels` and set `fontColor`, `fontStyle`, or `fontFamily` ([chart.js doc](https://www.chartjs.org/docs/2.9.4/configuration/legend.html))
+- For the axes, use `options.scales.<axis>.ticks.font*` ([chart.js doc](https://www.chartjs.org/docs/2.9.4/axes/styling.html)). For radar and polar area charts, there is only one axis, so use `options.scale.ticks.font*` instead.
+- For the chart title, use `options.title.font*` ([chart.js doc](https://www.chartjs.org/docs/2.9.4/configuration/title.html))
+
+The example below displays a number of chart font size, style, and color customizations for each component of the chart:
+
+<ChartExample
+  showEditor
+  config={`{
+  type: 'line',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May'],
+    datasets: [{
+      label: 'Users',
+      data: [5,6,7,8,9],
+    }]
+  },
+  options: {
+    legend: {
+      labels: {
+        fontSize: 10,
+        fontStyle: 'bold',
+        fontColor: '#404040',
+      }
+    },
+    title: {
+      display: true,
+      text: 'My Chart Title',
+      fontSize: 20,
+      fontColor: '#000',
+    },
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true,
+            fontFamily: 'Mono',
+            fontColor: '#0f0',
+          },
+        },
+      ],
+      xAxes: [
+        {
+          ticks: {
+            fontFamily: 'Serif',
+            fontStyle: 'italic',
+            fontColor: '#f0f',
+          },
+        },
+      ],
+    },
+  },
+}`}
+/>

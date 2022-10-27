@@ -1,0 +1,98 @@
+---
+sidebar_position: 3
+---
+
+# Axes
+
+import ChartExample from '../components/ChartExample';
+
+There are several types of chart axes: Linear, Logarithmic, Time, Categorical, and Radial. If you are looking to create a standard chart, chances are you want to use a linear or time axis.
+
+Axes are configured in the `options.scales` object. Learn more about chart axes, including attributes to customize those axes, here. Because a wide variety of customizations are possible, we've prepared a number of examples. Head over to the gallery to see some examples of [custom axes and scales](https://quickchart.io/gallery/#linear-scale).
+
+## Setting the range (minimum and maximum values)
+
+To set the range of chart values, use `axis.ticks.min` and `axis.ticks.max`. Use `axis.ticks.stepSize` to control the increment of each tick mark. For more information, see [Chart.js ticks](https://www.chartjs.org/docs/2.9.4/axes/radial/linear.html#tick-options).
+
+This example sets the start value to 0 and the end value to 100, with tick marks every 20:
+
+```js
+{
+  // ...
+  options: {
+    yAxes: [
+      {
+        ticks: {
+          min: 0,
+          max: 100,
+          stepSize: 20,
+        },
+      },
+    ];
+  }
+}
+```
+
+## Creating stacked charts
+
+You can use the axis object to create a stacked bar chart by setting stacked to true on each axis. Read more [here](https://www.chartjs.org/docs/2.9.4/charts/bar.html#stacked-bar-chart).
+
+The multiple axes example below includes a stacked bar chart.
+
+## Multiple axes
+
+It is possible to create two or more X or Y axes by providing multiple objects in the `options.scales.xAxes` or `options.scales.yAxes` lists. For each axis, set `display` to true and give it an `id`. Each dataset should reference this id as `yAxisID` or `xAxisID`.
+
+<ChartExample
+  showEditor
+  config={`{
+  type: 'bar',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    datasets: [
+      {
+        type: 'line',
+        label: 'Dataset 1',
+        yAxisID: 'y2',
+        data: [61, 21, 68, 50, 56, 89, 95],
+        fill: false,
+      },
+      {
+        label: 'Dataset 2',
+        yAxisID: 'y1',
+        data: [226, 16, 44, 84, 11, 14, 25],
+      },
+      {
+        label: 'Dataset 3',
+        yAxisID: 'y1',
+        data: [40, 6, 4, 8, 12, 24, 45],
+      },
+    ],
+  },
+  options: {
+    scales: {
+      xAxes: [
+        {
+          stacked: true,
+        },
+      ],
+      yAxes: [
+        {
+          id: 'y1',
+          display: true,
+          position: 'left',
+          stacked: true,
+        },
+        {
+          id: 'y2',
+          display: true,
+          position: 'right',
+          gridLines: {
+            drawOnChartArea: false,
+          },
+        },
+      ],
+    },
+  },
+}`}
+/>

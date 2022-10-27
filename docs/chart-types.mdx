@@ -1,0 +1,283 @@
+---
+sidebar_position: 3
+---
+
+# Chart Types
+
+import ChartExample from './components/ChartExample';
+
+For a variety of useful editable examples, see the **[chart gallery](https://quickchart.io/gallery/)**.
+
+Changing chart types can be very simple. By changing `type: bar` to `type: line`, for example, we can instantly produce an equivalent line graph:
+
+## Bar chart
+
+See [Bar Chart documentation](https://www.chartjs.org/docs/2.9.4/charts/bar.html)
+
+<ChartExample
+  config={`{
+  type: 'bar',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May'],
+    datasets: [
+      { label: 'Dogs', data: [50, 60, 70, 180, 190] },
+      { label: 'Cats', data: [100, 200, 300, 400, 500] },
+    ],
+  },
+}`}
+/>
+
+:::info
+Set `type` to `horizontalBar` for a horizontal bar chart.
+:::
+
+## Line graph
+
+See [Line chart documentation](https://www.chartjs.org/docs/2.9.4/charts/line.html)
+
+<ChartExample
+  showSquashedUrl
+  config={`{
+  type: 'line',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May'],
+    datasets: [
+      {
+        label: 'Dogs',
+        data: [50, 60, 70, 180, 190],
+        fill: false,
+        borderColor: 'blue',
+      },
+      {
+        label: 'Cats',
+        data: [100, 200, 300, 400, 500],
+        fill: false,
+        borderColor: 'green',
+      },
+    ],
+  },
+}`}
+/>
+
+## Radar chart
+
+See [Chart.js radar chart documentation](https://www.chartjs.org/docs/2.9.4/charts/radar.html)
+
+<ChartExample
+  showSquashedUrl
+  config={`{
+  type: 'radar',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May'],
+    datasets: [
+      { label: 'Dogs', data: [50, 60, 70, 180, 190] },
+      { label: 'Cats', data: [100, 200, 300, 400, 500] },
+    ],
+  },
+}`}
+/>
+
+## Pie chart
+
+See [Pie chart documentation](https://www.chartjs.org/docs/2.9.4/charts/doughnut.html). This chart also uses the [datalabels plugin](https://chartjs-plugin-datalabels.netlify.app/).
+
+Learn how to [customize pie chart labels](TODO).
+
+<ChartExample
+  showSquashedUrl
+  config={`{
+  type: 'pie',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May'],
+    datasets: [{ data: [50, 60, 70, 180, 190] }],
+  },
+}`}
+/>
+
+## Doughnut chart
+
+See [Doughnut Chart documentation](https://www.chartjs.org/docs/2.9.4/charts/doughnut.html). You can also use options from the Chart.js [doughnutlabel plugin](https://github.com/ciprianciurea/chartjs-plugin-doughnutlabel), in addition to the [datalabels plugin](https://chartjs-plugin-datalabels.netlify.app/).
+
+Learn how to [customize doughnut chart labels](TODO).
+
+<ChartExample
+  showSquashedUrl
+  config={`{
+  type: 'doughnut',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May'],
+    datasets: [{ data: [50, 60, 70, 180, 190] }],
+  },
+  options: {
+    plugins: {
+      doughnutlabel: {
+        labels: [{ text: '550', font: { size: 20 } }, { text: 'total' }],
+      },
+    },
+  },
+}`}
+/>
+
+## Polar chart
+
+Polar charts are like pie and doughnut charts, except each segment has the same angle and the radius of the segments varies based on the value. See [Polar Area Chart documentation](https://www.chartjs.org/docs/2.9.4/charts/polar.html).
+
+<ChartExample
+  showSquashedUrl
+  config={`{
+  type: 'polarArea',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May'],
+    datasets: [{ data: [50, 60, 70, 180, 190] }],
+  },
+}`}
+/>
+
+## Scatter Plot
+
+See [Scatter chart documentation](https://www.chartjs.org/docs/2.9.4/charts/scatter.html)
+
+<ChartExample
+  showSquashedUrl
+  config={`{
+  type: 'scatter',
+  data: {
+    datasets: [
+      {
+        label: 'Data 1',
+        data: [
+          { x: 2, y: 4 },
+          { x: 3, y: 3 },
+          { x: -10, y: 0 },
+          { x: 0, y: 10 },
+          { x: 10, y: 5 },
+        ],
+      },
+    ],
+  },
+}`}
+/>
+
+## Bubble chart
+
+Bubble is similar to Scatter, except the `r` variable defines bubble radius in pixels. [Bubble Chart documentation](https://www.chartjs.org/docs/2.9.4/charts/bubble.html)
+
+<ChartExample
+  showSquashedUrl
+  config={`{
+  type: 'bubble',
+  data: {
+    datasets: [
+      {
+        label: 'Data 1',
+        data: [
+          { x: 1, y: 4, r: 9 },
+          { x: 2, y: 4, r: 6 },
+          { x: 3, y: 8, r: 30 },
+          { x: 0, y: 10, r: 1 },
+          { x: 10, y: 5, r: 5 },
+        ],
+      },
+    ],
+  },
+}`}
+/>
+
+## Radial Gauge / "Meter" Charts
+
+View the options at [chartjs-radial-gauge](https://github.com/pandameister/chartjs-chart-radial-gauge#options) for customization details.
+
+<ChartExample
+  showSquashedUrl
+  config={`{
+  type: 'radialGauge',
+  data: { datasets: [{ data: [70], backgroundColor: 'green' }] },
+}`}
+/>
+
+## Box Plots and Violin Charts
+
+You can use `violin`, `boxplot`, `horizontalBoxPlot`, and `horizontalViolin` chart types. View the options at [chartjs-chart-box-and-violin-plot](https://github.com/datavisyn/chartjs-chart-box-and-violin-plot) for customization details.
+
+<ChartExample
+  showSquashedUrl
+  config={`{
+  type: 'violin',
+  data: {
+    labels: [2012, 2013, 2014, 2015],
+    datasets: [
+      {
+        label: 'Data',
+        data: [
+          [12, 6, 3, 4],
+          [1, 8, 8, 15],
+          [1, 1, 1, 2, 3, 5, 9, 8],
+          [19, -3, 18, 8, 5, 9, 9],
+        ],
+        backgroundColor: 'rgba(56,123,45,0.2)',
+        borderColor: 'rgba(56,123,45,1.9)',
+      },
+    ],
+  },
+}`}
+/>
+
+:::tip
+For best results, add a scatter plot to your box or violin chart.
+:::
+
+## Sparklines
+
+A sparkline is a special case of line graph with axes and other labeling removed. All [line graph options](https://www.chartjs.org/docs/2.9.4/charts/line.html) can be applied. Read more about the [sparkline API](TODO).
+
+<ChartExample
+  showSquashedUrl
+  config={`{
+  type: 'sparkline',
+  data: { datasets: [{ data: [140, 60, 274, 370, 199] }] },
+}`}
+/>
+
+## Progress bars
+
+A progress bar is a special case of a horizontal bar chart with axes and other labeling removed. All [bar options](https://www.chartjs.org/docs/2.9.4/charts/bar.html) can be applied.
+
+The first dataset specifies the number shown. By default, this number is a percentage and the total value is 100. If your data is not out of 100, add a second dataset to override the total.
+
+<ChartExample
+  showSquashedUrl
+  config={`{
+  type: 'progressBar',
+  data: {
+    datasets: [
+      {
+        data: [50],
+      },
+    ],
+  },
+}`}
+/>
+
+## Mixed charts
+
+Combine charts together by specifying multiple `type`s:
+
+<ChartExample
+  showSquashedUrl
+  config={`{
+  type: 'bar',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May'],
+    datasets: [
+      { label: 'Dogs', data: [50, 60, 70, 180, 190] },
+      { label: 'Cats', data: [100, 200, 300, 400, 500] },
+      {
+        type: 'line',
+        fill: false,
+        label: 'Potatoes',
+        data: [100, 400, 200, 400, 700],
+      },
+    ],
+  },
+}`}
+/>

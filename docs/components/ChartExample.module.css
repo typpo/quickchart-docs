@@ -1,11 +1,59 @@
 .container {
-  text-align: center;
   border: 1px solid #eee;
   margin-bottom: 2em;
   padding: 2em;
   padding-bottom: 0;
 }
 
+.columns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.codeContainer {
+  flex: 1;
+  max-width: 50%;
+}
+
+.editorContainer {
+  flex: 1;
+  max-width: 50%;
+}
+
+.editorContainer:hover {
+  outline: 2px solid #dadada;
+  border-radius: 2px;
+}
+
+.editorContainer:focus {
+  outline: none;
+  border-radius: 2px;
+}
+
+.codeContainer code {
+  background-color: initial;
+  border: none;
+  font-size: 0.9em;
+}
+
+.chartContainer {
+  flex: 1;
+  text-align: center;
+}
+
+.arrowContainer:before {
+  content: '➜';
+  flex: 0.2;
+  color: rgba(72, 56, 74, 0.2);
+  font-size: 4em;
+  text-align: center;
+}
+
 .editCta {
   text-align: center;
+}
+
+.iframe {
+  border: 0;
 }

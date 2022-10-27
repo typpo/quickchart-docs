@@ -1,0 +1,58 @@
+---
+sidebar_position: 9
+---
+
+import ChartExample from '../components/ChartExample';
+
+# Line style
+
+You can style lines by setting properties on the `data.dataset` object that defines your line series. See [Chart.js line styling documentation](https://www.chartjs.org/docs/2.9.4/charts/line.html#line-styling) for full details.
+
+The following are useful styling properties that are available on the line object:
+
+#### Properties of `datasets` used to customize line style
+
+|       Name       |                                                                                                                  Description                                                                                                                  |
+| :--------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| backgroundColor  |                                                                                                   The color of area filled under the chart.                                                                                                   |
+|  borderCapStyle  |                                                                                                        Cap style of the line. See MDN.                                                                                                        |
+|   borderColor    |                                                                                                                The line color.                                                                                                                |
+|    borderDash    |                                                   Length and spacing of line dashes. Use this to create dashed or dotted lines. For example, a simple dashed line would be [2, 2]. See MDN.                                                   |
+| borderDashOffset |                                                                                                       Offset for line dashes. See MDN.                                                                                                        |
+| borderJoinStyle  |                                                                                                          Line joint style. See MDN.                                                                                                           |
+|   borderWidth    |                                                                                                          The line width, in pixels.                                                                                                           |
+|       clip       | How to clip relative to chartArea. Positive value allows overflow, negative value clips that many pixels inside chartArea. 0 = clip at chartArea. Clipping can also be configured per side: clip: {left: 5, top: false, right: -2, bottom: 0} |
+|       fill       |                                                                                                   Set true to fill in area under the chart.                                                                                                   |
+|   lineTension    |                                                                         Bezier curve tension of the line. Set to 0 to draw straightlines. Set 0.4 for line smoothing.                                                                         |
+|     showLine     |                                                                                               If false, the line is not drawn for this dataset.                                                                                               |
+|     spanGaps     |                                                       If true, lines will be drawn between points with no or null data. If false, points with NaN data will create a break in the line.                                                       |
+|   steppedLine    |                             If true, draw line as a stepped line. Other valid values include before for step-before interpolation, after for step-after interpolation, and middle for step-middle interpolation.                              |
+
+## Example
+
+Here's an example chart that uses some line properties:
+
+<ChartExample
+  showEditor
+  config={`{
+  type: 'line',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    datasets: [
+      {
+        data: [-15, -80, null, -11, -5, 33, -57],
+        fill: false,
+        borderColor: 'red',
+        borderDash: [5, 5],
+        borderWidth: 1,
+        lineTension: 0.4,
+        spanGaps: true,
+      }]
+  },
+  options: {
+    legend: {
+      display: false,
+    },
+  },
+}`}
+/>

@@ -1,0 +1,66 @@
+---
+sidebar_position: 2
+---
+
+# Grid lines
+
+import ChartExample from '../components/ChartExample';
+
+## Chart.js v2 (default)
+
+Chart gridlines are customizable by setting attributes on **options.scales.{xAxes/yAxes}.gridLines**. This configuration is very flexible. For example, you can change the color, size, and style of gridlines (e.g. making them dotted or dashed). See full [Gridlines documentation](https://www.chartjs.org/docs/2.9.4/axes/styling.html#grid-line-configuration) for more.
+
+The example below removes gridlines by setting **gridLines.display** to false.
+
+<ChartExample
+  showEditor
+  config={`{
+  type: 'bar',
+  data: {
+    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+    datasets: [{
+      label: 'Users',
+      data: [50, 60, 70, 180]
+    }]
+  },
+  options: {
+    scales: {
+      yAxes: [{
+        gridLines: {
+          display: false
+        }
+      }]
+    }
+  }
+}`}
+/>
+
+## Chart.js v3
+
+Customize gridlines by setting attributes on **options.scales._{scaleName}_.grid**. See the [axes styling documentation](https://www.chartjs.org/docs/latest/axes/styling.html#grid-line-configuration) for more.
+
+The example below removes gridlines by setting **grid.display** to false.
+
+<ChartExample
+  showEditor
+  version={3}
+  config={`{
+  type: 'bar',
+  data: {
+    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+    datasets: [{
+      label: 'Users',
+      data: [50, 60, 70, 180]
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        grid: {
+          display: false
+        }
+      }
+    }
+  }
+}`}
+/>

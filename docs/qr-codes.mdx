@@ -1,0 +1,79 @@
+---
+sidebar_position: 4
+---
+
+import CodeWithHighlights from './components/CodeWithHighlights';
+
+# QR codes
+
+QuickChart supports QR code generation. Generate a QR code like this:
+
+<CodeWithHighlights code="**https://quickchart.io/qr?text=**Here's my text" />
+
+<img loading="lazy" src="https://quickchart.io/qr?text=Here's my text" />
+
+## QR code parameters
+
+Build your customized QR code using the following query parameters. You may also use the web-based [QR code builder](https://quickchart.io/qr-code-api/).
+
+|    Parameter Name    |                        Description                        | Required? |          Default value           |
+| :------------------: | :-------------------------------------------------------: | :-------: | :------------------------------: |
+|         text         | Content of the QR code (can be a URL or any other string) |    Yes    |                                  |
+|        format        |           Format of QR code, either png or svg            |           |               png                |
+|        margin        |                Whitespace around QR image                 |           |                4                 |
+|         size         |          Width and height dimension of the image          |           |               150                |
+|         dark         |          Hex color code of "dark" QR grid cells           |           |          000000 (black)          |
+|        light         |          Hex color code of "light" QR grid cells          |           |          ffffff (white)          |
+|       ecLevel        |            Error correction level (L, M, Q, H)            |           | M (H if center image is present) |
+|    centerImageUrl    | URL of image to show in the center. Must be URL-encoded.  |           |                                  |
+| centerImageSizeRatio |      How much space to take up, between 0.0 and 1.0       |           |               0.3                |
+|   centerImageWidth   |              Width of center image in pixels              |           |                                  |
+|  centerImageHeight   |             Height of center image in pixels              |           |                                  |
+
+:::tip
+Remember to [URL-encode](https://urlencoder.io) the `text` parameter. Otherwise special characters and symbols might not be included correctly (the [QR builder](https://quickchart.io/qr-code-api/) takes care of this automatically).
+:::
+
+## Customizing QR code appearance
+
+To customize the color of your QR code, use `dark` and `light`. The parameters must be hex color codes (e.g. `dark=000000`, `light=ffffff`).
+
+Set the whitespace around QR image in modules with query parameter `margin` (defaults to 4), `size` determines the pixel dimensions of the image (defaults to 150), and error correction level with `ecLevel` (valid values: L, M, Q, H).
+
+The QR endpoint produces a PNG image by default. You may optionally set the query parameter `format=svg` for SVG format.
+
+Here's the same code as above but URL encoded with slimmer margins, more error protection, colors, and in SVG format:
+
+<CodeWithHighlights code="https://quickchart.io/qr?**text**=Here's%20my%20text&**dark**=f00&**light**=0ff&**ecLevel**=Q&**format=**svg" />
+
+<img src="https://quickchart.io/qr?text=Here's%20my%20text&dark=f00&light=0ff&ecLevel=Q&format=svg" />
+
+Use our [interactive QR code generator](https://quickchart.io/qr-code-api/) to preview API behavior and test things out. You may also be interested in how to [generate QR codes in a spreadsheet](TODO).
+
+## Images in QR codes
+
+You may include an image centered in your QR code by using the `centerImageUrl` parameter. Note that the URL must be URL-encoded. PNG and JPG images are supported.
+
+For example:
+
+<CodeWithHighlights code="**https://quickchart.io/qr?text=**Here's my text**&centerImageUrl=**https://cdn-icons-png.flaticon.com/512/1389/1389234.png" />
+
+<img
+  loading="lazy"
+  src="https://quickchart.io/qr?text=Here%27s%20my%20text&centerImageUrl=https://cdn-icons-png.flaticon.com/512/1389/1389234.png"
+/>
+
+To set width/height, use `centerImageSizeRatio`. This ratio should be a float between 0 and 1. It determines how much space the center image takes up.
+
+<CodeWithHighlights code="**https://quickchart.io/qr?text=**Here's my text**&centerImageUrl=**https://cdn-icons-png.flaticon.com/512/1389/1389234.png**&centerImageSizeRatio=**0.75" />
+
+<img
+  loading="lazy"
+  src="https://quickchart.io/qr?text=Here's my text&centerImageUrl=https://cdn-icons-png.flaticon.com/512/1389/1389234.png&centerImageSizeRatio=0.75"
+/>
+
+Alternatively, you can specify width and height in pixels using `centerImageWidth` and `centerImageHeight`.
+
+:::caution
+You should always test the QR code after overlaying an image. This is because an image can potentially block critical portions of the QR code. You can guard against this by making sure the image covers less than ~30% of the available area.
+:::

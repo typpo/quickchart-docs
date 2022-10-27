@@ -11,7 +11,7 @@ interface ImageWithCaptionProps {
 export default function ImageWithCaption({ src, alt, caption }: ImageWithCaptionProps) {
   return (
     <div className={styles.container}>
-      <img src={src} alt={alt} />
+      <img loading="lazy" src={src} alt={alt} />
       <p>{caption}</p>
     </div>
   );
