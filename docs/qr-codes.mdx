@@ -2,6 +2,7 @@
 sidebar_position: 4
 ---
 
+import Admonition from '@theme/Admonition';
 import CodeWithHighlights from './components/CodeWithHighlights';
 
 # QR codes
@@ -30,9 +31,11 @@ Build your customized QR code using the following query parameters. You may also
 |   centerImageWidth   |              Width of center image in pixels              |           |                                  |
 |  centerImageHeight   |             Height of center image in pixels              |           |                                  |
 
-:::tip
-Remember to [URL-encode](https://urlencoder.io) the `text` parameter. Otherwise special characters and symbols might not be included correctly (the [QR builder](https://quickchart.io/qr-code-api/) takes care of this automatically).
-:::
+<Admonition type="tip">
+  Remember to [URL-encode](https://urlencoder.io) the `text` parameter. Otherwise special characters
+  and symbols might not be included correctly (the [QR builder](https://quickchart.io/qr-code-api/)
+  takes care of this automatically).
+</Admonition>
 
 ## Customizing QR code appearance
 
@@ -74,6 +77,8 @@ To set width/height, use `centerImageSizeRatio`. This ratio should be a float be
 
 Alternatively, you can specify width and height in pixels using `centerImageWidth` and `centerImageHeight`.
 
-:::caution
-You should always test the QR code after overlaying an image. This is because an image can potentially block critical portions of the QR code. You can guard against this by making sure the image covers less than ~30% of the available area.
-:::
+<Admonition type="caution">
+  You should always test the QR code after overlaying an image. This is because an image can
+  potentially block critical portions of the QR code. You can guard against this by making sure the
+  image covers less than ~30% of the available area.
+</Admonition>
