@@ -73,6 +73,11 @@ const config = {
           { to: '/chart-maker/', label: 'Chart Builder', position: 'right' },
         ],
       },
+      docs: {
+        sidebar: {
+          hideable: true,
+        },
+      },
       footer: {
         style: 'dark',
         links: [
