@@ -1,0 +1,240 @@
+---
+title: Custom pie and doughnut chart labels in Chart.js
+header: Custom pie and doughnut chart labels in Chart.js
+layout: markdown_page.njk
+breadcrumb: Chart.js
+showAuthor: true
+---
+
+import ChartExample from '../../components/ChartExample';
+import CodeWithHighlights from '../../components/CodeWithHighlights';
+
+It's easy to build a pie or doughnut chart in Chart.js. Follow the Chart.js documentation to create a basic chart config:
+
+```js
+{
+  type: 'pie',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May'],
+    datasets: [{
+      data: [50, 60, 70, 180, 190]
+    }]
+  }
+}
+```
+
+Let's render it using QuickChart. Pack it into the URL:
+
+<CodeWithHighlights code="**https://quickchart.io/chart?c=**{type:'pie',data:{labels:['January','February', 'March','April', 'May'], datasets:[{data:[50,60,70,180,190]}]}}" />
+
+This URL produces the following chart:
+
+<ChartExample
+  config={`{
+  type: 'pie',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May'],
+    datasets: [{ data: [50, 60, 70, 180, 190] }],
+  },
+}`}
+/>
+
+## Using the Datalabels plugin
+
+QuickChart's pie charts include data labels, unlike vanilla Chart.js. This is because we automatically include the Chart.js datalabels plugin. To customize the color, size, and other aspects of data labels, view the [datalabels documentation](https://chartjs-plugin-datalabels.netlify.app).
+
+Here's a simple example. Note how we're specifying the position of the data labels, as well as the background color, border, and font size:
+
+<ChartExample
+  showEditor
+  config={`{
+  type: 'pie',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May'],
+    datasets: [
+      {
+        data: [50, 60, 70, 180, 190],
+      },
+    ],
+  },
+  options: {
+    plugins: {
+      datalabels: {
+        display: true,
+        align: 'bottom',
+        backgroundColor: '#ccc',
+        borderRadius: 3,
+        font: {
+          size: 18,
+        },
+      },
+    },
+  },
+}`}
+/>
+
+The data labels plugin has a ton of options available for the positioning and styling of data labels. Check out the [documentation](https://chartjs-plugin-datalabels.netlify.app/guide/options.html) to learn more.
+
+Note that the datalabels plugin also works for doughnut charts. Here's an example of a percentage doughnut chart that uses the `formatter` option to display a percentage:
+
+<ChartExample
+  showEditor
+  config={`{
+  type: 'doughnut',
+  data: {
+    datasets: [
+      {
+        data: [10, 20, 15, 5, 50],
+        backgroundColor: [
+          'rgb(255, 99, 132)',
+          'rgb(255, 159, 64)',
+          'rgb(255, 205, 86)',
+          'rgb(75, 192, 192)',
+          'rgb(54, 162, 235)',
+        ],
+      },
+    ],
+    labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue'],
+  },
+  options: {
+    plugins: {
+      datalabels: {
+        formatter: (value) => {
+          return value + '%';
+        },
+      },
+    },
+  },
+}`}
+/>
+
+### Hiding data labels
+
+Returning `null` or empty string in the `formatter` property will hide the data label. We'll modify the above example to hide values less than 15%:
+
+<ChartExample
+  showEditor
+  config={`{
+  type: 'doughnut',
+  data: {
+    datasets: [
+      {
+        data: [10, 20, 15, 5, 50],
+        backgroundColor: [
+          'rgb(255, 99, 132)',
+          'rgb(255, 159, 64)',
+          'rgb(255, 205, 86)',
+          'rgb(75, 192, 192)',
+          'rgb(54, 162, 235)',
+        ],
+      },
+    ],
+    labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue'],
+  },
+  options: {
+    plugins: {
+      datalabels: {
+        formatter: (value) => {
+          if (value < 15) return '';
+          return value + '%';
+        },
+      },
+    },
+  },
+}`}
+/>
+
+### Advanced usage
+
+Use the `formatter` property to determine exactly what shows as a label. For example, the configuration below will display labels that show the series name rather than the value. It will also format the number using [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat).
+
+To learn more about the `formatter` field, read the [plugin documentation](https://chartjs-plugin-datalabels.netlify.app/guide/formatting.html).
+
+<ChartExample
+  showEditor
+  config={`{
+  type: 'doughnut',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May'],
+    datasets: [
+      {
+        data: [50, 60, 70, 180, 190],
+      },
+    ],
+  },
+  options: {
+    legend: {
+      display: false,
+    },
+    plugins: {
+      datalabels: {
+        display: true,
+        formatter: (val, ctx) => {
+          // Grab the label for this value
+          const label = ctx.chart.data.labels[ctx.dataIndex];
+
+          // Format the number with 2 decimal places
+          const formattedVal = Intl.NumberFormat('en-US', {
+            minimumFractionDigits: 2,
+          }).format(val);
+
+          // Put them together
+          return \`\${label}: \${formattedVal}\`;
+        },
+        color: '#fff',
+        backgroundColor: '#404040',
+      },
+    },
+  },
+}`}
+/>
+
+## Using the doughnutlabel plugin
+
+In addition to the datalabels plugin, we include the [Chart.js doughnutlabel plugin](https://github.com/ciprianciurea/chartjs-plugin-doughnutlabel), which lets you put text in the center of your doughnut. You can combine this with Chart.js datalabel options for full customization.
+
+Here's a quick example that includes a center doughnut labels and custom data labels:
+
+<ChartExample
+  showEditor
+  config={`{
+  type: 'doughnut',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May'],
+    datasets: [
+      {
+        data: [50, 60, 70, 180, 190],
+      },
+    ],
+  },
+  options: {
+    plugins: {
+      datalabels: {
+        display: true,
+        backgroundColor: '#ccc',
+        borderRadius: 3,
+        font: {
+          color: 'red',
+          weight: 'bold',
+        },
+      },
+      doughnutlabel: {
+        labels: [
+          {
+            text: '550',
+            font: {
+              size: 20,
+              weight: 'bold',
+            },
+          },
+          {
+            text: 'total',
+          },
+        ],
+      },
+    },
+  },
+}`}
+/>
+
+That's all for now. Try out your own Chart.js configs in the [interactive sandbox](/sandbox/) and [ask us](https://community.quickchart.io/) if you have any questions!

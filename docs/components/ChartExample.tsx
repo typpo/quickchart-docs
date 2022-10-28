@@ -45,11 +45,13 @@ export default function ChartExample({
     setDisplayCode(newCode);
   };
 
+  const finalWidth = width || 500;
+  const finalHeight = height || 300;
   const sandboxUrl = `https://quickchart.io/sandbox#${encodeURIComponent(
     JSON.stringify({
       chart: displayCode,
-      width: width || 500,
-      height: height || 300,
+      width: finalWidth,
+      height: finalHeight,
       version: version || '2.9.4',
     }),
   )}`;
@@ -82,7 +84,7 @@ export default function ChartExample({
             />
           </div>
         )}
-        <div className={styles.chartContainer}>
+        <div className={styles.chartContainer} style={{ maxWidth: finalWidth }}>
           <a href={sandboxUrl} rel="noopener noreferrer">
             <img
               loading="lazy"
