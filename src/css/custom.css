@@ -15,6 +15,11 @@
   --ifm-color-primary-light: #33925d;
   --ifm-color-primary-lighter: #359962;
   --ifm-color-primary-lightest: #3cad6e;
+  --ifm-font-size-base: 17px;
+  --ifm-code-background: linen;
+  --ifm-code-border-radius: 0;
+  --ifm-code-padding-vertical: 0.2rem;
+  --ifm-code-padding-horizontal: 0.2rem;
   --ifm-code-font-size: 100%;
   /*--ifm-code-background: linen;*/
   --ifm-link-color: #6e6ebd;

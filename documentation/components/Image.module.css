@@ -6,6 +6,11 @@
   margin-bottom: 2em;
 }
 
+.noBorder {
+  border: none;
+  padding: 0;
+}
+
 .caption {
   font-size: 0.8em;
 }

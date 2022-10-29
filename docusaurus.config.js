@@ -9,7 +9,7 @@ const config = {
   title: 'QuickChart',
   tagline: 'Dinosaurs are cool',
   url: 'https://quickchart.io/documentation/',
-  baseUrl: '/documentation/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
@@ -39,6 +39,8 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl: 'https://github.com/typpo/quickchart-docs',
+          path: 'documentation',
+          routeBasePath: 'documentation',
         },
         blog: {
           showReadingTime: true,

@@ -7,11 +7,12 @@ interface ImageProps {
   alt?: string;
   caption?: string;
   maxWidth?: number;
+  noBorder?: boolean;
 }
 
-export default function Image({ src, alt, caption, maxWidth }: ImageProps) {
+export default function Image({ src, alt, caption, maxWidth, noBorder }: ImageProps) {
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${noBorder ? styles.noBorder : ''}`}>
       <img loading="lazy" src={src} alt={alt} style={{ maxWidth }} />
       <div className={styles.caption}>{caption}</div>
     </div>
