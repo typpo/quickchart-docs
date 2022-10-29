@@ -21,16 +21,6 @@
   max-width: 50%;
 }
 
-.editorContainer:hover {
-  outline: 2px solid #dadada;
-  border-radius: 2px;
-}
-
-.editorContainer:focus {
-  outline: none;
-  border-radius: 2px;
-}
-
 .codeContainer code {
   background-color: initial;
   border: none;

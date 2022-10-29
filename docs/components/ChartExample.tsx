@@ -1,10 +1,7 @@
 import React from 'react';
-import Editor from 'react-simple-code-editor';
-
-import { highlight, languages } from 'prismjs/components/prism-core';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-javascript';
-import 'prismjs/themes/prism.css';
+import CodeMirror from '@uiw/react-codemirror';
+import { javascript } from '@codemirror/lang-javascript';
+import { useColorMode } from '@docusaurus/theme-common';
 
 import styles from './ChartExample.module.css';
 
@@ -32,6 +29,7 @@ export default function ChartExample({
   showSquashedUrl,
   showEditor,
 }: ChartExampleProps) {
+  const { isDarkTheme } = useColorMode();
   const [code, setCode] = React.useState<string>(config);
   const [displayCode, setDisplayCode] = React.useState<string>(config);
 
@@ -72,15 +70,12 @@ export default function ChartExample({
         )}
         {showEditor && (
           <div className={styles.editorContainer}>
-            <Editor
+            <CodeMirror
+              height="100%"
               value={displayCode}
-              onValueChange={handleCodeChange}
-              padding={10}
-              highlight={(code) => highlight(code, languages.js)}
-              style={{
-                fontFamily: '"Fira code", "Fira Mono", monospace',
-                fontSize: 12,
-              }}
+              onChange={handleCodeChange}
+              extensions={[javascript({ jsx: true })]}
+              theme={isDarkTheme ? 'dark' : 'light'}
             />
           </div>
         )}

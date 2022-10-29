@@ -6,6 +6,8 @@
 
 /* You can override the default Infima variables here. */
 :root {
+  --ifm-font-family-base: -apple-system, BlinkMacSystemFont, Segoe UI, Lato, Helvetica, Arial,
+    sans-serif;
   --ifm-color-primary: #2e8555;
   --ifm-color-primary-dark: #29784c;
   --ifm-color-primary-darker: #277148;
