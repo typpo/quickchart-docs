@@ -1,7 +1,15 @@
 import React from 'react';
 
 // Bolds the substrings that are surrounded by asterisks
-export default function CodeWithHighlights({ code, wrap }: { code: string; wrap?: boolean }) {
+export default function CodeWithHighlights({
+  code,
+  wrap,
+  centered,
+}: {
+  code: string;
+  wrap?: boolean;
+  centered?: boolean;
+}) {
   const parts = code.split('**');
   return (
     <div
@@ -10,6 +18,7 @@ export default function CodeWithHighlights({ code, wrap }: { code: string; wrap?
         overflowX: 'auto',
         whiteSpace: wrap ? 'normal' : 'pre',
         overflowWrap: 'anywhere',
+        textAlign: centered ? 'center' : 'left',
       }}
     >
       <code>

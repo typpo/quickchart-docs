@@ -1,6 +1,7 @@
 ---
 title: How to customize the progress bar
 tags: ['progress bar']
+hide_table_of_contents: true
 ---
 
 import Image from '../components/Image';
