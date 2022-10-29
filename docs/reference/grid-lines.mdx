@@ -8,7 +8,7 @@ import ChartExample from '../components/ChartExample';
 
 ## Chart.js v2 (default)
 
-Chart gridlines are customizable by setting attributes on **options.scales.{xAxes/yAxes}.gridLines**. This configuration is very flexible. For example, you can change the color, size, and style of gridlines (e.g. making them dotted or dashed). See full [Gridlines documentation](https://www.chartjs.org/docs/2.9.4/axes/styling.html#grid-line-configuration) for more.
+Chart gridlines are customizable by setting attributes on **options.scales._&lt;xAxes/yAxes&gt;_.gridLines**. This configuration is very flexible. For example, you can change the color, size, and style of gridlines (e.g. making them dotted or dashed). See full [Gridlines documentation](https://www.chartjs.org/docs/2.9.4/axes/styling.html#grid-line-configuration) for more.
 
 The example below removes gridlines by setting **gridLines.display** to false.
 
@@ -37,7 +37,7 @@ The example below removes gridlines by setting **gridLines.display** to false.
 
 ## Chart.js v3
 
-Customize gridlines by setting attributes on **options.scales._{scaleName}_.grid**. See the [axes styling documentation](https://www.chartjs.org/docs/latest/axes/styling.html#grid-line-configuration) for more.
+Customize gridlines by setting attributes on **options.scales._&lt;scaleName&gt;_.grid**. See the [axes styling documentation](https://www.chartjs.org/docs/latest/axes/styling.html#grid-line-configuration) for more.
 
 The example below removes gridlines by setting **grid.display** to false.
 
