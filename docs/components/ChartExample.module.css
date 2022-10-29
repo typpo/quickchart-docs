@@ -11,12 +11,12 @@
   justify-content: center;
 }
 
-.codeContainer {
+.editorContainer {
   flex: 1;
   max-width: 50%;
 }
 
-.editorContainer {
+.codeContainer {
   flex: 1;
   max-width: 50%;
 }
@@ -25,11 +25,13 @@
   background-color: initial;
   border: none;
   font-size: 0.9em;
+  overflow-wrap: anywhere;
 }
 
 .chartContainer {
   flex: 1;
   text-align: center;
+  max-width: 50%;
 }
 
 .arrowContainer:before {
@@ -46,4 +48,20 @@
 
 .iframe {
   border: 0;
+}
+
+@media screen and (max-width: 996px) {
+  .columns {
+    flex-direction: column;
+  }
+  .editorContainer,
+  .codeContainer,
+  .chartContainer {
+    max-width: 100%;
+  }
+
+  .arrowContainer:before {
+    content: '↓';
+    font-size: 2em;
+  }
 }
