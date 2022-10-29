@@ -1,8 +1,9 @@
 .container {
   border: 1px solid #eee;
+  border-left: none;
+  border-right: none;
   margin-bottom: 2em;
-  padding: 2em;
-  padding-bottom: 0;
+  padding: 1em 0 0.5em 0;
 }
 
 .columns {
@@ -14,6 +15,8 @@
 .editorContainer {
   flex: 1;
   max-width: 50%;
+  align-self: stretch;
+  position: relative;
 }
 
 .codeContainer {
@@ -43,6 +46,7 @@
 }
 
 .editCta {
+  padding-top: 2em;
   text-align: center;
 }
 
