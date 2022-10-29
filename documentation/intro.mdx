@@ -3,6 +3,7 @@ sidebar_position: 1
 hide_table_of_contents: true
 ---
 
+import CodeWithHighlights from './components/CodeWithHighlights';
 import ChartExample from './components/ChartExample';
 
 # Intro
@@ -32,9 +33,7 @@ For example, take this simple Chart.js configuration:
 
 We'll pack this Chart.js object into the `/chart` URL endpoint:
 
-```
-https://quickchart.io/chart?c={type:'bar',data:{labels:[2012,2013,2014,2015,2016],datasets:[{label:'Users',data:[120,60,50,180,120]}]}}
-```
+<CodeWithHighlights code="**https://quickchart.io/chart?c=**{type:'bar',data:{labels:[2012,2013,2014,2015,2016],datasets:[{label:'Users',data:[120,60,50,180,120]}]}}" />
 
 The URL generates this chart image, a rendering of the Chart.js config above:
 

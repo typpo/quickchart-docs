@@ -16,12 +16,11 @@
   --ifm-color-primary-lighter: #359962;
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-font-size-base: 17px;
-  --ifm-code-background: linen;
   --ifm-code-border-radius: 0;
   --ifm-code-padding-vertical: 0.2rem;
   --ifm-code-padding-horizontal: 0.2rem;
   --ifm-code-font-size: 100%;
-  /*--ifm-code-background: linen;*/
+  --ifm-code-background: #fff9f1;
   --ifm-link-color: #6e6ebd;
   /*--ifm-navbar-link-hover-color: #6e6ebd;*/
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
@@ -36,8 +35,12 @@
   --ifm-color-primary-light: #29d5b0;
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --ifm-link-color: salmon;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+pre code {
+  background-color: initial;
 }
 
 .cm-editor {
