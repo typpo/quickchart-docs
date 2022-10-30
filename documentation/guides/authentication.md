@@ -35,7 +35,7 @@ If you are constructing a chart with a POST request, you may include your key as
   "width": 500,
   "height": 300,
   "format": "png",
-  "chart": {...},
+  "chart": {...}
 }
 ```
 
