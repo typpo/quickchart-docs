@@ -1,16 +1,36 @@
 import React from 'react';
+import invariant from 'invariant';
 
-// Bolds the substrings that are surrounded by asterisks
+interface CodeWithHighlightsProps {
+  code: string;
+  wrap?: boolean;
+  centered?: boolean;
+  children?: React.ReactNode;
+}
+
 export default function CodeWithHighlights({
   code,
   wrap,
   centered,
-}: {
-  code: string;
-  wrap?: boolean;
-  centered?: boolean;
-}) {
-  const parts = code.split('**');
+  children,
+}: CodeWithHighlightsProps) {
+  // Bolds the substrings that are surrounded by asterisks
+  invariant(
+    Number(typeof code !== 'undefined') ^ Number(typeof children !== 'undefined'),
+    'CodeWithHighlights must have either a code prop or children',
+  );
+
+  let contents = children;
+  if (code) {
+    // TODO(ian): Get rid of this and just use the children prop
+    const parts = code.split('**');
+    contents = parts.map((part, i) => {
+      if (i % 2 === 0) {
+        return part;
+      }
+      return <strong>{part}</strong>;
+    });
+  }
   return (
     <div
       style={{
@@ -23,14 +43,7 @@ export default function CodeWithHighlights({
         textAlign: centered ? 'center' : 'left',
       }}
     >
-      <code style={{ border: 'none', backgroundColor: 'transparent' }}>
-        {parts.map((part, i) => {
-          if (i % 2 === 0) {
-            return part;
-          }
-          return <strong>{part}</strong>;
-        })}
-      </code>
+      <code style={{ border: 'none', backgroundColor: 'transparent' }}>{contents}</code>
     </div>
   );
 }

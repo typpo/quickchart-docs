@@ -8,12 +8,19 @@ interface ImageProps {
   caption?: string;
   maxWidth?: number;
   noBorder?: boolean;
+  dropShadow?: boolean;
 }
 
-export default function Image({ src, alt, caption, maxWidth, noBorder }: ImageProps) {
+export default function Image({ src, alt, caption, maxWidth, noBorder, dropShadow }: ImageProps) {
   return (
-    <div className={`${styles.container} ${noBorder ? styles.noBorder : ''}`}>
-      <img loading="lazy" src={src} alt={alt} style={{ maxWidth }} />
+    <div
+      className={`${styles.container} ${noBorder ? styles.noBorder : ''} ${
+        dropShadow ? styles.dropShadow : ''
+      }`}
+    >
+      <a href={src} target="_blank" rel="noopener noreferrer">
+        <img loading="lazy" src={src} alt={alt} style={{ maxWidth }} />
+      </a>
       <div className={styles.caption}>{caption}</div>
     </div>
   );
