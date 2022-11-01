@@ -20,15 +20,17 @@ This example sets the start value to 0 and the end value to 100, with tick marks
 {
   // ...
   options: {
-    yAxes: [
-      {
-        ticks: {
-          min: 0,
-          max: 100,
-          stepSize: 20,
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            min: 0,
+            max: 100,
+            stepSize: 20,
+          },
         },
-      },
-    ];
+      ];
+    }
   }
 }
 ```
