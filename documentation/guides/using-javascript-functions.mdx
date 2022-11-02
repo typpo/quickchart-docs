@@ -26,11 +26,11 @@ Here's an example of a POST request. Note that this payload is _valid_ JSON and 
 
 You can send a POST request using any programming language. We could, for example, put the above JSON in a file called `chart_request.json` and send it via curl:
 
-```sh
-$ curl -X POST \
-     -H "Content-Type: application/json" \
-     -d @chart_request.json \
-     'https://quickchart.io/chart' > chart.png
+```bash
+curl -X POST \
+   -H "Content-Type: application/json" \
+   -d @chart_request.json \
+   'https://quickchart.io/chart' > chart.png
 ```
 
 ## Building chart objects in Javascript
@@ -39,7 +39,7 @@ To illustrate the above, here are a few Javascript examples showing how to build
 
 ### Option 1: Build the config as a string
 
-Build the config as a string, not an object. This is the most straightforward way.
+Build the config as a string, not an object. This is the most straightforward way, and will work in any programming language.
 
 ```js
 const chartStr = `{

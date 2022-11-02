@@ -15,13 +15,13 @@ Before authenticating your requests, make sure you've read the [documentation](/
 
 To bypass rate limiting and access other paid account features, include your key in a chart URL like so:
 
-<CodeWithHighlights code="https://quickchart.io/chart?**key=YOUR_API_KEY**&c=%7Btype%3A%27bar%27%2Cdata%3A%7Blabels%3A%5B%27January%27%2C%27February%27%2C%27March%27%2C%27April%27%2C%20%27May%27%5D%2C%20datasets%3A%5B%7Blabel%3A%27Dogs%27%2Cdata%3A%5B50%2C60%2C70%2C180%2C190%5D%7D%2C%7Blabel%3A%27Cats%27%2Cdata%3A%5B100%2C200%2C300%2C400%2C500%5D%7D%5D%7D%7D" />
+<CodeWithHighlights wrap code="https://quickchart.io/chart?**key=YOUR_API_KEY**&c=%7Btype%3A%27bar%27%2Cdata%3A%7Blabels%3A%5B%27January%27%2C%27February%27%2C%27March%27%2C%27April%27%2C%20%27May%27%5D%2C%20datasets%3A%5B%7Blabel%3A%27Dogs%27%2Cdata%3A%5B50%2C60%2C70%2C180%2C190%5D%7D%2C%7Blabel%3A%27Cats%27%2Cdata%3A%5B100%2C200%2C300%2C400%2C500%5D%7D%5D%7D%7D" />
 
 You may include your key in a QR code request like so:
 
-<CodeWithHighlights code="https://quickchart.io/qr?**key=YOUR_API_KEY**&text=Hello%20world</code" />
+<CodeWithHighlights wrap code="https://quickchart.io/qr?**key=YOUR_API_KEY**&text=Hello%20world" />
 
-Note that the above chart definition and QR string are URL-encoded, as recommended in the [main documentation](/documentation).
+Note that the above chart definition and QR string are URL-encoded, as recommended in the [main documentation](/documentation/using-the-api/parameters/).
 
 ### POST requests
 
@@ -61,7 +61,7 @@ You will receive a JSON response that looks like this:
 
 The `url` in the response will render the chart and is safe to share with untrusted users. Note that short URLs expire after 6 months and are available for charts only, not QR codes.
 
-See complete [short URL documentation](/documentation/#short-urls) for details.
+See complete [short URL documentation](/documentation/using-the-api/short-urls-and-templates/) for details.
 
 ## Signing requests
 
@@ -116,7 +116,7 @@ const chartPublicUrl = `https://quickchart.io/chart?c=${encodeURIComponent(chart
 console.log('Link to chart:', chartPublicUrl);
 ```
 
-Note that chart objects must be converted to string format. `JSON.stringify` is suitable for this purpose if your chart doesn't contain Javascript. If your chart contains custom Javascript, see [how to use Javascript functions](/documentation/#js-functions).
+Note that chart objects must be converted to string format. `JSON.stringify` is suitable for this purpose if your chart doesn't contain Javascript. If your chart contains custom Javascript, see [how to use Javascript functions](/documentation/using-javascript-functions/).
 
 ### Python
 

@@ -1,5 +1,4 @@
 ---
-slug: /using-the-api/
 title: API parameters
 sidebar_position: 1
 ---
@@ -103,9 +102,5 @@ Encoding of your `chart` parameter.
 
 We've put together a public Postman collection for the QuickChart API. View it here:
 
-<a
-  style={{ verticalAlign: '-webkit-baseline-middle', marginLeft: '0.25em' }}
-  href="https://www.postman.com/speeding-flare-926667/workspace/7385c90d-e985-49fe-8257-90bab6c7823e/request/11849833-67d60b0c-988e-4b1d-baa7-7a95da2aa479"
->
-  <img loading="lazy" src="https://run.pstmn.io/button.svg" />
-</a>
+<a style={{ verticalAlign: '-webkit-baseline-middle', marginLeft: '0.25em' }}
+href="https://www.postman.com/speeding-flare-926667/workspace/7385c90d-e985-49fe-8257-90bab6c7823e/request/11849833-67d60b0c-988e-4b1d-baa7-7a95da2aa479"> <img loading="lazy" src="https://run.pstmn.io/button.svg" /> </a>
