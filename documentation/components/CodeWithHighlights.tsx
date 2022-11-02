@@ -36,14 +36,21 @@ export default function CodeWithHighlights({
       style={{
         backgroundColor: 'var(--ifm-code-background)',
         marginBottom: 'var(--ifm-leading)',
-        padding: '2rem 0.5rem',
-        overflowX: 'auto',
-        whiteSpace: wrap ? 'normal' : 'pre',
-        overflowWrap: 'anywhere',
         textAlign: centered ? 'center' : 'left',
       }}
     >
-      <code style={{ border: 'none', backgroundColor: 'transparent' }}>{contents}</code>
+      <pre
+        style={{
+          border: 'none',
+          backgroundColor: 'transparent',
+          padding: '2rem 0.5rem',
+          overflowX: 'auto',
+          overflowWrap: 'anywhere',
+          whiteSpace: wrap ? 'normal' : 'pre',
+        }}
+      >
+        {contents}
+      </pre>
     </div>
   );
 }
