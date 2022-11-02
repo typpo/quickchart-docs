@@ -88,8 +88,61 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Get started',
+                to: '/documentation/intro/',
+              },
+              {
+                label: 'Chart gallery',
+                to: '/gallery/',
+              },
+              {
+                label: 'Chart builder',
+                to: '/chart-maker/',
+              },
+              {
+                label: 'Guides',
+                to: '/documentation/guides/',
+              },
+              {
+                label: 'Integrations',
+                to: '/documentation/integrations/',
+              },
+            ],
+          },
+          {
+            title: 'Libraries',
+            items: [
+              {
+                label: 'Javascript',
+                href: 'https://github.com/typpo/quickchart-js',
+              },
+              {
+                label: 'Python',
+                href: 'https://github.com/typpo/quickchart-python',
+              },
+              {
+                label: 'Ruby',
+                href: 'https://github.com/typpo/quickchart-ruby',
+              },
+              {
+                label: 'PHP',
+                href: 'https://github.com/typpo/quickchart-php',
+              },
+              {
+                label: 'C#',
+                href: 'https://github.com/typpo/quickchart-csharp',
+              },
+              {
+                label: 'Java',
+                href: 'https://github.com/typpo/quickchart-java',
+              },
+              {
+                label: 'Go',
+                href: 'https://github.com/henomis/quickchart-go',
+              },
+              {
+                label: 'chartjs-to-image',
+                href: 'https://www.npmjs.com/package/chartjs-to-image',
               },
             ],
           },
@@ -104,31 +157,9 @@ const config = {
                 label: 'Contact Support',
                 href: 'https://quickchart.io/contact/',
               },
-            ],
-          },
-          {
-            title: 'Libraries',
-            items: [
               {
-                label: 'Javascript',
-                href: 'http://foo.com',
-              },
-              {
-                label: 'Python',
-                href: 'http://todo.com',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'QuickChart open source',
+                label: 'Open source',
                 href: 'https://github.com/typpo/quickchart',
-              },
-              {
-                label: 'Documentation GitHub',
-                href: 'https://github.com/typpo/quickchart-docs',
               },
             ],
           },
