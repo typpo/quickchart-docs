@@ -19,7 +19,7 @@ export default function Image({ src, alt, caption, maxWidth, noBorder, dropShado
       }`}
     >
       <a href={src} target="_blank" rel="noopener noreferrer">
-        <img loading="lazy" src={src} alt={alt} style={{ maxWidth }} />
+        <img loading="lazy" src={src} alt={alt} style={{ maxWidth: `min(100%, ${maxWidth}px)` }} />
       </a>
       <div className={styles.caption}>{caption}</div>
     </div>
