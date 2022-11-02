@@ -23,6 +23,7 @@
   --ifm-code-background: #fff9f1;
   --ifm-link-color: #6e6ebd;
   /*--ifm-navbar-link-hover-color: #6e6ebd;*/
+  --ifm-global-shadow-lw: 0px 0px 0px 1px #ddd;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
@@ -41,6 +42,13 @@
 
 pre code {
   background-color: initial;
+}
+
+article a {
+  text-decoration: underline;
+}
+article a:hover {
+  text-decoration: none;
 }
 
 .markdown > h1,

@@ -1,5 +1,6 @@
 ---
 title: Using the QuickChart GraphViz API
+sidebar_label: GraphViz
 tags: ['graphviz']
 ---
 

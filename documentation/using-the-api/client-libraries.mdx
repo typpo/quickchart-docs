@@ -1,12 +1,10 @@
 ---
-sidebar_position: 4
+sidebar_position: 7
 ---
 
 # Client libraries
 
-You don't need a library to use QuickChart. To use QuickChart without a library, simply build a QuickChart URL as described in [API parameters](TODO).
-
-Some optional client libraries exist for your convenience:
+We maintain client libraries for your convenience:
 
 - [quickchart-js](https://github.com/typpo/quickchart-js) - Javascript
 - [quickchart-python](https://github.com/typpo/quickchart-python) - Python
@@ -17,6 +15,8 @@ Some optional client libraries exist for your convenience:
 - [quickchart-go](https://github.com/henomis/quickchart-go) - Go (third-party)
 - [chartjs-to-image](https://www.npmjs.com/package/chartjs-to-image) - Javascript package for Chart.js images
 - [Postman](https://www.postman.com/speeding-flare-926667/workspace/7385c90d-e985-49fe-8257-90bab6c7823e/request/11849833-67d60b0c-988e-4b1d-baa7-7a95da2aa479) - Tool for building API requests
+
+You don't necessarily need a library to use QuickChart. To use QuickChart without a library, simply build a QuickChart URL as described in [API parameters](TODO).
 
 ## Javascript/Node
 
@@ -173,25 +173,24 @@ This library provides an `io.quickchart` package that contains a `QuickChart` cl
 import io.quickchart.QuickChart;
 
 public class PrintUrlExample {
+    public static void main(String[] args) {
+        QuickChart chart = new QuickChart();
+        chart.setWidth(500);
+        chart.setHeight(300);
+        chart.setConfig("{"
+                + "    type: 'bar',"
+                + "    data: {"
+                + "        labels: ['Q1', 'Q2', 'Q3', 'Q4'],"
+                + "        datasets: [{"
+                + "            label: 'Users',"
+                + "            data: [50, 60, 70, 180]"
+                + "        }]"
+                + "    }"
+                + "}"
+        );
 
-	public static void main(String[] args) {
-		QuickChart chart = new QuickChart();
-		chart.setWidth(500);
-		chart.setHeight(300);
-		chart.setConfig("{"
-				+ "    type: 'bar',"
-				+ "    data: {"
-				+ "        labels: ['Q1', 'Q2', 'Q3', 'Q4'],"
-				+ "        datasets: [{"
-				+ "            label: 'Users',"
-				+ "            data: [50, 60, 70, 180]"
-				+ "        }]"
-				+ "    }"
-				+ "}"
-		);
-
-		System.out.println(chart.getUrl());
-	}
+        System.out.println(chart.getUrl());
+    }
 }
 ```
 
@@ -225,6 +224,8 @@ fmt.Println(qc.GetUrl());
 
 ## Other programming languages
 
-QuickChart is not limited to the listed libraries. You can create a QuickChart URL in any language by building a URL string. Because building a URL string is a matter of string concatenation, this can be done in any language.
+QuickChart is not limited to the libraries listed above. You can create a QuickChart URL in any language by building a URL string. Because building a URL string is a matter of string concatenation, this can be done in any language.
 
-See the [API Parameters](TODO) documentation to learn how to build a URL that renders a chart image. If you need help, please [reach out](mailto:support@quickchart.io) and we will help you implement in your preferred programming language.
+See the [API Parameters](TODO) documentation to learn how to build a URL that renders a chart image.
+
+If you need help, please [reach out](mailto:support@quickchart.io) and we will help you implement in your preferred programming language.

@@ -1,5 +1,6 @@
 ---
 title: Word Cloud API
+sidebar_label: Word Clouds
 tags: ['word cloud']
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Watermark API
+sidebar_label: Watermarks
 tags: ['watermark']
 ---
 

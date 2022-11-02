@@ -1,5 +1,6 @@
 ---
 title: Sparkline API - Embed sparklines anywhere
+sidebar_label: Sparklines
 tags: ['sparkline']
 ---
 

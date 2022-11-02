@@ -1,6 +1,7 @@
 ---
 title: Creating Charts in Visualforce PDFs using Apex
-tags: ['salesforce']
+sidebar_label: Salesforce
+tags: ['salesforce', 'visualforce']
 ---
 
 import Image from '@site/documentation/components/Image';

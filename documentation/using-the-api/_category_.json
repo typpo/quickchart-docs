@@ -1,12 +1,12 @@
 {
-  "position": 3,
-  "label": "Reference",
+  "position": 2,
+  "label": "Using the API",
   "collapsible": true,
-  "collapsed": true,
+  "collapsed": false,
   "className": "red",
   "link": {
     "type": "generated-index",
-    "title": "Reference overview"
+    "title": "Using the API"
   },
   "customProps": {
     "description": "This description can be used in the swizzled DocCard"

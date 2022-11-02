@@ -1,5 +1,6 @@
 ---
 title: Dynamic charts using Google Sheets as a data source
+sidebar_label: Google Sheets
 tags: ['integrations', 'google sheets']
 ---
 

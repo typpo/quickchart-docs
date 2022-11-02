@@ -1,5 +1,6 @@
 ---
 title: Server-side image rendering for Google Charts
+sidebar_label: Google Charts
 tags: ['google charts']
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Table Image API
+sidebar_label: Table Images
 tags: ['tables', 'html']
 ---
 

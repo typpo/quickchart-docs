@@ -1,12 +1,12 @@
 {
-  "position": 3,
-  "label": "Reference",
+  "position": 4,
+  "label": "Chart.js customizations",
   "collapsible": true,
   "collapsed": true,
   "className": "red",
   "link": {
     "type": "generated-index",
-    "title": "Reference overview"
+    "title": "Chart.js customizations"
   },
   "customProps": {
     "description": "This description can be used in the swizzled DocCard"

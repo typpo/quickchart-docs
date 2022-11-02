@@ -1,5 +1,6 @@
 ---
 title: Apex Charts server-side image rendering
+sidebar_label: Apex Charts
 tags: ['apex charts']
 ---
 

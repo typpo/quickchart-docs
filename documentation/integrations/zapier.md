@@ -1,5 +1,6 @@
 ---
 title: How to create charts with Zapier
+sidebar_label: Zapier
 tags: ['integrations', 'zapier']
 ---
 
