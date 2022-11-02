@@ -43,6 +43,14 @@ pre code {
   background-color: initial;
 }
 
+.markdown > h1,
+.markdown h1:first-child {
+  --ifm-h1-font-size: 2rem;
+}
+.markdown > h2 {
+  --ifm-h2-font-size: 1.5rem;
+}
+
 .cm-editor {
   font-size: 12px;
 }

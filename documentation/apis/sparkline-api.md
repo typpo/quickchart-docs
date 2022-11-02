@@ -5,9 +5,9 @@ tags: ['sparkline']
 
 # Using the QuickChart Sparkline API
 
-import Image from '../components/Image';
-import CodeWithHighlights from '../components/CodeWithHighlights';
-import SparklineImage from './images/sparkline_example.png';
+import Image from '@site/documentation/components/Image';
+import CodeWithHighlights from '@site/documentation/components/CodeWithHighlights';
+import SparklineImage from '@site/documentation/images/sparkline_example.png';
 
 QuickChart provides an API that lets you generate sparklines as PNG images. The API is simple and can generate sparklines with a single unauthenticated request.
 

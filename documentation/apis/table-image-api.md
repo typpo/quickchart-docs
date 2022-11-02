@@ -5,8 +5,8 @@ tags: ['tables', 'html']
 
 # Using the QuickChart Table Image API
 
-import CodeWithHighlights from '../components/CodeWithHighlights';
-import Image from '../components/Image';
+import CodeWithHighlights from '@site/documentation/components/CodeWithHighlights';
+import Image from '@site/documentation/components/Image';
 
 QuickChart provides an API that lets you render a table as a PNG. This format allows the table to be portable, making it easy to embed tables in Slack bots, no-code applications, and more.
 

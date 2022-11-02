@@ -1,8 +1,8 @@
 {
-  "position": 2.5,
+  "position": 4,
   "label": "Guides",
   "collapsible": true,
-  "collapsed": false,
+  "collapsed": true,
   "className": "red",
   "link": {
     "type": "generated-index",

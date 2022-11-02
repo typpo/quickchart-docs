@@ -1,12 +1,12 @@
 {
-  "position": 30,
-  "label": "Integrations",
+  "position": 10,
+  "label": "QR codes",
   "collapsible": true,
   "collapsed": true,
   "className": "red",
   "link": {
     "type": "generated-index",
-    "title": "Integrations"
+    "title": "QR codes"
   },
   "customProps": {
     "description": "This description can be used in the swizzled DocCard"

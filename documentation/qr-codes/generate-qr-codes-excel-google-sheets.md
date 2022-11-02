@@ -3,13 +3,11 @@ title: How to generate QR codes with Excel or Google Sheets
 tags: ['excel', 'google sheets', 'qr codes']
 ---
 
-import Image from '../components/Image';
-import QrDataExampleUrl from './images/qr-codes/qr-data-example.png';
-import QrDataWithFormulaUrl from './images/qr-codes/qr-data-with-formula.png';
-import QrDataFullUrl from './images/qr-codes/qr-data-full.png';
-import QrTemplateUrl from './images/qr-codes/qr-template.png';
-
-## Introduction
+import Image from '@site/documentation/components/Image';
+import QrDataExampleUrl from '@site/documentation/images/qr-codes/qr-data-example.png';
+import QrDataWithFormulaUrl from '@site/documentation/images/qr-codes/qr-data-with-formula.png';
+import QrDataFullUrl from '@site/documentation/images/qr-codes/qr-data-full.png';
+import QrTemplateUrl from '@site/documentation/images/qr-codes/qr-template.png';
 
 QR codes can be generated in spreadsheets with a special `IMAGE()` formula.
 

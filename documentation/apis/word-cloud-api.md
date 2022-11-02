@@ -6,10 +6,10 @@ tags: ['word cloud']
 # Using the QuickChart Word Cloud API
 
 import Admonition from '@theme/Admonition';
-import Image from '../components/Image';
-import CodeWithHighlights from '../components/CodeWithHighlights';
-import ChurchillImage from './images/wordcloud/wordcloud-churchill.png';
-import NewsImage from './images/wordcloud/wordcloud-googlenews.png';
+import Image from '@site/documentation/components/Image';
+import CodeWithHighlights from '@site/documentation/components/CodeWithHighlights';
+import ChurchillImage from '@site/documentation/images/wordcloud/wordcloud-churchill.png';
+import NewsImage from '@site/documentation/images/wordcloud/wordcloud-googlenews.png';
 
 QuickChart provides an API that generates **word clouds** or **tag clouds**, visualizations that give prominence to words that appear frequently in a given text.
 

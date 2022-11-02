@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'QuickChart',
   tagline: 'Dinosaurs are cool',
-  url: 'https://quickchart.io/documentation/',
+  url: 'https://quickchart.io/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',

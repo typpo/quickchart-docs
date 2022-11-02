@@ -3,7 +3,7 @@ title: Creating Charts in Visualforce PDFs using Apex
 tags: ['salesforce']
 ---
 
-import Image from '../components/Image';
+import Image from '@site/documentation/components/Image';
 
 This post describes how to use Apex components to display chart images in SalesForce. These chart images can be embedded in SalesForce or exported to other formats such as PDF.
 

@@ -3,12 +3,12 @@ title: Server-side image rendering for Google Charts
 tags: ['google charts']
 ---
 
-import Image from '../components/Image';
-import CodeWithHighlights from '../components/CodeWithHighlights';
+import Image from '@site/documentation/components/Image';
+import CodeWithHighlights from '@site/documentation/components/CodeWithHighlights';
 
-import BarImageUrl from './images/google-charts/google-charts-bar.png';
-import GaugeImageUrl from './images/google-charts/google-charts-gauge.png';
-import TimelineImageUrl from './images/google-charts/google-charts-timeline.png';
+import BarImageUrl from '@site/documentation/images/google-charts/google-charts-bar.png';
+import GaugeImageUrl from '@site/documentation/images/google-charts/google-charts-gauge.png';
+import TimelineImageUrl from '@site/documentation/images/google-charts/google-charts-timeline.png';
 
 This post goes into detail on [Google Charts Node](https://github.com/typpo/google-charts-node), an open-source project that renders Google Charts as images.
 

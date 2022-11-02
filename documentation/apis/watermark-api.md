@@ -5,8 +5,8 @@ tags: ['watermark']
 
 # Using the QuickChart Watermark API
 
-import Image from '../components/Image';
-import CodeWithHighlights from '../components/CodeWithHighlights';
+import Image from '@site/documentation/components/Image';
+import CodeWithHighlights from '@site/documentation/components/CodeWithHighlights';
 
 QuickChart provides an API that lets you overlay one image on top of another, creating a watermark or logo on top of an original image.
 

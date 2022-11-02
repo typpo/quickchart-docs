@@ -3,7 +3,7 @@ title: Apex Charts server-side image rendering
 tags: ['apex charts']
 ---
 
-import Image from '../components/Image';
+import Image from '@site/documentation/components/Image';
 
 This post describes our API for rendering Apex Charts as images. Use this method to render Apex Charts as images on the server-side.
 

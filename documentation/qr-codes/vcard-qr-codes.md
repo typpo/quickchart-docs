@@ -3,10 +3,10 @@ title: How to create QR codes for vCards
 tags: ['qr codes']
 ---
 
-import Image from '../components/Image';
-import CodeWithHighlights from '../components/CodeWithHighlights';
-import ScanImage from './images/qr-codes/vcard-scan.png';
-import SheetImage from './images/qr-codes/vcard-spreadsheet.png';
+import Image from '@site/documentation/components/Image';
+import CodeWithHighlights from '@site/documentation/components/CodeWithHighlights';
+import ScanImage from '@site/documentation/images/qr-codes/vcard-scan.png';
+import SheetImage from '@site/documentation/images/qr-codes/vcard-spreadsheet.png';
 
 A vCard (or Virtual Contact File) is a specially formatted text that is used to transfer contacts between phones. Because it's just text, it's possible to create a QR code that can be scanned as a contact.
 

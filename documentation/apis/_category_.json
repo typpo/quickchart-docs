@@ -1,12 +1,12 @@
 {
-  "position": 30,
-  "label": "Integrations",
+  "position": 35,
+  "label": "Other APIs",
   "collapsible": true,
   "collapsed": true,
   "className": "red",
   "link": {
     "type": "generated-index",
-    "title": "Integrations"
+    "title": "Other APIs"
   },
   "customProps": {
     "description": "This description can be used in the swizzled DocCard"
