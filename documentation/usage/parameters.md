@@ -16,7 +16,7 @@ Combine these parameters in your query string. For example:
   code="https://quickchart.io/chart?**width**=500&**height**=300&**chart**={...}"
 />
 
-If you prefer not to construct the URL yourself, [client libraries](/documentation/using-the-api/client-libraries/) are available in many programming languages.
+If you prefer not to construct the URL yourself, [client libraries](/documentation/usage/client-libraries/) are available in many programming languages.
 
 ## Supported parameters
 

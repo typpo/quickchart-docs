@@ -1,5 +1,5 @@
 ---
-slug: /documentation/python-chart-example/
+slug: /python-chart-example/
 title: Python chart example (QuickChart)
 tags: ['python']
 ---

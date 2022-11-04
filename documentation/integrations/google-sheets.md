@@ -235,6 +235,6 @@ The look and feel of the chart is completely customizable using the [Chart.js do
 
 For starters, try replacing `bar` with `line` in the above examples to get a line graph instead of a bar chart!
 
-If you're looking for shorter URLs, check out the [URL shortener](/documentation/using-the-api/short-urls-and-templates/) documentation.
+If you're looking for shorter URLs, check out the [URL shortener](/documentation/usage/short-urls-and-templates/) documentation.
 
 QuickChart is open source for individuals and organizations that wish to self-host. Or, you can [sign up](https://quickchart.io/pricing/) for QuickChart in order to generate charts on our infrastructure. Feel free to [reach out](https://community.quickchart.io/) with any questions!

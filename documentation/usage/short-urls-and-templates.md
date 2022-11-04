@@ -57,7 +57,7 @@ Please note the following limitations:
 
 - It can take a couple seconds for short URLs to become active globally.
 - Request inputs are not validated before the URL is created. The chart is only rendered when the URL is visited.
-- If your chart includes Javascript, you must supply your chart definition as a string (see [using JS functions](/documentation/using-javascript-functions/)).
+- If your chart includes Javascript, you must supply your chart definition as a string (see [using JS functions](/documentation/javascript-functions/)).
 - Saved charts expire after 3 days for free users, 6 months for paid users.
 
 ### Templates

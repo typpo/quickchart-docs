@@ -124,7 +124,7 @@ The main QuickChart endpoint is `https://quickchart.io/chart`. Use this as a bas
 - `width`: Width of chart in pixels (optional)
 - `height`: Height of chart in pixels (optional)
 - `devicePixelRatio`: Ratio between physical pixels and logical pixels. Defaults to 2.0 for retina support (optional)
-- [View more parameters in the documentation](/documentation/using-the-api/parameters/)
+- [View more parameters in the documentation](/documentation/usage/parameters/)
 
 Take this Chart.js config for example:
 

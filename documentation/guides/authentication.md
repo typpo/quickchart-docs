@@ -21,7 +21,7 @@ You may include your key in a QR code request like so:
 
 <CodeWithHighlights wrap code="https://quickchart.io/qr?**key=YOUR_API_KEY**&text=Hello%20world" />
 
-Note that the above chart definition and QR string are URL-encoded, as recommended in the [main documentation](/documentation/using-the-api/parameters/).
+Note that the above chart definition and QR string are URL-encoded, as recommended in the [main documentation](/documentation/usage/parameters/).
 
 ### POST requests
 
@@ -61,7 +61,7 @@ You will receive a JSON response that looks like this:
 
 The `url` in the response will render the chart and is safe to share with untrusted users. Note that short URLs expire after 6 months and are available for charts only, not QR codes.
 
-See complete [short URL documentation](/documentation/using-the-api/short-urls-and-templates/) for details.
+See complete [short URL documentation](/documentation/usage/short-urls-and-templates/) for details.
 
 ## Signing requests
 
@@ -116,7 +116,7 @@ const chartPublicUrl = `https://quickchart.io/chart?c=${encodeURIComponent(chart
 console.log('Link to chart:', chartPublicUrl);
 ```
 
-Note that chart objects must be converted to string format. `JSON.stringify` is suitable for this purpose if your chart doesn't contain Javascript. If your chart contains custom Javascript, see [how to use Javascript functions](/documentation/using-javascript-functions/).
+Note that chart objects must be converted to string format. `JSON.stringify` is suitable for this purpose if your chart doesn't contain Javascript. If your chart contains custom Javascript, see [how to use Javascript functions](/documentation/javascript-functions/).
 
 ### Python
 

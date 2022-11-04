@@ -23,7 +23,7 @@ In this tutorial we'll use the free and open-source [QuickChart API](https://qui
 
 This tutorial is written assuming you are using Javascript (discord.js), but the approach is general and will work for any language.
 
-The QuickChart API uses Chart.js config, which are mostly JSON and can be built in _any programming language_. See [QuickChart documentation](/documentation/using-the-api/client-libraries/) for instructions on how to build in your preferred language.
+The QuickChart API uses Chart.js config, which are mostly JSON and can be built in _any programming language_. See [QuickChart documentation](/documentation/usage/client-libraries/) for instructions on how to build in your preferred language.
 
 ## Create a chart image
 
@@ -89,7 +89,7 @@ To learn more about static chart rendering:
 
 There are a handful of libraries that will build chart URLs for you and also provide advanced features like short URLs.
 
-Check out [quickchart-js](https://www.npmjs.com/package/quickchart-js) for Javascript. There are many other libraries for other languages, including Python, Java, C#, Ruby, PHP, and more. See the [client libraries](/documentation/using-the-api/client-libraries/) list for more.
+Check out [quickchart-js](https://www.npmjs.com/package/quickchart-js) for Javascript. There are many other libraries for other languages, including Python, Java, C#, Ruby, PHP, and more. See the [client libraries](/documentation/usage/client-libraries/) list for more.
 
 The Javascript library can be installed via `npm install quickchart-js` and lets you easily construct and customize charts:
 
@@ -121,7 +121,7 @@ There are three ways to send images:
 
 QuickChart already supports chart image URLs, so let's just provide the URL directly to Discord. This is best because uploading the chart as an attachment to every message is slow and unnecessarily duplicates the image.
 
-With approach #1, we simply include the URL directly in a message. You can include the regular QuickChart URL, but if your chart is large (URL longer than 2000 characters), you can use [short URLs](/documentation/using-the-api/short-urls-and-templates/) instead:
+With approach #1, we simply include the URL directly in a message. You can include the regular QuickChart URL, but if your chart is large (URL longer than 2000 characters), you can use [short URLs](/documentation/usage/short-urls-and-templates/) instead:
 
 ```js
 const Discord = require('discord.js');

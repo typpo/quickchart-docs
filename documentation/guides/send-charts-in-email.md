@@ -33,7 +33,7 @@ The main QuickChart endpoint is `https://quickchart.io/chart`. Use this as the b
 - `width`: Width of chart in pixels (optional)
 - `height`: Height of chart in pixels (optional)
 - `devicePixelRatio`: Ratio between physical pixels and logical pixels. Defaults to 2.0 for retina support (optional)
-- [View more parameters in the documentation](/documentation/using-the-api/parameters/)
+- [View more parameters in the documentation](/documentation/usage/parameters/)
 
 Let's suppose you built your Chart.js config and it looks like this:
 
@@ -50,7 +50,7 @@ Let's suppose you built your Chart.js config and it looks like this:
 }
 ```
 
-As you can see, we're building a graph of users from 2012 through 2016. You can preview this graph by pasting the config into the testing [sandbox](/sandbox/).
+As you can see, we're building a graph of users from 2012 through 2016. You can preview this graph by pasting the config into the testing [sandbox](https://quickchart.io/sandbox/).
 
 Take the Chart.js config and put it into the main endpoint URL:
 
@@ -70,11 +70,11 @@ You can safely embed this chart directly in your email. It doesn't require any J
 
 Because a chart is just defined by its URL, you may construct a QuickChart URL in any programming language. Follow the instructions above to build your chart configuration, then put it in an `<img>` tag in your email.
 
-This lightweight approach avoids third-party dependencies. That said, QuickChart has published libraries for a few languages. See the most up-to-date list [here](/documentation/using-the-api/client-libraries/). We've also included many examples below.
+This lightweight approach avoids third-party dependencies. That said, QuickChart has published libraries for a few languages. See the most up-to-date list [here](/documentation/usage/client-libraries/). We've also included many examples below.
 
 Once you've generated the chart, you can use any existing email service (such as [Mailgun](/documentation/send-email-charts-with-mailgun/) or Sendgrid) to send an email.
 
-For more advanced chart use cases, you may use your language's HTTP library in order to generate [short URLs](/documentation/using-the-api/short-urls-and-templates/) for your chart.
+For more advanced chart use cases, you may use your language's HTTP library in order to generate [short URLs](/documentation/usage/short-urls-and-templates/) for your chart.
 
 ## Email charts with Python
 
@@ -490,7 +490,7 @@ puts response.headers
 
 The process of building a chart image via URL is quite straightforward, but there are many ways to customize your chart. For starters, you can use the Chart.js configuration to make many other types of charts: line graphs, pie charts, mixed charts, and more.
 
-If you're creating more complex charts, consider [generating a short URL](/documentation/using-the-api/short-urls-and-templates/) for your chart so you don't have to pack everything into the image tag.
+If you're creating more complex charts, consider [generating a short URL](/documentation/usage/short-urls-and-templates/) for your chart so you don't have to pack everything into the image tag.
 
 You can also use a variety of Chart.js plugins to add more customizations [annotating](/documentation/reference/labels/#annotation-and-label-plugins) your chart images.
 

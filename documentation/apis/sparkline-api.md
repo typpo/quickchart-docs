@@ -202,7 +202,7 @@ From there, have a look at the various line chart customizations available in th
 
 ## SDKs & Client libraries
 
-QuickChart does not require a client library, but if you don't want to build the URL yourself, you can use our open-source Javascript, Python, Ruby, PHP, C#, and Java libraries. [See all libraries here](/documentation/using-the-api/client-libraries/).
+QuickChart does not require a client library, but if you don't want to build the URL yourself, you can use our open-source Javascript, Python, Ruby, PHP, C#, and Java libraries. [See all libraries here](/documentation/usage/client-libraries/).
 
 ## Need help?
 

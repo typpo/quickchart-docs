@@ -53,7 +53,7 @@ The dynamic URL in the example above will display the following chart:
 
 ## Customization
 
-Note that you can further customize your chart by setting other [API parameters](/documentation/using-the-api/parameters/).
+Note that you can further customize your chart by setting other [API parameters](/documentation/usage/parameters/).
 
 The chart itself is very customizable - you can render any [Chart.js configuration](https://www.chartjs.org/docs/2.9.4/getting-started/). Have a look at our [chart gallery](https://quickchart.io/gallery/) to get ideas, or get started with the [developer documentation](/documentation/).
 

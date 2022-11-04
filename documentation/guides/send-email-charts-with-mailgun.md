@@ -1,5 +1,5 @@
 ---
-slug: /documentation/send-email-charts-with-mailgun/
+slug: /send-email-charts-with-mailgun/
 title: How to embed charts in email with Mailgun
 tags: ['mailgun', 'javascript', 'python']
 ---
@@ -70,7 +70,7 @@ This image can be directly embedded in an email using a standard `<img>` tag.
 It's usually best to **URL encode** your JSON parameter.  Nearly every programming language has a built-in function to do this.  URL encoding your JSON will avoid problems with more complex chart specifications.
 </Admonition>
 
-If you're looking for shorter URLs, check out the [URL shortener](/documentation/using-the-api/short-urls-and-templates/) documentation.
+If you're looking for shorter URLs, check out the [URL shortener](/documentation/usage/short-urls-and-templates/) documentation.
 
 ## Sending the chart with Mailgun
 
