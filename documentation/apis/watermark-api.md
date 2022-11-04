@@ -1,4 +1,5 @@
 ---
+slug: /watermark-api/
 title: Watermark API
 sidebar_label: Watermarks
 tags: ['watermark']

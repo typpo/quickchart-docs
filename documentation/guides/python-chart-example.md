@@ -1,17 +1,18 @@
 ---
-title: How to create a chart image with Python
+slug: /documentation/python-chart-example/
+title: Python chart example (QuickChart)
 tags: ['python']
 ---
 
-import Image from '../components/Image';
+# How to create a chart image with Python
 
-<head><title>Python chart example (QuickChart)</title></head>
+import Image from '../components/Image';
 
 QuickChart is an open-source web service that generates chart images. You can use it to generate charts in your Python application and export them as PNG.
 
 This is especially useful if you already have a [Chart.js](https://www.chartjs.org/docs/2.9.4/) configuration object on the frontend, but you want to generate it on the backend (e.g. for an email).
 
-To get started, first make sure that you understand [how to create a chart](/documentation/). QuickChart accepts Chart.js objects and renders them as PNG, and you can test your charts in the online [chart editor](/sandbox/).
+To get started, first make sure that you understand [how to create a chart](/documentation/). QuickChart accepts Chart.js objects and renders them as PNG, and you can test your charts in the online [chart editor](https://quickchart.io/sandbox/).
 
 <Image maxWidth={300} caption="A simple PNG chart image generated in Python" src="https://quickchart.io/chart?w=300&h=200&c=%7B%0A%20%20type%3A%20%27line%27%2C%0A%20%20data%3A%20%7B%0A%20%20%20%20labels%3A%20%5B%27January%27%2C%20%27February%27%2C%20%27March%27%2C%20%27April%27%2C%20%27May%27%2C%20%27June%27%2C%20%27July%27%5D%2C%0A%20%20%20%20datasets%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20label%3A%20%27My%20First%20dataset%27%2C%0A%20%20%20%20%20%20%20%20backgroundColor%3A%20%27rgb(255%2C%2099%2C%20132)%27%2C%0A%20%20%20%20%20%20%20%20borderColor%3A%20%27rgb(255%2C%2099%2C%20132)%27%2C%0A%20%20%20%20%20%20%20%20data%3A%20%5B93%2C%20-29%2C%20-17%2C%20-8%2C%2073%2C%2098%2C%2040%5D%2C%0A%20%20%20%20%20%20%20%20fill%3A%20false%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20label%3A%20%27My%20Second%20dataset%27%2C%0A%20%20%20%20%20%20%20%20fill%3A%20false%2C%0A%20%20%20%20%20%20%20%20backgroundColor%3A%20%27rgb(54%2C%20162%2C%20235)%27%2C%0A%20%20%20%20%20%20%20%20borderColor%3A%20%27rgb(54%2C%20162%2C%20235)%27%2C%0A%20%20%20%20%20%20%20%20data%3A%20%5B20%2C%2085%2C%20-79%2C%2093%2C%2027%2C%20-81%2C%20-22%5D%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%7D%2C%0A%20%20options%3A%20%7B%0A%20%20%20%20legend%3A%20%7Bdisplay%3A%20false%7D%0A%20%20%7D%2C%0A%7D%0A" />
 

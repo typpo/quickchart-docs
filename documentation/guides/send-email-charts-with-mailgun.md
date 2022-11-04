@@ -1,4 +1,5 @@
 ---
+slug: /documentation/send-email-charts-with-mailgun/
 title: How to embed charts in email with Mailgun
 tags: ['mailgun', 'javascript', 'python']
 ---
@@ -69,7 +70,7 @@ This image can be directly embedded in an email using a standard `<img>` tag.
 It's usually best to **URL encode** your JSON parameter.  Nearly every programming language has a built-in function to do this.  URL encoding your JSON will avoid problems with more complex chart specifications.
 </Admonition>
 
-If you're looking for shorter URLs, check out the [URL shortener](/documentation/#short-urls) documentation.
+If you're looking for shorter URLs, check out the [URL shortener](/documentation/using-the-api/short-urls-and-templates/) documentation.
 
 ## Sending the chart with Mailgun
 
@@ -168,4 +169,4 @@ The look and feel of the chart is completely customizable using the [Chart.js do
 
 The [Mailgun API documentation](https://documentation.mailgun.com/en/latest/user_manual.html#sending-via-api) will be useful for more advanced email sending and mailing list use cases. However, the general process outlined in this post for generating static charts and embedding them in your emails will remain the same.
 
-QuickChart is open source for individuals and organizations that wish to self-host. Or, you can [sign up](/pricing/) for QuickChart in order to generate charts on our infrastructure. Feel free to [reach out](https://community.quickchart.io/) with any questions!
+QuickChart is open source for individuals and organizations that wish to self-host. Or, you can [sign up](https://quickchart.io/pricing/) for QuickChart in order to generate charts on our infrastructure. Feel free to [reach out](https://community.quickchart.io/) with any questions!

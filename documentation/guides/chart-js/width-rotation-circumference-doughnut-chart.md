@@ -1,4 +1,5 @@
 ---
+slug: /chart-js/width-rotation-circumference-doughnut-chart/
 title: Setting width, rotation, and circumference of doughnut chart (Chart.js)
 tags: ['chart.js']
 ---

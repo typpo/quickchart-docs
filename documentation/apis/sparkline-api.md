@@ -1,4 +1,5 @@
 ---
+slug: /sparkline-api/
 title: Sparkline API - Embed sparklines anywhere
 sidebar_label: Sparklines
 tags: ['sparkline']
@@ -197,14 +198,14 @@ For more flexibility, change the chart type to "line" to access the full set of 
 }
 ```
 
-From there, have a look at the various line chart customizations available in the [gallery](/gallery/) or [documentation](/documentation/).
+From there, have a look at the various line chart customizations available in the [gallery](https://quickchart.io/gallery/) or [documentation](/documentation/).
 
 ## SDKs & Client libraries
 
-QuickChart does not require a client library, but if you don't want to build the URL yourself, you can use our open-source Javascript, Python, Ruby, PHP, C#, and Java libraries. [See all libraries here](/documentation/#client-libraries).
+QuickChart does not require a client library, but if you don't want to build the URL yourself, you can use our open-source Javascript, Python, Ruby, PHP, C#, and Java libraries. [See all libraries here](/documentation/using-the-api/client-libraries/).
 
 ## Need help?
 
-Chart.js can be tricky when you're getting the hang of it. Use the [Sandbox Editor](/sandbox/) to test your charts. If you're interested in charts other than sparklines, check out our [gallery](/gallery/) and [main documentation](/documentation/).
+Chart.js can be tricky when you're getting the hang of it. Use the [Sandbox Editor](https://quickchart.io/sandbox/) to test your charts. If you're interested in charts other than sparklines, check out our [gallery](https://quickchart.io/gallery/) and [main documentation](/documentation/).
 
 Feeling stuck? Feel free to reach out - my contact information is below.

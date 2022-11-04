@@ -16,7 +16,7 @@ Combine these parameters in your query string. For example:
   code="https://quickchart.io/chart?**width**=500&**height**=300&**chart**={...}"
 />
 
-If you prefer not to construct the URL yourself, [client libraries](TODO) are available in many programming languages.
+If you prefer not to construct the URL yourself, [client libraries](/documentation/using-the-api/client-libraries/) are available in many programming languages.
 
 ## Supported parameters
 
@@ -28,7 +28,7 @@ If you prefer not to construct the URL yourself, [client libraries](TODO) are av
 
 Chart.js configuration object to render. This is the definition of the chart in Javascript or JSON format.
 
-<Admonition type="default">
+<Admonition type="info">
   We recommend that you [URL-encode](https://www.urlencoder.io/) your chart configuration. If not
   encoded, you will run into problems with special characters or syntax errors in your program. You
   may also use base64 encoding (see [encoding](#encoding)).
@@ -58,7 +58,7 @@ Height of the image in pixels.
 
 Device pixel ratio of the output. Image width and height are multiplied by this value. Defaults to `2.0` to ensure best image support on Retina devices.
 
-<Admonition type="default">
+<Admonition type="info">
   This setting defaults to 2, meaning all images will be 2x width and height! To get an image that
   is exactly width\*height, set `devicePixelRatio` to 1.
 </Admonition>

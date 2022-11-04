@@ -1,4 +1,5 @@
 ---
+slug: /chart-js/custom-tick-format/
 title: How to format tick marks in Chart.js
 tags: ['chart.js']
 ---
@@ -195,7 +196,7 @@ In Chart.js v2, the approach is exactly the same except you use `scales.yAxes` i
 }
 ```
 
-If you're using QuickChart, you may want to review [Using Javascript functions](/documentation/#js-functions) for instructions on how to include Javascript in chart configs.
+If you're using QuickChart, you may want to review [Using Javascript functions](/documentation/using-javascript-functions/) for instructions on how to include Javascript in chart configs.
 
 ## Simpler approach: Use the tickFormat plugin
 

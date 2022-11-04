@@ -72,8 +72,8 @@ const config = {
             position: 'right',
             label: 'Docs',
           },
-          { to: '/gallery/', label: 'Example Charts', position: 'right' },
-          { to: '/chart-maker/', label: 'Chart Builder', position: 'right' },
+          { to: 'https://quickchart.io/gallery/', label: 'Example Charts', position: 'right' },
+          { to: 'https://quickchart.io/chart-maker/', label: 'Chart Builder', position: 'right' },
         ],
       },
       docs: {
@@ -89,23 +89,23 @@ const config = {
             items: [
               {
                 label: 'Get started',
-                to: '/documentation/intro/',
+                to: '/documentation/',
               },
               {
                 label: 'Chart gallery',
-                to: '/gallery/',
+                to: 'https://quickchart.io/gallery/',
               },
               {
                 label: 'Chart builder',
-                to: '/chart-maker/',
+                to: 'https://quickchart.io/chart-maker/',
               },
               {
                 label: 'Guides',
-                to: '/documentation/guides/',
+                to: '/documentation/category/guides/',
               },
               {
                 label: 'Integrations',
-                to: '/documentation/integrations/',
+                to: '/documentation/category/integrations/',
               },
             ],
           },

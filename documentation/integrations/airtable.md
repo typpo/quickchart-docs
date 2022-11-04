@@ -138,4 +138,4 @@ Because QuickChart is based on Chart.js, we also highly recommend using the [Cha
 
 Feel free to [reach out](https://community.quickchart.io/) with any questions!
 
-QuickChart is open source for individuals and organizations that wish to self-host. Or, you can [sign up](/pricing/) for QuickChart in order to generate charts on our infrastructure.
+QuickChart is open source for individuals and organizations that wish to self-host. Or, you can [sign up](https://quickchart.io/pricing/) for QuickChart in order to generate charts on our infrastructure.

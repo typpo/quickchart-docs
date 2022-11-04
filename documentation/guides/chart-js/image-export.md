@@ -1,4 +1,5 @@
 ---
+slug: /chart-js/image-export/
 title: How to download and export Chart.js images
 label: ['chart.js']
 ---
@@ -185,7 +186,7 @@ Web services such as [QuickChart](/) exist to take the burden of rendering out o
 3. Shareable URLs - no need to host your own images.
 4. You are not using Javascript.
 
-You can [use the API directly](https://quickchart.io/documentation/#parameters) in any programming language. There are also QuickChart client libraries available for Javascript, Python, Ruby, Java, PHP, and C#.
+You can [use the API directly](/documentation/using-the-api/parameters/) in any programming language. There are also QuickChart client libraries available for Javascript, Python, Ruby, Java, PHP, and C#.
 
 Here is a Javascript example using [quickchart-js](https://github.com/typpo/quickchart-js) (`npm install quickchart-js`):
 

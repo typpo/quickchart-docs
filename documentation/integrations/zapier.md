@@ -54,7 +54,7 @@ You'll be prompted for login, but it's not required. If you're asked for an API 
 
 Now for the most important part: we're going to set up the chart configuration. This Zapier action uses [Chart.js](https://www.chartjs.org/docs/2.9.4/), a free and open-source chart specification.
 
-In this example, we're going to create a [radar chart](/documentation/#radar-chart). However, other common use cases include bar charts, radial gauges, and polar area charts. There are a [wide variety](/gallery/) of charts that you can use. See the documentation to learn how to build a chart!
+In this example, we're going to create a [radar chart](/documentation/chart-types/#radar-chart). However, other common use cases include bar charts, radial gauges, and polar area charts. There are a [wide variety](https://quickchart.io/gallery/) of charts that you can use. See the documentation to learn how to build a chart!
 
 Once you've got your chart configuration, paste it into the action setup on Zapier and substitute the data variables:
 

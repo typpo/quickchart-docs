@@ -5,7 +5,7 @@ sidebar_position: 2
 
 import Admonition from '@theme/Admonition';
 
-If your chart is large or complicated, you may prefer to send a POST request rather than a GET request. This avoids limitations on URL length and means you don't have to worry about URL encoding. The /chart POST endpoint returns a chart. It takes the standard [request parameters](TODO) as a JSON object:
+If your chart is large or complicated, you may prefer to send a POST request rather than a GET request. This avoids limitations on URL length and means you don't have to worry about URL encoding. The /chart POST endpoint returns a chart. It takes the standard [request parameters](/documentation/using-the-api/parameters/) as a JSON object:
 
 ```json
 {
@@ -21,7 +21,7 @@ If your chart is large or complicated, you may prefer to send a POST request rat
 <Admonition type="tip">
 If you want to include Javascript code in `chart` (e.g. to format labels), you must send `chart` as a string, not as a JSON object.
 
-For examples of this, see documentation on using [JS Functions](TODO).
+For examples of this, see documentation on using [JS Functions](/documentation/using-javascript-functions/).
 </Admonition>
 
 <hr/>

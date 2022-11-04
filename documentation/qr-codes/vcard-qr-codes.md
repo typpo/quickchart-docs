@@ -36,7 +36,7 @@ URL:http://website.com
 END:VCARD
 ```
 
-If you encode the above into QR code text, you can use the [QR code API](/qr-code-api/) to get the following:
+If you encode the above into QR code text, you can use the [QR code API](https://quickchart.io/qr-code-api/) to get the following:
 
 <Image noBorder src="https://quickchart.io/qr?text=BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3ALastname%3BFirstname%0AFN%3AFirstname%20Lastname%0AORG%3ACompanyName%0ATITLE%3AJobTitle%0AADR%3A%3B%3B123%20Sesame%20St%3BSomeCity%3BCA%3B12345%3BUSA%0ATEL%3BWORK%3BVOICE%3A1234567890%0ATEL%3BCELL%3AMobile%0ATEL%3BFAX%3A%0AEMAIL%3BWORK%3BINTERNET%3Afoo%40email.com%0AURL%3Ahttp%3A%2F%2Fwebsite.com%0AEND%3AVCARD" caption="This QR code contains a vCard" />
 
@@ -44,7 +44,7 @@ This can be done by taking the base URL, `https://quickchart.io/qr?text=`, and t
 
 <CodeWithHighlights code="**https://quickchart.io/qr?text=**BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3ALastname%3BFirstname%0AFN%3AFirstname%20Lastname%0AORG%3ACompanyName%0ATITLE%3AJobTitle%0AADR%3A%3B%3B123%20Sesame%20St%3BSomeCity%3BCA%3B12345%3BUSA%0ATEL%3BWORK%3BVOICE%3A1234567890%0ATEL%3BCELL%3AMobile%0ATEL%3BFAX%3A%0AEMAIL%3BWORK%3BINTERNET%3Afoo%40email.com%0AURL%3Ahttp%3A%2F%2Fwebsite.com%0AEND%3AVCARD" />
 
-To learn more about the API, check out the [documentation](https://quickchart.io/documentation/#qr).
+To learn more about the API, check out the [documentation](/documentation/qr-codes/).
 
 For more information on customizing the vCard, the [vCard Wikipedia article](https://en.wikipedia.org/wiki/VCard#Properties) contains a useful reference table that summarizes potential vCard properties for your use.
 
@@ -80,6 +80,6 @@ Finally, use the `IMAGE` function to render the QR code:
 
 <Image src={SheetImage} alt="Spreadsheet with vCard QR codes" />
 
-That's all there is to it! To further customize your QR code, refer to the [documentation](https://quickchart.io/documentation/#qr).
+That's all there is to it! To further customize your QR code, refer to the [documentation](/documentation/qr-codes/).
 
 For questions, head to the [community forum](https://community.quickchart.io/).
