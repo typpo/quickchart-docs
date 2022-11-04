@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'QuickChart',
-  tagline: 'Dinosaurs are cool',
+  tagline: 'Generate chart images with a simple, open API',
   url: 'https://quickchart.io/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -73,7 +73,7 @@ const config = {
             label: 'Docs',
           },
           { to: 'https://quickchart.io/gallery/', label: 'Example Charts', position: 'right' },
-          { to: 'https://quickchart.io/chart-maker/', label: 'Chart Builder', position: 'right' },
+          { to: 'https://quickchart.io/chart-maker/', label: 'Chart Maker', position: 'right' },
         ],
       },
       docs: {

@@ -6,8 +6,9 @@ hide_table_of_contents: true
 
 # Introduction
 
-import CodeWithHighlights from './components/CodeWithHighlights';
-import ChartExample from './components/ChartExample';
+import Admonition from '@theme/Admonition';
+import CodeWithHighlights from '@site/documentation/components/CodeWithHighlights';
+import ChartExample from '@site/documentation/components/ChartExample';
 
 **QuickChart** is a web service that generates chart images on-the-fly. These images are suitable for embedding in email, SMS, chatbots, and other formats. Charts are rendered by Chart.js, a popular open-source charting library.
 
@@ -58,20 +59,63 @@ Make adjustments to the example above!
 2. Change the legend labels
 3. Add another dataset to get a grouped bar chart.
 
+## Using the API
+
+Parameters are supported via `GET` (query parameters) and `POST` (JSON body). They provide control over dimensions, resolution, background, and Chart.js version of your chart.
+
+| Parameter          | Type    | Description                                                                                                |
+| ------------------ | ------- | ---------------------------------------------------------------------------------------------------------- |
+| `chart`            | string  | Chart.js configuration object to render. This is the definition of the chart in Javascript or JSON format. |
+| `width`            | integer | Width of image in pixels                                                                                   |
+| `height`           | integer | Height of image in pixels                                                                                  |
+| `devicePixelRatio` | integer | Device pixel ratio of output. Set to `1` for normal resolution, `2` for retina                             |
+| `backgroundColor`  | string  | RGB, HEX, HSL, or color name. Defaults to `transparent`                                                    |
+| `version`          | string  | Chart.js version. Default to `2`. Setting to `3` enables latest stable Chart.js v3 support.                |
+| `format`           | string  | png, webp, svg, or pdf. Defaults to png                                                                    |
+| `encoding`         | string  | url or base64. Defaults to `url`                                                                           |
+
+<Admonition type="info">
+  [Learn more about API parameters here](/documentation/using-the-api/parameters/)
+</Admonition>
+
 ## Customization
 
-QuickChart is built on open-source chart libraries, so our charts are flexible and highly customizable. **[View more examples](https://quickchart.io/gallery/)** of charts or edit the chart configuration below:
+QuickChart is built on open-source chart libraries, so our charts are flexible and highly customizable. To learn more, **[view our examples gallery](https://quickchart.io/gallery/)** or see the [reference](/documentation/category/reference/) section to learn how to use Chart.js.
 
 <ChartExample
   showEditor
   config={`{
-  type: 'bar',                                // Show a bar chart
+  type: 'bar',
   data: {
-    labels: [2012, 2013, 2014, 2015, 2016],   // Set X-axis labels
-    datasets: [{
-      label: 'Users',                         // Create the 'Users' dataset
-      data: [120, 60, 50, 180, 120]           // Add data to the chart
-    }]
-  }
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    datasets: [
+      {
+        type: 'line',
+        label: 'Dataset 1',
+        borderColor: 'rgb(54, 162, 235)',
+        borderWidth: 2,
+        fill: false,
+        data: [-33, 26, 29, 89, -41, 70, -84],
+      },
+      {
+        label: 'Dataset 2',
+        backgroundColor: 'rgb(255, 99, 132)',
+        data: [-42, 73, -69, -94, -81, 18, 87],
+        borderColor: 'white',
+        borderWidth: 2,
+      },
+      {
+        label: 'Dataset 3',
+        backgroundColor: 'rgb(75, 192, 192)',
+        data: [93, 60, -15, 77, -59, 82, -44],
+      },
+    ],
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'My chart',
+    },
+  },
 }`}
 />

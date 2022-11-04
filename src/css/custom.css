@@ -44,10 +44,10 @@ pre code {
   background-color: initial;
 }
 
-article a {
+article p a {
   text-decoration: underline;
 }
-article a:hover {
+article p a:hover {
   text-decoration: none;
 }
 

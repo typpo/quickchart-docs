@@ -28,11 +28,9 @@ If you prefer not to construct the URL yourself, [client libraries](/documentati
 
 Chart.js configuration object to render. This is the definition of the chart in Javascript or JSON format.
 
-<Admonition type="info">
-  We recommend that you [URL-encode](https://www.urlencoder.io/) your chart configuration. If not
-  encoded, you will run into problems with special characters or syntax errors in your program. You
-  may also use base64 encoding (see [encoding](#encoding)).
-</Admonition>
+If you are sending a `GET` request, we recommend that you [URL-encode](https://www.urlencoder.io/) your chart configuration. If not
+encoded, you will run into problems with special characters or syntax errors in your program. You
+may also use base64 encoding (see [encoding](#encoding)).
 
 ### width
 

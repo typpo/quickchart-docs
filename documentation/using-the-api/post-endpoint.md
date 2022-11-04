@@ -19,7 +19,7 @@ If your chart is large or complicated, you may prefer to send a POST request rat
 ```
 
 <Admonition type="tip">
-If you want to include Javascript code in `chart` (e.g. to format labels), you must send `chart` as a string, not as a JSON object.
+To include Javascript code in `chart` (e.g. to format labels), you must send `chart` as a string, not as a JSON object.
 
 For examples of this, see documentation on using [JS Functions](/documentation/using-javascript-functions/).
 </Admonition>
