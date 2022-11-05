@@ -104,16 +104,12 @@ const config = {
                 to: 'https://quickchart.io/gallery/',
               },
               {
-                label: 'Chart builder',
+                label: 'Chart maker',
                 to: 'https://quickchart.io/chart-maker/',
               },
               {
-                label: 'Guides',
-                to: '/documentation/category/guides/',
-              },
-              {
-                label: 'Integrations',
-                to: '/documentation/category/integrations/',
+                label: 'QR codes',
+                to: '/documentation/qr-codes/',
               },
             ],
           },
