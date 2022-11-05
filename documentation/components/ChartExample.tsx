@@ -29,7 +29,7 @@ export default function ChartExample({
   showSquashedUrl,
   showEditor,
 }: ChartExampleProps) {
-  const { isDarkTheme } = useColorMode();
+  const { colorMode } = useColorMode();
   const [code, setCode] = React.useState<string>(config);
   const [displayCode, setDisplayCode] = React.useState<string>(config);
 
@@ -84,7 +84,7 @@ export default function ChartExample({
               value={displayCode}
               onChange={handleCodeChange}
               extensions={[javascript({ jsx: true })]}
-              theme={isDarkTheme ? 'dark' : 'light'}
+              theme={colorMode === 'dark' ? 'dark' : 'light'}
             />
           </div>
         )}

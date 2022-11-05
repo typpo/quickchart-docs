@@ -30,7 +30,7 @@ export default function CodeWithHighlights({
       if (i % 2 === 0) {
         return part;
       }
-      return <strong>{part}</strong>;
+      return <strong key={i}>{part}</strong>;
     });
   }
   if (link) {
