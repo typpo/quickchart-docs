@@ -34,7 +34,11 @@ For example, take this simple Chart.js configuration:
 
 We'll pack the Chart.js object into the `/chart` URL endpoint:
 
-<CodeWithHighlights code="**https://quickchart.io/chart?c=**{type:'bar',data:{labels:[2012,2013,2014,2015,2016],datasets:[{label:'Users',data:[120,60,50,180,120]}]}}" />
+<CodeWithHighlights
+  wrap
+  code="**https://quickchart.io/chart?c=**{type:'bar',data:{labels:[2012,2013,2014,2015, 2016],datasets:[{label:'Users',data:[120,60,50,180,120]}]}}"
+  link="https://quickchart.io/chart?c={type:%27bar%27,data:{labels:[2012,2013,2014,2015,2016],datasets:[{label:%27Users%27,data:[120,60,50,180,120]}]}}"
+/>
 
 The URL generates an image rendering of the Chart.js config. This live editor constructs a URL with the above configuration. Editing the configuration will update the image:
 

@@ -11,7 +11,7 @@ const config = {
   url: 'https://quickchart.io/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenMarkdownLinks: 'throw',
   favicon: 'img/favicon.ico',
 
   trailingSlash: true,
@@ -20,6 +20,8 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'QuickChart', // Usually your GitHub org/user name.
   projectName: 'QuickChart', // Usually your repo name.
+
+  //clientModules: [require('./src/tracking')],
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -41,9 +43,11 @@ const config = {
           editUrl: 'https://github.com/typpo/quickchart-docs',
           path: 'documentation',
           routeBasePath: 'documentation',
+          breadcrumbs: false,
         },
         blog: {
           showReadingTime: true,
+          blogSidebarCount: 0,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl: 'https://github.com/typpo/quickchart-docs',
@@ -60,6 +64,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
+        hideOnScroll: true,
         title: 'QuickChart',
         logo: {
           alt: 'QuickChart logo',
@@ -74,11 +79,14 @@ const config = {
           },
           { to: 'https://quickchart.io/gallery/', label: 'Example Charts', position: 'right' },
           { to: 'https://quickchart.io/chart-maker/', label: 'Chart Maker', position: 'right' },
+          { to: 'https://quickchart.io/pricing/', label: 'Pricing', position: 'right' },
+          { to: 'https://quickchart.io/contact/', label: 'Support', position: 'right' },
         ],
       },
       docs: {
         sidebar: {
           hideable: true,
+          autoCollapseCategories: true,
         },
       },
       footer: {

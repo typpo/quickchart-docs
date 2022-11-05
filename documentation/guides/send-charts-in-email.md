@@ -2,7 +2,7 @@
 slug: /send-charts-in-email/
 title: Send charts in email
 tags: ['email', 'python', 'javascript', 'java', 'csharp', 'php', 'ruby']
-sidebar_position: 4.5
+sidebar_position: 1
 sidebar_label: Send charts in email
 ---
 

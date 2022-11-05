@@ -1,4 +1,5 @@
 ---
+slug: /salesforce-visualforce-apex-charts/
 title: Creating Charts in Visualforce PDFs using Apex
 sidebar_label: Salesforce
 tags: ['salesforce', 'visualforce']

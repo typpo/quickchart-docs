@@ -5,6 +5,7 @@ interface CodeWithHighlightsProps {
   code: string;
   wrap?: boolean;
   centered?: boolean;
+  link?: string;
   children?: React.ReactNode;
 }
 
@@ -12,6 +13,7 @@ export default function CodeWithHighlights({
   code,
   wrap,
   centered,
+  link,
   children,
 }: CodeWithHighlightsProps) {
   // Bolds the substrings that are surrounded by asterisks
@@ -30,6 +32,13 @@ export default function CodeWithHighlights({
       }
       return <strong>{part}</strong>;
     });
+  }
+  if (link) {
+    contents = (
+      <a target="_blank" rel="noreferrer noopener" href={link}>
+        {contents}
+      </a>
+    );
   }
   return (
     <div

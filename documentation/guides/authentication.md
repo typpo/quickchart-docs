@@ -1,8 +1,11 @@
 ---
+slug: /authentication/
 title: Authenticating API Requests
 tags: ['account']
-sidebar_position: 2
+sidebar_position: 18
 ---
+
+# How to use the authenticated QuickChart API
 
 import CodeWithHighlights from '../components/CodeWithHighlights';
 

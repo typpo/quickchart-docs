@@ -1,7 +1,8 @@
 ---
+slug: /send-charts-with-slack-bot/
 title: Send charts with a Slack bot
 tags: ['slack', 'javascript']
-sidebar_position: 4
+sidebar_position: 10
 sidebar_label: Send charts on Slack
 ---
 

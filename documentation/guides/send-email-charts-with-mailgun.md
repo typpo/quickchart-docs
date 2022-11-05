@@ -2,7 +2,7 @@
 slug: /send-email-charts-with-mailgun/
 title: How to embed charts in email with Mailgun
 tags: ['mailgun', 'javascript', 'python']
-sidebar_position: 5
+sidebar_position: 3
 sidebar_label: Email charts with Mailgun
 ---
 

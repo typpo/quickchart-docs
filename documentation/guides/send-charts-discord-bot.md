@@ -1,7 +1,8 @@
 ---
+slug: /send-charts-discord-bot/
 title: Send charts with a Discord bot
 tags: ['discord', 'javascript']
-sidebar_position: 4
+sidebar_position: 11
 sidebar_label: Send charts on Discord
 ---
 

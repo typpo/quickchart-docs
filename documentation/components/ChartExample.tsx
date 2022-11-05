@@ -55,6 +55,14 @@ export default function ChartExample({
     }),
   )}`;
 
+  const imageUrl = `https://quickchart.io/chart?c=${encodeURIComponent(
+    code,
+  )}&v=${finalVersion}&w=${finalWidth}&h=${finalHeight}`;
+  const truncatedImageUrl =
+    `https://quickchart.io/chart?c=${code.replace(/\/\/.*$/gm, '').replace(/\n/g, '')}`.substring(
+      0,
+      165,
+    ) + '...';
   return (
     <div className={styles.container}>
       <div className={styles.columns}>
@@ -81,12 +89,16 @@ export default function ChartExample({
           </div>
         )}
         <div className={styles.chartContainer}>
+          <div className={styles.chartUrl}>
+            Chart URL:{' '}
+            <a target="_blank" rel="noopener noreferrer" href={imageUrl}>
+              {truncatedImageUrl}
+            </a>
+          </div>
           <a href={sandboxUrl} rel="noopener noreferrer">
             <img
               loading="lazy"
-              src={`https://quickchart.io/chart?c=${encodeURIComponent(
-                code,
-              )}&v=${finalVersion}&w=${finalWidth}&h=${finalHeight}`}
+              src={imageUrl}
               alt={alt}
               style={{
                 maxWidth: `min(${finalWidth}px, 100%)`,
@@ -98,7 +110,7 @@ export default function ChartExample({
       </div>
       <p className={styles.editCta}>
         <a target="_blank" rel="noreferrer noopener" href={sandboxUrl}>
-          {showEditor ? 'Edit chart in full editor' : 'Edit this chart'}
+          {showEditor ? 'Open chart in full editor' : 'Edit this chart'}
         </a>
       </p>
     </div>

@@ -1,7 +1,8 @@
 ---
+slug: /use-chart-js-in-email/
 title: Using Chart.js in emails
 tags: ['email']
-sidebar_position: 5
+sidebar_position: 2
 sidebar_label: Using Chart.js in emails
 ---
 

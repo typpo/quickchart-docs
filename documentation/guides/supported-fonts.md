@@ -1,4 +1,5 @@
 ---
+slug: /supported-fonts/
 title: Supported fonts
 tags: ['fonts']
 sidebar_position: 45

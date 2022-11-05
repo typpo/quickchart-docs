@@ -3,6 +3,7 @@ title: Automate chart creation with Chart Maker (no code)
 sidebar_label: Chart Maker
 tags: ['chart maker']
 sidebar_position: 4
+displayed_sidebar: null
 ---
 
 import Author from '@site/documentation/components/Author';
