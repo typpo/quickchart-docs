@@ -43,7 +43,8 @@ We'll pack the Chart.js object into the `/chart` URL endpoint:
 The URL generates an image rendering of the Chart.js config. This live editor constructs a URL with the above configuration. Editing the configuration will update the image:
 
 <ChartExample
-  showEditor
+  width={800}
+  height={400}
   config={`{
   type: 'bar',                                // Show a bar chart
   data: {

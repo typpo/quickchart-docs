@@ -89,12 +89,14 @@ export default function ChartExample({
           </div>
         )}
         <div className={styles.chartContainer}>
-          <div className={styles.chartUrl}>
-            Chart URL:{' '}
-            <a target="_blank" rel="noopener noreferrer" href={imageUrl}>
-              {truncatedImageUrl}
-            </a>
-          </div>
+          {showEditor && (
+            <div className={styles.chartUrl}>
+              Chart URL:{' '}
+              <a target="_blank" rel="noopener noreferrer" href={imageUrl}>
+                {truncatedImageUrl}
+              </a>
+            </div>
+          )}
           <a href={sandboxUrl} rel="noopener noreferrer">
             <img
               loading="lazy"

@@ -26,7 +26,8 @@
   --ifm-global-shadow-lw: 0px 0px 0px 1px #ddd;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --doc-sidebar-width: 250px !important;
-  --ifm-container-width-xl: 1140px;
+  --ifm-color-content: #404040;
+  --ifm-code-font-size: 12px;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -67,6 +68,10 @@ article table a:hover {
 }
 .markdown > h2 {
   --ifm-h2-font-size: 1.5rem;
+}
+
+.menu__link {
+  font-weight: 400;
 }
 
 .cm-editor {

@@ -33,8 +33,7 @@
 
 .chartContainer {
   flex: 1;
-  max-width: 50%;
-  align-self: start;
+  text-align: center;
 }
 
 .chartUrl {
@@ -67,6 +66,7 @@
   .codeContainer,
   .chartContainer {
     max-width: 100%;
+    align-self: center;
   }
 
   .arrowContainer:before {

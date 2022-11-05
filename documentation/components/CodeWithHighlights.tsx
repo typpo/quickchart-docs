@@ -52,7 +52,7 @@ export default function CodeWithHighlights({
         style={{
           border: 'none',
           backgroundColor: 'transparent',
-          padding: '2rem 0.5rem',
+          padding: '1rem 0.5rem',
           overflowX: 'auto',
           overflowWrap: 'anywhere',
           whiteSpace: wrap ? 'normal' : 'pre',
