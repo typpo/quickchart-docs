@@ -1,9 +1,11 @@
 ---
+slug: /google-charts-image-server/
 title: Server-side image rendering for Google Charts
 sidebar_label: Google Charts
 tags: ['google charts']
 ---
 
+import Author from '@site/documentation/components/Author';
 import Image from '@site/documentation/components/Image';
 import CodeWithHighlights from '@site/documentation/components/CodeWithHighlights';
 
@@ -186,3 +188,5 @@ fetch('https://quickchart.io/google-charts/render', requestOptions)
 ## Need help?
 
 The Google Charts render API is still being developed! [Email me](mailto:ian@quickchart.io) or post on the [Github](https://github.com/typpo/google-charts-node) if you have questions.
+
+<Author />

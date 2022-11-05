@@ -6,6 +6,7 @@ tags: ['tables', 'html']
 
 # Using the QuickChart Table Image API
 
+import Author from '@site/documentation/components/Author';
 import CodeWithHighlights from '@site/documentation/components/CodeWithHighlights';
 import Image from '@site/documentation/components/Image';
 
@@ -207,3 +208,5 @@ curl -X POST -H 'content-type: application/json' -d @table.json -o table.png htt
 This API makes it straightforward to include basic tables as static images. You can use the `options` to customize the look & feel of your table. Check out the [table-renderer](https://github.com/idw111/table-renderer/) open-source project for further details on building tables.
 
 Stuck? Have questions? Feature request? Please [reach out](https://community.quickchart.io/)!
+
+<Author />

@@ -2,10 +2,13 @@
 slug: /send-charts-in-email/
 title: Send charts in email
 tags: ['email', 'python', 'javascript', 'java', 'csharp', 'php', 'ruby']
+sidebar_position: 4.5
+sidebar_label: Send charts in Email
 ---
 
 # How to create and send charts in email
 
+import Author from '@site/documentation/components/Author';
 import CodeWithHighlights from '../components/CodeWithHighlights';
 import Image from '../components/Image';
 import ArchitectureImage from './images/architecture.png';
@@ -501,3 +504,5 @@ For more advanced usage and many other chart types and customization, [view the 
 ## Need help?
 
 If you have questions or need help with your chart rendering, please [reach out in our community](https://community.quickchart.io/) or via [email](mailto:support@quickchart.io).
+
+<Author />

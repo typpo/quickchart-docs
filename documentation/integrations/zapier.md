@@ -5,6 +5,7 @@ tags: ['integrations', 'zapier']
 ---
 
 import Admonition from '@theme/Admonition';
+import Author from '@site/documentation/components/Author';
 import CodeWithHighlights from '../components/CodeWithHighlights';
 import Image from '../components/Image';
 import TypeformSigninImage from './images/zapier/zapier_typeform_signin.png';
@@ -115,3 +116,5 @@ In this article, we learned how to create a chart from data in Zapier. Although 
 Because the chart is simply a URL, _any_ action that accepts a URL can work with this approach.
 
 Please feel free to reach out with any new ideas or questions! Also, if you need help, check out our [community](https://community.quickchart.io/) where we discuss QuickChart integrations, chart configurations, and more.
+
+<Author />

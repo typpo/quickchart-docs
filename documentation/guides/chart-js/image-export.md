@@ -2,6 +2,7 @@
 slug: /chart-js/image-export/
 title: How to download and export Chart.js images
 label: ['chart.js']
+sidebar_label: Exporting images
 ---
 
 import Image from '../../components/Image';

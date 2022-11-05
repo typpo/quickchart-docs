@@ -1,4 +1,5 @@
 ---
+slug: /graphviz-api/
 title: Using the QuickChart GraphViz API
 sidebar_label: GraphViz
 tags: ['graphviz']
@@ -6,6 +7,7 @@ tags: ['graphviz']
 
 <head><title>GraphViz API</title></head>
 
+import Author from '@site/documentation/components/Author';
 import Image from '../components/Image';
 import CodeWithHighlights from '../components/CodeWithHighlights';
 
@@ -326,3 +328,5 @@ curl -X POST 'https://quickchart.io/graphviz' -H 'Content-Type: application/json
 ```
 
 Give it a try now and [reach out](https://community.quickchart.io/) if you have any questions!
+
+<Author />

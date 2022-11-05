@@ -1,10 +1,13 @@
 ---
 title: Using Chart.js in emails
 tags: ['email']
+sidebar_position: 5
+sidebar_label: Using Chart.js in emails
 ---
 
 # How to send Chart.js in emails
 
+import Author from '@site/documentation/components/Author';
 import Image from '../components/Image';
 import CodeWithHighlights from '../components/CodeWithHighlights';
 import ChartInEmailImage from './images/email/chart_in_email.png';
@@ -158,3 +161,5 @@ And you'll get a chart image:
 For more advanced usage and many other chart types and customization, [view the documentation](/documentation/).
 
 Need more help? Ask questions in our [community](https://community.quickchart.io/).
+
+<Author />

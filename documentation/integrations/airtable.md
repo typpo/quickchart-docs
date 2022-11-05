@@ -5,6 +5,7 @@ tags: ['integrations', 'airtable']
 ---
 
 import Admonition from '@theme/Admonition';
+import Author from '@site/documentation/components/Author';
 import CodeWithHighlights from '../components/CodeWithHighlights';
 import Image from '../components/Image';
 import ChartInEmailImage from '../guides/images/email/chart_in_email.png';
@@ -139,3 +140,5 @@ Because QuickChart is based on Chart.js, we also highly recommend using the [Cha
 Feel free to [reach out](https://community.quickchart.io/) with any questions!
 
 QuickChart is open source for individuals and organizations that wish to self-host. Or, you can [sign up](https://quickchart.io/pricing/) for QuickChart in order to generate charts on our infrastructure.
+
+<Author />

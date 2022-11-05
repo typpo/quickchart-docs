@@ -2,6 +2,7 @@
 slug: /chart-js/custom-tick-format/
 title: How to format tick marks in Chart.js
 tags: ['chart.js']
+sidebar_label: Formatting tick marks
 ---
 
 import Image from '../../components/Image';

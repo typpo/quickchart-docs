@@ -7,6 +7,7 @@ tags: ['sparkline']
 
 # Using the QuickChart Sparkline API
 
+import Author from '@site/documentation/components/Author';
 import Image from '@site/documentation/components/Image';
 import CodeWithHighlights from '@site/documentation/components/CodeWithHighlights';
 import SparklineImage from '@site/documentation/images/sparkline_example.png';
@@ -209,3 +210,5 @@ QuickChart does not require a client library, but if you don't want to build the
 Chart.js can be tricky when you're getting the hang of it. Use the [Sandbox Editor](https://quickchart.io/sandbox/) to test your charts. If you're interested in charts other than sparklines, check out our [gallery](https://quickchart.io/gallery/) and [main documentation](/documentation/).
 
 Feeling stuck? Feel free to reach out - my contact information is below.
+
+<Author />

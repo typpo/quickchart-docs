@@ -1,6 +1,7 @@
 ---
-title: Authenticated API Requests
+title: Authenticating API Requests
 tags: ['account']
+sidebar_position: 2
 ---
 
 import CodeWithHighlights from '../components/CodeWithHighlights';

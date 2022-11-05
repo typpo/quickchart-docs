@@ -1,9 +1,11 @@
 ---
+slug: /apex-charts-image-rendering/
 title: Apex Charts server-side image rendering
 sidebar_label: Apex Charts
 tags: ['apex charts']
 ---
 
+import Author from '@site/documentation/components/Author';
 import Image from '@site/documentation/components/Image';
 
 This post describes our API for rendering Apex Charts as images. Use this method to render Apex Charts as images on the server-side.
@@ -97,3 +99,5 @@ with open('chart.png', 'wb') as f:
 ## Need help?
 
 Apex Charts is one of several chart formats that we support. Feel free to [reach out](https://community.quickchart.io/) about rendering charts.
+
+<Author />

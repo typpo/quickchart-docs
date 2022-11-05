@@ -1,6 +1,7 @@
 ---
 title: Supported fonts
 tags: ['fonts']
+sidebar_position: 45
 ---
 
 Here's a list of fonts that are supported by QuickChart:

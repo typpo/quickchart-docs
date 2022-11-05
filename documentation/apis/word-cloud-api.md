@@ -1,4 +1,5 @@
 ---
+slug: /word-cloud-api/
 title: Word Cloud API
 sidebar_label: Word Clouds
 tags: ['word cloud']
@@ -6,6 +7,7 @@ tags: ['word cloud']
 
 # Using the QuickChart Word Cloud API
 
+import Author from '@site/documentation/components/Author';
 import Admonition from '@theme/Admonition';
 import Image from '@site/documentation/components/Image';
 import CodeWithHighlights from '@site/documentation/components/CodeWithHighlights';
@@ -162,3 +164,5 @@ You may also specify font weights, such as `Roboto:300`.
 ## Conclusion
 
 QuickChart's word cloud API is one of the most flexible web services out there that can allow you to create word clouds programmatically without any dependencies. What will you build? Feel free to reach out to [reach out](mailto:ian@quickchart.io) with questions, feature requests, or to share interesting word clouds!
+
+<Author />

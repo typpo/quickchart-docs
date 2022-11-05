@@ -1,6 +1,8 @@
 ---
+slug: /chart-js/polar-chart-labels/
 title: Add labels to a polar area chart
 tags: ['chart.js']
+sidebar_label: Polar chart labels
 ---
 
 import Image from '../../components/Image';

@@ -7,6 +7,7 @@ tags: ['watermark']
 
 # Using the QuickChart Watermark API
 
+import Author from '@site/documentation/components/Author';
 import Image from '@site/documentation/components/Image';
 import CodeWithHighlights from '@site/documentation/components/CodeWithHighlights';
 
@@ -87,3 +88,5 @@ This produces a composite image:
 This API makes it easy to superimpose an image atop another in order to add a logo to an image or create a watermark. It works with any images and offers flexible options to customize your mark's appearance and position.
 
 Stuck? Have questions? Feature request? Please [reach out](https://community.quickchart.io/)!
+
+<Author />

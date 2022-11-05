@@ -1,10 +1,13 @@
 ---
 title: Send charts with a Slack bot
 tags: ['slack', 'javascript']
+sidebar_position: 4
+sidebar_label: Send charts on Slack
 ---
 
 # How to send dynamic charts with a Slack bot
 
+import Author from '@site/documentation/components/Author';
 import Image from '../components/Image';
 
 Slack bots are limited by the Slack API to specific formats: text, images, and special controls. Critically, they cannot send Javascript or other dynamic formats. **In order to send a chart or graph to your Slack channel, you must first render it as an image.**
@@ -173,3 +176,5 @@ That's it! Our message is sent and the graph appears in Slack.
 <Image noBorder src="https://i.imgur.com/ab9fOuA.png" />
 
 Need more help? Ask questions in our [community](https://community.quickchart.io/).
+
+<Author />

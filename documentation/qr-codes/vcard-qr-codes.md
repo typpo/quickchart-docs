@@ -1,8 +1,10 @@
 ---
+slug: /vcard-qr-codes/
 title: How to create QR codes for vCards
 tags: ['qr codes']
 ---
 
+import Author from '@site/documentation/components/Author';
 import Image from '@site/documentation/components/Image';
 import CodeWithHighlights from '@site/documentation/components/CodeWithHighlights';
 import ScanImage from '@site/documentation/images/qr-codes/vcard-scan.png';
@@ -83,3 +85,5 @@ Finally, use the `IMAGE` function to render the QR code:
 That's all there is to it! To further customize your QR code, refer to the [documentation](/documentation/qr-codes/).
 
 For questions, head to the [community forum](https://community.quickchart.io/).
+
+<Author />

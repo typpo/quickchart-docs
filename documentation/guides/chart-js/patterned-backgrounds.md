@@ -1,6 +1,8 @@
 ---
+slug: /chart-js/patterned-backgrounds/
 title: Add a patterned background (Chart.js)
 tags: ['chart.js', 'backgrounds and coloring']
+sidebar_label: Patterned backgrounds
 ---
 
 import Image from '../../components/Image';

@@ -1,6 +1,8 @@
 ---
 title: How to handle certificate error message/expired certificate
 tags: ['troubleshooting']
+sidebar_position: 30
+sidebar_label: Certificate errors
 ---
 
 If you are receiving a certificate error message while using or accessing QuickChart, or notice of an expired certificate, this likely means that you have an outdated root certificate. To fix, you must update your local CA bundle.

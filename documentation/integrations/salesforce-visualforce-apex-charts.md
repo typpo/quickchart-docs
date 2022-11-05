@@ -4,6 +4,7 @@ sidebar_label: Salesforce
 tags: ['salesforce', 'visualforce']
 ---
 
+import Author from '@site/documentation/components/Author';
 import Image from '@site/documentation/components/Image';
 
 This post describes how to use Apex components to display chart images in SalesForce. These chart images can be embedded in SalesForce or exported to other formats such as PDF.
@@ -60,3 +61,5 @@ The chart itself is very customizable - you can render any [Chart.js configurati
 ## Embedding elsewhere
 
 The QuickChart API returns PNG images by default. The `<apex:image>` tag will allow you to embed the image in your VisualForce page. You can then render the Visualforce page as a PDF file ([see example](https://developer.salesforce.com/docs/atlas.en-us.pages.meta/pages/pages_output_pdf_renderas.htm)).
+
+<Author />

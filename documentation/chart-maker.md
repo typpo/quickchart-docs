@@ -5,6 +5,7 @@ tags: ['chart maker']
 sidebar_position: 4
 ---
 
+import Author from '@site/documentation/components/Author';
 import CodeWithHighlights from '@site/documentation/components/CodeWithHighlights';
 import Image from '@site/documentation/components/Image';
 import LabelsAndDataImage from '@site/documentation/images/chart-maker/labels_and_data.jpeg';
@@ -116,3 +117,5 @@ If you are willing to dive into the JSON/Javascript configuration, get even more
 ## Need help?
 
 The first step is to [ask in our community](https://community.quickchart.io/), which we monitor every day. Feel free to contact me or [contact support](mailto:support@quickchart.io) if you get stuck or have questions. We'll get back to you quickly!
+
+<Author />

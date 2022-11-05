@@ -1,0 +1,29 @@
+.hr {
+  border: 1px solid #eee;
+}
+
+.authorFlexContainer {
+  display: flex;
+  align-items: center;
+}
+
+.authorImgContainer {
+  flex: 1;
+  text-align: center;
+  padding: 1rem;
+}
+
+.authorImgContainer img {
+  border-radius: 50%;
+  max-width: 150px;
+}
+
+.authorBio {
+  flex: 3;
+}
+
+@media (max-width: 660px) {
+  .authorFlexContainer {
+    display: block;
+  }
+}

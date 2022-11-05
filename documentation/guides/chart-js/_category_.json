@@ -1,12 +1,12 @@
 {
-  "position": 4,
-  "label": "Chart.js customizations",
+  "position": 50,
+  "label": "Chart.js tutorials",
   "collapsible": true,
   "collapsed": true,
   "className": "red",
   "link": {
     "type": "generated-index",
-    "title": "Chart.js customizations"
+    "title": "Chart.js tutorials"
   },
   "customProps": {
     "description": "This description can be used in the swizzled DocCard"

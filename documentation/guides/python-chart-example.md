@@ -2,6 +2,8 @@
 slug: /python-chart-example/
 title: Python chart example (QuickChart)
 tags: ['python']
+sidebar_position: 25
+sidebar_label: Python QuickChart examples
 ---
 
 # How to create a chart image with Python

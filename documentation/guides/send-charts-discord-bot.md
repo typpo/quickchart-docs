@@ -1,10 +1,13 @@
 ---
 title: Send charts with a Discord bot
 tags: ['discord', 'javascript']
+sidebar_position: 4
+sidebar_label: Send charts on Discord
 ---
 
 # How to send charts and graphs with a Discord bot
 
+import Author from '@site/documentation/components/Author';
 import Image from '../components/Image';
 import ChartEmbedImage from './images/discord/discord_chart_embed.png';
 import ChartExampleImage from './images/discord/discord_chart_example.png';
@@ -173,3 +176,5 @@ If you have a question about QuickChart and its rendering or library support, ch
 You can also [ask in our community](https://community.quickchart.io/), which we monitor every day.
 
 If you're still stuck, feel free to email [QuickChart support](mailto:support@quickchart.io) or contact me directly on Discord at `ian#6538`.
+
+<Author />
