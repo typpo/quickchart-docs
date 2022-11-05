@@ -13,8 +13,6 @@ import ChartExample from '@site/documentation/components/ChartExample';
 
 **QuickChart** is a web service that generates chart images on-the-fly. These images are suitable for embedding in email, SMS, chatbots, and other formats. Charts are rendered by Chart.js, a popular open-source charting library.
 
-Do you have questions? Don't hesitate to ask in our [community](https://community.quickchart.io) or [send us a message](mailto:support@quickchart.io).
-
 ## Getting started
 
 QuickChart works by taking [Chart.js configurations](https://www.chartjs.org/docs/2.9.4/getting-started/) and rendering them on the backend as an image. You may send your chart configuration in JSON or Javascript format using a simple URL or through POST request.
@@ -34,11 +32,11 @@ For example, take this simple Chart.js configuration:
 }
 ```
 
-We'll pack this Chart.js object into the `/chart` URL endpoint:
+We'll pack the Chart.js object into the `/chart` URL endpoint:
 
 <CodeWithHighlights code="**https://quickchart.io/chart?c=**{type:'bar',data:{labels:[2012,2013,2014,2015,2016],datasets:[{label:'Users',data:[120,60,50,180,120]}]}}" />
 
-The URL generates an image rendering of the Chart.js config. Use this live editor to change the image:
+The URL generates an image rendering of the Chart.js config. This live editor constructs a URL with the above configuration. Editing the configuration will update the image:
 
 <ChartExample
   showEditor
@@ -62,7 +60,7 @@ Make adjustments to the example above!
 
 ## Using the API
 
-Parameters are supported via `GET` (query parameters) and `POST` (JSON body). They provide control over dimensions, resolution, background, and Chart.js version of your chart.
+The `https://quickchart.io/chart` endpoint supports both `GET` and `POST` methods. These parameters provide control over dimensions, resolution, background, and Chart.js version of your chart:
 
 | Parameter          | Type    | Description                                                                                                |
 | ------------------ | ------- | ---------------------------------------------------------------------------------------------------------- |
@@ -76,12 +74,13 @@ Parameters are supported via `GET` (query parameters) and `POST` (JSON body). Th
 | `encoding`         | string  | url or base64. Defaults to `url`                                                                           |
 
 <Admonition type="info">
-  [Learn more about API parameters here](/documentation/usage/parameters/)
+  [Learn more about API parameters](/documentation/usage/parameters/) and the [POST
+  endpoint](/documentation/usage/post-endpoint/).
 </Admonition>
 
 ## Customization
 
-Because QuickChart is built on the open-source Chart.js library, our charts are flexible and highly customizable. To learn more, **[view our examples gallery](https://quickchart.io/gallery/)** or see the [reference](/documentation/category/reference/) section to learn how to use Chart.js.
+Because QuickChart is built on the open-source Chart.js library, charts are flexible and highly customizable. To learn more, **[view our examples gallery](https://quickchart.io/gallery/)** or see the [reference](/documentation/category/reference/) section to learn how to use Chart.js.
 
 <ChartExample
   showEditor
@@ -120,3 +119,7 @@ Because QuickChart is built on the open-source Chart.js library, our charts are 
   },
 }`}
 />
+
+## Need help?
+
+If you have questions, please don't hesitate to ask in our [community](https://community.quickchart.io) or [send us a message](mailto:support@quickchart.io).
