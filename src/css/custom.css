@@ -57,6 +57,10 @@ article table a:hover {
   text-decoration: none;
 }
 
+.navbar__title {
+  margin-top: 18px;
+}
+
 .markdown h1:first-child {
   margin-top: 1rem;
 }
