@@ -11,7 +11,7 @@ import CodeWithHighlights from '@site/documentation/components/CodeWithHighlight
 
 QuickChart supports QR code generation. Generate a QR code like this:
 
-<CodeWithHighlights code="**https://quickchart.io/qr?text=**Here's my text" />
+<CodeWithHighlights wrap code="**https://quickchart.io/qr?text=**Here's my text" />
 
 <img loading="lazy" src="https://quickchart.io/qr?text=Here's my text" />
 
@@ -49,9 +49,15 @@ The QR endpoint produces a PNG image by default. You may optionally set the quer
 
 Here's the same code as above but URL encoded with slimmer margins, more error protection, colors, and in SVG format:
 
-<CodeWithHighlights code="https://quickchart.io/qr?**text**=Here's%20my%20text&**dark**=f00&**light**=0ff&**ecLevel**=Q&**format=**svg" />
+<CodeWithHighlights
+  wrap
+  code="https://quickchart.io/qr?**text**=Here's%20my%20text&**dark**=f00&**light**=0ff&**ecLevel**=Q&**format=**svg"
+/>
 
-<img src="https://quickchart.io/qr?text=Here's%20my%20text&dark=f00&light=0ff&ecLevel=Q&format=svg" />
+<img
+  loading="lazy"
+  src="https://quickchart.io/qr?text=Here's%20my%20text&dark=f00&light=0ff&ecLevel=Q&format=svg"
+/>
 
 Use our [interactive QR code generator](https://quickchart.io/qr-code-api/) to preview API behavior and test things out. You may also be interested in how to [generate QR codes in a spreadsheet](/documentation/generate-qr-codes-excel-google-sheets/).
 
