@@ -108,6 +108,10 @@ const config = {
                 to: 'https://quickchart.io/chart-maker/',
               },
               {
+                label: 'Integrations',
+                to: '/documentation/category/integrations/',
+              },
+              {
                 label: 'QR codes',
                 to: '/documentation/qr-codes/',
               },
