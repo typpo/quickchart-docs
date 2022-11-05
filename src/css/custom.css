@@ -27,7 +27,6 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --doc-sidebar-width: 250px !important;
   --ifm-color-content: #404040;
-  --ifm-code-font-size: 12px;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -81,4 +80,8 @@ article table a:hover {
 .cm-theme-light,
 .cm-theme-dark {
   height: 100%;
+}
+
+.prism-code {
+  font-size: 14px;
 }
