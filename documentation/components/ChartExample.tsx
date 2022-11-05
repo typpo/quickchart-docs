@@ -112,7 +112,7 @@ export default function ChartExample({
       </div>
       <p className={styles.editCta}>
         <a target="_blank" rel="noreferrer noopener" href={sandboxUrl}>
-          {showEditor ? 'Open chart in full editor' : 'Edit this chart'}
+          {showEditor ? 'Open in full editor' : 'Edit this example'}
         </a>
       </p>
     </div>
