@@ -1,6 +1,6 @@
 ---
 slug: /authentication/
-title: Authenticating API Requests
+title: Authenticating API requests
 tags: ['account']
 sidebar_position: 18
 ---
