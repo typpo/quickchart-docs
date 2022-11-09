@@ -110,6 +110,11 @@ mixpanel.init('652c6ab04d3d810b2c40261c54e3106e');
           { to: 'https://quickchart.io/contact/', label: 'Support', position: 'right' },
         ],
       },
+      algolia: {
+        appId: 'D8BRSEFH6M',
+        apiKey: '84ef93de3bae3e85fdc336f02bda3a04',
+        indexName: 'quickchart',
+      },
       docs: {
         sidebar: {
           hideable: true,
