@@ -18,6 +18,26 @@ const sidebars = {
 
   guideSidebar: [{}],
 
+  googleImageChartsSidebar: [
+    {
+      type: 'doc',
+      id: 'integrations/google-image-charts/migrating-from-google-image-charts',
+    },
+    {
+      type: 'doc',
+      id: 'integrations/google-image-charts/parameters',
+    },
+    {
+      type: 'doc',
+      id: 'integrations/google-image-charts/examples',
+    },
+    {
+      type: 'link',
+      label: 'Full docs',
+      href: '/documentation',
+    },
+  ],
+
   // But you can create a sidebar manually
   /*
   tutorialSidebar: [

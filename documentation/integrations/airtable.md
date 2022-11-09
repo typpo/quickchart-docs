@@ -1,6 +1,7 @@
 ---
 title: Create charts from Airtable data
 sidebar_label: Airtable
+sidebar_position: 10
 tags: ['integrations', 'airtable']
 ---
 
