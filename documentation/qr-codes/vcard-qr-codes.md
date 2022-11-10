@@ -1,6 +1,7 @@
 ---
 slug: /vcard-qr-codes/
 title: How to create QR codes for vCards
+sidebar_label: Generating vCards
 tags: ['qr codes']
 ---
 

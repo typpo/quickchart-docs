@@ -1,6 +1,7 @@
 ---
 slug: /generate-qr-codes-excel-google-sheets/
 title: How to generate QR codes with Excel or Google Sheets
+sidebar_label: Excel & Google Sheets
 tags: ['excel', 'google sheets', 'qr codes']
 ---
 
