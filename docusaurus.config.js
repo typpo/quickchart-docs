@@ -72,6 +72,7 @@ mixpanel.init('652c6ab04d3d810b2c40261c54e3106e');
           routeBasePath: 'documentation',
           breadcrumbs: false,
         },
+        /*
         blog: {
           showReadingTime: true,
           blogSidebarCount: 0,
@@ -79,6 +80,7 @@ mixpanel.init('652c6ab04d3d810b2c40261c54e3106e');
           // Remove this to remove the "edit this page" links.
           editUrl: 'https://github.com/typpo/quickchart-docs',
         },
+        */
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -106,7 +108,6 @@ mixpanel.init('652c6ab04d3d810b2c40261c54e3106e');
           },
           { to: 'https://quickchart.io/gallery/', label: 'Example Charts', position: 'right' },
           { to: 'https://quickchart.io/chart-maker/', label: 'Chart Maker', position: 'right' },
-          { to: 'https://quickchart.io/pricing/', label: 'Pricing', position: 'right' },
           { to: 'https://quickchart.io/contact/', label: 'Support', position: 'right' },
         ],
       },
@@ -200,6 +201,10 @@ mixpanel.init('652c6ab04d3d810b2c40261c54e3106e');
               {
                 label: 'Open source',
                 href: 'https://github.com/typpo/quickchart',
+              },
+              {
+                label: 'Managed solutions',
+                href: 'https://quickchart.io/pricing/',
               },
             ],
           },
