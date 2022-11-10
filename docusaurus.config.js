@@ -9,7 +9,7 @@ const config = {
   title: 'QuickChart',
   tagline: 'Generate chart images with a simple, open API',
   url: 'https://quickchart.io/',
-  baseUrl: '/',
+  baseUrl: '/documentation/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
   favicon: 'img/favicon.ico',
@@ -69,9 +69,10 @@ mixpanel.init('652c6ab04d3d810b2c40261c54e3106e');
           // Remove this to remove the "edit this page" links.
           editUrl: 'https://github.com/typpo/quickchart-docs',
           path: 'documentation',
-          routeBasePath: 'documentation',
+          routeBasePath: '/',
           breadcrumbs: false,
         },
+        blog: false,
         /*
         blog: {
           showReadingTime: true,
