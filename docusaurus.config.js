@@ -12,6 +12,7 @@ const config = {
   baseUrl: '/documentation/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
+  onDuplicateRoutes: 'throw',
   favicon: 'img/favicon.ico',
 
   trailingSlash: true,
@@ -65,13 +66,13 @@ mixpanel.init('652c6ab04d3d810b2c40261c54e3106e');
         },
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl: 'https://github.com/typpo/quickchart-docs',
           path: 'documentation',
           routeBasePath: '/',
           breadcrumbs: false,
         },
+        pages: false,
         blog: false,
         /*
         blog: {
@@ -93,12 +94,17 @@ mixpanel.init('652c6ab04d3d810b2c40261c54e3106e');
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        respectPrefersColorScheme: true,
+      },
       navbar: {
         hideOnScroll: true,
         title: 'QuickChart',
         logo: {
           alt: 'QuickChart logo',
           src: 'https://quickchart.io/images/bar_chart_logo.svg',
+          width: 26,
+          height: 26,
         },
         items: [
           {

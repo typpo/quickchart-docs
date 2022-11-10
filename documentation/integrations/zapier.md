@@ -26,7 +26,7 @@ In this example, we'll use the [QuickChart Zapier integration](https://zapier.co
 
 Zapier has built-in email capabilities that we'll use to embed the chart and send the email whenever new data comes in.
 
-<div style={{padding:'75% 0 0 0', position:'relative'}}><iframe src="https://player.vimeo.com/video/711075637?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style={{position:'absolute',top:0,left:0,width:'100%',height:'100%'}} title="Zapier + Typeform + Quickchart guide"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<div style={{padding:'75% 0 0 0', position:'relative'}}><iframe src="https://player.vimeo.com/video/711075637?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen style={{position:'absolute',top:0,left:0,width:'100%',height:'100%'}} title="Zapier + Typeform + Quickchart guide"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
 ## Configure the trigger
 

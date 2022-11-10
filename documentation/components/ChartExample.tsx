@@ -13,6 +13,7 @@ interface ChartExampleProps {
   version?: string;
   showSquashedUrl?: boolean;
   showEditor?: boolean;
+  noLazyLoad?: boolean;
 }
 
 let debounceTimer: ReturnType<typeof setTimeout>;
@@ -28,6 +29,7 @@ export default function ChartExample({
   version,
   showSquashedUrl,
   showEditor,
+  noLazyLoad,
 }: ChartExampleProps) {
   const { colorMode } = useColorMode();
   const [code, setCode] = React.useState<string>(config);
@@ -99,9 +101,11 @@ export default function ChartExample({
           )}
           <a href={sandboxUrl} rel="noopener noreferrer">
             <img
-              loading="lazy"
+              loading={noLazyLoad ? 'eager' : 'lazy'}
               src={imageUrl}
-              alt={alt}
+              alt={alt || `Example chart ${displayCode.slice(0, 20)}...`}
+              width={finalWidth}
+              height={finalHeight}
               style={{
                 maxWidth: `min(${finalWidth}px, 100%)`,
                 maxHeight: `min(${finalHeight}px, 100%)`,

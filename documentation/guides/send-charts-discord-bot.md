@@ -18,7 +18,7 @@ Discord bot messages are limited by the Discord API to specific formats: text (m
 
 As a result, **you must render a chart or graph as an image in order to send it on Discord.**
 
-<Image maxWidth={500} src={ChartExampleImage} caption="A chart sent by a Discord bot."/>
+<Image noLazyLoad maxWidth={500} src={ChartExampleImage} caption="A chart sent by a Discord bot."/>
 
 In this tutorial we'll use the free and open-source [QuickChart API](https://quickchart.io) to generate chart images. To send these charts to Discord, you must:
 
@@ -81,7 +81,7 @@ const chartUrl = `https://quickchart.io/chart?c=${encodedChart}`;
 
 The result is a URL that encodes the `chart` object. If you were to set this URL as the `src` on an image tag, or simply send it in a message on Discord, you'd see the following:
 
-<Image maxWidth={500} src="https://quickchart.io/chart?bkg=white&c=%7B%0A%20%20type%3A%20%27bar%27%2C%0A%20%20data%3A%20%7B%0A%20%20%20%20labels%3A%20%5B%27Week%201%27%2C%20%27Week%202%27%2C%20%27Week%203%27%2C%20%27Week%204%27%5D%2C%0A%20%20%20%20datasets%3A%20%5B%7B%0A%20%20%20%20%20%20label%3A%20%27Retweets%27%2C%0A%20%20%20%20%20%20data%3A%20%5B12%2C%205%2C%2040%2C%205%5D%0A%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20label%3A%20%27Likes%27%2C%0A%20%20%20%20%20%20data%3A%20%5B80%2C%2042%2C%20215%2C%2030%5D%0A%20%20%20%20%7D%5D%0A%20%20%7D%0A%7D" />
+<Image alt="Chart on Discord" maxWidth={500} src="https://quickchart.io/chart?bkg=white&c=%7B%0A%20%20type%3A%20%27bar%27%2C%0A%20%20data%3A%20%7B%0A%20%20%20%20labels%3A%20%5B%27Week%201%27%2C%20%27Week%202%27%2C%20%27Week%203%27%2C%20%27Week%204%27%5D%2C%0A%20%20%20%20datasets%3A%20%5B%7B%0A%20%20%20%20%20%20label%3A%20%27Retweets%27%2C%0A%20%20%20%20%20%20data%3A%20%5B12%2C%205%2C%2040%2C%205%5D%0A%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20label%3A%20%27Likes%27%2C%0A%20%20%20%20%20%20data%3A%20%5B80%2C%2042%2C%20215%2C%2030%5D%0A%20%20%20%20%7D%5D%0A%20%20%7D%0A%7D" />
 
 To learn more about static chart rendering:
 
@@ -149,7 +149,7 @@ client.on('message', async (msg) => {
 client.login(BOT_TOKEN);
 ```
 
-<Image src={ChartShortUrlImage} maxWidth={500} />
+<Image alt="Chart short URL" src={ChartShortUrlImage} maxWidth={500} />
 
 Approach #2 uses embeds, which will display your chart more neatly instead of relying on URL expansion.
 
@@ -164,7 +164,7 @@ const chartEmbed = {
 msg.channel.send({ embed: chartEmbed });
 ```
 
-<Image src={ChartEmbedImage} maxWidth={500} />
+<Image alt="Embedded chart"  src={ChartEmbedImage} maxWidth={500} />
 
 Either approach is valid, it's just a matter of preference. URLs can be used in places where embeds are not allowed, such as in slash command/interaction responses.
 

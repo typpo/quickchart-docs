@@ -16,6 +16,8 @@ Changing chart types can be very simple. By changing `type: bar` to `type: line`
 See [Bar Chart documentation](https://www.chartjs.org/docs/2.9.4/charts/bar.html)
 
 <ChartExample
+  noLazyLoad
+  alt="Example bar chart"
   config={`{
   type: 'bar',
   data: {
@@ -35,6 +37,7 @@ See [Bar Chart documentation](https://www.chartjs.org/docs/2.9.4/charts/bar.html
 See [Line chart documentation](https://www.chartjs.org/docs/2.9.4/charts/line.html)
 
 <ChartExample
+  alt="Example line chart"
   showSquashedUrl
   config={`{
   type: 'line',
@@ -63,6 +66,7 @@ See [Line chart documentation](https://www.chartjs.org/docs/2.9.4/charts/line.ht
 See [Chart.js radar chart documentation](https://www.chartjs.org/docs/2.9.4/charts/radar.html)
 
 <ChartExample
+  alt="Example radar chart"
   showSquashedUrl
   config={`{
   type: 'radar',
@@ -100,6 +104,7 @@ See [Doughnut Chart documentation](https://www.chartjs.org/docs/2.9.4/charts/dou
 Learn how to [customize doughnut chart labels](/documentation/chart-js/custom-pie-doughnut-chart-labels/).
 
 <ChartExample
+  alt="Example doughnut chart"
   showSquashedUrl
   config={`{
   type: 'doughnut',
@@ -122,6 +127,7 @@ Learn how to [customize doughnut chart labels](/documentation/chart-js/custom-pi
 Polar charts are like pie and doughnut charts, except each segment has the same angle and the radius of the segments varies based on the value. See [Polar Area Chart documentation](https://www.chartjs.org/docs/2.9.4/charts/polar.html).
 
 <ChartExample
+  alt="Example polar chart"
   showSquashedUrl
   config={`{
   type: 'polarArea',
@@ -137,6 +143,7 @@ Polar charts are like pie and doughnut charts, except each segment has the same 
 See [Scatter chart documentation](https://www.chartjs.org/docs/2.9.4/charts/scatter.html)
 
 <ChartExample
+  alt="Example scatter plot"
   showSquashedUrl
   config={`{
   type: 'scatter',
@@ -162,6 +169,7 @@ See [Scatter chart documentation](https://www.chartjs.org/docs/2.9.4/charts/scat
 Bubble is similar to Scatter, except the `r` variable defines bubble radius in pixels. [Bubble Chart documentation](https://www.chartjs.org/docs/2.9.4/charts/bubble.html)
 
 <ChartExample
+  alt="Example bubble chart"
   showSquashedUrl
   config={`{
   type: 'bubble',
@@ -187,6 +195,7 @@ Bubble is similar to Scatter, except the `r` variable defines bubble radius in p
 View the options at [chartjs-radial-gauge](https://github.com/pandameister/chartjs-chart-radial-gauge#options) for customization details.
 
 <ChartExample
+  alt="Example radial gauge chart"
   showSquashedUrl
   config={`{
   type: 'radialGauge',
@@ -199,6 +208,7 @@ View the options at [chartjs-radial-gauge](https://github.com/pandameister/chart
 You can use `violin`, `boxplot`, `horizontalBoxPlot`, and `horizontalViolin` chart types. View the options at [chartjs-chart-box-and-violin-plot](https://github.com/datavisyn/chartjs-chart-box-and-violin-plot) for customization details.
 
 <ChartExample
+  alt="Example violin chart"
   showSquashedUrl
   config={`{
   type: 'violin',
@@ -230,6 +240,7 @@ For best results, add a scatter plot to your box or violin chart.
 A sparkline is a special case of line graph with axes and other labeling removed. All [line graph options](https://www.chartjs.org/docs/2.9.4/charts/line.html) can be applied. Read more about the [sparkline API](/documentation/sparkline-api/).
 
 <ChartExample
+  alt="Example sparkline"
   showSquashedUrl
   height={100}
   width={300}
@@ -246,6 +257,7 @@ A progress bar is a special case of a horizontal bar chart with axes and other l
 The first dataset specifies the number shown. By default, this number is a percentage and the total value is 100. If your data is not out of 100, add a second dataset to override the total.
 
 <ChartExample
+  alt="Example progress bar"
   showSquashedUrl
   width={300}
   height={50}
@@ -266,6 +278,7 @@ The first dataset specifies the number shown. By default, this number is a perce
 Combine charts together by specifying multiple `type`s:
 
 <ChartExample
+  alt="Example mixed chart (line and bar)"
   showSquashedUrl
   config={`{
   type: 'bar',

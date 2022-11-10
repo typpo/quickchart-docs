@@ -16,7 +16,7 @@ QuickChart can render chart images based on the latest data from your spreadshee
 
 The charts are rendered as images, meaning they are embeddable in websites, emails, reports, and anyplace else. Latest data is pulled in automatically - you don't need to change your chart configuration in order to update chart data.
 
-<Image noBorder maxWidth={800} caption="QuickChart pulls data from a spreadsheet and renders a chart image that is embeddable anywhere." src={ChartInEmailImage} />
+<Image noLazyLoad noBorder maxWidth={800} caption="QuickChart pulls data from a spreadsheet and renders a chart image that is embeddable anywhere." src={ChartInEmailImage} />
 
 ## Step 1: Build the sheet
 
@@ -45,7 +45,7 @@ Begin by **creating a Google Sheet** and copy the data into it. You can also upl
 
 Next, **configure the sharing setting** so that outsiders can access to it. To do this, click the green "Share" button in the top right, then click "Change to anyone with the link". After setting this correctly, it will say "Anyone on the internet with this link can view".
 
-<Image maxWidth={800} src={ShareImage} />
+<Image alt="Google sharing settings" maxWidth={800} src={ShareImage} />
 
 ## Step 2: Build the chart
 

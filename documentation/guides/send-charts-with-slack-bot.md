@@ -13,7 +13,7 @@ import Image from '../components/Image';
 
 Slack bots are limited by the Slack API to specific formats: text, images, and special controls. Critically, they cannot send Javascript or other dynamic formats. **In order to send a chart or graph to your Slack channel, you must first render it as an image.**
 
-<Image noBorder src="https://i.imgur.com/ab9fOuA.png" />
+<Image alt="A chart on Slack" noLazyLoad noBorder src="https://i.imgur.com/ab9fOuA.png" />
 
 In this tutorial we'll use the free and open-source [QuickChart API](https://quickchart.io) to generate chart images. To send these charts to Slack, you must:
 
@@ -78,7 +78,7 @@ This gives a URL that encodes the `chart` object. Let's render that URL in an im
 
 We get the image below:
 
-<Image noBorder maxWidth={500} src="https://quickchart.io/chart?bkg=white&c=%7B%0A%20%20type%3A%20%27bar%27%2C%0A%20%20data%3A%20%7B%0A%20%20%20%20labels%3A%20%5B%27Week%201%27%2C%20%27Week%202%27%2C%20%27Week%203%27%2C%20%27Week%204%27%5D%2C%0A%20%20%20%20datasets%3A%20%5B%7B%0A%20%20%20%20%20%20label%3A%20%27Retweets%27%2C%0A%20%20%20%20%20%20data%3A%20%5B12%2C%205%2C%2040%2C%205%5D%0A%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20label%3A%20%27Likes%27%2C%0A%20%20%20%20%20%20data%3A%20%5B80%2C%2042%2C%20215%2C%2030%5D%0A%20%20%20%20%7D%5D%0A%20%20%7D%0A%7D" />
+<Image alt="Rendered chart image, ready to go on Slack" noBorder maxWidth={500} src="https://quickchart.io/chart?bkg=white&c=%7B%0A%20%20type%3A%20%27bar%27%2C%0A%20%20data%3A%20%7B%0A%20%20%20%20labels%3A%20%5B%27Week%201%27%2C%20%27Week%202%27%2C%20%27Week%203%27%2C%20%27Week%204%27%5D%2C%0A%20%20%20%20datasets%3A%20%5B%7B%0A%20%20%20%20%20%20label%3A%20%27Retweets%27%2C%0A%20%20%20%20%20%20data%3A%20%5B12%2C%205%2C%2040%2C%205%5D%0A%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20label%3A%20%27Likes%27%2C%0A%20%20%20%20%20%20data%3A%20%5B80%2C%2042%2C%20215%2C%2030%5D%0A%20%20%20%20%7D%5D%0A%20%20%7D%0A%7D" />
 
 To learn more about static chart rendering:
 
@@ -115,7 +115,7 @@ We'll go with the third choice because it is the most practical. We construct a 
 
 You can try this directly in Slack's [Block Kit Builder](https://api.slack.com/tools/block-kit-builder?mode=message&blocks=%5B%7B%22type%22%3A%22image%22%2C%22title%22%3A%7B%22type%22%3A%22plain_text%22%2C%22text%22%3A%22Latest%20data%22%7D%2C%22block_id%22%3A%22quickchart-image%22%2C%22image_url%22%3A%22https%3A%2F%2Fquickchart.io%2Fchart%3Fbkg%3Dwhite%26c%3D%257B%250A%2520%2520type%253A%2520%2527bar%2527%252C%250A%2520%2520data%253A%2520%257B%250A%2520%2520%2520%2520labels%253A%2520%255B%2527Week%25201%2527%252C%2520%2527Week%25202%2527%252C%2520%2527Week%25203%2527%252C%2520%2527Week%25204%2527%255D%252C%250A%2520%2520%2520%2520datasets%253A%2520%255B%257B%250A%2520%2520%2520%2520%2520%2520label%253A%2520%2527Retweets%2527%252C%250A%2520%2520%2520%2520%2520%2520data%253A%2520%255B12%252C%25205%252C%252040%252C%25205%255D%250A%2520%2520%2520%2520%257D%252C%2520%257B%250A%2520%2520%2520%2520%2520%2520label%253A%2520%2527Likes%2527%252C%250A%2520%2520%2520%2520%2520%2520data%253A%2520%255B80%252C%252042%252C%2520215%252C%252030%255D%250A%2520%2520%2520%2520%257D%255D%250A%2520%2520%257D%250A%257D%22%2C%22alt_text%22%3A%22Chart%20showing%20latest%20data%22%7D%5D). Have a look at the Slack documentation and play around with the different settings:
 
-<Image noBorder src="https://i.imgur.com/NK6s8Lnl.png" />
+<Image alt="Slack block kit builder" noBorder src="https://i.imgur.com/NK6s8Lnl.png" />
 
 In order to send the image blocks from your bot, use Slack's [chat.postMessage](https://api.slack.com/methods/chat.postMessage) API endpoint.
 
@@ -174,7 +174,7 @@ sendMessage({
 
 That's it! Our message is sent and the graph appears in Slack.
 
-<Image noBorder src="https://i.imgur.com/ab9fOuA.png" />
+<Image alt="Graph from a Slack bot" noBorder src="https://i.imgur.com/ab9fOuA.png" />
 
 Need more help? Ask questions in our [community](https://community.quickchart.io/).
 

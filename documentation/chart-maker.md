@@ -20,7 +20,7 @@ In this guide, you will learn how to:
 1. Save the chart as a URL (API endpoint) that you can use in emails, Excel, Salesforce, and any other formats.
 1. Set the chart's data by providing special parameters in the URL.
 
-<div style={{padding:'75% 0 0 0',position:'relative'}}><iframe src="https://player.vimeo.com/video/578724989?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style={{position:'absolute',top:0,left:0,width:'100%',height:'100%'}} title="QuickChart - Chart Maker + spreadsheet demo"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<div style={{padding:'75% 0 0 0',position:'relative'}}><iframe src="https://player.vimeo.com/video/578724989?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen style={{position:'absolute',top:0,left:0,width:'100%',height:'100%'}} title="QuickChart - Chart Maker + spreadsheet demo"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
 ## Create a chart template
 
@@ -96,19 +96,19 @@ We have the following chart endpoint:
 
 It looks like this:
 
-<Image maxWidth={500} src="https://quickchart.io/chart/render/9a560ba4-ab71-4d1e-89ea-ce4741e9d232" />
+<Image alt="An example chart" maxWidth={500} src="https://quickchart.io/chart/render/9a560ba4-ab71-4d1e-89ea-ce4741e9d232" />
 
 Let's override this chart's title:
 
 <CodeWithHighlights wrap code="https://quickchart.io/chart/render/9a560ba4-ab71-4d1e-89ea-ce4741e9d232**?title=Updated chart**" />
 
-<Image maxWidth={500} src="https://quickchart.io/chart/render/9a560ba4-ab71-4d1e-89ea-ce4741e9d232?title=Updated%20chart" />
+<Image alt="An example chart with updated title" maxWidth={500} src="https://quickchart.io/chart/render/9a560ba4-ab71-4d1e-89ea-ce4741e9d232?title=Updated%20chart" />
 
 And now let's add some more data and labels to the chart. This will override the data but keep the same style of chart that I created in the chart maker:
 
 <CodeWithHighlights wrap code="https://quickchart.io/chart/render/9a560ba4-ab71-4d1e-89ea-ce4741e9d232?title=Updated chart**&data1=50,60,80&labels=Jan,Feb,Mar**" />
 
-<Image maxWidth={500} src="https://quickchart.io/chart/render/9a560ba4-ab71-4d1e-89ea-ce4741e9d232?title=Updated%20chart&data1=50,60,80&labels=Jan,Feb,Mar" />
+<Image alt="An example chart with updated data and labels" maxWidth={500} src="https://quickchart.io/chart/render/9a560ba4-ab71-4d1e-89ea-ce4741e9d232?title=Updated%20chart&data1=50,60,80&labels=Jan,Feb,Mar" />
 
 ## Advanced API features
 

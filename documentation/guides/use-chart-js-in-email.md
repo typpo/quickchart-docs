@@ -25,7 +25,7 @@ Because Chart.js is a Javascript library, the image requirement means you'll hav
 
 You may also be interested in other ways to render [Chart.js images](/documentation/chart-js/image-export/).
 
-<Image noBorder maxWidth={800} caption="You too can render Chart.js in emails." src={ChartInEmailImage} />
+<Image noLazyLoad noBorder maxWidth={800} caption="You too can render Chart.js in emails." src={ChartInEmailImage} />
 
 ## Option 1: Use a library to export your Chart.js image
 
@@ -155,7 +155,7 @@ Now, place this URL in an image tag within an HTML email body:
 
 And you'll get a chart image:
 
-<Image maxWidth={600} src="https://quickchart.io/chart?c={type:'bar',data:{labels:[2012,2013,2014,2015,2016],datasets:[{label:'Users',data:[120,60,50,180,120]}]}}" />
+<Image alt="A basic chart" maxWidth={600} src="https://quickchart.io/chart?c={type:'bar',data:{labels:[2012,2013,2014,2015,2016],datasets:[{label:'Users',data:[120,60,50,180,120]}]}}" />
 
 **You can safely embed this chart directly in your email.** It doesn't require any Javascript, and anyone with an email client that can show images will be able to see your chart.
 

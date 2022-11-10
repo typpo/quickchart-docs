@@ -43,6 +43,8 @@ We'll pack the Chart.js object into the `/chart` URL endpoint:
 The URL generates an image rendering of the Chart.js config. This live editor constructs a URL with the above configuration. Editing the configuration will update the image:
 
 <ChartExample
+  alt="A basic chart configuration rendered by QuickChart"
+  noLazyLoad
   width={800}
   height={400}
   config={`{
@@ -88,6 +90,7 @@ The `https://quickchart.io/chart` endpoint supports both `GET` and `POST` method
 Because QuickChart is built on the open-source Chart.js library, charts are flexible and highly customizable. To learn more, **[view our examples gallery](https://quickchart.io/gallery/)** or see the [reference](/documentation/category/reference/) section to learn how to use Chart.js.
 
 <ChartExample
+  alt="A more complex chart example with 3 data series and multiple series types"
   showEditor
   config={`{
   type: 'bar',

@@ -20,13 +20,13 @@ This tutorial explains how to use the open-source [QuickChart](https://quickchar
 
 Normally, rendering dynamic charts at scale is resource-intensive, requiring a server render farm, headless browsers, and other configuration.
 
-<Image noBorder src={ArchitectureImage} maxWidth={400} caption="Production infrastructure for chart rendering" />
+<Image noBorder noLazyLoad src={ArchitectureImage} maxWidth={400} caption="Production infrastructure for chart rendering" />
 
 We will remove this complexity by using a service that renders graphs for us. A specially constructed URL sent to the QuickChart API will return a chart image. Because it's just a matter of building a URL, it's easy to do in your existing programming environment.
 
 By changing the URL, you can make the chart dynamic. The API is built on <a href="https://chartjs.org">Chart.js</a>, the most popular frontend charts library, which means it's very easy to customize your chart.
 
-<Image noBorder src={ChartInEmailImage} maxWidth={400} caption="A simple chart in an email" />
+<Image noBorder noLazyLoad src={ChartInEmailImage} maxWidth={400} caption="A simple chart in an email" />
 
 ## Render the chart image
 
@@ -65,7 +65,7 @@ This URL will render the chart when your browser loads it. To include it in an e
 
 This displays the chart image, like so:
 
-<Image maxWidth={600} src="https://quickchart.io/chart?c={type:'bar',data:{labels:[2012,2013,2014,2015,2016],datasets:[{label:'Users',data:[120,60,50,180,120]}]}}" />
+<Image alt="A basic chart" maxWidth={600} src="https://quickchart.io/chart?c={type:'bar',data:{labels:[2012,2013,2014,2015,2016],datasets:[{label:'Users',data:[120,60,50,180,120]}]}}" />
 
 You can safely embed this chart directly in your email. It doesn't require any Javascript, and any email client like Gmail or Outlook will display your chart.
 

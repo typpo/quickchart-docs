@@ -17,7 +17,7 @@ Email is a ubiquitous format, but it comes with limitations. **In order to embed
 
 Rendering dynamic charts can be an arduous process that requires a server render farm, headless browsers, and other configuration. The [QuickChart](https://quickchart.io/) service allows you to do this rendering easily in your existing programming environment.
 
-<Image noBorder src={ChartInEmailImage} maxWidth={800} caption="This post outlines how to send charts that show up in emails, pictured above." />
+<Image noLazyLoad noBorder src={ChartInEmailImage} maxWidth={800} caption="This post outlines how to send charts that show up in emails, pictured above." />
 
 ## Building the chart
 
@@ -65,7 +65,7 @@ When you render the above URL in an image tag, you'll see the image below:
 <img src="https://quickchart.io/chart?c=..." />
 ```
 
-<Image noBorder maxWidth={500} src="https://quickchart.io/chart?bkg=white&c=%7B%0A%20%20type%3A%20%27bar%27%2C%0A%20%20data%3A%20%7B%0A%20%20%20%20labels%3A%20%5B%27Week%201%27%2C%20%27Week%202%27%2C%20%27Week%203%27%2C%20%27Week%204%27%5D%2C%0A%20%20%20%20datasets%3A%20%5B%7B%0A%20%20%20%20%20%20label%3A%20%27Retweets%27%2C%0A%20%20%20%20%20%20data%3A%20%5B12%2C%205%2C%2040%2C%205%5D%0A%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20label%3A%20%27Likes%27%2C%0A%20%20%20%20%20%20data%3A%20%5B80%2C%2042%2C%20215%2C%2030%5D%0A%20%20%20%20%7D%5D%0A%20%20%7D%0A%7D" />
+<Image alt="Chart with retweets and likes" noBorder maxWidth={500} src="https://quickchart.io/chart?bkg=white&c=%7B%0A%20%20type%3A%20%27bar%27%2C%0A%20%20data%3A%20%7B%0A%20%20%20%20labels%3A%20%5B%27Week%201%27%2C%20%27Week%202%27%2C%20%27Week%203%27%2C%20%27Week%204%27%5D%2C%0A%20%20%20%20datasets%3A%20%5B%7B%0A%20%20%20%20%20%20label%3A%20%27Retweets%27%2C%0A%20%20%20%20%20%20data%3A%20%5B12%2C%205%2C%2040%2C%205%5D%0A%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20label%3A%20%27Likes%27%2C%0A%20%20%20%20%20%20data%3A%20%5B80%2C%2042%2C%20215%2C%2030%5D%0A%20%20%20%20%7D%5D%0A%20%20%7D%0A%7D" />
 
 This image can be directly embedded in an email using a standard `<img>` tag.
 

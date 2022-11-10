@@ -9,9 +9,18 @@ interface ImageProps {
   maxWidth?: number;
   noBorder?: boolean;
   dropShadow?: boolean;
+  noLazyLoad?: boolean;
 }
 
-export default function Image({ src, alt, caption, maxWidth, noBorder, dropShadow }: ImageProps) {
+export default function Image({
+  src,
+  alt,
+  caption,
+  maxWidth,
+  noBorder,
+  noLazyLoad,
+  dropShadow,
+}: ImageProps) {
   return (
     <div
       className={`${styles.container} ${noBorder ? styles.noBorder : ''} ${
@@ -19,7 +28,12 @@ export default function Image({ src, alt, caption, maxWidth, noBorder, dropShado
       }`}
     >
       <a href={src} target="_blank" rel="noopener noreferrer">
-        <img loading="lazy" src={src} alt={alt} style={{ maxWidth: `min(100%, ${maxWidth}px)` }} />
+        <img
+          loading={noLazyLoad ? 'eager' : 'lazy'}
+          src={src}
+          alt={alt || caption}
+          width={maxWidth}
+        />
       </a>
       <div className={styles.caption}>{caption}</div>
     </div>

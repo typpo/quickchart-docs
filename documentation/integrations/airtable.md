@@ -17,7 +17,7 @@ QuickChart is an open-source project for rendering charts. Generated chart image
 
 This guide shows how to **create a chart that uses Airtable as a data source**. Once you've connected a chart with Airtable, the chart will _update automatically_ as data changes in the table or view.
 
-<Image noBorder maxWidth={800} caption="QuickChart pulls data from Airtable and renders a chart image that is embeddable anywhere." src={ChartInEmailImage} />
+<Image noLazyLoad noBorder maxWidth={800} caption="QuickChart pulls data from Airtable and renders a chart image that is embeddable anywhere." src={ChartInEmailImage} />
 
 ## Step 1: Put data in Airtable
 
