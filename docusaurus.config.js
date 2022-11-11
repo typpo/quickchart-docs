@@ -120,7 +120,7 @@ mixpanel.init('652c6ab04d3d810b2c40261c54e3106e');
       },
       algolia: {
         appId: 'D8BRSEFH6M',
-        apiKey: '84ef93de3bae3e85fdc336f02bda3a04',
+        apiKey: 'd9f7582141cb30742468fbbaefd5c73e',
         indexName: 'quickchart',
       },
       docs: {
