@@ -1,6 +1,6 @@
 import React from 'react';
-import CodeMirror from '@uiw/react-codemirror';
-import { javascript } from '@codemirror/lang-javascript';
+import Editor from 'react-simple-code-editor';
+import { highlight, languages } from 'prismjs/components/prism-core';
 import { useColorMode } from '@docusaurus/theme-common';
 
 import styles from './ChartExample.module.css';
@@ -81,12 +81,15 @@ export default function ChartExample({
         )}
         {showEditor && (
           <div className={styles.editorContainer}>
-            <CodeMirror
-              height="100%"
+            <Editor
               value={displayCode}
-              onChange={handleCodeChange}
-              extensions={[javascript({ jsx: true })]}
-              theme={colorMode === 'dark' ? 'dark' : 'light'}
+              onValueChange={handleCodeChange}
+              highlight={(text) => text}
+              padding={10}
+              style={{
+                fontFamily: '"Fira code", "Fira Mono", monospace',
+                fontSize: 12,
+              }}
             />
           </div>
         )}
