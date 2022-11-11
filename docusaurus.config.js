@@ -122,6 +122,7 @@ mixpanel.init('652c6ab04d3d810b2c40261c54e3106e');
         appId: 'D8BRSEFH6M',
         apiKey: 'd9f7582141cb30742468fbbaefd5c73e',
         indexName: 'quickchart',
+        contextualSearch: false,
       },
       docs: {
         sidebar: {
