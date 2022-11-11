@@ -104,8 +104,6 @@ export default function ChartExample({
               loading={noLazyLoad ? 'eager' : 'lazy'}
               src={imageUrl}
               alt={alt || `Example chart ${displayCode.slice(0, 20)}...`}
-              width={finalWidth}
-              height={finalHeight}
               style={{
                 maxWidth: `min(${finalWidth}px, 100%)`,
                 maxHeight: `min(${finalHeight}px, 100%)`,
