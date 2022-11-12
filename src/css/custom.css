@@ -89,3 +89,25 @@ article table a:hover {
 .prism-code {
   font-size: 14px;
 }
+
+summary {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+summary::marker {
+  color: green;
+}
+
+details {
+  transition: transform var(--ifm-transition-fast) ease;
+  border: 1px solid var(--ifm-color-primary);
+  background-color: 1px solid var(--ifm-color-primary);
+  padding: 1rem;
+  border-radius: 0.8rem;
+  margin: 0 0 var(--ifm-spacing-vertical);
+}
+
+details div {
+  padding: 1rem;
+}

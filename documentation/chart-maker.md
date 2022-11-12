@@ -5,6 +5,7 @@ tags: ['chart maker']
 sidebar_position: 4
 ---
 
+import Admonition from '@theme/Admonition';
 import Author from '@site/documentation/components/Author';
 import CodeWithHighlights from '@site/documentation/components/CodeWithHighlights';
 import Image from '@site/documentation/components/Image';
@@ -53,6 +54,70 @@ Close the data menu to customize your chart's axes, ticks, legend, and its overa
 <Image maxWidth={500} caption="Customize the chart by expanding different sections" src={MenusImage} />
 
 Looking for inspiration? Head over to the [chart gallery](https://quickchart.io/gallery/) - most examples are editable in the chart maker.
+
+### Dynamic datasources
+
+The Chart Maker includes built-in support for pulling data from external datasources. If you choose to configure one of these datasources, the chart will _update automatically_ when the datasource is updated.
+
+<details>
+  <summary>How to configure Google Sheets</summary>
+  <div>
+1. Create a Google Sheet and copy your data into it. [Here's an example sheet](https://docs.google.com/spreadsheets/d/121DpBzwABbNB7JO3--dXGTI3CE2LL1WwPHXKCYDdsKM/edit#gid=0).
+
+2. Configure the sharing setting so that outsiders can have access to it. This will allow the Chart Maker to access your data. To do this, click the green "Share" button and change the setting to "Anyone with the link":
+
+import ShareImage from '@site/documentation/integrations/images/google-sheets/share_google_sheet.gif';
+
+<Image noBorder caption="How to configure Google Sheets sharing settings (click for larger)"  alt="Google sharing settings" maxWidth={400} src={ShareImage} />
+
+3. In the Chart Maker, open **Integrations > Google Sheets plugin** settings. Paste your sheet URL and enter the names of the columns.
+
+import GoogleSheetsConfigImage from '@site/documentation/images/chart-maker/google_sheets_config.png';
+
+<Image noBorder alt="Google Sheets configuration" maxWidth={400} src={GoogleSheetsConfigImage}/>
+
+4. If you've filled everything out correctly, your data will appear!
+
+import GoogleSheetsCompletedImage from '@site/documentation/images/chart-maker/google_sheets_completed.png';
+
+<Image noBorder alt="Google Sheets chart and configuration" src={GoogleSheetsCompletedImage}/>
+</div>
+</details>
+
+<details>
+  <summary>How to configure Airtable</summary>
+  <div>
+**1. Create a base** and put your data in it.  Create a table or view with 1 column containing labels and 1+ data columns.  [Here's an example table](https://airtable.com/shrQC2rWNaA8PsKIW).
+
+import AirtableImage from '@site/documentation/integrations/images/airtable/airtable_example.png';
+
+<Image maxWidth={800} alt="Example Airtable setup with multiple columns" src={AirtableImage} />
+
+**2. Generate an API key.** Go to [https://airtable.com/account](https://airtable.com/account) and grab your Airtable API key (or generate a new one).
+
+import ApiKeyImage from '@site/documentation/integrations/images/airtable/airtable_api_key.png';
+
+<Image maxWidth={800} alt="Create an Airtable API key" src={ApiKeyImage} />
+
+<Admonition type="info" title="Quick note on security">
+**Your Airtable API key is protected and not revealed to anyone who views or edits your chart.**
+
+When you provide your Airtable API key, we generate a "masked" secret that allows access only to the specific table you provided to the Chart Maker. This lets chart viewers pull data from your table without revealing your account API key. The chart does, in theory, have access to the table, so you should make sure there is no other sensitive information in the table.
+</Admonition>
+
+3. **Configure the Chart Maker**. Switching back to the Chart Maker, open the **Integrations > Airtable plugin** settings. Paste your API key and the URL to your Airtable base.
+
+import AirtableConfigImage from '@site/documentation/images/chart-maker/airtable_config.png';
+
+<Image noBorder alt="Airtable configuration" maxWidth={400} src={AirtableConfigImage}/>
+
+4. If you've filled everything out correctly, your data will appear!
+
+import AirtableCompletedImage from '@site/documentation/images/chart-maker/airtable_completed.png';
+
+<Image noBorder alt="Airtable chart and configuration" src={AirtableCompletedImage}/>
+</div>
+</details>
 
 ## Save the template
 
