@@ -236,4 +236,53 @@ Here's a quick example that includes a center doughnut labels and custom data la
 }`}
 />
 
+Note that this plugin is available for Chart.js v2 only.
+
+## Using the outlabeledPie plugin
+
+The [Chart.js piechart outlabels plugin](https://github.com/Neckster/chartjs-plugin-piechart-outlabels) draws labels in their own boxes, with lines that connect to the corresponding pie slice. To learn more about how to customize the styling and formatting of these labels, read the [documentation](https://piechart-outlabels.netlify.app/formatting).
+
+Outlabels can help improve label readability, and provide labeling for slices that are too small to draw text on directly. Here's an example of the `outlabledPie` chart type:
+
+<ChartExample
+  showEditor
+  config={`{
+  type: 'outlabeledPie',
+  data: {
+    labels: ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE'],
+    datasets: [
+      {
+        backgroundColor: [
+          '#FF3784',
+          '#36A2EB',
+          '#4BC0C0',
+          '#F77825',
+          '#9966FF',
+        ],
+        data: [1, 2, 3, 4, 5],
+      },
+    ],
+  },
+  options: {
+    plugins: {
+      legend: false,
+      outlabels: {
+        text: '%l %p',
+        color: 'white',
+        stretch: 35,
+        font: {
+          resizable: true,
+          minSize: 12,
+          maxSize: 18,
+        },
+      },
+    },
+  },
+}`}
+/>
+
+Note that this plugin is available for Chart.js v2 only.
+
+## Conclusion
+
 That's all for now. Try out your own Chart.js configs in the [interactive sandbox](https://quickchart.io/sandbox/) and [ask us](https://community.quickchart.io/) if you have any questions!
