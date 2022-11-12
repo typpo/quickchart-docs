@@ -112,7 +112,7 @@ And now let's add some more data and labels to the chart. This will override the
 
 ## Advanced API features
 
-If you are willing to dive into the JSON/Javascript configuration, get even more control over the apperance and behavior of your chart. See [main API documentation](/documentation/) for details.
+If you are willing to dive into the JSON/Javascript configuration, get even more control over the appearance and behavior of your chart. See [main API documentation](/documentation/) for details.
 
 ## Need help?
 
