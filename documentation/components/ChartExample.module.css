@@ -73,4 +73,8 @@
     content: '↓';
     font-size: 2em;
   }
+
+  .chartUrl {
+    margin: 2rem 0;
+  }
 }
