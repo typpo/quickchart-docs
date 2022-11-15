@@ -10,7 +10,9 @@ There are several types of chart axes: Linear, Logarithmic, Time, Categorical, a
 
 Axes are configured in the `options.scales` object. Learn more about chart axes, including attributes to customize those axes, here. Because a wide variety of customizations are possible, we've prepared a number of examples. Head over to the gallery to see some examples of [custom axes and scales](https://quickchart.io/gallery/#linear-scale).
 
-## Setting the range (minimum and maximum values)
+## Setting the range
+
+### Minimum and maximum values
 
 To set the range of chart values, use `axis.ticks.min` and `axis.ticks.max`. Use `axis.ticks.stepSize` to control the increment of each tick mark. For more information, see [Chart.js ticks](https://www.chartjs.org/docs/2.9.4/axes/radial/linear.html#tick-options).
 
@@ -24,9 +26,33 @@ This example sets the start value to 0 and the end value to 100, with tick marks
       yAxes: [
         {
           ticks: {
+            // highlight-start
             min: 0,
             max: 100,
             stepSize: 20,
+            // highlight-end
+          },
+        },
+      ];
+    }
+  }
+}
+```
+
+### Starting ticks at 0
+
+By default, Chart.js will fit the axis range to a reasonable minimum and maximum. In some cases, you may prefer that the minimum is always 0. To do this, set `beginAtZero` on the ticks object:
+
+```js
+{
+  // ...
+  options: {
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            // highlight-next-line
+            beginAtZero: true,
           },
         },
       ];
