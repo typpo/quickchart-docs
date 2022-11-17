@@ -9,6 +9,7 @@ interface ChartExampleProps {
   config: string;
   width?: number;
   height?: number;
+  backgroundColor?: string;
   alt?: string;
   version?: string;
   showSquashedUrl?: boolean;
@@ -25,6 +26,7 @@ export default function ChartExample({
   config,
   width,
   height,
+  backgroundColor,
   alt,
   version,
   showSquashedUrl,
@@ -59,7 +61,7 @@ export default function ChartExample({
 
   const imageUrl = `https://quickchart.io/chart?c=${encodeURIComponent(
     code,
-  )}&v=${finalVersion}&w=${finalWidth}&h=${finalHeight}`;
+  )}&v=${finalVersion}&w=${finalWidth}&h=${finalHeight}&bkg=${backgroundColor || 'white'}`;
   const truncatedImageUrl =
     `https://quickchart.io/chart?c=${code.replace(/\/\/.*$/gm, '').replace(/\n/g, '')}`.substring(
       0,
