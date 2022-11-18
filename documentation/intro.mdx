@@ -15,7 +15,7 @@ import ChartExample from '@site/documentation/components/ChartExample';
 
 ## Getting started
 
-QuickChart works by taking [Chart.js configurations](https://www.chartjs.org/docs/2.9.4/getting-started/) and rendering them on the backend as an image. You may send your chart configuration in JSON or Javascript format using a simple URL or through POST request.
+QuickChart works by taking [Chart.js configurations](https://www.chartjs.org/docs/2.9.4/getting-started/) and rendering them as images. You may send your chart configuration in JSON or Javascript format using a simple URL or through POST request.
 
 For example, take this simple Chart.js configuration:
 
@@ -40,7 +40,7 @@ We'll pack the Chart.js object into the `/chart` URL endpoint:
   link="https://quickchart.io/chart?c={type:%27bar%27,data:{labels:[2012,2013,2014,2015,2016],datasets:[{label:%27Users%27,data:[120,60,50,180,120]}]}}"
 />
 
-The URL generates an image rendering of the Chart.js config. This live editor constructs a URL with the above configuration. Editing the configuration will update the image:
+The URL generates this chart image, a rendering of the Chart.js config above:
 
 <ChartExample
   alt="A basic chart configuration rendered by QuickChart"
@@ -64,6 +64,9 @@ Make adjustments to the example above!
 1. Try editing the chart and replacing `bar` with `line` or `pie` to get different types of charts
 2. Change the legend labels
 3. Add another dataset to get a grouped bar chart.
+
+Because QuickChart is built on open-source chart libraries, our charts are flexible and highly customizable. Keep on reading to learn more or [view more chart examples](https://quickchart.io/gallery/).
+
 
 ## Using the API
 
