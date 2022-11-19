@@ -23,7 +23,7 @@ The value returned by `callback` will be displayed on the chart.
 
 ### Example: Add a currency prefix
 
-Here's a simple example. In Chart.js v3, we set the `options.scales.y.ticks.callback` property to add a dollar sign before every value:
+Here's a simple example. In Chart.js v3+, we set the `options.scales.y.ticks.callback` property to add a dollar sign before every value:
 
 ```javascript
 {
@@ -93,7 +93,7 @@ If the value returned by `callback` is null or undefined, the tick will be hidde
 
 ```javascript
 {
-  // in Chart.js v3
+  // in Chart.js v3+
   // ...
   options: {
     scales: {
@@ -133,7 +133,7 @@ Here's what the chart looks like. You'll notice it has fewer tick marks on the y
 
 As noted above, use the `ticks.callback` function to perform custom logic that returns a formatted string. You can perform any logic you like in this function.
 
-For example, let's say we have a chart where we want to abbreviate numbers, for example 100,000 -> 100K and 1,800,000 -> 1.8M. Here's an example where we use an algorithm to determine how the value is displayed on the axis using Chart.js v3:
+For example, let's say we have a chart where we want to abbreviate numbers, for example 100,000 -> 100K and 1,800,000 -> 1.8M. Here's an example where we use an algorithm to determine how the value is displayed on the axis using Chart.js v3+:
 
 ```javascript
 {

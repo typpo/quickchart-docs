@@ -11,7 +11,7 @@ Chart.js is one of the most popular Javascript libraries. There are a handful of
 
 ## Use toBase64Image() in the browser
 
-If you're using Chart.js in a browser and you want to provide a download to the user, use the built-in `toBase64Image` function. See the [Chart.js v2](https://www.chartjs.org/docs/2.9.4/developers/api.html#tobase64image) or [Chart.js v3](https://www.chartjs.org/docs/latest/developers/api.html#tobase64image-type-quality) docs.
+If you're using Chart.js in a browser and you want to provide a download to the user, use the built-in `toBase64Image` function. See the [Chart.js v2](https://www.chartjs.org/docs/2.9.4/developers/api.html#tobase64image) or [Chart.js v3+](https://www.chartjs.org/docs/latest/developers/api.html#tobase64image-type-quality) docs.
 
 Here's an example ([also available in jsFiddle](https://jsfiddle.net/typpo/gu1j2ycq/9/)):
 

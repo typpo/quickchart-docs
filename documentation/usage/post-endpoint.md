@@ -39,4 +39,4 @@ Here is the type specification of the POST data object:
 }
 ```
 
-[ChartConfiguration](https://www.chartjs.org/docs/latest/configuration/) is a Chart.js v2 or v3 configuration object in JSON format.
+[ChartConfiguration](https://www.chartjs.org/docs/latest/configuration/) is a Chart.js v2+ configuration object in JSON format.

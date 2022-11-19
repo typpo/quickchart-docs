@@ -73,11 +73,11 @@ Background of the chart canvas. Accepts rgb format (rgb(255,255,120)), colors (r
 ### version
 
 - Type: string
-- Accepted values: `2`, `3`, or any valid Chart.js version string
+- Accepted values: `2`, `3`, `4`, or any valid Chart.js version string
 - Default: `2.9.4`
 - Parameter name: `version` or `v`
 
-Chart.js version. Setting version to `3` enables latest stable [Chart.js v3](https://www.chartjs.org/docs/latest/configuration/) support. Defaults to latest version of [Chart.js v2](https://www.chartjs.org/docs/2.9.4/charts/line.html).
+Chart.js version. Setting version to `4` enables latest stable [Chart.js v4](https://www.chartjs.org/docs/latest/configuration/) support. Defaults to latest version of [Chart.js v2](https://www.chartjs.org/docs/2.9.4/charts/line.html).
 
 ### format
 
