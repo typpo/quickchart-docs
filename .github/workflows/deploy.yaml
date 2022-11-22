@@ -1,14 +1,28 @@
-name: Trigger redeploy on Netlify
+name: Send submodule updates to parent repo
+
 on:
   push:
-    branches: [ "main", "master" ]
+    branches:
+      - master
+
 jobs:
-  build:
-    name: Make POST request
+  update:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Curl request
-        shell: bash
-        env:
-          HOOK_URL: ${{ secrets.NETLIFY_BUILD_HOOK_URL }}
-        run: curl -X POST -d {} $HOOK_URL
+      - uses: actions/checkout@v2
+        with:
+          repository: typpo/quickchart-site
+          token: ${{ secrets.PRIVATE_TOKEN_GITHUB }}
+
+      - name: Pull & update submodules recursively
+        run: |
+          git submodule update --init --recursive
+          git submodule update --recursive --remote
+      - name: Commit
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions - update submodules"
+          git add --all
+          git commit -m "Update submodules" || echo "No changes to commit"
+          git push
