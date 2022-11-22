@@ -99,6 +99,60 @@ But the label will be automatically positioned and colored inside the progress b
 
 <Image src="https://quickchart.io/chart?h=100&c=%7B%0A%20%20type%3A%20%27progressBar%27%2C%0A%20%20data%3A%20%7B%0A%20%20%20%20datasets%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20data%3A%20%5B40%5D%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%7D%2C%0A%20%20options%3A%20%7B%0A%20%20%20%20plugins%3A%20%7B%0A%20%20%20%20%20%20datalabels%3A%20%7B%0A%20%20%20%20%20%20%20%20font%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20size%3A%2040%2C%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20color%3A%20(context)%20%3D%3E%0A%20%20%20%20%20%20%20%20%20%20context.dataset.data%5Bcontext.dataIndex%5D%20%3E%2015%20%3F%20%27%23fff%27%20%3A%20%27%23000%27%2C%0A%20%20%20%20%20%20%20%20anchor%3A%20(context)%20%3D%3E%0A%20%20%20%20%20%20%20%20%20%20context.dataset.data%5Bcontext.dataIndex%5D%20%3E%2015%20%3F%20%27center%27%20%3A%20%27end%27%2C%0A%20%20%20%20%20%20%20%20align%3A%20(context)%20%3D%3E%0A%20%20%20%20%20%20%20%20%20%20context.dataset.data%5Bcontext.dataIndex%5D%20%3E%2015%20%3F%20%27center%27%20%3A%20%27right%27%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%7D&devicePixelRatio=1" />
 
+## Add a pattern
+
+It's possible to use the `pattern` object to draw a patterned background on the progress bar.  The example below includes a background and also positions the data label so it's _outside_ of the progress bar.
+
+<ChartExample showEditor width={300} height={50} config={`{
+  type: 'progressBar',
+  data: {
+    datasets: [
+      {
+        data: [88],
+        backgroundColor: pattern.draw(
+          'line-vertical',
+          'rgb(86 97 129)',
+          undefined,
+          25 /* size */,
+        ),
+      },
+      {
+        data: [100],
+        backgroundColor: pattern.draw(
+          'line-vertical',
+          'rgb(237 234 229)',
+          undefined,
+          25 /* size */,
+        ),
+        borderColor: 'transparent',
+      },
+    ],
+  },
+  options: {
+    plugins: {
+      datalabels: {
+        display: (context) => context.datasetIndex === 1,
+        formatter: (_, context) => {
+          return context.chart.data.datasets[0].data[0] + '%';
+        },
+        color: 'black',
+        font: {
+          size: 24,
+          weight: 'bold',
+        },
+        anchor: 'end',
+        align: 'end',
+      },
+    },
+    layout: {
+      padding: {
+        right: 70,
+      },
+    },
+  },
+};
+`} />
+
 ## Learn more
 
 Remember that progress bars are just special-case bar charts. To further customize, read about [bar charts in Chart.js](https://www.chartjs.org/docs/2.9.4/charts/bar.html).
