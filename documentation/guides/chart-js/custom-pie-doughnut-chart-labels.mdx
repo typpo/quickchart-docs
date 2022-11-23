@@ -142,7 +142,7 @@ Returning `null` or empty string in the `formatter` property will hide the data 
 }`}
 />
 
-### Advanced usage
+### Custom formatting
 
 Use the `formatter` property to determine exactly what shows as a label. For example, the configuration below will display labels that show the series name rather than the value. It will also format the number using [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat).
 
@@ -185,6 +185,90 @@ To learn more about the `formatter` field, read the [plugin documentation](https
     },
 
 },
+}`}
+/>
+
+### Multiple labels
+
+Using the datalabels plugin, it is possible to set up to 3 different labels for each dataset.  The datalabels plugin calls this ["multiple labels"](https://v2_1_0--chartjs-plugin-datalabels.netlify.app/samples/advanced/multiple-labels.html), and each series can set an `index`, `name`, and `value` label.
+
+Use this feature to create more than one label for each slice of your chart.
+
+In the example below, we use:
+ - `index`: Draw chart labels outside the pie/doughnut chart, and display the chart labels.
+ - `name`: Draw a label inside the chart, top aligned, with the dataset number.  Color the text dynamically based on the data's background color.
+ - `value`: Draw the actual value of the data.
+
+<ChartExample
+  showEditor
+  config={`{
+  type: 'doughnut',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May'],
+    datasets: [
+      {
+        data: [50, 60, 70, 180, 190],
+        backgroundColor: [
+          '#EA526F',
+          '#23B5D3',
+          '#279AF1',
+          '#935FA7',
+          '#DAFEB7',
+        ],
+        datalabels: {
+          labels: {
+            index: {
+              color: '#404040',
+              font: {
+                size: 18,
+              },
+              // See https://chartjs-plugin-datalabels.netlify.app/guide/options.html#option-context
+              formatter: (val, ctx) => ctx.chart.data.labels[ctx.dataIndex],
+              align: 'end',
+              anchor: 'end',
+            },
+            name: {
+              color: (ctx) => ctx.dataset.backgroundColor,
+              font: {
+                size: 16,
+              },
+              backgroundColor: '#404040',
+              borderRadius: 4,
+              offset: 0,
+              padding: 2,
+              formatter: (val, ctx) => \`#\${ctx.dataIndex + 1}\`,
+              align: 'top',
+            },
+            value: {
+              color: '#404040',
+              backgroundColor: '#fff',
+              borderColor: '#fff',
+              borderWidth: 2,
+              borderRadius: 4,
+              padding: 0,
+              align: 'bottom',
+            },
+          },
+        },
+      },
+    ],
+  },
+  options: {
+    legend: {
+      display: false,
+    },
+    layout: {
+      padding: {
+        top: 30,
+        bottom: 30,
+      },
+    },
+    plugins: {
+      datalabels: {
+        display: true,
+      },
+    },
+  },
 }`}
 />
 
