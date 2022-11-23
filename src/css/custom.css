@@ -79,6 +79,7 @@ article table a:hover {
 
 .cm-editor {
   font-size: 12px;
+  max-height: 500px;
 }
 
 .cm-theme-light,
