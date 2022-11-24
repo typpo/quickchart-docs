@@ -129,7 +129,7 @@ You'll be presented with an **API endpoint**. This is the base URL of your chart
 
 ## Use the no-code chart API
 
-Currently, three aspects of your chart can be overriden with custom values:
+In the following examples, we use custom values to override three chart properties:
 
 1. Chart title
 1. Dataset labels
@@ -174,6 +174,35 @@ And now let's add some more data and labels to the chart. This will override the
 <CodeWithHighlights wrap code="https://quickchart.io/chart/render/9a560ba4-ab71-4d1e-89ea-ce4741e9d232?title=Updated chart**&data1=50,60,80&labels=Jan,Feb,Mar**" />
 
 <Image alt="An example chart with updated data and labels" maxWidth={500} src="https://quickchart.io/chart/render/9a560ba4-ab71-4d1e-89ea-ce4741e9d232?title=Updated%20chart&data1=50,60,80&labels=Jan,Feb,Mar" />
+
+## Customizable properties
+
+The following _chart-level_ properties can be overridden:
+
+| Property Name        | Description                 | Example                                            |
+|----------------------|-----------------------------|----------------------------------------------------|
+| `title`              | Chart title                 | title=My chart title                               |
+| `labels`             | Dataset labels              | labels=Series 1,Series 2,Series 3                  |
+| `width`              | Chart width                 | width=500                                          |
+| `height`             | Chart height                | height=300                                         |
+| `backgroundColor`    | Chart background            | backgroundColor=rgba(122, 90, 122, 0.5)            |
+
+The following _series-level_ properties can be overridden.  Replace _N_ with the series number that you want to override:
+
+| Property Name        | Description                 | Example                                            |
+|----------------------|-----------------------------|----------------------------------------------------|
+| `data`_N_            | Series values              | data1=1,2,3,4,5&data2=6,7,8,9,10           |
+| `backgroundColor`_N_ | Background color of series | backgroundColor1=red&backgroundColor2=blue |
+| `borderColor`_N_     | Border color of series     | borderColor1=red&borderColor2=blue         |
+| `label`_N_           | Label of series¹            | label1=Foo&label2=bar                      |
+
+¹ These labels are applicable only to certain kinds of charts, such as radar charts.  In most cases you should override the `labels` chart parameter.
+
+<Admonition type="tip">
+When overriding properties, you must [URL-encode](https://www.urlencoder.io/) special characters.  Your browser will do this for you automatically, but if you're using a no-code tool you may have to URL-encode property values.
+
+For example, the special character `#` is URL-encoded as `%23`.  This means hex code `#fa1f5b` should be passed as `%23fa1f5b`.
+</Admonition>
 
 ## Advanced API features
 
