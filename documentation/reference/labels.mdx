@@ -179,6 +179,60 @@ options: {
 }
 ```
 
+### Use tick callbacks to control visibility
+
+`ticks.callback` is a powerful attribute that allows you to control whether the tick and its corresponding gridline appear.
+
+Because `ticks.callback` is a Javascript function, it allows you to perform any logic based on the tick value and its index.  The value returned by the callback is displayed on the chart.  If the returned value is `undefined`, the tick is not drawn.
+
+This callback hides the first and last ticks:
+
+```js
+ticks: {
+  callback: (val, idx, ticks) => idx === 0 || idx === ticks.length - 1 ? undefined : val
+}
+```
+
+Here we display every other tick:
+
+```js
+ticks: {
+  callback: (val, idx) => idx % 2 === 0 ? val : undefined
+}
+```
+
+And in this full example below, we display ticks only at specific values:
+
+<ChartExample
+  showEditor
+  config={`{
+  type: 'bar',
+  data: {
+    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+    datasets: [
+      {
+        label: 'Users',
+        data: [5, 60, 70, 40],
+        backgroundColor: '#be85be',
+      },
+    ],
+  },
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          stepSize: 1,
+          autoSkip: false,
+          beginAtZero: true,
+          callback: (val, idx, ticks) =>
+            [0, 10, 26, 40].includes(val) ? val : undefined,
+        },
+      }],
+    },
+  },
+}`}
+/>
+
 ## Data labels
 
 QuickChart supports the [Chart.js data labels plugin](https://chartjs-plugin-datalabels.netlify.app/) for adding custom data labels in your chart area. Labels can be added to an assortment of chart types, including bar, line, and scatter.
