@@ -2,7 +2,6 @@
 slug: /custom-progress-bar/
 title: How to customize the progress bar
 tags: ['progress bar']
-hide_table_of_contents: true
 sidebar_position: 20
 sidebar_label: Progress bar customization
 ---
@@ -16,6 +15,8 @@ The progress bar is defined by two datasets:
 
 1. The first dataset specifies the number shown, or the percentage "filled in". By default, this number is a percentage and the total value is 100 by default.
 1. The second dataset represents the whole. You can override the maximum progress bar value by setting a second dataset.
+
+## Custom labels
 
 You can also customize the label. For example, to remove percentage on the display, set `options.plugins.datalabels.display` to false. Or, use [datalabel options](/documentation/chart-js/custom-pie-doughnut-chart-labels/) to change other style and display options.
 
@@ -152,6 +153,36 @@ It's possible to use the `pattern` object to draw a patterned background on the 
   },
 };
 `} />
+
+## Customize colors and border radius
+
+In this example, we create a sleek, simple looking progress bar with rounded corners.
+
+<ChartExample showEditor width={500} height={18} config={`{
+  type: 'progressBar',
+  data: {
+    datasets: [{
+      data: [72],
+      backgroundColor: '#3d4ca6',
+      borderColor: 'transparent',
+    }, {
+      data: [100],
+      backgroundColor: '#e1e1e4',
+      borderColor: 'transparent',
+    }]
+  },
+  options: {
+    plugins: {
+      roundedBars: {
+        cornerRadius: 4,
+        allCorners: true,
+      },
+      datalabels: {
+        display: false,
+      }
+    }
+  }
+}`} />
 
 ## Learn more
 
