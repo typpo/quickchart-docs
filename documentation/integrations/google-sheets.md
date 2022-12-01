@@ -90,6 +90,7 @@ As an alternative to `docId`, you may simply paste the full URL to the sheet as 
 | rows        | Object that defines row criteria                                        | `{"limit": 20, "offset": 1}`                            | Optional                                                                |
 | rows.limit  | Number of rows to take from sheet                                       | `20` for first 20 rows, `-10` for last 10 rows          | If negative, will count from bottom. Defaults to unlimited              |
 | rows.offset | Number of rows to shift the table by                                    | `1` to omit the first row. `-5` to omit the last 5 rows | If positive, shift rows up. If negative, shift rows down. Defaults to 0 |
+| filter.label     | Predicate for filtering data by label | `label => label !== 'Joe'` | Return true to keep the row, return false to remove it |
 
 Like any other QuickChart chart, we can pack this configuration into a JSON string and send it to the QuickChart endpoint at `https://quickchart.io/chart`:
 
