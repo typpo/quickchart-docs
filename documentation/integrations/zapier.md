@@ -118,4 +118,17 @@ Because the chart is simply a URL, _any_ action that accepts a URL can work with
 
 Please feel free to reach out with any new ideas or questions! Also, if you need help, check out our [community](https://community.quickchart.io/) where we discuss QuickChart integrations, chart configurations, and more.
 
+## Zapier Quick Access
+
+<script type="module" src="https://cdn.zapier.com/packages/partner-sdk/v0/zapier-elements/zapier-elements.esm.js"></script>
+<link rel="stylesheet" href="https://cdn.zapier.com/packages/partner-sdk/v0/zapier-elements/zapier-elements.css"/>
+
+<zapier-full-experience
+  client-id="b0RLKtpWUpw7lh5LBj3MbIdsAVAfGt1HK96ai1x9"
+  theme="auto"
+  intro-copy-display="hide"
+  app-search-bar-display="show"
+  app-categories="forms,databases,sales-crm"
+/>
+
 <Author />
