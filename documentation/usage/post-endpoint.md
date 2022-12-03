@@ -13,6 +13,7 @@ If your chart is large or complicated, you may prefer to send a POST request rat
   "backgroundColor": "transparent",
   "width": 500,
   "height": 300,
+  "devicePixelRatio": 1.0,
   "format": "png",
   "chart": {...}
 }
@@ -30,12 +31,13 @@ Here is the type specification of the POST data object:
 
 ```typescript
 {
-  version: string;
-  backgroundColor: string;
-  width: string;
-  height: string;
-  format: string;
-  chart: string | ChartConfiguration;
+  width: string;                        // Pixel width
+  height: string;                       // Pixel height
+  devicePixelRatio: number;             // Pixel ratio (2.0 by default)
+  format: string;                       // png, svg, or webp
+  backgroundColor: string;              // Canvas background
+  version: string;                      // Chart.js version
+  chart: string | ChartConfiguration;   // Chart.js configuration
 }
 ```
 

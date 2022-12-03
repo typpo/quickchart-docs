@@ -9,9 +9,23 @@ import CodeWithHighlights from '@site/documentation/components/CodeWithHighlight
 
 ### Short URLs
 
-You may want to create a shorter URL for your charts, especially if you are sending them via email or SMS. To generate a short URL for your chart, send a POST request to `https://quickchart.io/chart/create` per the above POST spec.
+You may want to create a shorter URL for your charts, especially if you are sending them via email or SMS. To generate a short URL for your chart, send a POST request to `https://quickchart.io/chart/create`.
 
-Here's an example using curl. You can use any library that sends an HTTP POST request:
+The endpoint takes the following JSON request body, identical to the `/chart` [POST endpoint](/documentation/usage/post-endpoint/):
+
+```typescript
+{
+  width: string;                        // Pixel width
+  height: string;                       // Pixel height
+  devicePixelRatio: number;             // Pixel ratio (2.0 by default)
+  format: string;                       // png, svg, or webp
+  backgroundColor: string;              // Canvas background
+  version: string;                      // Chart.js version
+  chart: string | ChartConfiguration;   // Chart.js configuration
+}
+```
+
+Here's an example using `curl`. You can use any library that sends an HTTP POST request:
 
 ```bash
 curl -X POST \
