@@ -17,9 +17,9 @@ import QuickChartConfig from '@site/documentation/integrations/images/make.com/q
 import ExampleInEmail from '@site/documentation/integrations/images/make.com/example-in-email.png';
 import TemplateImage from '@site/documentation/images/chart-maker/chart_template.png';
 
-Make (formerly Integromat) is a platform that you can use to glue & script other platforms together.  QuickChart offers a powerful no-code integration with Make.
+Make (formerly Integromat) is a platform that you can use to glue & script other platforms together.  QuickChart offers a powerful no-code [integration](https://www.make.com/en/hq/app-invitation/c886c3cadf3a0602726c631497bd9ca4) with Make.
 
-In this tutorial, we're going to pull data from Google Sheets, create a chart, and then email it.  This scenario could be used, for example, to email a recurring report based on data in a spreadsheet.
+In this tutorial, we're creating an example scenario that pulls data from Google Sheets, creates a chart, and emails it.  This scenario could be used, for example, to email a recurring report based on data in a spreadsheet.
 
 <Image noBorder src={FullFlow} caption="Pull data from Google Sheets, generate a chart, and send an email." />
 
@@ -66,7 +66,7 @@ When you're done, click **Save as API Template** in the top right and record the
 
 ## Step 4: Add the chart to your scenario
 
-Switching back to your Make scenario, add a new action and select the **Create Chart** module from QuickChart.
+Switching back to your Make scenario, add a new action and select the **Create Chart** module from the [QuickChart app](https://www.make.com/en/hq/app-invitation/c886c3cadf3a0602726c631497bd9ca4).
 
 We set up each field in the QuickChart module:
 
