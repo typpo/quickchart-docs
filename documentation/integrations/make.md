@@ -1,9 +1,8 @@
 ---
 title: How to create charts on Make
 sidebar_label: Make.com
-sidebar_position: 39
+sidebar_position: 29
 tags: ['integrations', 'make', 'integromat']
-hidden: true
 ---
 
 import Admonition from '@theme/Admonition';
