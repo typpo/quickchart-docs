@@ -8,7 +8,7 @@ tags: ['integrations', 'zapier']
 import Admonition from '@theme/Admonition';
 import Author from '@site/documentation/components/Author';
 import CodeWithHighlights from '../components/CodeWithHighlights';
-import Image from '../components/Image';
+import Image from '@site/documentation/components/Image';
 import TypeformSigninImage from './images/zapier/zapier_typeform_signin.png';
 import TypeformSurveyImage from './images/zapier/zapier_typeform_find_survey.png';
 import ActionSearchImage from './images/zapier/zapier_quickchart_action_search.png';
