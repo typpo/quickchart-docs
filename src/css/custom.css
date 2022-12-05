@@ -82,6 +82,12 @@ article table a:hover {
   max-height: 500px;
 }
 
+@media screen and (max-width: 996px) {
+  .cm-editor {
+    font-size: 20px;
+  }
+}
+
 .cm-theme-light,
 .cm-theme-dark {
   height: 100%;
