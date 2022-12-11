@@ -203,6 +203,39 @@ View the options at [chartjs-radial-gauge](https://github.com/pandameister/chart
 }`}
 />
 
+## Speedometer Charts
+
+See customization options at [chartjs-gauge](https://github.com/haiiaaa/chartjs-gauge).
+
+<ChartExample
+  alt="Example speedometer chart"
+  showSquashedUrl
+  config={`{
+  type: 'gauge',
+  data: {
+    datasets: [
+      {
+        value: 50,
+        data: [20, 40, 60],
+        backgroundColor: ['green', 'orange', 'red'],
+        borderWidth: 2,
+      },
+    ],
+  },
+  options: {
+    valueLabel: {
+      fontSize: 22,
+      backgroundColor: 'transparent',
+      color: '#000',
+      formatter: function (value, context) {
+        return value + ' mph';
+      },
+      bottomMarginPercentage: 10,
+    },
+  },
+}`}
+/>
+
 ## Box Plots and Violin Charts
 
 You can use `violin`, `boxplot`, `horizontalBoxPlot`, and `horizontalViolin` chart types. View the options at [chartjs-chart-box-and-violin-plot](https://github.com/datavisyn/chartjs-chart-box-and-violin-plot) for customization details.

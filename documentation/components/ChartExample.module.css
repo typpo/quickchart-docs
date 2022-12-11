@@ -6,6 +6,10 @@
   padding: 1em 0 0.5em 0;
 }
 
+[data-theme='dark'] .container {
+  border-color: #333;
+}
+
 .columns {
   display: flex;
   align-items: center;
