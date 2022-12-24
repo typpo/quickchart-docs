@@ -264,9 +264,9 @@ You can use `violin`, `boxplot`, `horizontalBoxPlot`, and `horizontalViolin` cha
 }`}
 />
 
-:::tip
+<Admonition type="tip">
 For best results, add a scatter plot to your box or violin chart.
-:::
+</Admonition>
 
 ## Sparklines
 
@@ -282,6 +282,32 @@ A sparkline is a special case of line graph with axes and other labeling removed
   data: { datasets: [{ data: [140, 60, 274, 370, 199] }] },
 }`}
 />
+
+## Sankeys
+
+A sankey diagram is a flow diagram that illustrates the proportions between various stages of a flow.  To learn more, see [chartjs-chart-sankey documentation](https://github.com/kurkle/chartjs-chart-sankey).
+
+<ChartExample
+  alt="Example sankey"
+  showSquashedUrl
+  config={`{
+  type: 'sankey',
+  data: {
+    datasets: [
+      {
+        data: [
+          { from: 'Step A', to: 'Step B', flow: 10 },
+          { from: 'Step A', to: 'Step C', flow: 5 },
+          { from: 'Step B', to: 'Step C', flow: 10 },
+          { from: 'Step D', to: 'Step C', flow: 7 },
+        ]
+      },
+    ],
+  },
+}`}
+/>
+
+A more elaborate sankey example with custom colors and position is available [here](https://quickchart-urls.ty.workers.dev/sankey-diagram).
 
 ## Progress bars
 
