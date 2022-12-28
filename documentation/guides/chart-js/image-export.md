@@ -150,7 +150,7 @@ const canvasRenderService = new CanvasRenderService(width, height);
 
 The example writes the following Chart.js image to disk:
 
-  <Image alt="Chart.js image created in node" src="https://i.imgur.com/IPis8uw.png" />
+<Image alt="Chart.js image created in node" src="https://i.imgur.com/IPis8uw.png" />
 
 ### Using chartjs-to-image
 
@@ -176,7 +176,7 @@ chart.toFile('/tmp/mychart.png');
 
 With the above code, `chartjs-to-image` produces this image file:
 
-  <Image src="https://quickchart.io/chart?c=%7Btype%3A%27bar%27%2Cdata%3A%7Blabels%3A%5B%27Hello+world%27%2C%27Foo+bar%27%5D%2Cdatasets%3A%5B%7Blabel%3A%27Foo%27%2Cdata%3A%5B1%2C2%5D%7D%5D%7D%7D&w=500&h=300&bkg=transparent&f=png" />
+<Image src="https://quickchart.io/chart?c=%7Btype%3A%27bar%27%2Cdata%3A%7Blabels%3A%5B%27Hello+world%27%2C%27Foo+bar%27%5D%2Cdatasets%3A%5B%7Blabel%3A%27Foo%27%2Cdata%3A%5B1%2C2%5D%7D%5D%7D%7D&w=500&h=300&bkg=white&f=png" />
 
 ### Using a web service
 
