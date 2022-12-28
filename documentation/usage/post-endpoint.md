@@ -37,6 +37,7 @@ Here is the type specification of the POST data object:
   format: string;                       // png, svg, or webp
   backgroundColor: string;              // Canvas background
   version: string;                      // Chart.js version
+  key: string;                          // API key (optional)
   chart: string | ChartConfiguration;   // Chart.js configuration
 }
 ```
