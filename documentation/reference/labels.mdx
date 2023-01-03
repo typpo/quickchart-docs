@@ -279,6 +279,12 @@ Learn more:
 - [Positioning data labels](https://chartjs-plugin-datalabels.netlify.app/guide/positioning.html)
 - [Formatting and styling data labels](https://chartjs-plugin-datalabels.netlify.app/guide/formatting.html)
 
+### Labels for pie and doughnut charts
+
+Pie and doughnut charts are categorical charts without a linear axis, which means they don't have a `ticks` object that supports a ticks callback like other charts.  To customize these chart types, use the `datalabels.formatter` function described above.
+
+See more on how to [customize labels on pie and doughnut charts](/documentation/chart-js/custom-pie-doughnut-chart-labels/).
+
 ## Multi-line labels
 
 All labels support the newline character, `\n`. Use this character to introduce a line break.
