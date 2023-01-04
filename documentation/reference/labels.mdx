@@ -135,6 +135,7 @@ Use `options.plugins.tickFormat` to set options for formatting axis tick labels.
 |         unit          |                                         The unit to use in unit formatting, such as kilometers, megabyte, percent, etc. Must be a supported unit. Requires style=unit                                         |
 | minimumFractionDigits |                                                        The minimum number of fraction digits to use. Useful to determine the number of decimals shown.                                                        |
 |      useGrouping      |                                               true to display grouping separators in numbers, such as the thousands separator. false to disable. Defaults true.                                               |
+|   applyToDataLabels   |                                                                           whether to apply the formatter to datalabels on the chart                                                                           |
 |     More options      | Number formatting is highly configurable. View Intl.NumberFormat documentation for the full list of options, including ability to control significant digits, scientific and engineering notation, and so on. |
 
 In this example, we add thousands commas to numbers on the numeric axis:
@@ -183,13 +184,13 @@ options: {
 
 `ticks.callback` is a powerful attribute that allows you to control whether the tick and its corresponding gridline appear.
 
-Because `ticks.callback` is a Javascript function, it allows you to perform any logic based on the tick value and its index.  The value returned by the callback is displayed on the chart.  If the returned value is `undefined`, the tick is not drawn.
+Because `ticks.callback` is a Javascript function, it allows you to perform any logic based on the tick value and its index. The value returned by the callback is displayed on the chart. If the returned value is `undefined`, the tick is not drawn.
 
 This callback hides the first and last ticks:
 
 ```js
 ticks: {
-  callback: (val, idx, ticks) => idx === 0 || idx === ticks.length - 1 ? undefined : val
+  callback: (val, idx, ticks) => (idx === 0 || idx === ticks.length - 1 ? undefined : val);
 }
 ```
 
@@ -197,7 +198,7 @@ Here we display every other tick:
 
 ```js
 ticks: {
-  callback: (val, idx) => idx % 2 === 0 ? val : undefined
+  callback: (val, idx) => (idx % 2 === 0 ? val : undefined);
 }
 ```
 
@@ -281,9 +282,7 @@ Learn more:
 
 ### Labels for pie and doughnut charts
 
-Pie and doughnut charts are categorical charts without a linear axis, which means they don't have a `ticks` object that supports a ticks callback like other charts.  To customize these chart types, use the `datalabels.formatter` function described above.
-
-See more on how to [customize labels on pie and doughnut charts](/documentation/chart-js/custom-pie-doughnut-chart-labels/).
+Pie and doughnut charts rely heavily on datalabels. By default, the `tickFormat` plugin applies to datalabels on charts that do not have any numeric axes. See more on how to [customize labels on pie and doughnut charts](/documentation/chart-js/custom-pie-doughnut-chart-labels/).
 
 ## Multi-line labels
 
