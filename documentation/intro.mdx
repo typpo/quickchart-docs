@@ -67,7 +67,6 @@ Try making adjustments to the example above!
 
 Because QuickChart is built on open-source chart libraries, our charts are flexible and highly customizable. Keep on reading to learn more or [view more chart examples](https://quickchart.io/gallery/).
 
-
 ## Using the API
 
 The `https://quickchart.io/chart` endpoint supports both `GET` and `POST` methods. These parameters provide control over dimensions, resolution, background, and Chart.js version of your chart:
@@ -75,12 +74,12 @@ The `https://quickchart.io/chart` endpoint supports both `GET` and `POST` method
 | Parameter          | Type    | Description                                                                                                |
 | ------------------ | ------- | ---------------------------------------------------------------------------------------------------------- |
 | `chart`            | string  | Chart.js configuration object to render. This is the definition of the chart in Javascript or JSON format. |
-| `width`            | integer | Width of image in pixels. Defaults to `500`                                                                                   |
-| `height`           | integer | Height of image in pixels. Defaults to `300`                                                                                  |
-| `devicePixelRatio` | integer | Device pixel ratio of output. Set to `1` for normal resolution, `2` for retina. Defaults to `2`                             |
+| `width`            | integer | Width of image in pixels. Defaults to `500`                                                                |
+| `height`           | integer | Height of image in pixels. Defaults to `300`                                                               |
+| `devicePixelRatio` | integer | Device pixel ratio of output. Set to `1` for normal resolution, `2` for retina. Defaults to `2`            |
 | `backgroundColor`  | string  | RGB, HEX, HSL, or color name. Defaults to `transparent`                                                    |
 | `version`          | string  | Chart.js version. Default to `2`. Setting to `4` enables latest stable Chart.js v4 support.                |
-| `format`           | string  | `png`, `webp`, `svg`, or `pdf`. Defaults to `png`                                                                    |
+| `format`           | string  | `png`, `webp`, `svg`, or `pdf`. Defaults to `png`                                                          |
 | `encoding`         | string  | url or base64. Defaults to `url`                                                                           |
 
 <Admonition type="info">
