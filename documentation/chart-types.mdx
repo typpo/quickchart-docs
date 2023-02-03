@@ -6,6 +6,7 @@ sidebar_position: 3
 
 import Admonition from '@theme/Admonition';
 import ChartExample from './components/ChartExample';
+import Image from './components/Image';
 
 For a variety of useful editable examples, see the **[chart gallery](https://quickchart.io/gallery/)**.
 
@@ -267,6 +268,18 @@ You can use `violin`, `boxplot`, `horizontalBoxPlot`, and `horizontalViolin` cha
 <Admonition type="tip">
   For best results, add a scatter plot to your box or violin chart.
 </Admonition>
+
+## Financial Charts
+
+QuickChart supports Candlestick and OHLC charts using the [chartjs-chart-financial](https://github.com/chartjs/chartjs-chart-financial) plugin. These are commonly used for technical analysis and stock charts.
+
+Note that you'll have to select Chart.js version 3+ to use these plugins. [View example configuration](https://quickchart-urls.ty.workers.dev/ohlc-stock-chart)
+
+<Image
+  href="https://quickchart-urls.ty.workers.dev/ohlc-stock-chart"
+  src="https://quickchart.io/images/examples/ohlc-stock-chart.png"
+  alt="OHLC chart example"
+/>
 
 ## Sparklines
 

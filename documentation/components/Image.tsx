@@ -5,6 +5,7 @@ import styles from './Image.module.css';
 interface ImageProps {
   src: string;
   alt?: string;
+  href?: string;
   caption?: string;
   maxWidth?: number;
   noBorder?: boolean;
@@ -14,6 +15,7 @@ interface ImageProps {
 
 export default function Image({
   src,
+  href,
   alt,
   caption,
   maxWidth,
@@ -27,7 +29,7 @@ export default function Image({
         dropShadow ? styles.dropShadow : ''
       }`}
     >
-      <a href={src} target="_blank" rel="noopener noreferrer">
+      <a href={href || src} target="_blank" rel="noopener noreferrer">
         <img
           loading={noLazyLoad ? 'eager' : 'lazy'}
           src={src}
