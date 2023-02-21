@@ -100,3 +100,25 @@ Or even override multiple datasets:
 In addition to plain numbers, templates also accept (x, y) data values and arbitrary JSON objects.
 
 An example walkthrough with a live template can be viewed [here](/documentation/chart-maker/#use-the-no-code-chart-api).
+
+### IFrames
+
+By default, short URLs/templates render as images and are not interactive. If you'd like to display a chart with interactive tooltips in an iframe, take the unique portion of the shortened URL and append it to the `/chart-maker/view/` endpoint.
+
+For example, given the short URL:
+
+```
+https://quickchart.io/chart/render/9a560ba4-ab71-4d1e-89ea-ce4741e9d232
+```
+
+Here is the corresponding iframe URL:
+
+```
+https://quickchart.io/chart-maker/view/9a560ba4-ab71-4d1e-89ea-ce4741e9d232
+```
+
+You can embed it like a regular iframe. Be sure to set a frame width and height that is compatible with your chart. Here's an HTML example:
+
+```
+<iframe src="demo_iframe.htm" frameborder="0" height="500" width="300" title="Iframe Example"></iframe>
+```
