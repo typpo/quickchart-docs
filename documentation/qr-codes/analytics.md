@@ -40,7 +40,7 @@ In the example above, "QR_Code1" is the source of the traffic, "print" is the me
 
 ## Step 2: View analytics
 
-UTM query parameters are a common marketing tool and are supported by all analytics programs. If your analytics platform is not listed below, refer to your analytics documentation or [contact us](/contact/).
+UTM query parameters are a common marketing tool and are supported by all analytics programs. If your analytics platform is not listed below, refer to your analytics documentation or [contact us](https://quickchart.io/contact/).
 
 ### Google Analytics
 
@@ -71,4 +71,4 @@ Adding UTM parameters to your QR code URLs is an easy way to learn how your QR c
 
 QuickChart's QR code capability makes it easy to generate customized QR codes with UTM parameters, enabling businesses to measure the effectiveness of their marketing efforts using their existing analytics suite.
 
-Need help? Don't hesitate to [contact us](/contact/).
+Need help? Don't hesitate to [contact us](https://quickchart.io/contact/).
