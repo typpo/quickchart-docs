@@ -2,6 +2,7 @@
 sidebar_position: 4
 ---
 
+import Admonition from '@theme/Admonition';
 import ChartExample from '../components/ChartExample';
 
 # Labels
@@ -239,7 +240,9 @@ And in this full example below, we display ticks only at specific values:
 
 QuickChart supports the [Chart.js data labels plugin](https://chartjs-plugin-datalabels.netlify.app/) for adding custom data labels in your chart area. Labels can be added to an assortment of chart types, including bar, line, and scatter.
 
-See this example configuration using datalabels.
+### Examples
+
+Here's an example configuration that displays labels above each bars using the datalabels plugin:
 
 <ChartExample
   showEditor
@@ -276,10 +279,76 @@ See this example configuration using datalabels.
 }`}
 />
 
-Learn more:
+The `display` and `formatter` properties of the datalabels plugin are very powerful.  In this next example, we use them to dynamically show/hide the labels and alter the text of the label.  We hide any labels that aren't the first, last, min, or max value:
 
+<ChartExample
+  showEditor
+  config={`{
+  type: 'line',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    datasets: [
+      {
+        data: [50, 20, 15, 35, 25, 60, 45],
+        label: 'Sales',
+      },
+    ],
+  },
+  options: {
+    layout: {
+      padding: {
+        right: 40,
+      },
+    },
+    plugins: {
+      datalabels: {
+        display: true,
+        align: 'top',
+        color: '#000',
+        backgroundColor: '#ccc',
+        borderRadius: 4,
+        offset: 10,
+        display: (context) => {
+          const index = context.dataIndex;
+          const value = context.dataset.data[index];
+          const min = Math.min.apply(null, context.dataset.data);
+          const max = Math.max.apply(null, context.dataset.data);
+          return (
+            index == 0 ||
+            index == context.dataset.data.length - 1 ||
+            value == min ||
+            value == max
+          );
+        },
+        formatter: (value, context) => {
+          const index = context.dataIndex;
+          if (index == 0) {
+            return \`First: \${value}\`;
+          }
+          if (index == context.dataset.data.length - 1) {
+            return \`Last: \${value}\`;
+          }
+
+          const min = Math.min.apply(null, context.dataset.data);
+          if (value == min) {
+            return \`Min: \${value}\`;
+          }
+
+          const max = Math.max.apply(null, context.dataset.data);
+          if (value == max) {
+            return \`Max: \${value}\`;
+          }
+        },
+      },
+    },
+  },
+}`}
+/>
+
+<Admonition type="tip" title="Learn more about datalabels">
 - [Positioning data labels](https://chartjs-plugin-datalabels.netlify.app/guide/positioning.html)
 - [Formatting and styling data labels](https://chartjs-plugin-datalabels.netlify.app/guide/formatting.html)
+</Admonition>
 
 ### Labels for pie and doughnut charts
 
