@@ -40,7 +40,8 @@ The following parameters are accepted by the `render` function:
 
 - **config**: Apex Charts configuration in Javascript or JSON format (required)
 - **width**: Image width in pixels. Defaults to 800.
-- **height**: Image height in pixels. If not specified, will default to golden ratio (roughly 16:10 aspect ratio)
+- **height**: Image height in pixels. If not specified, will default to golden ratio (roughly 16:10 aspect ratio).
+- **apexChartsVersion**: Which version of the Apex Charts library to use. If not specified, will default to the latest version.
 
 ## Example
 
