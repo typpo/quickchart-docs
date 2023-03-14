@@ -247,6 +247,23 @@ If you'd like, you can specify a locale, which determines how numbers are format
 
 <Image maxWidth={500} src="https://quickchart.io/chart?c=%7B%0A%20%20type%3A%20%27bar%27%2C%0A%20%20data%3A%20%7B%0A%20%20%20%20labels%3A%20%5B%27Q1%27%2C%20%27Q2%27%2C%20%27Q3%27%2C%20%27Q4%27%5D%2C%0A%20%20%20%20datasets%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20label%3A%20%27Revenue%27%2C%0A%20%20%20%20%20%20%20%20data%3A%20%5B50000%2C%2060000%2C%2070000%2C%201800000%5D%2C%0A%20%20%20%20%20%20%20%20backgroundColor%3A%20%27%233300cc%27%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%7D%2C%0A%20%20options%3A%20%7B%0A%20%20%20%20plugins%3A%20%7B%0A%20%20%20%20%20%20tickFormat%3A%20%7B%0A%20%20%20%20%20%20%20%20prefix%3A%20%27%E2%82%AC%27%2C%0A%20%20%20%20%20%20%20%20locale%3A%20%27de-DE%27%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%7D" />
 
+### Example: add commas to large numbers
+
+To add thousands separators to large numbers, enable the `useGrouping` option in the `tickFormat` plugin:
+
+```javascript
+  options: {
+    plugins: {
+    tickFormat: {
+      useGrouping: true,
+    },}
+  },
+```
+
+<Image maxWidth={500} src="https://quickchart.io/chart?c=%7B%0A%20%20type%3A%20%27bar%27%2C%0A%20%20data%3A%20%7B%0A%20%20%20%20labels%3A%20%5B%27Q1%27%2C%20%27Q2%27%2C%20%27Q3%27%2C%20%27Q4%27%5D%2C%0A%20%20%20%20datasets%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20label%3A%20%27Revenue%27%2C%0A%20%20%20%20%20%20%20%20data%3A%20%5B1000%2C%202000%2C%2030000%2C%2040000%5D%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%7D%2C%0A%20%20options%3A%20%7B%0A%20%20%20%20plugins%3A%20%7B%0A%20%20%20%20tickFormat%3A%20%7B%0A%20%20%20%20%20%20useGrouping%3A%20true%2C%0A%20%20%20%20%7D%2C%7D%0A%20%20%7D%2C%0A%7D" />
+
+For different locales (which may use periods as a separator instead of commas), set the `locale` option to e.g. `en-US`, `fr-FR`.
+
 ### Reference table
 
 The tickFormat plugin takes all the options of [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat).
@@ -255,17 +272,17 @@ This means you can also do things like specify currencies, percents, or the numb
 
 #### tickFormat attributes
 
-|    Attribute Name     |                                                                                                  Description                                                                                                  |
-| :-------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|        locale         |                                                              An Intl.Locale string such as en-US (default), fr-FR, de-DE, en-GB. Full list here                                                               |
-|        prefix         |                                                                                        String to prepend to tick label                                                                                        |
-|        suffix         |                                                                                        String to append to tick label                                                                                         |
-|         style         |        The formatting style to use. Default is `decimal`. Use `decimal` for plain number formatting, `currency` for currency formatting, `percent` for percent formatting, `unit` for unit formatting         |
-|       currency        |                   The currency to use in currency formatting. Possible values are the ISO 4217 currency codes, such as USD for the US dollar or EUR for the euro. Requires style=`currency`                   |
-|         unit          |                                        The unit to use in unit formatting, such as kilometers, megabyte, percent, etc. Must be a supported unit. Requires style=`unit`                                        |
-| minimumFractionDigits |                                                        The minimum number of fraction digits to use. Useful to determine the number of decimals shown.                                                        |
-|      useGrouping      |                                               true to display grouping separators in numbers, such as the thousands separator. false to disable. Defaults true.                                               |
-|     More options      | Number formatting is highly configurable. View Intl.NumberFormat documentation for the full list of options, including ability to control significant digits, scientific and engineering notation, and so on. |
+|    Attribute Name     |                                                                                                                                                           Description                                                                                                                                                           |
+| :-------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|        locale         |                                                                                                                       An Intl.Locale string such as en-US (default), fr-FR, de-DE, en-GB. Full list here                                                                                                                        |
+|        prefix         |                                                                                                                                                 String to prepend to tick label                                                                                                                                                 |
+|        suffix         |                                                                                                                                                 String to append to tick label                                                                                                                                                  |
+|         style         |                                                                 The formatting style to use. Default is `decimal`. Use `decimal` for plain number formatting, `currency` for currency formatting, `percent` for percent formatting, `unit` for unit formatting                                                                  |
+|       currency        |                                                                            The currency to use in currency formatting. Possible values are the ISO 4217 currency codes, such as USD for the US dollar or EUR for the euro. Requires style=`currency`                                                                            |
+|         unit          |                                                                                                 The unit to use in unit formatting, such as kilometers, megabyte, percent, etc. Must be a supported unit. Requires style=`unit`                                                                                                 |
+| minimumFractionDigits |                                                                                                                 The minimum number of fraction digits to use. Useful to determine the number of decimals shown.                                                                                                                 |
+|      useGrouping      |                                                                                                        true to display grouping separators in numbers, such as the thousands separator. false to disable. Defaults true.                                                                                                        |
+|     More options      | Number formatting is highly configurable. See [Intl.NumberFormat documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat) for the full list of options, including ability to control significant digits, scientific and engineering notation, and so on. |
 
 ## Conclusion
 
