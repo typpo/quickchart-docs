@@ -51,6 +51,30 @@ If you put the URL in an image tag, you'll see the following:
 | positionY    | Y position of mark, in pixels                                                                                                        |                            |
 | margin       | Margin in pixels around the mark when it is auto-positioned.<br/>Applicable when `positionX` and `positionY` are not used            | 5% of original image width |
 
+## POST endpoint
+
+The above parameters can be used in a POST request. Here is an example JSON body:
+
+```json
+{
+  "mainImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Golde33443.jpg",
+  "markImageUrl": "https://1000logos.net/wp-content/uploads/2016/10/Batman-logo.png",
+  "markRatio": 0.25
+}
+```
+
+You can pack it into a POST request like so:
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{
+  "mainImageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Golde33443.jpg",
+  "markImageUrl": "https://1000logos.net/wp-content/uploads/2016/10/Batman-logo.png",
+  "markRatio": 0.25
+}' https://quickchart.io/watermark
+```
+
+The response will be a watermarked image.
+
 ## More examples
 
 Let's take the above image and do some common customizations.
