@@ -11,7 +11,9 @@ QuickChart supports all [Google Noto](https://www.google.com/get/noto/) fonts. C
 To change font size and style, you may set values for each component of the graph:
 
 - For the legend, use `options.legend.labels` and set `fontColor`, `fontStyle`, or `fontFamily` ([chart.js doc](https://www.chartjs.org/docs/2.9.4/configuration/legend.html))
-- For the axes, use `options.scales.<axis>.ticks.font*` ([chart.js doc](https://www.chartjs.org/docs/2.9.4/axes/styling.html)). For radar and polar area charts, there is only one axis, so use `options.scale.ticks.font*` instead.
+- For the axis ticks, use `options.scales.<axis>.ticks.font*` ([chart.js doc](https://www.chartjs.org/docs/2.9.4/axes/styling.html)).
+- For radar and polar area charts, there is only one axis, so use `options.scale.ticks.font*` instead.
+  - Radar charts can also adjust outer labels using `options.scale.pointLabels.font*` ([chart.js doc](https://www.chartjs.org/docs/2.9.4/axes/radial/linear.html#point-label-options))
 - For the chart title, use `options.title.font*` ([chart.js doc](https://www.chartjs.org/docs/2.9.4/configuration/title.html))
 
 The example below displays a number of chart font size, style, and color customizations for each component of the chart:
