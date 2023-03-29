@@ -66,3 +66,43 @@ The example below displays a number of chart font size, style, and color customi
   },
 }`}
 />
+
+Here's another example with a chart that has a radial axis:
+
+<ChartExample
+  showEditor
+  config={`{
+  type: 'radar',
+  data: {
+    labels: [
+      'January',
+      'February',
+      'March',
+    ],
+    datasets: [
+      {
+        data: [15.09, 15.67, 12.5],
+        label: 'D0',
+      },
+      {
+        data: [24.55, 28.91, 21.81],
+        label: 'D1',
+      },
+    ],
+  },
+  options: {
+    scale: {
+      pointLabels: {
+        fontSize: 16,
+        fontStyle: 'bold italic',
+      },
+      ticks: {
+        fontColor: 'blue',
+      },
+    },
+    legend: {
+      fontFamily: 'mono',
+    },
+  },
+}`}
+/>
