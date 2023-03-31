@@ -204,6 +204,34 @@ When overriding properties, you must [URL-encode](https://www.urlencoder.io/) sp
 For example, the special character `#` is URL-encoded as `%23`. This means hex code `#fa1f5b` should be passed as `%23fa1f5b`.
 </Admonition>
 
+## Embedding an interactive chart
+
+To display the chart with interactive tooltips in an iframe, take the unique portion of the shortened URL and append it to the `/chart-maker/view/` endpoint.
+
+For example, given the API endpoint:
+
+```
+https://quickchart.io/chart/render/9a560ba4-ab71-4d1e-89ea-ce4741e9d232
+```
+
+Here is the corresponding iframe URL:
+
+```
+https://quickchart.io/chart-maker/view/9a560ba4-ab71-4d1e-89ea-ce4741e9d232
+```
+
+You can embed it like a regular iframe. Be sure to set a frame width and height that is compatible with your chart. Here's an HTML example:
+
+```html
+<iframe
+  src="demo_iframe.htm"
+  frameborder="0"
+  height="500"
+  width="300"
+  title="Iframe Example"
+></iframe>
+```
+
 ## Advanced API features
 
 If you are willing to dive into the JSON/Javascript configuration, get even more control over the appearance and behavior of your chart. See [main API documentation](/documentation/) for details.
