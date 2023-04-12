@@ -84,6 +84,9 @@ Customize a template by adding URL parameters to the template URL. The following
 - **`title`** - The title of the chart
 - **`labels`** - Comma-separated labels for the label axis of a chart (usually the X axis)
 - **`data1, data2, ..., dataN`** - Comma-separated data values for each dataseries
+- **`label1, label2, ..., labelN`** - Comma-separated labels for each dataseries
+- **`backgroundColor1, ..., backgroundColorN`** - Comma-separated backgrounds for each dataseries
+- **`borderColor1, ..., borderColorN`** - Comma-separated border colors for each dataseries
 
 For example, this URL will take template `zf-abc-123` and update its title to "New title":
 
