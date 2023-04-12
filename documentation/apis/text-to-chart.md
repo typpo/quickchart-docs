@@ -12,21 +12,21 @@ import CodeWithHighlights from '../components/CodeWithHighlights';
 
 To generate a chart, use the `https://quickchart.io/natural` endpoint:
 
-<CodeWithHighlights code="https://quickchart.io/natural/**red bar chart, revenue, Jan-Dec**" />
+<CodeWithHighlights code="https://quickchart.io/natural/**green bar chart revenue Jan-Mar 50,60,70**" />
 
-Go to <a href="https://quickchart.io/natural/red_bar_chart,_revenue,_Jan-Dec">https://quickchart.io/natural/red_bar_chart,_revenue,_Jan-Dec</a> and you will see a chart:
+Go to <a href="https://quickchart.io/natural/green_bar_chart_revenue_Jan-Mar_50,60,70">https://quickchart.io/natural/green_bar_chart_revenue_Jan-Mar_50,60,70</a> and you will see a chart:
 
-<Image noBorder maxWidth={500} src="https://quickchart.io/natural/red bar chart, revenue, Jan-Dec" alt="A red bar chart, Jan-Dec" />
+<Image noBorder maxWidth={500} src="https://quickchart.io/natural/green_bar_chart_revenue_Jan-Mar_50,60,70" alt="A green bar chart, revenue, Jan-Mar" />
 
 Add it to a webpage or email:
 
 ```html
-<img src="https://quickchart.io/natural/red bar chart, revenue, Jan-Dec" />
+<img src="https://quickchart.io/natural/green bar chart revenue Jan-Mar 50,60,70" />
 ```
 
 Or embed it as an iframe:
 ```html
-<iframe src="https://quickchart.io/natural/iframe/red bar chart, revenue, Jan-Dec" />
+<iframe src="https://quickchart.io/natural/iframe/green bar chart revenue Jan-Mar 50,60,70" />
 ```
 
 ## Adding your own data
@@ -97,6 +97,8 @@ If you prefer interactive charts, use `https://quickchart.io/natural/iframe/` as
 <div style={{display: 'flex', justifyContent: 'center'}}>
 <iframe src="https://quickchart.io/natural/iframe/green bar chart: 22, 40, 32, 42" width="500" height="250"></iframe>
 </div>
+
+The chart above is an iframe - hover your mouse over the bars to see the interactive tooltips.
 
 ## Examples
 
