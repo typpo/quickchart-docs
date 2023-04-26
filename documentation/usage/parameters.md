@@ -82,7 +82,7 @@ Chart.js version. Setting version to `4` enables latest stable [Chart.js v4](htt
 ### format
 
 - Type: string
-- Accepted values: `png`, `webp`, `jpg`, `svg`, `pdf`
+- Accepted values: `png`, `webp`, `jpg`, `svg`, `pdf`, `base64`
 - Default: `png`
 - Parameter name: `format` or `f`
 
