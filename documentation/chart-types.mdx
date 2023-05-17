@@ -123,6 +123,68 @@ Learn how to [customize doughnut chart labels](/documentation/chart-js/custom-pi
 }`}
 />
 
+The doughnut chart type is very flexible.  For example, you can use a half-doughnut to make a gauge-style chart.
+
+<ChartExample
+  alt="Example gauge chart"
+  showSquashedUrl
+  config={`{
+  type: 'doughnut',
+  data: {
+    datasets: [
+      {
+        data: [24, 66],
+        backgroundColor: ['green', '#eee'],
+        label: 'Dataset 1',
+        borderWidth: 0,
+      },
+    ],
+    labels: ['A', 'C'],
+  },
+  options: {
+    circumference: Math.PI,
+    rotation: Math.PI,
+    cutoutPercentage: 75,
+    layout: {
+      padding: 40,
+    },
+    legend: {
+      display: false,
+    },
+    plugins: {
+      datalabels: {
+        color: '#404040',
+        anchor: 'end',
+        align: 'end',
+        formatter: (val) => val + '%',
+        font: {
+          size: 25,
+          weight: 'bold',
+        },
+      },
+      doughnutlabel: {
+        labels: [
+          {
+            text: '\\nYour status is',
+            font: {
+              size: 20,
+            },
+          },
+          {
+            text: '\\nhealthy',
+            color: '#000',
+            font: {
+              size: 25,
+              weight: 'bold',
+            },
+          },
+        ],
+      },
+    },
+  },
+}`}
+/>
+
 ## Polar chart
 
 Polar charts are like pie and doughnut charts, except each segment has the same angle and the radius of the segments varies based on the value. See [Polar Area Chart documentation](https://www.chartjs.org/docs/2.9.4/charts/polar.html).
