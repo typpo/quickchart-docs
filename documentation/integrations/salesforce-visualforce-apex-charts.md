@@ -54,11 +54,11 @@ The dynamic URL in the example above will display the following chart:
 
 <Image maxWidth={600} caption="Chart image rendered in Salesforce via Apex component" src="https://quickchart.io/chart?c=%7B%0A%20%20type%3A%20%27bar%27%2C%0A%20%20data%3A%20%7B%0A%20%20%20%20labels%3A%20%5B%27Q1%27%2C%20%27Q2%27%2C%20%27Q3%27%2C%20%27Q4%27%5D%2C%0A%20%20%20%20datasets%3A%20%5B%7B%0A%20%20%20%20%20%20label%3A%20%27Users%27%2C%0A%20%20%20%20%20%20data%3A%20%5B50%2C%2060%2C%2070%2C%20180%5D%0A%20%20%20%20%7D%5D%0A%20%20%7D%0A%7D%0A" />
 
-### Dyanmic data
+### Dynamic data
 
-Chances are you'll want to use a variable to fill the chart data.  The `config` variable is just a string, so you can concatenate values from a variable as you would any other string.
+Chances are you'll want to use a variable to fill the chart data. The `config` variable is just a string, so you can concatenate values from a variable as you would any other string.
 
-For example, below we run a query and create a list of integers representing the data we wish to graph.  Then, we use `String.join()` to convert the list into a comma-separated string:
+For example, below we run a query and create a list of integers representing the data we wish to graph. Then, we use `String.join()` to convert the list into a comma-separated string:
 
 ```java
 public class ChartController {
