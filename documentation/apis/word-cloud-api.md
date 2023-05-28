@@ -38,6 +38,7 @@ There are many ways to customize your word cloud. Here are all the options offer
 | **height**          | Image height                                                                                                        | 600          |
 | **backgroundColor** | Background color of image <br/>(rgb, hsl, hex, or name value)                                                       | transparent  |
 | **fontFamily**      | Font family to use                                                                                                  | serif        |
+| **fontWeight**      | Font weight to use. Note that not all fonts support all weights                                                     | normal       |
 | **loadGoogleFonts** | [Google Fonts](https://fonts.google.com/) to load                                                                   |              |
 | **fontScale**       | Size of the largest font (roughly)                                                                                  | 25           |
 | **scale**           | Frequency scaling method - linear, sqrt, or log                                                                     | linear       |
