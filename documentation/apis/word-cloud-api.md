@@ -177,6 +177,8 @@ Optionally include word counts (otherwise the count is assumed to be 1):
 hello:10,world:5,testing:5,123
 ```
 
+Note that if you want words to appear literally and exactly as you entered them, you should set `cleanWords` to false as well.
+
 ## Conclusion
 
 QuickChart's word cloud API is one of the most flexible web services out there that can allow you to create word clouds programmatically without any dependencies. What will you build? Feel free to reach out to [reach out](mailto:ian@quickchart.io) with questions, feature requests, or to share interesting word clouds!
