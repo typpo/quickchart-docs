@@ -49,6 +49,7 @@ There are many ways to customize your word cloud. Here are all the options offer
 | **case**            | Force words to this case - upper, lower, or none                                                                    | lower        |
 | **colors**          | List of colors for words in JSON format, assigned randomly.<br/>e.g. ["red", "#00ff00", "rgba(0, 0, 255, 1.0)"]     | random       |
 | **removeStopwords** | If true, remove common words from the cloud                                                                         | false        |
+| **cleanWords**      | If true, removes symbols and extra characters from words                                                            | true         |
 | **language**        | Two-letter language code of stopwords to remove                                                                     | en           |
 | **useWordList**     | If true, treat `text` as a comma-separated list of words or phrases instead of trying to split the text on our side | false        |
 
