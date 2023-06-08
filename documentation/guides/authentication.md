@@ -71,6 +71,12 @@ See complete [short URL documentation](/documentation/usage/short-urls-and-templ
 
 This approach allows you to authenticate requests to QuickChart's HTTP GET endpoint.
 
+Signed URLs look like this:
+
+```
+https://quickchart.io/chart?c={...}&sig=88cd2108b5347d973cf39cdf9053d7dd42704876d8c9a9bd8e2d168259d3ddf7&accountId=12345
+```
+
 To render an image for an untrusted client, use your **account ID** and sign the request with your API key. You will add `sig` (signature) and `accountId` parameters to your request.
 
 Your code should follow this logic:
