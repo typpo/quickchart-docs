@@ -236,6 +236,23 @@ And in this full example below, we display ticks only at specific values:
 }`}
 />
 
+### Forcing ticks to display
+
+To ensure that all tick labels are displayed on your chart, set the `autoSkip` property to `false` in the `ticks` configuration of your axes.
+
+By default, Chart.js will automatically calculate how many labels can be shown without overlap, and will skip labels as necessary.  The `autoSkip` property disables this behavior.
+
+```js
+{
+  // ... scale options ...
+  ticks: {
+    autoSkip: false
+  }
+}
+```
+
+More details about `autoSkip` and other tick configurations can be found in the [Chart.js documentation](https://www.chartjs.org/docs/latest/axes/styling.html#tick-configuration).
+
 ## Data labels
 
 QuickChart supports the [Chart.js data labels plugin](https://chartjs-plugin-datalabels.netlify.app/) for adding custom data labels in your chart area. Labels can be added to an assortment of chart types, including bar, line, and scatter.
