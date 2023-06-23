@@ -226,6 +226,30 @@ We are rewarded with the following graph:
 
 <Image maxWidth={500} caption="Data for this image is pulled from the Google Sheet and then graphed across multiple Y axes" src="https://quickchart.io/chart?c=%7B%0A%20%20type%3A%20%27bar%27%2C%0A%20%20data%3A%20%7B%0A%20%20%20%20datasets%3A%20%5B%0A%20%20%20%20%20%20%7B%20%0A%20%20%20%20%20%20%20%20label%3A%20%27Temperature%20(F)%27%2C%0A%20%20%20%20%20%20%20%20order%3A%202%2C%0A%20%20%20%20%20%20%7D%2C%20%0A%20%20%20%20%20%20%7B%20%0A%20%20%20%20%20%20%20%20type%3A%20%27line%27%2C%0A%20%20%20%20%20%20%20%20label%3A%20%27Precipitation%20(inches)%27%2C%0A%20%20%20%20%20%20%20%20yAxisID%3A%20%27y2%27%2C%0A%20%20%20%20%20%20%20%20order%3A%201%2C%0A%20%20%20%20%20%20%20%20fill%3A%20false%2C%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%5D%0A%20%20%7D%2C%0A%20%20options%3A%20%7B%0A%20%20%20%20plugins%3A%20%7B%0A%20%20%20%20%20%20googleSheets%3A%20%7B%0A%20%20%20%20%20%20%20%20docId%3A%20%27121DpBzwABbNB7JO3--dXGTI3CE2LL1WwPHXKCYDdsKM%27%2C%0A%20%20%20%20%20%20%20%20sheet%3A%20%27Weather%27%2C%0A%20%20%20%20%20%20%20%20labelColumn%3A%20%27Labels%27%2C%0A%20%20%20%20%20%20%20%20dataColumns%3A%20%5B%27Temperature%27%2C%20%27Precipitation%27%5D%2C%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%2C%0A%20%20%20%20scales%3A%20%7B%0A%20%20%20%20%20%20yAxes%3A%20%5B%7B%0A%20%20%20%20%20%20%20%20id%3A%20%27y1%27%2C%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20id%3A%20%27y2%27%2C%0A%20%20%20%20%20%20%20%20position%3A%20%27right%27%2C%0A%20%20%20%20%20%20%20%20gridLines%3A%20%7B%0A%20%20%20%20%20%20%20%20%20%20drawOnChartArea%3A%20false%2C%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7D%5D%20%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D" />
 
+## Filtering data
+
+QuickChart supports dynamic filtering using the `filter` property.
+
+For example, this configuration will display specific labels according to custom Javascript logic:
+
+```js
+{
+  // ...
+  plugins: {
+    googleSheets: {
+      sheetUrl:
+        'https://docs.google.com/spreadsheets/d/121DpBzwABbNB7JO3--dXGTI3CE2LL1WwPHXKCYDdsKM/edit#gid=0',
+      labelColumn: 'Name',
+      dataColumns: ['Usage count', 'Payment'],
+      filter: {
+        // Exclude Joe's column
+        label: (labelName) => labelName !== 'Joe',
+      },
+    },
+  },
+}
+```
+
 ## Limitations
 
 As noted above, charts will update at most once every 30 seconds.

@@ -126,6 +126,29 @@ This image can be directly embedded in on a website, email, PDF, etc. using a st
 It's best practice to **URL encode** the `chart` JSON parameter.  Nearly every programming language has a built-in function to do this.  URL encoding your JSON will avoid problems with more complex chart specifications.
 </Admonition>
 
+## Filtering data
+
+QuickChart supports Airtable views, so you can always provide a filtered view `url`.  QuickChart also supports dynamic filtering using the `filter` property.
+
+For example, this configuration will display specific labels according to custom Javascript logic:
+
+```js
+{
+  // ...
+  plugins: {
+    googleSheets: {
+      url: 'https://airtable.com/...',
+      labelField: 'Name',
+      dataFields: ['Usage count', 'Payment'],
+      filter: {
+        // Exclude Joe's column
+        label: (labelName) => labelName !== 'Joe',
+      },
+    },
+  },
+}
+```
+
 ## Customizing your chart
 
 QuickChart supports a huge range of charts and data visualizations. Pulling your data from Airtable will let you spread your data across nearly any digital format.
