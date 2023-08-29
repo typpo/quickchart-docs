@@ -314,6 +314,41 @@ class Program {
 
 See more [C# examples](/documentation/send-charts-in-email/#email-charts-with-c%23).
 
+### Google Sheets
+
+To sign a request in Google Sheets, you must create an Apps Script.
+
+1. Open your Google Sheets spreadsheet.
+
+2. Click on `Extensions` in the menu, then `Apps Script`.
+
+3. Delete any code in the script editor and replace it with the following:
+
+```javascript
+function signRequest(content) {
+  var apiKey = 'YOUR_API_KEY';
+  var accountId = 'YOUR_ACCOUNT_ID';
+
+  var signature = Utilities.computeHmacSha256Signature(content, apiKey);
+  var signatureInHex = signature.map(function(byte) {
+    return ('0' + (byte & 0xFF).toString(16)).slice(-2);
+  }).join('');
+
+  var url = 'https://quickchart.io/qr?text=' + encodeURIComponent(content) + '&sig=' + signatureInHex + '&accountId=' + accountId;
+
+  return url;
+}
+```
+
+Replace `'YOUR_API_KEY'` and `'YOUR_ACCOUNT_ID'` with your actual QuickChart API key and account ID.
+
+4. Click on `File` > `Save`. Name your project something like "QuickChart QR Code Generator".
+
+5. Close the Apps Script Editor.
+
+6. Now, you can use the `signRequest` function in your spreadsheet like any other function. For example, if you have a QR code text in cell A1, you can generate a signed QR code URL in cell B1 with `=signRequest(A1)`.
+
+
 ### Other languages
 
 Signing requests can be done in any language as HMAC is a common method for signing requests. Just look up how to create an HMAC signature in your language of choice.
