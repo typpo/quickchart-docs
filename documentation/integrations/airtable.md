@@ -136,7 +136,7 @@ For example, this configuration will display specific labels according to custom
 {
   // ...
   plugins: {
-    googleSheets: {
+    airtable: {
       url: 'https://airtable.com/...',
       labelField: 'Name',
       dataFields: ['Usage count', 'Payment'],
