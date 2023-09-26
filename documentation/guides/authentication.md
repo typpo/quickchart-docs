@@ -349,6 +349,69 @@ Replace `'YOUR_API_KEY'` and `'YOUR_ACCOUNT_ID'` with your actual QuickChart API
 6. Now, you can use the `signRequest` function in your spreadsheet like any other function. For example, if you have a QR code text in cell A1, you can generate a signed QR code URL in cell B1 with `=signRequest(A1)`.
 
 
+### Excel
+
+To generate a signed QR code URL directly from your spreadsheet using a formula, you can create a VBA function `GenerateQRCodeURL`:
+
+1. Open Excel and press `Alt + F11` to open the VBA editor.
+
+2. In the VBA editor, go to `Insert` > `Module`. This will open a blank page where you can write your code.
+
+3. Copy and paste the following code into the module:
+
+```vba
+Function HMACSHA256(ByVal strKey As String, ByVal strData As String) As String
+    Dim objHash As Object
+    Dim strHexHash As String
+    Dim strBuffer As String
+    Dim i As Long
+    Dim key() As Byte
+    Dim data() As Byte
+
+    Set objHash = CreateObject("System.Security.Cryptography.HMACSHA256")
+    key = strKey
+    data = strData
+
+    objHash.key = key
+    strBuffer = objHash.ComputeHash_2((data))
+    strHexHash = ""
+
+    For i = 1 To LenB(strBuffer)
+        strHexHash = strHexHash & Right$("0" & Hex(AscB(MidB(strBuffer, i, 1))), 2)
+    Next
+
+    HMACSHA256 = strHexHash
+End Function
+```
+
+4. In the same module, add the following code:
+
+```vba
+Function GenerateQRCodeURL(qrText As Range) As String
+    Dim apiKey As String
+    Dim accountId As String
+    Dim sig As String
+    Dim url As String
+
+    apiKey = "YOUR_API_KEY"
+    accountId = "YOUR_ACCOUNT_ID"
+    sig = HMACSHA256(apiKey, qrText.Value)
+
+    url = "https://quickchart.io/qr?text=" & WorksheetFunction.EncodeURL(qrText.Value) & "&sig=" & sig & "&accountId=" & accountId
+
+    GenerateQRCodeURL = url
+End Function
+```
+
+5. Replace `'YOUR_API_KEY'` and `'YOUR_ACCOUNT_ID'` with your actual QuickChart API key and account ID.
+
+6. Close the VBA editor.
+
+7. Now, you can use the `GenerateQRCodeURL` function in your spreadsheet like any other function.
+
+  For example, if you have a QR code text in cell A1, you can generate a signed QR code URL in cell B1 with `=GenerateQRCodeURL(A1)`.
+
+
 ### Other languages
 
 Signing requests can be done in any language as HMAC is a common method for signing requests. Just look up how to create an HMAC signature in your language of choice.
