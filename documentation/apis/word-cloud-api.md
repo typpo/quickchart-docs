@@ -20,7 +20,7 @@ QuickChart provides an API that generates **word clouds** or **tag clouds**, vis
 
 The word cloud API endpoint is available at `https://quickchart.io/wordcloud`. Here's a simple example that is embedded on this page straight from the API:
 
-<Image caption="To be or not to be, that is the question" src="https://quickchart.io/wordcloud?text=To be or not to be, that is the question&width=300&height=300"/>
+<Image caption="To be or not to be, that is the question" src="https://quickchart.io/wordcloud?text=To be or not to be, that is the question&width=300&height=300&removeStopwords=false"/>
 
 The only required parameter of the word cloud API is `text`. Set it in your URL:
 
@@ -50,7 +50,7 @@ There are many ways to customize your word cloud. Here are all the options offer
 | **colors**          | List of colors for words in JSON format, assigned randomly.<br/>e.g. ["red", "#00ff00", "rgba(0, 0, 255, 1.0)"]     | random       |
 | **removeStopwords** | If true, remove common words from the cloud                                                                         | false        |
 | **cleanWords**      | If true, removes symbols and extra characters from words                                                            | true         |
-| **language**        | Two-letter language code of stopwords to remove                                                                     | en           |
+| **language**        | Two-letter language code of stopwords to remove ([supported languages](https://github.com/fergiemcdowall/stopword#language-code))                                                                     | en           |
 | **useWordList**     | If true, treat `text` as a comma-separated list of words or phrases instead of trying to split the text on our side | false        |
 
 ## Examples
