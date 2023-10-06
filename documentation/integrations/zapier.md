@@ -17,10 +17,15 @@ import ZapierTestImage from './images/zapier/zapier_quickchart_test.png';
 import ZapierEventsImage from './images/zapier/zapier_quickchart_event_types.png';
 import EmailImage from './images/zapier/zapier_quickchart_email.png';
 import EmailTestImage from './images/zapier/zapier_quickchart_email_test.png';
+import ZapierChartActions from './images/zapier/zapier_chart_actions.png';
 
 It's a common pattern to want to create a chart based on some data you're manipulating in Zapier. Usually after creating the chart, you'll do something like embed it in a document, upload it to a drive, or send it in an email.
 
 This tutorial describes how to **create a chart based on data in Zapier**, and how to **embed the chart in an email**.
+
+<a href="https://zapier.com/apps/quickchart/integrations">
+<Image noBorder alt="Charts on Zapier" src={ZapierChartActions} />
+</a>
 
 In this example, we'll use the [QuickChart Zapier integration](https://zapier.com/apps/quickchart/integrations) to generate customized charts. As an example data source, we'll use a Typeform survey, but you can use any data source you want in Zapier! Other examples of data sources our users connect include Google Sheets, Airtable, and CRMs like Salesforce.
 
