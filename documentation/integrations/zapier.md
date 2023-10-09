@@ -24,7 +24,6 @@ It's a common pattern to want to create a chart based on some data you're manipu
 This tutorial describes how to **create a chart based on data in Zapier**, and how to **embed the chart in an email**.
 
 <Image noBorder alt="Charts on Zapier" src={ZapierChartActions} href="https://zapier.com/apps/quickchart/integrations" />
-</a>
 
 In this example, we'll use the [QuickChart Zapier integration](https://zapier.com/apps/quickchart/integrations) to generate customized charts. As an example data source, we'll use a Typeform survey, but you can use any data source you want in Zapier! Other examples of data sources our users connect include Google Sheets, Airtable, and CRMs like Salesforce.
 
