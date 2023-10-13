@@ -53,3 +53,51 @@ You may also specify the pixel radius of the rounded corners using the `cornerRa
   }
 }
 ```
+
+## Data smoothing techniques
+
+Methods such as exponential smoothing, moving averages, weighted averages, etc, are sometimes used in statistics and data analysis to remove noise from data.
+
+There are two ways to display smoothed data in QuickChart:
+
+1. Perform smoothing on your data beforehand, and then pass smoothed data to QuickChart.  This means you take care of smoothing however you like, on your side.
+
+2. Smooth the data directly in the QuickChart configuration.  QuickChart supports Javascript, so you can program smoothing logic directly into the configuration:
+
+<ChartExample
+  showEditor
+  config={`{
+  type: 'line',
+  data: {
+    labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
+    datasets: [
+      {
+        label: 'Smoothed Data',
+        data: (function exponentialSmoothing(data, alpha) {
+          let smoothedData = [data[0]];
+
+          for (let i = 1; i < data.length; i++) {
+            let previousPoint = smoothedData[i - 1];
+            let currentPoint = data[i];
+            let smoothedPoint =
+              alpha * currentPoint + (1 - alpha) * previousPoint;
+            smoothedData.push(smoothedPoint);
+          }
+
+          return smoothedData;
+        })(
+          // Your raw data goes here:
+          [10, 12, 13, 15, 14, 13, 15, 17, 18, 17],
+          // Smoothing parameter ALPHA:
+          0.5
+        ),
+      },
+      {
+        label: 'Raw Data',
+        data: [10, 12, 13, 15, 14, 13, 15, 17, 18, 17],
+        fill: false,
+      },
+    ],
+  },
+}`}
+/>
