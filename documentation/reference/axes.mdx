@@ -4,6 +4,9 @@ sidebar_position: 3
 
 # Axes
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 import ChartExample from '../components/ChartExample';
 
 There are several types of chart axes: Linear, Logarithmic, Time, Categorical, and Radial. If you are looking to create a standard chart, chances are you want to use a linear or time axis.
@@ -18,13 +21,36 @@ To set the range of chart values, use `axis.ticks.min` and `axis.ticks.max`. Use
 
 This example sets the start value to 0 and the end value to 100, with tick marks every 20:
 
-```js
-{
-  // ...
-  options: {
-    scales: {
-      yAxes: [
-        {
+<Tabs>
+  <TabItem label="Chart.js v2" value="v2">
+    X or Y axis:
+    ```js
+    {
+      // ...
+      options: {
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                // highlight-start
+                min: 0,
+                max: 100,
+                stepSize: 20,
+                // highlight-end
+              },
+            },
+          ];
+        }
+      }
+    }
+    ```
+
+    Radial axis (used in radar and polar area charts):
+    ```js
+    {
+      // ...
+      options: {
+        scale: {
           ticks: {
             // highlight-start
             min: 0,
@@ -32,12 +58,53 @@ This example sets the start value to 0 and the end value to 100, with tick marks
             stepSize: 20,
             // highlight-end
           },
-        },
-      ];
+        }
+      }
     }
-  }
-}
-```
+    ```
+  </TabItem>
+  <TabItem label="Chart.js v3+" value="v3">
+    Linear axes (x and y):
+    ```js
+    {
+      // ...
+      options: {
+        scales: {
+          x: {
+            // highlight-start
+            min: 0,
+            max: 100,
+            ticks: {
+              stepSize: 20,
+            },
+            // highlight-end
+          },
+        }
+      }
+    }
+    ```
+
+    Radial axes (such as radar and polar area charts):
+    ```js
+    {
+      // ...
+      options: {
+        scales: {
+          r: {
+            // highlight-start
+            min: 0,
+            max: 100,
+            ticks: {
+              stepSize: 20,
+            },
+            // highlight-end
+          },
+        }
+      }
+    }
+    ```
+  </TabItem>
+</Tabs>
 
 ### Starting ticks at 0
 
