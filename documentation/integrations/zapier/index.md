@@ -7,17 +7,17 @@ tags: ['integrations', 'zapier']
 
 import Admonition from '@theme/Admonition';
 import Author from '@site/documentation/components/Author';
-import CodeWithHighlights from '../components/CodeWithHighlights';
+import CodeWithHighlights from '@site/documentation//components/CodeWithHighlights';
 import Image from '@site/documentation/components/Image';
-import TypeformSigninImage from './images/zapier/zapier_typeform_signin.png';
-import TypeformSurveyImage from './images/zapier/zapier_typeform_find_survey.png';
-import ActionSearchImage from './images/zapier/zapier_quickchart_action_search.png';
-import ZapierConfigurationImage from './images/zapier/zapier_quickchart_configuration.png';
-import ZapierTestImage from './images/zapier/zapier_quickchart_test.png';
-import ZapierEventsImage from './images/zapier/zapier_quickchart_event_types.png';
-import EmailImage from './images/zapier/zapier_quickchart_email.png';
-import EmailTestImage from './images/zapier/zapier_quickchart_email_test.png';
-import ZapierChartActions from './images/zapier/zapier_chart_actions.png';
+import TypeformSigninImage from '@site/documentation/integrations/images/zapier/zapier_typeform_signin.png';
+import TypeformSurveyImage from '@site/documentation/integrations/images/zapier/zapier_typeform_find_survey.png';
+import ActionSearchImage from '@site/documentation/integrations/images/zapier/zapier_quickchart_action_search.png';
+import ZapierConfigurationImage from '@site/documentation/integrations/images/zapier/zapier_quickchart_configuration.png';
+import ZapierTestImage from '@site/documentation/integrations/images/zapier/zapier_quickchart_test.png';
+import ZapierEventsImage from '@site/documentation/integrations/images/zapier/zapier_quickchart_event_types.png';
+import EmailImage from '@site/documentation/integrations/images/zapier/zapier_quickchart_email.png';
+import EmailTestImage from '@site/documentation/integrations/images/zapier/zapier_quickchart_email_test.png';
+import ZapierChartActions from '@site/documentation/integrations/images/zapier/zapier_chart_actions.png';
 
 It's a common pattern to want to create a chart based on some data you're manipulating in Zapier. Usually after creating the chart, you'll do something like embed it in a document, upload it to a drive, or send it in an email.
 
