@@ -70,7 +70,7 @@ This example sets the start value to 0 and the end value to 100, with tick marks
       // ...
       options: {
         scales: {
-          x: {
+          y: {
             // highlight-start
             min: 0,
             max: 100,
@@ -110,23 +110,42 @@ This example sets the start value to 0 and the end value to 100, with tick marks
 
 By default, Chart.js will fit the axis range to a reasonable minimum and maximum. In some cases, you may prefer that the minimum is always 0. To do this, set `beginAtZero` on the ticks object:
 
-```js
-{
-  // ...
-  options: {
-    scales: {
-      yAxes: [
-        {
-          ticks: {
+<Tabs>
+  <TabItem label="Chart.js v2" value="v2">
+    ```js
+    {
+      // ...
+      options: {
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                // highlight-next-line
+                beginAtZero: true,
+              },
+            },
+          ];
+        }
+      }
+    }
+    ```
+  </TabItem>
+  <TabItem label="Chart.js v3+" value="v3">
+    ```js
+    {
+      // ...
+      options: {
+        scales: {
+          y: {
             // highlight-next-line
             beginAtZero: true,
           },
-        },
-      ];
+        }
+      }
     }
-  }
-}
-```
+    ```
+  </TabItem>
+</Tabs>
 
 ## Creating stacked charts
 
@@ -137,6 +156,8 @@ The multiple axes example below includes a stacked bar chart.
 ## Multiple axes
 
 It is possible to create two or more X or Y axes by providing multiple objects in the `options.scales.xAxes` or `options.scales.yAxes` lists. For each axis, set `display` to true and give it an `id`. Each dataset should reference this id as `yAxisID` or `xAxisID`.
+
+This example uses Chart.js v2:
 
 <ChartExample
   showEditor
