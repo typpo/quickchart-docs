@@ -43,6 +43,10 @@ If you are constructing a chart with a POST request, you may include your key as
 }
 ```
 
+## Chart Maker
+
+If you are using the [Chart Maker](https://quickchart.io/chart-maker/), enter your API key under the `Accounts` section on the left sidebar.
+
 ## Generate a short URL
 
 Creating a short URL is an easy way to generate charts for your users without exposing your API key. Include your key in a request to the `/chart/create` endpoint. For example:
