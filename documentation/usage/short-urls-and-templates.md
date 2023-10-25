@@ -126,11 +126,13 @@ You can embed it like a regular iframe. Be sure to set a frame width and height 
 <iframe src="demo_iframe.htm" frameborder="0" height="500" width="300" title="Iframe Example"></iframe>
 ```
 
-### Expiration behavior
+### Expiration
 
 Expiration of short URLs and templates varies based on whether you've created them using the `/chart/create` API endpoint, or via the [Chart Maker](https://quickchart.io/chart-maker/).
 
 |             | Free Tier                       | Professional Plan               |
 |-------------|---------------------------------|---------------------------------|
-| API         | 3 days                          | 6+ months <br/> _Can be extended by contacting support_       |
-| Chart Maker | 60 days <br/> _Expiration is reset when rendered_ | 6+ months <br/> _Expiration is reset when rendered_ |
+| API         | 3 days                          | 6 months <br/> _Can be extended by contacting support_       |
+| Chart Maker | 60+ days <br/> _Expiration is reset when rendered_ | 6+ months <br/> _Expiration is reset when rendered_ |
+
+An expired short URL will return a 404 Not Found error.
