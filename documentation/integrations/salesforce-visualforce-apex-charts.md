@@ -32,20 +32,20 @@ public class ChartController {
     public String dynamicUrl {get;set;}
     public ChartController() {
       // Insert your chart config here. You can replace the data with dynamic values.
-      String config = "{"
-        + "    type: 'bar',"
-        + "    data: {"
-        + "        labels: ['Q1', 'Q2', 'Q3', 'Q4'],"
-        + "        datasets: [{"
-        + "            label: 'Users',"
-        + "            data: [50, 60, 70, 180]"
-        + "        }]"
-        + "    }"
-        + "}";
+      String config = '{'
+        + '    type: "bar",'
+        + '    data: {'
+        + '        labels: ["Q1", "Q2", "Q3", "Q4"],'
+        + '        datasets: [{'
+        + '            label: "Users",'
+        + '            data: [50, 60, 70, 180]'
+        + '        }]'
+        + '    }'
+        + '}';
 
       // Construct the URL
       String encodedConfig = EncodingUtil.urlEncode(config);
-      dynamicUrl = "https://quickchart.io/chart?c=" + encodedConfig;
+      dynamicUrl = 'https://quickchart.io/chart?c=' + encodedConfig;
     }
 }
 ```
@@ -77,29 +77,29 @@ public class ChartController {
         }
 
         // Set up chart config and replace the data with dynamic values.
-        String config = "{"
-            + "    type: 'bar',"
-            + "    data: {"
-            + "        labels: [" + String.join(accountNames, "','") + "],"
-            + "        datasets: [{"
-            + "            label: 'Spend',"
-            + "            data: [" + String.join(accountSpends, ',') + "]"
-            + "        }]"
-            + "    },"
-            + "    options: {"
-            + "        scales: {"
-            + "            yAxes: [{"
-            + "                ticks: {"
-            + "                    beginAtZero: true"
-            + "                }"
-            + "            }]"
-            + "        }"
-            + "    }"
-            + "}";
+        String config = '{'
+            + '    type: "bar",'
+            + '    data: {'
+            + '        labels: [' + String.join(accountNames, '","') + '],'
+            + '        datasets: [{'
+            + '            label: "Spend",'
+            + '            data: [' + String.join(accountSpends, ',') + ']'
+            + '        }]'
+            + '    },'
+            + '    options: {'
+            + '        scales: {'
+            + '            yAxes: [{'
+            + '                ticks: {'
+            + '                    beginAtZero: true'
+            + '                }'
+            + '            }]'
+            + '        }'
+            + '    }'
+            + '}';
 
         // Construct the URL
         String encodedConfig = EncodingUtil.urlEncode(config);
-        dynamicUrl = "https://quickchart.io/chart?c=" + encodedConfig;
+        dynamicUrl = 'https://quickchart.io/chart?c=' + encodedConfig;
     }
 }
 ```
