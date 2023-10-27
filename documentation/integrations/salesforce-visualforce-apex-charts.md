@@ -50,6 +50,8 @@ public class ChartController {
 }
 ```
 
+Next, add `https://quickchart.io` as a Remote Site in [Remote Site Settings](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_callouts_remote_site_settings.htm).
+
 The dynamic URL in the example above will display the following chart:
 
 <Image maxWidth={600} caption="Chart image rendered in Salesforce via Apex component" src="https://quickchart.io/chart?c=%7B%0A%20%20type%3A%20%27bar%27%2C%0A%20%20data%3A%20%7B%0A%20%20%20%20labels%3A%20%5B%27Q1%27%2C%20%27Q2%27%2C%20%27Q3%27%2C%20%27Q4%27%5D%2C%0A%20%20%20%20datasets%3A%20%5B%7B%0A%20%20%20%20%20%20label%3A%20%27Users%27%2C%0A%20%20%20%20%20%20data%3A%20%5B50%2C%2060%2C%2070%2C%20180%5D%0A%20%20%20%20%7D%5D%0A%20%20%7D%0A%7D%0A" />
