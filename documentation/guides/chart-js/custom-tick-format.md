@@ -254,9 +254,10 @@ To add thousands separators to large numbers, enable the `useGrouping` option in
 ```javascript
   options: {
     plugins: {
-    tickFormat: {
-      useGrouping: true,
-    },}
+      tickFormat: {
+        useGrouping: true,
+      },
+    }
   },
 ```
 
