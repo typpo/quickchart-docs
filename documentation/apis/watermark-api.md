@@ -107,6 +107,10 @@ This produces a composite image:
 
 <Image maxWidth={500} src="https://quickchart.io/watermark?mainImageUrl=https%3A%2F%2Fquickchart.io%2Fchart%3Fc%3D%257B%250A%2520%2520type%253A%2520%2527bar%2527%252C%250A%2520%2520data%253A%2520%257B%250A%2520%2520%2520%2520labels%253A%2520%255B%2527Q1%2527%252C%2520%2527Q2%2527%252C%2520%2527Q3%2527%252C%2520%2527Q4%2527%255D%252C%250A%2520%2520%2520%2520datasets%253A%2520%255B%257B%250A%2520%2520%2520%2520%2520%2520label%253A%2520%2527Users%2527%252C%250A%2520%2520%2520%2520%2520%2520data%253A%2520%255B50%252C%252060%252C%252070%252C%2520180%255D%250A%2520%2520%2520%2520%257D%255D%250A%2520%2520%257D%250A%257D&markImageUrl=https%3A%2F%2F1000logos.net%2Fwp-content%2Fuploads%2F2016%2F10%2FBatman-logo.png&markRatio=0.5&position=center&opacity=0.2&margin=0&imageWidth=500"/>
 
+:::info
+Image size is limited to 1 MB for Community (free) requests, 10 MB for [paid requests](https://quickchart.io/pricing/).
+:::
+
 ## Conclusion
 
 This API makes it easy to superimpose an image atop another in order to add a logo to an image or create a watermark. It works with any images and offers flexible options to customize your mark's appearance and position.
