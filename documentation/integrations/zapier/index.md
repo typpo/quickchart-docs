@@ -93,9 +93,9 @@ In the action setup form, there are two ways to include a chart in the email:
 
 1. To include it as an email attachment, enter the `Chart URL` in the Attachment field.
 
-2. To embed it in the body of the email, use this special HTML:
+2. To embed it in the body of the email, use this HTML:
 
-```
+```html
 <div>
   <img width="500" src="Chart URL">
 </div>
