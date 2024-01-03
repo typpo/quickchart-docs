@@ -133,6 +133,7 @@ Expiration of short URLs and templates varies based on whether you've created th
 |             | Free Tier                       | Professional Plan               |
 |-------------|---------------------------------|---------------------------------|
 | API         | 3 days                          | 6 months <br/> _Can be extended by contacting support_       |
+| Advanced Chart Editor (Sandbox) | 3 days                          | 6 months <br/> _Can be extended by contacting support_       |
 | Chart Maker | 60+ days <br/> _Expiration is reset when rendered_ | 6+ months <br/> _Expiration is reset when rendered_ |
 
 An expired short URL will return a 404 Not Found error.
