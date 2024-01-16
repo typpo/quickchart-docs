@@ -2,19 +2,37 @@
 sidebar_position: 6
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 import ChartExample from '../components/ChartExample';
 
 # Fonts
 
 QuickChart supports all [Google Noto](https://www.google.com/get/noto/) fonts. Custom fonts are available upon request.
 
-To change font size and style, you may set values for each component of the graph:
+To change font size and style, you may set values for each component of the chart:
 
-- For the legend, use `options.legend.labels` and set `fontColor`, `fontStyle`, or `fontFamily` ([chart.js doc](https://www.chartjs.org/docs/2.9.4/configuration/legend.html))
-- For the axis ticks, use `options.scales.<axis>.ticks.font*` ([chart.js doc](https://www.chartjs.org/docs/2.9.4/axes/styling.html)).
-- For radar and polar area charts, there is only one axis, so use `options.scale.ticks.font*` instead.
-  - Radar charts can also adjust outer labels using `options.scale.pointLabels.font*` ([chart.js doc](https://www.chartjs.org/docs/2.9.4/axes/radial/linear.html#point-label-options))
-- For the chart title, use `options.title.font*` ([chart.js doc](https://www.chartjs.org/docs/2.9.4/configuration/title.html))
+<Tabs
+  defaultValue="v2"
+  values={[
+    { label: 'Chart.js v2', value: 'v2', },
+    { label: 'Chart.js v3+', value: 'v3+', },
+  ]}>
+  <TabItem value="v2">
+    - For the legend, use `options.legend.labels` and set `fontColor`, `fontStyle`, or `fontFamily` ([chart.js doc](https://www.chartjs.org/docs/2.9.4/configuration/legend.html))
+    - For the axis ticks, use `options.scales.<axis>.ticks.font*` ([chart.js doc](https://www.chartjs.org/docs/2.9.4/axes/styling.html)).
+    - For radar and polar area charts, there is only one axis, so use `options.scale.ticks.font*` instead.
+      - Radar charts can also adjust outer labels using `options.scale.pointLabels.font*` ([chart.js doc](https://www.chartjs.org/docs/2.9.4/axes/radial/linear.html#point-label-options))
+    - For the chart title, use `options.title.font*` ([chart.js doc](https://www.chartjs.org/docs/2.9.4/configuration/title.html))
+  </TabItem>
+  <TabItem value="v3+">
+    - For the legend, use `options.plugins.legend.labels` and set `color`, `font.style`, or `font.family` ([chart.js doc](https://www.chartjs.org/docs/latest/configuration/legend.html))
+    - For the axis ticks, use `options.scales.<axis>.ticks.font` and set properties like `color`, `style`, or `family` ([chart.js doc](https://www.chartjs.org/docs/latest/axes/styling.html#tick-configuration)).
+    - For radar and polar area charts, there is only one scale, so use `options.scales.r.scale.ticks.font` and set properties like `color`, `style`, or `family` ([chart.js doc](https://www.chartjs.org/docs/latest/axes/radial/linear.html#tick-configuration)).
+    - For the chart title, use `options.plugins.title.font` and set properties like `color`, `style`, or `family` ([chart.js doc](https://www.chartjs.org/docs/latest/configuration/title.html))
+  </TabItem>
+</Tabs>
 
 The example below displays a number of chart font size, style, and color customizations for each component of the chart:
 
