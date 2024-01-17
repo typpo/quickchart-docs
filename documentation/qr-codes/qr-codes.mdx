@@ -101,3 +101,11 @@ Alternatively, you can specify width and height in pixels using `centerImageWidt
 ## Bulk QR code generator
 
 The API can generate bulk QR codes, but if you're looking to generate codes quickly, try our web-based [bulk QR code generator](https://quickchart.io/bulk-qr-code-generator/).
+
+## Migrating from Google Image Charts
+
+Google Image Chart parameters such as `cht`, `chs`, and `chl` are supported by the API.
+
+This means that to migrate, you only need to replace `chart.googleapis.com` with `quickchart.io`:
+
+<CodeWithHighlights wrap code="https://**quickchart.io**/chart?cht=qr&chs=150x150&chl=Testing123" />
