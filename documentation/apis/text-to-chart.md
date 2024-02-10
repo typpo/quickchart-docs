@@ -100,6 +100,19 @@ If you prefer interactive charts, use `https://quickchart.io/natural/iframe/` as
 
 The chart above is an iframe - hover your mouse over the bars to see the interactive tooltips.
 
+## POST endpoint
+
+The endpoint supports generating charts from an HTTP post request.  Here is an example JSON payload:
+
+```json
+{
+  "description": "Red line graph, solar output over 1 year by month",
+  "width": 500,
+  "height": 300,
+  "backgroundColor": "#fff"
+}
+```
+
 ## Examples
 
 Here are some examples of natural language charts:
@@ -131,10 +144,6 @@ Here are some examples of natural language charts:
 Remember, once you generate a chart that _looks_ like other charts you want to generate in the future, you can override the data on it by adding `?data1=10,20,30,60...` to the URL.
 
 ## Tips & Gotchas
-
-#### We're in beta
-
-The Natural Language Charts feature launched on April 11, 2023 and is still in active development.
 
 #### URL-encode your URLs
 In general, URLs should be URL encoded.  For example, `%` and `#` are special characters and need to be converted to their URL-encoded equivalents.  You can use a URL encoder [like this one](https://www.urlencoder.io/).
