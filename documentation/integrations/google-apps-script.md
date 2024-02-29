@@ -19,27 +19,39 @@ Here's an example of a Google Sheets custom function that returns a chart URL:
 
 ```js
 function GetChartUrl(values) {
+  // Check if values are not provided or the array is empty
+  if (!values || values.length === 0 || values[0].length === 0) {
+    throw new Error('This function requires a range with multiple values');
+  }
+  Logger.log('Values:', values);
+
+  // Flatten the 2D array values to a 1D array
+  var flatValues = values.map(function(row) { return row[0]; });
+  Logger.log('Flat Values:', flatValues);
+
   var width = 500;
   var height = 300;
   var backgroundColor = 'white';
-  var config = `{
-  type: 'bar',
-  data: {
-    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-    datasets: [{
-      label: 'Data',
-      data: [${values.join(',')}]
-    }]
-  }
-}
-`;
-  return `https://quickchart.io/chart?c=${encodeURIComponent(config)}&w=${width}&h=${height}&bkg=${backgroundColor}&devicePixelRatio=1`
+  var config = {
+    type: 'bar',
+    data: {
+      labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+      datasets: [{
+        label: 'Data',
+        data: flatValues
+      }]
+    },
+    options: {
+      backgroundColor: backgroundColor
+    }
+  };
+
+  var configString = JSON.stringify(config);
+  return `https://quickchart.io/chart?c=${encodeURIComponent(configString)}&w=${width}&h=${height}&bkg=${backgroundColor}&devicePixelRatio=1`;
 }
 ```
 
-After editing the script, remember to save it:
-
-<Image alt="QuickChart function in Google Apps Script" caption="Edit the script, then press the 'Save' icon" src={EditorImage} />
+After editing the script, remember to save it!
 
 Now that your custom function is setup, use the formula in Google Sheets:
 
