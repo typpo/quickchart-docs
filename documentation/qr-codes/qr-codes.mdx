@@ -22,7 +22,7 @@ Build your customized QR code using the following query parameters. You may also
 |    Parameter Name    |                        Description                        | Required? |          Default value           |
 | :------------------: | :-------------------------------------------------------: | :-------: | :------------------------------: |
 |         text         | Content of the QR code (can be a URL or any other string) |    Yes    |                                  |
-|        format        |           Format of QR code, either png, svg, or base64            |           |               png                |
+|        format        |       Format of QR code, either png, svg, or base64       |           |               png                |
 |        margin        |                Whitespace around QR image                 |           |                4                 |
 |         size         |          Width and height dimension of the image          |           |               150                |
 |         dark         |          Hex color code of "dark" QR grid cells           |           |          000000 (black)          |
@@ -32,6 +32,9 @@ Build your customized QR code using the following query parameters. You may also
 | centerImageSizeRatio |      How much space to take up, between 0.0 and 1.0       |           |               0.3                |
 |   centerImageWidth   |              Width of center image in pixels              |           |                                  |
 |  centerImageHeight   |             Height of center image in pixels              |           |                                  |
+|       caption        |        Caption text to display below the QR code.         |           |                                  |
+|  captionFontFamily   |              Font family of the caption text              |           |           'sans-serif'           |
+|   captionFontSize    |         Font size of the caption text in pixels.          |           |                10                |
 
 <Admonition type="tip">
   Remember to [URL-encode](https://urlencoder.io) the `text` parameter. Otherwise special characters
@@ -41,7 +44,7 @@ Build your customized QR code using the following query parameters. You may also
 
 ## Customizing QR code appearance
 
-To customize the color of your QR code, use `dark` and `light`. The parameters must be hex color codes (e.g. `dark=000000`, `light=ffffff`).  For a transparent background, set `light` to `0000`.
+To customize the color of your QR code, use `dark` and `light`. The parameters must be hex color codes (e.g. `dark=000000`, `light=ffffff`). For a transparent background, set `light` to `0000`.
 
 Set the whitespace around QR image in modules with query parameter `margin` (defaults to 4), `size` determines the pixel dimensions of the image (defaults to 150), and error correction level with `ecLevel` (valid values: L, M, Q, H).
 
@@ -92,11 +95,23 @@ Alternatively, you can specify width and height in pixels using `centerImageWidt
 </Admonition>
 
 <Admonition type="tip">
-  Remember to [URL-encode](https://urlencoder.io) the `centerImageUrl`
-  parameter. Otherwise the URL will not work correctly if it contains special
-  characters (the [QR builder](https://quickchart.io/qr-code-api/) takes care
-  of this automatically).
+  Remember to [URL-encode](https://urlencoder.io) the `centerImageUrl` parameter. Otherwise the URL
+  will not work correctly if it contains special characters (the [QR
+  builder](https://quickchart.io/qr-code-api/) takes care of this automatically).
 </Admonition>
+
+## Text below QR code
+
+You can add a caption below your QR code by using the `caption`, `captionFontFamily`, and `captionFontSize` parameters. This allows for further customization and can be particularly useful for branding or providing additional context.
+
+For example:
+
+<CodeWithHighlights code="**https://quickchart.io/qr?text=**abc123**&caption=**TextBelowQr**&captionFontFamily=**mono**&captionFontSize=**20" />
+
+<img
+  loading="lazy"
+  src="https://quickchart.io/qr?text=abc123&caption=TextBelowQr&captionFontFamily=mono&captionFontSize=20"
+/>
 
 ## Bulk QR code generator
 
