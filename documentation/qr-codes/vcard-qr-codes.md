@@ -83,6 +83,22 @@ Finally, use the `IMAGE` function to render the QR code:
 
 <Image src={SheetImage} alt="Spreadsheet with vCard QR codes" />
 
+## Encoding special characters
+
+If you're using special characters e.g. from a language other than English, you may need to specify the encoding of your vCard values.  Here's an example that uses `UTF-8` encoding to ensure that the vCard is correctly read on all mobile platforms:
+
+```
+BEGIN:VCARD
+VERSION:3.0
+N;CHARSET=UTF-8:Doe;John;;;
+FN;CHARSET=UTF-8:John Doe
+ORG;CHARSET=UTF-8:Example Company
+EMAIL;CHARSET=UTF-8;type=INTERNET,WORK:john.doe@example.com
+END:VCARD
+```
+
+## Need help?
+
 That's all there is to it! To further customize your QR code, refer to the [documentation](/documentation/qr-codes/).
 
 For questions, head to the [community forum](https://community.quickchart.io/).
