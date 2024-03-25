@@ -52,7 +52,13 @@ Note that you can also create a _view_ of an existing dataset.
 
 In order for QuickChart to pull in your chart data, you'll need to provide a _Personal Access Token_.
 
-The generate an access token, go to [https://airtable.com/create/tokens](https://airtable.com/create/tokens).
+To generate an access token, go to [https://airtable.com/create/tokens](https://airtable.com/create/tokens).
+
+Give it the following scopes:
+- `data.records:read` - See the data in records
+- `schema.bases:read` - See the structure of a base
+
+Then, grant it access to whichever bases you want to use data from.  Or, grant access to all workspaces.
 
 <Image maxWidth={800} caption="Create an Airtable personal access token" src={ApiKeyImage} />
 
