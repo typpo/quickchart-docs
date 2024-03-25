@@ -11,7 +11,7 @@ import CodeWithHighlights from '../components/CodeWithHighlights';
 import Image from '../components/Image';
 import ChartInEmailImage from '../guides/images/email/chart_in_email.png';
 import AirtableImage from './images/airtable/airtable_example.png';
-import ApiKeyImage from './images/airtable/airtable_api_key.png';
+import ApiKeyImage from './images/airtable/airtable_personal_access_token.png';
 
 QuickChart is an open-source project for rendering charts. Generated chart images can be embedded in static locations such as websites, emails, PDFs, chat services, and many other places.
 
@@ -48,13 +48,13 @@ Note that you can also create a _view_ of an existing dataset.
 
 <Image maxWidth={800} caption="Create a table or view with 1 column containing labels and 1+ data columns." src={AirtableImage} />
 
-## Step 2: Get your Airtable API key
+## Step 2: Get your Airtable personal access token
 
-In order for QuickChart to pull in your chart data, you'll need to grant access with an _API key_.
+In order for QuickChart to pull in your chart data, you'll need to provide a _Personal Access Token_.
 
-The generate an API key, go to [https://airtable.com/account](https://airtable.com/account).
+The generate an access token, go to [https://airtable.com/create/tokens](https://airtable.com/create/tokens).
 
-<Image maxWidth={800} caption="Create an Airtable API key" src={ApiKeyImage} />
+<Image maxWidth={800} caption="Create an Airtable personal access token" src={ApiKeyImage} />
 
 ## Step 3: Create the chart
 
@@ -98,7 +98,7 @@ Next, we'll construct our [Chart.js configuration](https://www.chartjs.org/docs/
 
 The following parameters tell the plugin how to access your data:
 
-- **`apiKey`**: Airtable API key, required to connect QuickChart with Airtable
+- **`apiKey`**: Airtable personal access token, required to connect QuickChart with Airtable
 - **`url`**: URL to Airtable, required to download data from the table
 
 These parameters tell the plugin how to map the data onto a chart:
