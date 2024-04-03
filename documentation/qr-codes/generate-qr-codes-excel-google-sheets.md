@@ -11,6 +11,7 @@ import QrDataExampleUrl from '@site/documentation/images/qr-codes/qr-data-exampl
 import QrDataWithFormulaUrl from '@site/documentation/images/qr-codes/qr-data-with-formula.png';
 import QrDataFullUrl from '@site/documentation/images/qr-codes/qr-data-full.png';
 import QrTemplateUrl from '@site/documentation/images/qr-codes/qr-template.png';
+import PermissionsImage from '@site/documentation/integrations/images/google-sheets/quickchart_google_sheets_allow_access.png';
 
 QR codes can be generated in spreadsheets with a special `IMAGE()` formula.
 
@@ -47,6 +48,14 @@ Be sure to enable macros when you open the spreadsheet. If you receive an error 
 **To use in Google Sheets**, open this [Google Sheets QR code template](https://docs.google.com/spreadsheets/d/11owVTeI5ks3NH3ekFDmpygm1tsvqPGECQSh7k1qK3DY/edit?usp=sharing). Go to `File > Make a copy` in order copy it to your own Google Drive and start generating QR codes.
 
 <Image noBorder src={QrTemplateUrl} alt="Generate QR codes with a spreadsheet" />
+
+<details>
+<summary>Google Sheets may ask you for permissions to load external data. This is necessary to render QR code images.</summary>
+
+To proceed, click "Allow access".
+
+<Image noBorder src={PermissionsImage} alt="Granting permissions to Google Sheets to view image" />
+</details>
 
 ## Customize the QR code
 
