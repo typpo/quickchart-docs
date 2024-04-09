@@ -88,6 +88,8 @@ To set width/height, use `centerImageSizeRatio`. This ratio should be a float be
 
 Alternatively, you can specify width and height in pixels using `centerImageWidth` and `centerImageHeight`.
 
+Note that the image URLs used in QR codes must be accessible on the public internet.  Base64 data URIs are also supported.
+
 <Admonition type="caution">
   You should always test the QR code after overlaying an image. This is because an image can
   potentially block critical portions of the QR code. You can guard against this by making sure the
@@ -99,10 +101,6 @@ Alternatively, you can specify width and height in pixels using `centerImageWidt
   will not work correctly if it contains special characters (the [QR
   builder](https://quickchart.io/qr-code-api/) takes care of this automatically).
 </Admonition>
-
-:::info
-The image URLs used in QR codes must be accessible on the public internet.  Base64 data URIs are also supported.
-:::
 
 ## Text below QR code
 
