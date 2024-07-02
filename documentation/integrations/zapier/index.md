@@ -71,6 +71,8 @@ Proceed by clicking "Continue" and then running a test.
 
 The results should look similar to above. The action outputs a URL. Going to this URL will load a chart image.
 
+As of writing, Zapier deletes images after a few months. If you wish to use the Zapier-generated image for longer, you should consider an additional action that uploads the image to more permanent storage.
+
 ### Alternative: Choose a built-in configuration
 
 If you just want a simple chart, there are some built-in chart types that you can use to avoid having to create a JSON configuration. However, if you want the full range of chart customization, you'll have to construct a configuration yourself as described above (it's not so bad!).
@@ -82,6 +84,8 @@ If you just want a simple chart, there are some built-in chart types that you ca
 A second way to avoid editing configurations by hand is to use the [chart maker](/documentation/chart-maker/), a no-code tool to construct charts.
 
 After obtaining a template URL from the chart maker, you can [construct a URL](/documentation/chart-maker/#use-the-no-code-chart-api) that alters the chart to your liking without having to use the QuickChart action on Zapier.
+
+This approach also works around the fact that Zapier deletes images after a few months, as the chart will be hosted directly on QuickChart.
 
 ## Adding the chart to email
 
