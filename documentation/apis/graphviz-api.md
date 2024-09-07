@@ -84,7 +84,7 @@ This URL returns the following image:
 
 <Image noBorder src="https://quickchart.io/graphviz?graph=digraph%20G%20%7B%0A%20%20%20%20size%20%3D%224%2C4%22%3B%0A%20%20%20%20main%20%5Bshape%3Ddoubleoctagon%5D%3B%20%20%20%2F%2A%20this%20is%20a%20comment%20%2A%2F%0A%20%20%20%20main%20-%3E%20parse%20%5Bweight%3D8%5D%3B%0A%20%20%20%20parse%20-%3E%20execute%3B%0A%20%20%20%20main%20-%3E%20init%20%5Bstyle%3Ddotted%5D%3B%0A%20%20%20%20main%20-%3E%20cleanup%3B%0A%20%20%20%20execute%20-%3E%20%7B%20make_string%3B%20printf%7D%0A%20%20%20%20init%20-%3E%20make_string%3B%0A%20%20%20%20edge%20%5Bcolor%3Dred%5D%3B%20%20%20%2F%2F%20so%20is%20this%0A%20%20%20%20main%20-%3E%20printf%20%5Bstyle%3Dbold%2Clabel%3D%22100%20times%22%5D%3B%0A%20%20%20%20make_string%20%5Blabel%3D%22make%20a%5Cnstring%22%5D%3B%0A%20%20%20%20node%20%5Bshape%3Dstar%2Cstyle%3Dfilled%2Ccolor%3D%22.7%20.3%201.0%22%5D%3B%0A%20%20%20%20execute%20-%3E%20compare%3B%0A%7D" />
 
-Note that you should always **URL encode** your `graph` parameter in the API request. For more complex charts, this is a requirement.
+Note that when sending a GET request, you should always **URL encode** your `graph` parameter in the API request. For more complex charts, this is a requirement.
 
 Learn more about node shapes and styling from the official GraphViz documentation [here](https://graphviz.org/doc/info/shapes.html).
 
