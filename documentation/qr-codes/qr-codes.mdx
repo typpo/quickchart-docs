@@ -126,3 +126,42 @@ Google Image Chart parameters such as `cht`, `chs`, and `chl` are supported by t
 This means that to migrate, you only need to replace `chart.googleapis.com` with `quickchart.io`:
 
 <CodeWithHighlights wrap code="https://**quickchart.io**/chart?cht=qr&chs=150x150&chl=Testing123" />
+
+## Troubleshooting
+
+### Parameters or Special Characters not working
+
+When creating QR codes with QuickChart, you may find that certain parameters, special characters, or parts of the URL are not correctly preserved when the QR code is scanned. 
+
+#### Root Cause
+This issue typically occurs when the URL or text content in the QR code is not properly URL-encoded within the QuickChart API call.
+
+#### Solution: URL Encode the `text` or `chl` Parameter
+
+To resolve this issue, you need to URL encode the entire content that you're putting into the QR code. This applies to both the `text` parameter in the new API and the `chl` parameter if you're using the Google Image Charts compatible API.
+
+##### Steps to URL Encode:
+
+1. **Use a URL Encoding Tool:**
+   - Use an [online URL encoder](https://www.urlencoder.io/) or a function in your programming language
+   - Encode the full content of your QR code, including any special characters or parameters
+
+2. **Update Your QuickChart API Call:**
+   - Replace the unencoded content in your `text` or `chl` parameter with the encoded version
+
+##### Example:
+
+Original content:
+```
+https://example.com/page?param1=value1&param2=value2
+```
+
+Encoded content (to be used in the 'text' or 'chl' parameter):
+```
+https%3A%2F%2Fexample.com%2Fpage%3Fparam1%3Dvalue1%26param2%3Dvalue2
+```
+
+Complete QuickChart API call with encoded content:
+```
+https://quickchart.io/qr?text=https%3A%2F%2Fexample.com%2Fpage%3Fparam1%3Dvalue1%26param2%3Dvalue2
+```
