@@ -1,6 +1,6 @@
 ---
 slug: /sms-qr-codes/
-title: Creating QR Codes for SMS Messages
+title: How to Create SMS QR Codes
 sidebar_label: SMS QR Codes
 tags: ['qr codes']
 ---

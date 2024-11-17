@@ -1,6 +1,6 @@
 ---
 slug: /google-review-qr-codes/
-title: Creating QR Codes for Google Reviews
+title: How to Create Google Review QR Codes
 sidebar_label: Google Review QR Codes
 tags: ['qr codes']
 ---
