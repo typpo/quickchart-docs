@@ -30,6 +30,8 @@ You will use a formula to dynamically generate the URL that creates the QR code 
 
     Replace `{YourFieldNameHere}` with the field from your data source containing the data you want to encode in the QR code.
 
+5. **Save and Close**: Save the formula and close the formula editor.
+
 ### Example
 
 Here's an example of how the formula would look in Crystal Reports:
@@ -47,8 +49,6 @@ You can customize the appearance of the QR code by modifying the parameters in t
 - `text`: Specify the data to be encoded in the QR code. Make sure to URL-encode the text if it contains special characters.
 
 See [documentation](/documentation/qr-codes/) for more customization options.
-
-5. **Save and Close**: Save the formula and close the formula editor.
 
 ## Step 3: Add the QR Code to your report
 
