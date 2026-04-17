@@ -19,23 +19,27 @@ QuickChart supports QR code generation. Generate a QR code like this:
 
 Build your customized QR code using the following query parameters. You may also use the web-based [QR code builder](https://quickchart.io/qr-code-api/).
 
-|    Parameter Name    |                        Description                        | Required? |          Default value           |
-| :------------------: | :-------------------------------------------------------: | :-------: | :------------------------------: |
-|         text         | Content of the QR code (can be a URL or any other string) |    Yes    |                                  |
-|        format        |       Format of QR code, either png, svg, or base64       |           |               png                |
-|        margin        |                Whitespace around QR image                 |           |                4                 |
-|         size         |          Width and height dimension of the image          |           |               150                |
-|         dark         |          Hex color code of "dark" QR grid cells           |           |          000000 (black)          |
-|        light         |          Hex color code of "light" QR grid cells          |           |          ffffff (white)          |
-|       ecLevel        |            Error correction level (L, M, Q, H)            |           | M (H if center image is present) |
-|    centerImageUrl    | URL of image to show in the center. Must be URL-encoded.  |           |                                  |
-| centerImageSizeRatio |      How much space to take up, between 0.0 and 1.0       |           |               0.3                |
-|   centerImageWidth   |              Width of center image in pixels              |           |                                  |
-|  centerImageHeight   |             Height of center image in pixels              |           |                                  |
-|       caption        |        Caption text to display below the QR code.         |           |                                  |
-|  captionFontFamily   |              Font family of the caption text              |           |           'sans-serif'           |
-|   captionFontSize    |         Font size of the caption text in pixels.          |           |                10                |
-|   captionFontColor   |         Color caption text, color names or hex code.      |           |               black              |
+|    Parameter Name    |                                Description                                 | Required? |          Default value           |
+| :------------------: | :------------------------------------------------------------------------: | :-------: | :------------------------------: |
+|         text         |         Content of the QR code (can be a URL or any other string)          |    Yes    |                                  |
+|        format        |               Format of QR code, either png, svg, or base64               |           |               png                |
+|        margin        |                         Whitespace around QR image                         |           |                4                 |
+|         size         |                  Width and height dimension of the image                   |           |               150                |
+|         dark         |                  Hex color code of "dark" QR grid cells                   |           |          000000 (black)          |
+|        light         |                  Hex color code of "light" QR grid cells                  |           |          ffffff (white)          |
+|     finderColor      |  Hex color of the three finder patterns (corners). Defaults to `dark`.     |           |                                  |
+|       dotStyle       | Shape of data modules: `square`, `dot` (aka `dots`/`round`/`circle`), or `rounded` |           |              square              |
+|     finderStyle      | Shape of finder patterns: `square`, `rounded`, or `circle` (aka `dot`/`dots`)      |           |              square              |
+|    finderDotStyle    | Shape of inner finder dots: `square`, `rounded`, or `dot` (aka `dots`/`circle`)    |           |      follows finderStyle         |
+|       ecLevel        |                    Error correction level (L, M, Q, H)                    |           | M (H if center image is present) |
+|    centerImageUrl    |          URL of image to show in the center. Must be URL-encoded.          |           |                                  |
+| centerImageSizeRatio |              How much space to take up, between 0.0 and 1.0               |           |               0.3                |
+|   centerImageWidth   |                     Width of center image in pixels                      |           |                                  |
+|  centerImageHeight   |                    Height of center image in pixels                      |           |                                  |
+|       caption        |                Caption text to display below the QR code.                 |           |                                  |
+|  captionFontFamily   |                     Font family of the caption text                      |           |           'sans-serif'           |
+|   captionFontSize    |                 Font size of the caption text in pixels.                 |           |                10                |
+|   captionFontColor   |              Color caption text, color names or hex code.                |           |              black               |
 
 <Admonition type="tip">
   Remember to [URL-encode](https://urlencoder.io) the `text` parameter. Otherwise special characters
@@ -64,6 +68,34 @@ Here's the same code as above but URL encoded with slimmer margins, more error p
 />
 
 Use our [interactive QR code generator](https://quickchart.io/qr-code-api/) to preview API behavior and test things out. You may also be interested in how to [generate QR codes in a spreadsheet](/documentation/generate-qr-codes-excel-google-sheets/).
+
+## Styled QR codes
+
+Use `dotStyle`, `finderStyle`, and `finderDotStyle` to change the shape of the data modules and finder patterns. Use `finderColor` to give the finder patterns a different color from the rest of the code.
+
+| Parameter | Supported values |
+| :--- | :--- |
+| `dotStyle` | `square` (default), `dot`, `rounded` |
+| `finderStyle` | `square` (default), `rounded`, `circle` |
+| `finderDotStyle` | `square`, `rounded`, `dot` (defaults to match `finderStyle`) |
+| `finderColor` | Hex color (e.g. `ff0066`). Defaults to `dark`. |
+
+For example, rounded dots with circular finder patterns and a custom finder color:
+
+<CodeWithHighlights
+  wrap
+  code="https://quickchart.io/qr?**text**=Here's%20my%20text&**dotStyle**=rounded&**finderStyle**=circle&**finderColor**=ff0066"
+/>
+
+<img
+  loading="lazy"
+  src="https://quickchart.io/qr?text=Here's%20my%20text&dotStyle=rounded&finderStyle=circle&finderColor=ff0066"
+/>
+
+<Admonition type="tip">
+  Styled QR codes are still decodable by standard QR readers, but you should always scan-test your
+  final design. Highly stylized codes may be harder to read at small sizes or in low contrast.
+</Admonition>
 
 ## Images in QR codes
 
