@@ -26,6 +26,15 @@ Access to certain Chart.js internals, used especially in plugins, is restricted 
 
 Access to certain Chart.js internals, used especially in plugins, is restricted due to potential for abuse. [Contact us](mailto:support@quickchart.io) to get whitelisted for these features.
 
+## Structured validation endpoints
+
+If your client needs JSON errors instead of an image-encoded error, validate before rendering:
+
+- `POST /api/validate-chart` accepts the same JSON body as `POST /chart`.
+- `POST /api/validate-qr` accepts the same JSON body as `POST /qr`.
+
+Validation responses include `success`, `errors`, `warnings`, normalized request parameters, and a small render check. See the [agent-friendly API docs](/documentation/apis/agent-friendly-api/) for examples.
+
 ## Request header or cookie too large
 
 The URL length limitation is imposed by web browsers and hosting providers, so we cannot change it.  Here are two ways you can solve this problem:

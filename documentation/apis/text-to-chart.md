@@ -113,6 +113,23 @@ The endpoint supports generating charts from an HTTP post request.  Here is an e
 }
 ```
 
+## JSON config endpoint
+
+If you want to review or edit the generated Chart.js config before rendering, use `POST https://quickchart.io/natural/config` with the same payload:
+
+```bash
+curl -X POST https://quickchart.io/natural/config \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "description": "Red line graph, solar output over 1 year by month",
+    "width": 500,
+    "height": 300,
+    "backgroundColor": "#fff"
+  }'
+```
+
+The response includes the generated `chart` config, a saved `chartUrl`, a `chartMakerUrl` for editing, and warnings for callers that need to validate the chart before production use.
+
 ## Examples
 
 Here are some examples of natural language charts:
