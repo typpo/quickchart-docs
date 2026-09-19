@@ -41,7 +41,7 @@ That’s it! You should be able to scan one of these QR codes with your phone.
 
 To make things easier, we’ve created template spreadsheets. These spreadsheets automatically generate QR codes for URLs and other data you put in Column A.
 
-**To use in Excel**, download the [Excel template](@site/static/resources/QR_Code_Spreadsheet_Template.xlsm). This sheet includes `IMAGE` and `ENCODEURL` macros that are required for QR code generation.
+**To use in Excel**, download the <a href="/documentation/resources/QR_Code_Spreadsheet_Template.xlsm">Excel template</a>. This sheet includes `IMAGE` and `ENCODEURL` macros that are required for QR code generation.
 
 Be sure to enable macros when you open the spreadsheet. If you receive an error that Microsoft has blocked macros in this file, follow [these instructions from Microsoft](https://support.microsoft.com/en-us/office/enable-or-disable-macros-in-microsoft-365-files-12b036fd-d140-4e74-b45e-16fed1a7e5c6) to enable macros.
 

@@ -7,11 +7,11 @@ hide_table_of_contents: true
 
 Use retina support to generate high quality images suitable for high-DPI displays. By default, QuickChart serves charts at 2x requested pixel size so that they appear sharp on retina displays.
 
-To disable retina support set the `devicePixelRatio` parameter to 1.0 (see [query parameters documentation](/documentation/usage/parameters/)). `devicePixelRatio` acts as a multiplier on the width and height of your chart.
+To disable retina support set the `devicePixelRatio` parameter to 1.0 (see [query parameters documentation](/documentation/usage/parameters/)). `devicePixelRatio` acts as a multiplier on the width and height of your chart. Fractional values are supported: a 400×200 chart with `devicePixelRatio=1.5` produces a 600×300 image. The maximum ratio is 2.
 
 ## How to display retina images
 
-Most modern smart phones, tablets, and laptops have high-DPI displays. To display retina images, you must use the `srcset` attribute on your `<img>` tag. This attribute allows you to specify multiple image URLs and their corresponding pixel densities. The browser will automatically choose the best image for the user's device.
+Most modern smart phones, tablets, and laptops have high-DPI displays. To let the browser choose between normal and retina images, use the `srcset` attribute on your `<img>` tag. This attribute allows you to specify multiple image URLs and their corresponding pixel densities. The browser will automatically choose the best image for the user's device.
 
 Here's an example. The image below will always be displayed at 500x300 pixels. On a retina display, the browser will automatically request the 2x version of the image.
 
@@ -21,6 +21,6 @@ Here's an example. The image below will always be displayed at 500x300 pixels. O
 
 This image tag is embedded below:
 
-<img src="https://quickchart.io/chart?c={type:'bar',data:{labels:['A','B','C'],datasets:[{data:[1,2,3]}]}}&w=500&h=300&devicePixelRatio=1" srcset="https://quickchart.io/chart?c={type:'bar',data:{labels:['A','B','C'],datasets:[{data:[1,2,3]}]}}&w=500&h=300&devicePixelRatio=2 2x" width="500" height="300"/>
+<img src="https://quickchart.io/chart?c={type:'bar',data:{labels:['A','B','C'],datasets:[{data:[1,2,3]}]}}&w=500&h=300&devicePixelRatio=1" srcSet="https://quickchart.io/chart?c={type:'bar',data:{labels:['A','B','C'],datasets:[{data:[1,2,3]}]}}&w=500&h=300&devicePixelRatio=2 2x" width="500" height="300"/>
 
 It's important to set the `width`, `height`, and `devicePixelRatio` parameters on each image.  Failure to do so will force the browser to resize the image, which may result in a blurry image especially on higher DPI displays.

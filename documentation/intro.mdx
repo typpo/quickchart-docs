@@ -61,7 +61,7 @@ The URL generates this chart image, a rendering of the Chart.js config above:
 
 Try making adjustments to the example above!
 
-1. Edit the chart and replacing `bar` with `line` or `pie` to get a different type of chart.
+1. Edit the chart and replace `bar` with `line` or `pie` to get a different type of chart.
 2. Change the legend labels.
 3. Add another dataset to get a grouped bar chart.
 
@@ -76,16 +76,18 @@ The `https://quickchart.io/chart` endpoint supports both `GET` and `POST` method
 | `chart`            | string  | Chart.js configuration object to render. This is the definition of the chart in Javascript or JSON format. |
 | `width`            | integer | Width of image in pixels. Defaults to `500`                                                                |
 | `height`           | integer | Height of image in pixels. Defaults to `300`                                                               |
-| `devicePixelRatio` | integer | Device pixel ratio of output. Set to `1` for normal resolution, `2` for retina. Defaults to `2`            |
+| `devicePixelRatio` | number  | Device pixel ratio of output. Set to `1` for normal resolution, `2` for retina. Defaults to `2`            |
 | `backgroundColor`  | string  | RGB, HEX, HSL, or color name. Defaults to `transparent`                                                    |
-| `version`          | string  | Chart.js version. Default to `2`. Setting to `4` enables latest stable Chart.js v4 support.                |
-| `format`           | string  | `png`, `webp`, `svg`, or `pdf`. Defaults to `png`                                                          |
+| `version`          | string  | Chart.js major version: `2`, `3`, or `4`. Defaults to `2`.                |
+| `format`           | string  | `png`, `jpg`, `webp`, `svg`, `pdf`, or `base64`. Defaults to `png`                                                          |
 | `encoding`         | string  | url or base64. Defaults to `url`                                                                           |
 
 <Admonition type="info">
   [Learn more about API parameters](/documentation/usage/parameters/) and the [POST
   endpoint](/documentation/usage/post-endpoint/).
 </Admonition>
+
+Most examples in these docs use Chart.js v2, the default. If you are using a Chart.js v3 or v4 configuration, set `version` in your request. See [Chart.js versions](/documentation/usage/chartjs-versions/) for details.
 
 ## Customization
 
@@ -133,6 +135,12 @@ Because QuickChart is built on the open-source Chart.js library, charts are flex
 ## QR codes \{#qr}
 
 To learn more about generating QR codes, [follow this link](/documentation/qr-codes/).
+
+## Other APIs
+
+QuickChart also generates [barcodes](/documentation/barcode-api/), [word clouds](/documentation/word-cloud-api/), [tables](/documentation/apis/table-image-api/), and [GraphViz diagrams](/documentation/graphviz-api/). You can [read QR codes](/documentation/qr-codes/qr-reader-api/) or [add a watermark to an image](/documentation/watermark-api/).
+
+For OpenAPI metadata and JSON validation responses, see the [agent-friendly API](/documentation/apis/agent-friendly-api/).
 
 ## Need help?
 

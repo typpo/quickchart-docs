@@ -17,7 +17,7 @@ Axes are configured in the `options.scales` object. Learn more about chart axes,
 
 ### Minimum and maximum values
 
-To set the range of chart values, use `axis.ticks.min` and `axis.ticks.max`. Use `axis.ticks.stepSize` to control the increment of each tick mark. For more information, see [Chart.js ticks](https://www.chartjs.org/docs/2.9.4/axes/radial/linear.html#tick-options).
+In Chart.js v2, set the range with `axis.ticks.min` and `axis.ticks.max`. In v3 and v4, set `min` and `max` directly on the axis. Use `axis.ticks.stepSize` to control the increment of each tick mark. For more information, see [Chart.js ticks](https://www.chartjs.org/docs/2.9.4/axes/radial/linear.html#tick-options).
 
 This example sets the start value to 0 and the end value to 100, with tick marks every 20:
 
@@ -39,7 +39,7 @@ This example sets the start value to 0 and the end value to 100, with tick marks
                 // highlight-end
               },
             },
-          ];
+          ],
         }
       }
     }
@@ -108,7 +108,7 @@ This example sets the start value to 0 and the end value to 100, with tick marks
 
 ### Starting ticks at 0
 
-By default, Chart.js will fit the axis range to a reasonable minimum and maximum. In some cases, you may prefer that the minimum is always 0. To do this, set `beginAtZero` on the ticks object:
+By default, Chart.js will fit the axis range to a reasonable minimum and maximum. In some cases, you may prefer that the minimum is always 0. In Chart.js v2, set `beginAtZero` on the ticks object. In v3 and v4, set it directly on the axis:
 
 <Tabs>
   <TabItem label="Chart.js v2" value="v2">
@@ -124,7 +124,7 @@ By default, Chart.js will fit the axis range to a reasonable minimum and maximum
                 beginAtZero: true,
               },
             },
-          ];
+          ],
         }
       }
     }
@@ -156,6 +156,8 @@ The multiple axes example below includes a stacked bar chart.
 ## Multiple axes
 
 It is possible to create two or more X or Y axes by providing multiple objects in the `options.scales.xAxes` or `options.scales.yAxes` lists. For each axis, set `display` to true and give it an `id`. Each dataset should reference this id as `yAxisID` or `xAxisID`.
+
+In Chart.js v3 and v4, define each axis by name under `options.scales`, such as `y1` and `y2`, and use those names as the dataset's `yAxisID`. Set `version=3` or `version=4` in your request.
 
 This example uses Chart.js v2:
 

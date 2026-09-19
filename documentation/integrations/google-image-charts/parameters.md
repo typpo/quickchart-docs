@@ -170,7 +170,7 @@ Specify custom string axis labels on any axis using the chxl parameter. If you d
 
 <Image caption="chxl=|2001|2002|2003" src="https://quickchart.io/chart?chxt=x,y&cht=bvs&chd=s:cEj9U&chco=76A4FB&chls=2.0&chs=300x200&chxl=0:|2001|2002|2003&chxp=0,0"/>
 
-## Axis label styles (chxs) \{chxs-param}
+## Axis label styles (chxs) \{#chxs-param}
 
 <GoogleImageChartsTutorialCallout>`chxs= <axis_index><opt_format_string>,<opt_label_color>,<opt_font_size>,<opt_alignment>,<opt_axis_or_tick>,<opt_tick_color>,<opt_axis_color> |...| <repeated>`</GoogleImageChartsTutorialCallout>
 

@@ -24,9 +24,13 @@ QuickChart comes with some Chart.js plugins pre-installed. Use these plugins as 
 | [chartjs-plugin-error-bars](https://github.com/datavisyn/chartjs-plugin-error-bars)                 | Support for error bars on chart                                                                     | ✔️                   |                         |
 | [chartjs-plugin-piechart-outlabels](https://github.com/Neckster/chartjs-plugin-piechart-outlabels)  | Add labels outside your pie graph                                                                   | ✔️                   |                         |
 
+QuickChart also includes [chartjs-chart-funnel](https://github.com/sgratzl/chartjs-chart-funnel) for funnel charts with Chart.js v3 and v4, and [chartjs-gauge](https://github.com/haiiaaa/chartjs-gauge) for gauge charts with v2. Time axes use Moment.js with v2 and the Luxon adapter with v3 and v4.
+
+Set the [Chart.js version](/documentation/usage/chartjs-versions/) in your request to match the plugins you use.
+
 ## Adding custom plugins
 
-As with any Chart.js chart, it's possible to add custom inline plugins by setting the `plugins` attribute in your chart config. Setting a custom `plugins` object will override the plugins built into QuickChart.
+As with any Chart.js chart, it's possible to add custom inline plugins by setting the `plugins` attribute in your chart config. Use an array of plugin objects. These run alongside the built-in plugins; configure a built-in plugin under `options.plugins`.
 
 <Admonition type="caution">
 Due to compute restrictions, the Community (free) tier does not support all properties on the `Chart` or `chart` objects. [Subscribers](https://quickchart.io/pricing/) have unrestricted access to these objects.
@@ -34,7 +38,7 @@ Due to compute restrictions, the Community (free) tier does not support all prop
 
 ### Example
 
-Here's an example that adds some extra space between a pie chart and its legend. Note that is uses a global `Chart` object. Access to this object is restricted to [paid plans](https://quickchart.io/pricing/) or self-hosted instances:
+Here's an example that adds some extra space between a pie chart and its legend. Note that it uses a global `Chart` object. Access to this object is restricted to [paid plans](https://quickchart.io/pricing/) or self-hosted instances:
 
 ```js
 {

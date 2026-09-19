@@ -37,7 +37,7 @@ Example response:
 
 ## Using POST Request
 
-The POST endpoint accepts either an image URL or base64-encoded image data.
+The POST endpoint accepts either an image URL or base64-encoded image data. Send a JSON body with `Content-Type: application/json`. If both `url` and `image` are provided, `url` takes precedence.
 
 ### POST with URL
 
@@ -49,10 +49,24 @@ The POST endpoint accepts either an image URL or base64-encoded image data.
 
 ### POST with Base64 Image
 
-```json
-{
-  "image": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
-}
+Send the raw base64 string, without a `data:image/png;base64,` prefix. For example, this Python code creates a QR image and reads it back:
+
+```python
+import base64
+import requests
+
+image = requests.get('https://quickchart.io/qr', params={
+    'text': 'Hello World!',
+    'size': 300,
+    'format': 'png',
+})
+image.raise_for_status()
+
+response = requests.post('https://quickchart.io/qr-read', json={
+    'image': base64.b64encode(image.content).decode('ascii'),
+})
+response.raise_for_status()
+print(response.json())
 ```
 
 Example response:
@@ -65,11 +79,15 @@ Example response:
 
 ## Error Responses
 
-The API returns appropriate HTTP status codes and error messages:
+Missing input returns HTTP 400. Fetch and decoding failures return HTTP 500, with an `error` string explaining what went wrong:
 
-- 400 Bad Request: Missing or invalid parameters
-- 405 Method Not Allowed: Unsupported HTTP method
-- 500 Internal Server Error: Failed to process the QR code
+| Error | Meaning |
+| --- | --- |
+| `Could not fetch the image at that URL: ...` | The URL could not be fetched. Check that it returns an image and is publicly accessible. |
+| `Could not decode that image. Supported formats are PNG, JPEG, BMP, TIFF, and GIF.` | The downloaded or base64-decoded data is not a supported image. |
+| `No QR code was found in that image.` | The image was loaded, but the reader could not find a readable QR code. |
+
+These failures use HTTP 500 for compatibility with existing clients. Check the message before retrying; sending the same unreadable image again will not help. Requests may also receive [HTTP 429](/documentation/usage/handling-errors/#429-too-many-requests) when rate limited.
 
 Example error response:
 
@@ -81,9 +99,9 @@ Example error response:
 
 ## Limitations
 
-- Maximum image size: 10MB
-- Request timeout: 10 seconds
-- Supported image formats: PNG, JPEG, GIF
+- Maximum image download size: 10 MB
+- Image URL fetch timeout: 10 seconds
+- Supported image formats: PNG, JPEG, BMP, TIFF, GIF
 - URL must be publicly accessible
 
 <Admonition type="tip">

@@ -50,9 +50,9 @@ Each entry in the array uses the same options as the [single QR endpoint](/docum
 |   `margin`   |                        Whitespace around the QR image                   |           |     `4`      |
 |    `dark`    |                 Hex color for "dark" QR cells (e.g. `000`)              |           |   `000000`   |
 |   `light`    |                Hex color for "light" QR cells (e.g. `fff`)              |           |   `ffffff`   |
-|  `ecLevel`   |                     Error correction level (`L`, `M`, `Q`, `H`)         |           |     `M`      |
+|  `ecLevel`   |                     Error correction level (`L`, `M`, `Q`, `H`)         |           | `M` (`H` with a center image) |
 
-Any other option supported by the single QR endpoint — including `centerImageUrl`, `centerImageSizeRatio`, `centerImageWidth`, `centerImageHeight`, `caption`, `captionFontFamily`, `captionFontSize`, and `captionFontColor` — may also be set per entry.
+Appearance options supported by the single QR endpoint — including `dotStyle`, `finderStyle`, `finderDotStyle`, `finderColor`, `centerImageUrl`, `centerImageSizeRatio`, `centerImageWidth`, `centerImageHeight`, `caption`, `captionFontFamily`, `captionFontSize`, and `captionFontColor` — may also be set per entry.
 
 The top-level request body additionally accepts:
 
@@ -105,7 +105,11 @@ Errors reference the zero-based index of the first problematic entry, so you can
 
 ## Authentication
 
-Authenticated requests use the same mechanisms as the single QR endpoint. API keys, signatures, and `accountId` may be provided either at the request level (via header/query) or per-entry. Each rendered QR code counts as one render against your account's usage.
+To authenticate the whole batch, send `Authorization: Bearer YOUR_API_KEY`, add `key` to the query string, or include `key` alongside `qrCodes` in the top-level JSON object.
+
+You can also provide a `key` on individual entries. Signed entries must each include their own `sig` and `accountId`; the signature is calculated from that entry's `text`. A top-level signature does not sign the batch. See [signing requests](/documentation/authentication/#signing-requests).
+
+Each rendered QR code counts as one render against your account's usage. Batch requests are [rate limited](/documentation/usage/handling-errors/#429-too-many-requests), so use a request-level key for an authenticated batch.
 
 ## Web-based Bulk Generator
 

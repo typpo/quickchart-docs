@@ -11,7 +11,7 @@ import Author from '@site/documentation/components/Author';
 import Image from '../components/Image';
 import CodeWithHighlights from '../components/CodeWithHighlights';
 
-QuickChart is an open-source API that generates GraphViz charts. The API takes a graph description in the [DOT](<https://en.wikipedia.org/wiki/DOT_(graph_description_language)>) language and renders it with the latest stable version of GraphViz, returning the output as PNG or SVG.
+QuickChart is an open-source API that generates GraphViz charts. The API takes a graph description in the [DOT](<https://en.wikipedia.org/wiki/DOT_(graph_description_language)>) language and renders it with GraphViz, returning the output as PNG or SVG.
 
 To get started, use the `https://quickchart.io/graphviz` endpoint. Here's a simple example:
 
@@ -24,6 +24,29 @@ You'll notice that it defaults to SVG output. Let's change it to PNG and give it
 <CodeWithHighlights centered code="https://quickchart.io/graphviz?**format=png&amp;width=100&amp;height=150**&amp;graph=graph{a--b}"/>
 
 <Image noBorder src="https://quickchart.io/graphviz?format=png&width=80&height=150&graph=graph{a--b}"/>
+
+## API parameters
+
+| Parameter | Description | Default |
+| --- | --- | --- |
+| `graph` | Graph definition in DOT format. Required. | |
+| `format` | `svg` or `png` | `svg` |
+| `engine` | Layout engine: `dot`, `neato`, `fdp`, `sfdp`, `circo`, `twopi`, `osage`, or `patchwork`. `layout` is an alias. | `dot` |
+| `width` | Output width in pixels, for PNG only | |
+| `height` | Output height in pixels, for PNG only | |
+
+To resize a PNG, set both `width` and `height`. Each is capped at 3000 pixels. The graph keeps its aspect ratio and is fitted within those dimensions. These parameters do not resize SVG output.
+
+## POST requests
+
+For a graph that is too long to fit in a URL, send the same parameters as JSON:
+
+```bash
+curl https://quickchart.io/graphviz \
+  -H 'Content-Type: application/json' \
+  -d '{"graph": "digraph G { A -> B }", "format": "png", "width": 300, "height": 200}' \
+  -o graph.png
+```
 
 ## Examples
 

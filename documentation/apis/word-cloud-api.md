@@ -12,7 +12,7 @@ import Admonition from '@theme/Admonition';
 import Image from '@site/documentation/components/Image';
 import CodeWithHighlights from '@site/documentation/components/CodeWithHighlights';
 import ChurchillImage from '@site/documentation/images/wordcloud/wordcloud-churchill.png';
-import NewsImage from '@site/documentation/images/wordcloud/wordcloud-googlenews.png';
+import AliceImage from '@site/documentation/images/wordcloud/wordcloud-alice.png';
 
 QuickChart provides an API that generates **word clouds** or **tag clouds**, visualizations that give prominence to words that appear frequently in a given text.
 
@@ -42,7 +42,7 @@ There are many ways to customize your word cloud. Here are all the options offer
 | **loadGoogleFonts** | [Google Fonts](https://fonts.google.com/) to load                                                                   |              |
 | **fontScale**       | Size of the largest font (roughly)                                                                                  | 25           |
 | **scale**           | Frequency scaling method - linear, sqrt, or log                                                                     | linear       |
-| **padding**         | Padding between words, in pixels                                                                                    | 1            |
+| **padding**         | Padding between words, in pixels                                                                                    | 2            |
 | **rotation**        | Maximum angle of rotation for words                                                                                 | 20           |
 | **maxNumWords**     | Maximum number of words to show. <br/>Note that fewer may be shown depending on size.                               | 200          |
 | **minWordLength**   | Minimum character length of each word to include.                                                                   | 1            |
@@ -52,6 +52,8 @@ There are many ways to customize your word cloud. Here are all the options offer
 | **cleanWords**      | If true, removes symbols and extra characters from words                                                            | true         |
 | **language**        | Two-letter language code of stopwords to remove ([supported languages](https://github.com/fergiemcdowall/stopword#language-code))                                                                     | en           |
 | **useWordList**     | If true, treat `text` as a comma-separated list of words or phrases instead of trying to split the text on our side | false        |
+
+`width` and `height` are capped at 3000 pixels, and `maxNumWords` is capped at 200. Only SVG and PNG output are supported; other formats return HTTP 400. See [error handling](/documentation/usage/handling-errors/) for how to read the error message.
 
 ## Examples
 
@@ -97,18 +99,24 @@ Even though I used the command line and curl, you can easily do this in any prog
 
 You can create a word cloud with any sort of content, including from a webpage. Here's a quick tutorial from the command line.
 
-Let's make a word cloud of today's Wall Street Journal, because I want to see what my boss is reading.
+Let's make a word cloud of [Alice's Adventures in Wonderland](https://www.gutenberg.org/files/11/11-h/11-h.htm), using the HTML edition on Project Gutenberg.
 
-We'll use the [article-parser](https://github.com/ndaidong/article-parser) project to download and extract the text from the page and do the rest in Python, in order to make request building easier.
+We'll use Python to download the page and [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) to extract its paragraphs. First, install the dependencies:
 
-First, fetch the article content. This is simple enough as the article parser API does the amgic for us:
+```bash
+pip install requests beautifulsoup4
+```
+
+Then fetch the text:
 
 ```python
 import requests
+from bs4 import BeautifulSoup
 
-resp = requests.get('https://us-central1-technews-251304.cloudfunctions.net/article-parser?url=https://www.wsj.com')
-
-article = resp.json()['data']['content']
+resp = requests.get('https://www.gutenberg.org/files/11/11-h/11-h.htm')
+resp.raise_for_status()
+soup = BeautifulSoup(resp.content, 'html.parser')
+article = ' '.join(p.get_text(' ', strip=True) for p in soup.select('.chapter p'))
 ```
 
 Now, create a POST request to the word cloud API with the article content and write it to a file:
@@ -125,15 +133,17 @@ resp = requests.post('https://quickchart.io/wordcloud', json={
     'text': article,
 })
 
-with open('newscloud.png', 'wb') as f:
+resp.raise_for_status()
+
+with open('wordcloud.png', 'wb') as f:
     f.write(resp.content)
 ```
 
-Here is the output:
+Here is the output saved to `wordcloud.png`:
 
-<Image src={NewsImage} />
+<Image src={AliceImage} />
 
-You can see some artifacts of the Google News webpage (like `&amp` and `"http`), but overall not bad for a very quick hack.
+To use another page, change the URL and the CSS selector so that you extract the article text without navigation or other page content.
 
 ## Using custom fonts
 
@@ -152,7 +162,7 @@ For example, the following payload will use the Roboto font:
   "loadGoogleFonts": "Roboto",
   "fontFamily": "Roboto",
 
-  "format": "png",
+  "format": "svg",
   "width": 1000,
   "height": 1000,
   "fontScale": 15,
@@ -165,7 +175,7 @@ You may also specify font weights, such as `Roboto:300`.
 
 ## Controlling the word list
 
-Maintain greater control over the parsing of your words by setting `useWordList` to true. When word list is enabled, the API treats `text`as a comma-separated list of words. For example:
+Maintain greater control over the parsing of your words by setting `useWordList` to true. When word list is enabled, the API treats `text` as a comma-separated list of words. For example:
 
 ```
 hello,world,testing,123,hello,world
@@ -177,7 +187,7 @@ Optionally include word counts (otherwise the count is assumed to be 1):
 hello:10,world:5,testing:5,123
 ```
 
-Note that if you want words to appear literally and exactly as you entered them, you should set `cleanWords` to false as well.
+To preserve words as you entered them, set `cleanWords` to false and `case` to `none`.
 
 ## Conclusion
 

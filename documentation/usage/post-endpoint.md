@@ -31,15 +31,36 @@ Here is the type specification of the POST data object:
 
 ```typescript
 {
-  width: string;                        // Pixel width
-  height: string;                       // Pixel height
-  devicePixelRatio: number;             // Pixel ratio (2.0 by default)
-  format: string;                       // png, svg, or webp
-  backgroundColor: string;              // Canvas background
-  version: string;                      // Chart.js version
-  key: string;                          // API key (optional)
-  chart: string | ChartConfiguration;   // Chart.js configuration
+  width?: number;                      // Pixel width (500 by default)
+  height?: number;                     // Pixel height (300 by default)
+  devicePixelRatio?: number;           // Pixel ratio (2.0 by default)
+  format?: string;                     // png, jpg, webp, svg, pdf, or base64
+  backgroundColor?: string;            // Canvas background
+  version?: string;                    // Chart.js major version: 2, 3, or 4
+  key?: string;                        // API key
+  chart: string | ChartConfiguration;  // Chart.js configuration
 }
 ```
 
-[ChartConfiguration](https://www.chartjs.org/docs/latest/configuration/) is a Chart.js v2+ configuration object in JSON format.
+[ChartConfiguration](https://www.chartjs.org/docs/latest/configuration/) is a Chart.js configuration object in JSON format. Match the configuration to the [version](/documentation/usage/chartjs-versions/) in your request.
+
+Here is a complete request that saves a chart as a PNG:
+
+```bash
+curl https://quickchart.io/chart \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "version": "4",
+    "format": "png",
+    "chart": {
+      "type": "bar",
+      "data": {
+        "labels": ["Hello", "World"],
+        "datasets": [{ "label": "Foo", "data": [1, 2] }]
+      }
+    }
+  }' \
+  -o chart.png
+```
+
+The response contains image bytes. To get a URL instead, use [short URLs](/documentation/usage/short-urls-and-templates/). To check a configuration and receive JSON errors, use [`/api/validate-chart`](/documentation/apis/agent-friendly-api/#validate-a-chart-config).

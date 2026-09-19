@@ -102,7 +102,7 @@ The chart above is an iframe - hover your mouse over the bars to see the interac
 
 ## POST endpoint
 
-The endpoint supports generating charts from an HTTP post request.  Here is an example JSON payload:
+Send an HTTP POST request to `https://quickchart.io/natural` with `Content-Type: application/json`. Here is an example JSON payload:
 
 ```json
 {
@@ -180,7 +180,6 @@ If you prefer finer-grained control over the appearance of your chart, you have 
 #### Initial renders are slow, so prefer templates
 GPT takes time to render charts.  That's why we recommend generating a solid example chart first, and using it as a template (as described in [Adding Your Own Data](#adding-your-own-data)).
 
-## What to expect next
-Better support for Gannt charts, Financial charts, custom backgrounds, gradients, and making it possible to set background color in the chart description.
+## Feedback
 
 Ideas?  Post a suggestion in our [community](https://community.quickchart.io/) or message [support@quickchart.io](mailto:support@quickchart.io).

@@ -151,7 +151,7 @@ It's possible to use the `pattern` object to draw a patterned background on the 
       },
     },
   },
-};
+}
 `} />
 
 ## Customize colors and border radius

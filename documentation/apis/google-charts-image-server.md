@@ -180,8 +180,8 @@ const requestOptions = {
 };
 
 fetch('https://quickchart.io/google-charts/render', requestOptions)
-  .then((response) => response.text())
-  .then((result) => console.log('Got', result.length, 'bytes'))
+  .then((response) => response.arrayBuffer())
+  .then((result) => console.log('Got', result.byteLength, 'bytes'))
   .catch((error) => console.error(error));
 ```
 

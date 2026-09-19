@@ -67,7 +67,7 @@ mixpanel.init('652c6ab04d3d810b2c40261c54e3106e');
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/typpo/quickchart-docs',
+          editUrl: 'https://github.com/typpo/quickchart-docs/edit/master/',
           path: 'documentation',
           routeBasePath: '/',
           breadcrumbs: false,

@@ -22,9 +22,9 @@ Build your customized QR code using the following query parameters. You may also
 |    Parameter Name    |                                Description                                 | Required? |          Default value           |
 | :------------------: | :------------------------------------------------------------------------: | :-------: | :------------------------------: |
 |         text         |         Content of the QR code (can be a URL or any other string)          |    Yes    |                                  |
-|        format        |               Format of QR code, either png, svg, or base64               |           |               png                |
-|        margin        |                         Whitespace around QR image                         |           |                4                 |
-|         size         |                  Width and height dimension of the image                   |           |               150                |
+|        format        |               Format of QR code: `png`, `svg`, `jpg`, `jpeg`, or `base64`               |           |               png                |
+|        margin        |                         Whitespace around QR image, in modules                         |           |                4                 |
+|         size         |                  Width and height of the image in pixels (maximum 3000)                   |           |               150                |
 |         dark         |                  Hex color code of "dark" QR grid cells                   |           |          000000 (black)          |
 |        light         |                  Hex color code of "light" QR grid cells                  |           |          ffffff (white)          |
 |     finderColor      |  Hex color of the three finder patterns (corners). Defaults to `dark`.     |           |                                  |
@@ -37,8 +37,8 @@ Build your customized QR code using the following query parameters. You may also
 |   centerImageWidth   |                     Width of center image in pixels                      |           |                                  |
 |  centerImageHeight   |                    Height of center image in pixels                      |           |                                  |
 |       caption        |                Caption text to display below the QR code.                 |           |                                  |
-|  captionFontFamily   |                     Font family of the caption text                      |           |           'sans-serif'           |
-|   captionFontSize    |                 Font size of the caption text in pixels.                 |           |                10                |
+|  captionFontFamily   |                     Font family of the caption text                      |           |           'Arial'           |
+|   captionFontSize    |                 Font size of the caption text in pixels.                 |           |                12                |
 |   captionFontColor   |              Color caption text, color names or hex code.                |           |              black               |
 
 <Admonition type="tip">
@@ -53,9 +53,11 @@ To customize the color of your QR code, use `dark` and `light`. The parameters m
 
 Set the whitespace around QR image in modules with query parameter `margin` (defaults to 4), `size` determines the pixel dimensions of the image (defaults to 150), and error correction level with `ecLevel` (valid values: L, M, Q, H).
 
-The QR endpoint produces a PNG image by default. You may optionally set the query parameter `format=svg` for SVG format.
+The QR endpoint produces a PNG image by default. Use `format=svg` for SVG or `format=jpg` for JPEG. `format=base64` returns a base64-encoded PNG as plain text, without a data URI prefix. Format names are case-insensitive and may have a leading dot, such as `.svg`.
 
-Here's the same code as above but URL encoded with slimmer margins, more error protection, colors, and in SVG format:
+Keep enough contrast between `dark` and `light` for a scanner to read the code. Styled QR codes accept 3-, 4-, 6-, or 8-digit hex colors, with or without `#`; color names are not supported for these parameters.
+
+Here's the same code as above but URL encoded with more error protection, colors, and in SVG format:
 
 <CodeWithHighlights
   wrap
@@ -99,7 +101,7 @@ For example, rounded dots with circular finder patterns and a custom finder colo
 
 ## Images in QR codes
 
-You may include an image centered in your QR code by using the `centerImageUrl` parameter. Note that the URL must be URL-encoded. PNG and JPG images are supported.
+You may include an image centered in your QR code by using the `centerImageUrl` parameter. Note that the URL must be URL-encoded. PNG and JPG images are supported. Center images work with PNG, JPEG, and base64 output, but not SVG. Adding a center image sets `ecLevel` to `H` and `margin` to `1`.
 
 For example:
 
@@ -137,7 +139,7 @@ Note that the image URLs used in QR codes must be accessible on the public inter
 
 ## Text below QR code
 
-You can add a caption below your QR code by using the `caption`, `captionFontFamily`, and `captionFontSize` parameters. This allows for further customization and can be particularly useful for branding or providing additional context.
+You can add text below your QR code with `caption`. Use `captionFontFamily`, `captionFontSize`, and `captionFontColor` to change its appearance. Captions work with PNG, JPEG, SVG, and base64 output, including styled QR codes.
 
 For example:
 
@@ -147,6 +149,71 @@ For example:
   loading="lazy"
   src="https://quickchart.io/qr?text=abc123&caption=TextBelowQr&captionFontFamily=mono&captionFontSize=20"
 />
+
+For multiple lines, include a newline in `caption` (`%0A` in a URL or `\n` in a JSON string). The caption fits inside the requested `size`; the QR code is reduced if more room is needed. Increase `size` or reduce the font size if the text is too long.
+
+Here is an SVG with a two-line caption:
+
+<CodeWithHighlights wrap code="https://quickchart.io/qr?text=https%3A%2F%2Fexample.com&format=svg&size=240&caption=Scan%20me%0AVisit%20our%20website" />
+
+<img loading="lazy" alt="QR code with a two-line caption" src="https://quickchart.io/qr?text=https%3A%2F%2Fexample.com&format=svg&size=240&caption=Scan%20me%0AVisit%20our%20website" />
+
+## POST requests
+
+You can send the same parameters to `POST /qr` as JSON. This avoids URL encoding:
+
+```bash
+curl https://quickchart.io/qr \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "text": "https://example.com/?a=1&b=2",
+    "size": 300,
+    "format": "png",
+    "caption": "Scan me"
+  }' \
+  -o qr.png
+```
+
+For JSON errors instead of an image, check the same body with [`/api/validate-qr`](/documentation/apis/agent-friendly-api/#validate-a-qr-code-config).
+
+## Building QR image URLs
+
+Use `POST /qr-url` if you want a JSON response containing an image URL:
+
+```bash
+curl https://quickchart.io/qr-url \
+  -H 'Content-Type: application/json' \
+  -d '{"text": "https://example.com/?a=1&b=2", "size": 300}'
+```
+
+The response is:
+
+```json
+{
+  "url": "https://quickchart.io/qr?text=https%3A%2F%2Fexample.com%2F%3Fa%3D1%26b%3D2&size=300"
+}
+```
+
+For multiple URLs, send an object with a `qrCodes` array to `POST /qr-urls`:
+
+```json
+{
+  "qrCodes": [{ "text": "first" }, { "text": "second" }]
+}
+```
+
+The response contains the URLs in the same order:
+
+```json
+{
+  "urls": [
+    "https://quickchart.io/qr?text=first",
+    "https://quickchart.io/qr?text=second"
+  ]
+}
+```
+
+These endpoints encode the parameters into URLs. They do not render, validate, or save the QR codes. Any `key` included in the body will appear in the returned URL; use [signed URLs](/documentation/authentication/#signing-requests) if you need to share authenticated images.
 
 ## Bulk QR code generator
 

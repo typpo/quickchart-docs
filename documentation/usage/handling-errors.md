@@ -20,11 +20,43 @@ Invalid Chart.js configurations may return errors similar to this one. The most 
 
 ### Cannot read property &lt;X&gt; of undefined
 
-Access to certain Chart.js internals, used especially in plugins, is restricted due to potential for abuse. [Contact us](mailto:support@quickchart.io) to get whitelisted for these features.
+Check that the property exists and that your configuration or plugin matches the [Chart.js version](/documentation/usage/chartjs-versions/) in your request. Some Chart.js internals are also restricted on the free tier; see [custom plugins](/documentation/reference/chartjs-plugins/#adding-custom-plugins).
 
 ### &lt;X&gt; is not a function
 
-Access to certain Chart.js internals, used especially in plugins, is restricted due to potential for abuse. [Contact us](mailto:support@quickchart.io) to get whitelisted for these features.
+Check the function name and the Chart.js version expected by your plugin. If the function is part of a restricted Chart.js object, see [custom plugins](/documentation/reference/chartjs-plugins/#adding-custom-plugins).
+
+## Reading errors in Javascript
+
+Check the response status before treating the body as an image. The `X-quickchart-error` header is available to browser `fetch` and XMLHttpRequest clients:
+
+```js
+const response = await fetch('https://quickchart.io/chart', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    version: '4',
+    chart: {
+      type: 'bar',
+      data: { labels: ['A', 'B'], datasets: [{ data: [10, 20] }] },
+    },
+  }),
+});
+
+if (!response.ok) {
+  throw new Error(response.headers.get('X-quickchart-error') || `HTTP ${response.status}`);
+}
+
+const image = await response.blob();
+```
+
+The browser can also read `X-quickchart-verified-key` and `X-Recommend-Ttl-Sec`, when present. These indicate successful authentication and a suggested cache lifetime, respectively.
+
+## 429 Too Many Requests
+
+Free requests are rate limited. This includes chart rendering, validation, QR reading and batch generation, word clouds, tables, GraphViz, Google Image Charts, and watermarking.
+
+If you receive HTTP 429, wait before retrying. Use the `Retry-After` header when present, and increase the delay after repeated failures. For higher limits, [authenticate your requests](/documentation/authentication/) with a paid API key. See [pricing](https://quickchart.io/pricing/) for current limits.
 
 ## Structured validation endpoints
 
@@ -33,7 +65,7 @@ If your client needs JSON errors instead of an image-encoded error, validate bef
 - `POST /api/validate-chart` accepts the same JSON body as `POST /chart`.
 - `POST /api/validate-qr` accepts the same JSON body as `POST /qr`.
 
-Validation responses include `success`, `errors`, `warnings`, normalized request parameters, and a small render check. See the [agent-friendly API docs](/documentation/apis/agent-friendly-api/) for examples.
+Validation responses include `success`, `errors`, `warnings`, and normalized request parameters. Successful responses also include a render check. Validation runs the renderer, so it takes time and is subject to rate limits. Check `warnings` even when validation succeeds; they can flag Chart.js version mismatches or external data that needs a shorter cache lifetime. See the [agent-friendly API docs](/documentation/apis/agent-friendly-api/) for examples.
 
 ## Request header or cookie too large
 
@@ -49,9 +81,4 @@ The URL length limitation is imposed by web browsers and hosting providers, so w
 
 ## Certificate errors
 
-If you are receiving a certificate error message while using or accessing QuickChart, or notice of an expired certificate, this likely means that you have an outdated root certificate. To fix, you must update your local CA bundle.
-
-The root cause of this is that a root certificate `IdentTrust DST Root CA X3` expired. Those with outdated systems still have this certificate.
-
-- [Learn more here](https://scotthelme.co.uk/lets-encrypt-old-root-expiration/)
-- [Relevant news article](https://techcrunch.com/2021/09/21/lets-encrypt-root-expiry/?guccounter=1)
+If you receive a certificate error, check your system clock and update your operating system or local CA certificate bundle. Older clients may not recognize the certificate chain. If the error persists on an up-to-date client, [contact us](mailto:support@quickchart.io) with the error message and the URL you are requesting.

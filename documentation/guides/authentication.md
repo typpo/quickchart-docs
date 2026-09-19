@@ -43,6 +43,20 @@ If you are constructing a chart with a POST request, you may include your key as
 }
 ```
 
+### Authorization header
+
+For direct rendering and validation requests, you can also send the key in an HTTP header:
+
+```bash
+curl https://quickchart.io/qr \
+  -H 'Authorization: Bearer YOUR_API_KEY' \
+  -H 'Content-Type: application/json' \
+  -d '{"text": "Hello world", "size": 300}' \
+  -o qr.png
+```
+
+A successfully authenticated request includes `X-quickchart-verified-key: 1` in the response headers. For `/chart/create`, include `key` in the JSON body so it is saved with the chart.
+
 ## Chart Maker
 
 If you are using the [Chart Maker](https://quickchart.io/chart-maker/), enter your API key under the `Accounts` section on the left sidebar.
@@ -67,7 +81,7 @@ You will receive a JSON response that looks like this:
 }
 ```
 
-The `url` in the response will render the chart and is safe to share with untrusted users. Note that short URLs expire after 6 months and are available for charts only, not QR codes.
+The `url` in the response will render the chart without exposing your QuickChart API key. Short URLs created with a paid key normally expire after 6 months; those created without a key expire after 3 days.
 
 See complete [short URL documentation](/documentation/usage/short-urls-and-templates/) for details.
 
@@ -316,7 +330,7 @@ class Program {
 }
 ```
 
-See more [C# examples](/documentation/send-charts-in-email/#email-charts-with-c%23).
+See more [C# examples](/documentation/send-charts-in-email/#email-charts-with-c).
 
 ### Google Sheets
 

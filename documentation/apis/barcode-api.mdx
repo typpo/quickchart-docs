@@ -15,7 +15,7 @@ Users can create barcodes by making HTTP requests with specific parameters to cu
 https://quickchart.io/barcode
 ```
 
-To generate a barcode, append parameters to the base URL as query strings. Here is a basic example:
+The endpoint supports GET requests with query parameters and POST requests with a JSON body. To generate a barcode with GET, append parameters to the base URL. Here is a basic example:
 
 ```
 https://quickchart.io/barcode?type=datamatrix&text=foo
@@ -31,8 +31,11 @@ https://quickchart.io/barcode?type=datamatrix&text=foo
 | `width`       | No       | Desired width of the barcode in pixels.                                  |                                                       |
 | `height`      | No       | Desired height of the barcode in pixels.                                 |                                                       |
 | `scale`       | No       | A scaling factor for the barcode, affecting both width and height.       |                                                       |
-| `includeText` | No       | If set, includes human-readable text (if supported by the barcode type). | `true`, `false`                                       |
+| `includeText` | No       | Include human-readable text, if supported by the type. Defaults to `false`. | `true`, `false` |
+| `useMillimeters` | No | Interpret `width` and `height` in millimeters instead of pixels. Defaults to `false`. | `true`, `false` |
 | `rotate`      | No       | Controls the rotation of the barcode.                                    | `N` (Normal), `R` (Right), `L` (Left), `I` (Inverted) |
+
+Use `includeText=false` to omit the text and `useMillimeters=false` to use pixel dimensions. In a JSON body, use the booleans `true` and `false`.
 
 ### Note on `width` and `height`
 
@@ -71,6 +74,26 @@ To generate a barcode in SVG format instead of PNG:
 ```
 https://quickchart.io/barcode?type=code128&text=SVG-Example&format=svg
 ```
+
+## POST requests
+
+Send the same parameters as JSON to generate a barcode without constructing a URL:
+
+```bash
+curl https://quickchart.io/barcode \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "type": "code128",
+    "text": "ABC-1234",
+    "format": "svg",
+    "includeText": false
+  }' \
+  -o barcode.svg
+```
+
+## Errors
+
+Missing parameters, invalid barcode data, and unsupported formats return HTTP 400. The error is returned as a PNG image, including when `format=svg` was requested. Read the `X-quickchart-error` response header to get the message as text. For example, `type=code129` returns `Error: unknown encoder name: code129`.
 
 ## QR codes
 

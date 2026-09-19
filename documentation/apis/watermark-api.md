@@ -73,13 +73,13 @@ curl -X POST -H "Content-Type: application/json" -d '{
 }' https://quickchart.io/watermark
 ```
 
-The response will be a watermarked image.
+The response is a PNG image, regardless of the source image formats. Both URLs must be publicly accessible and return image data; a webpage containing an image will not work.
 
 ## More examples
 
 Let's take the above image and do some common customizations.
 
-First, let's suppose move the logo to the bottom left by adding `&position=bottomLeft` to the URL:
+First, let's move the logo to the bottom left by adding `&position=bottomLeft` to the URL:
 
 <Image src="https://quickchart.io/watermark?mainImageUrl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F6%2F6e%2FGolde33443.jpg&markImageUrl=https%3A%2F%2F1000logos.net%2Fwp-content%2Fuploads%2F2016%2F10%2FBatman-logo.png&markRatio=0.25&position=bottomLeft&imageWidth=300"/>
 

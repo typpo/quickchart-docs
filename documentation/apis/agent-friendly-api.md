@@ -13,7 +13,9 @@ QuickChart exposes machine-readable API metadata and validation endpoints for ag
 - LLM summary: [`https://quickchart.io/llms.txt`](https://quickchart.io/llms.txt)
 - Detailed agent notes: [`https://quickchart.io/llms-full.txt`](https://quickchart.io/llms-full.txt)
 
-Use the OpenAPI file for parameters, response content types, limits, and auth details.
+Use the OpenAPI file for parameters, response content types, limits, and auth details. A [YAML copy](https://quickchart.io/openapi.yaml) is also available.
+
+The reference covers charts, QR generation and reading, barcodes, word clouds, GraphViz, table images, watermarking, and Google Image Charts compatibility. The [`/qr-url` and `/qr-urls` endpoints](/documentation/qr-codes/#building-qr-image-urls) return URLs when you do not need image bytes immediately.
 
 ## Validate a chart config
 
@@ -37,7 +39,7 @@ curl -X POST https://quickchart.io/api/validate-chart \
   }'
 ```
 
-A successful response includes normalized request parameters and a render check:
+Validation renders the configuration and discards the image. It is subject to the same request limits as rendering. A successful response includes normalized request parameters and a render check (the byte count below is illustrative):
 
 ```json
 {
@@ -63,7 +65,7 @@ A successful response includes normalized request parameters and a render check:
 }
 ```
 
-If validation fails, the response is still JSON and includes one or more error strings:
+Invalid configurations return HTTP 400 with one or more error strings. Invalid signatures return HTTP 403, and rate-limited requests return HTTP 429. For example:
 
 ```json
 {
@@ -77,6 +79,10 @@ If validation fails, the response is still JSON and includes one or more error s
   }
 }
 ```
+
+Check `warnings` even when `success` is `true`. For example, the validator warns when it detects v3 or v4 options in a request using the default Chart.js v2. It also warns when a chart uses external data that should only be cached briefly.
+
+Validation does not return or save an image. Send the same body to `/chart` to get the output. For JPEG, WebP, and PDF, check the actual render response too: chart validation checks the underlying chart render, but does not perform the final file conversion.
 
 ## Validate a QR code config
 
@@ -93,7 +99,7 @@ curl -X POST https://quickchart.io/api/validate-qr \
   }'
 ```
 
-On success, render the same body with `POST /qr`.
+On success, render the same body with `POST /qr`. QR validation rejects unsupported formats, even though the rendering endpoint falls back to PNG for unrecognized format names.
 
 ## Generate a chart config from text
 

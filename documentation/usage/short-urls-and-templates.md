@@ -15,14 +15,14 @@ The endpoint takes the following JSON request body, identical to the `/chart` [P
 
 ```typescript
 {
-  width: string;                        // Pixel width
-  height: string;                       // Pixel height
-  devicePixelRatio: number;             // Pixel ratio (2.0 by default)
-  format: string;                       // png, svg, or webp
-  backgroundColor: string;              // Canvas background
-  version: string;                      // Chart.js version
-  key: string;                          // API key (optional)
-  chart: string | ChartConfiguration;   // Chart.js configuration
+  width?: number;                      // Pixel width (500 by default)
+  height?: number;                     // Pixel height (300 by default)
+  devicePixelRatio?: number;           // Pixel ratio (2.0 by default)
+  format?: string;                     // png, jpg, webp, svg, pdf, or base64
+  backgroundColor?: string;            // Canvas background
+  version?: string;                    // Chart.js major version: 2, 3, or 4
+  key?: string;                        // API key
+  chart: string | ChartConfiguration;  // Chart.js configuration
 }
 ```
 
@@ -71,7 +71,7 @@ Go to the [URL in the response](https://quickchart.io/chart/render/9a560ba4-ab71
 Please note the following limitations:
 
 - It can take a couple seconds for short URLs to become active globally.
-- Request inputs are not validated before the URL is created. The chart is only rendered when the URL is visited.
+- Request inputs are not validated before the URL is created. The chart is only rendered when the URL is visited. Use [`/api/validate-chart`](/documentation/apis/agent-friendly-api/#validate-a-chart-config) to check the request first.
 - If your chart includes Javascript, you must supply your chart definition as a string (see [using JS functions](/documentation/javascript-functions/)).
 - Saved charts expire after 3 days for free users, 6 months for paid users.
 
@@ -81,10 +81,12 @@ If you want to generate many charts, but they only differ slightly, you may pref
 
 Customize a template by adding URL parameters to the template URL. The following template parameters are supported:
 
+- **`width`**, **`height`** - Chart dimensions in pixels
+- **`backgroundColor`** - Background color of the chart
 - **`title`** - The title of the chart
 - **`labels`** - Comma-separated labels for the label axis of a chart (usually the X axis)
 - **`data1, data2, ..., dataN`** - Comma-separated data values for each dataseries
-- **`label1, label2, ..., labelN`** - Comma-separated labels for each dataseries
+- **`label1, label2, ..., labelN`** - The label for each dataseries
 - **`backgroundColor1, ..., backgroundColorN`** - Comma-separated backgrounds for each dataseries
 - **`borderColor1, ..., borderColorN`** - Comma-separated border colors for each dataseries
 
@@ -99,6 +101,8 @@ We can add a labels URL parameter:
 Or even override multiple datasets:
 
 <CodeWithHighlights code="https://quickchart.io/chart/render/zf-abc-123**?data1=40,60,80,100&data2=5,6,7,8**" />
+
+Dataset overrides are supported for `data1` through `data20`, with the same range for labels and colors. URL-encode parameter values, especially colors containing `#`.
 
 In addition to plain numbers, templates also accept (x, y) data values and arbitrary JSON objects.
 
@@ -123,7 +127,7 @@ https://quickchart.io/chart-maker/view/9a560ba4-ab71-4d1e-89ea-ce4741e9d232
 You can embed it like a regular iframe. Be sure to set a frame width and height that is compatible with your chart. Here's an HTML example:
 
 ```
-<iframe src="demo_iframe.htm" frameborder="0" height="500" width="300" title="Iframe Example"></iframe>
+<iframe src="https://quickchart.io/chart-maker/view/9a560ba4-ab71-4d1e-89ea-ce4741e9d232" frameborder="0" height="300" width="500" title="My chart"></iframe>
 ```
 
 ### Expiration
@@ -134,6 +138,8 @@ Expiration of short URLs and templates varies based on whether you've created th
 |-------------|---------------------------------|---------------------------------|
 | API         | 3 days                          | 6 months <br/> _Can be extended by contacting support_       |
 | Advanced Chart Editor (Sandbox) | 3 days                          | 6 months <br/> _Can be extended by contacting support_       |
-| Chart Maker | 60+ days <br/> _Expiration is reset when rendered_ | 6+ months <br/> _Expiration is reset when rendered_ |
+| Chart Maker | 60+ days <br/> _Extended when rendered near expiration_ | 6+ months <br/> _Extended when rendered near expiration_ |
 
-An expired short URL will return a 404 Not Found error.
+For Chart Maker charts, rendering with fewer than 30 days remaining extends the expiration to 60 days for free charts or 6 months for paid charts. API-created charts do not receive this automatic extension.
+
+An expired short URL will return a 404 Not Found error. Download the image if you need to keep a permanent copy.

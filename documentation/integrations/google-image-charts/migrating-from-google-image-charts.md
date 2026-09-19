@@ -24,13 +24,12 @@ Here are a few things you should know before getting started:
 
 ## Migrating from Google Image Charts
 
-Replace `chart.googleapis.com` with `quickchart.io` in the URL.
+Replace `chart.googleapis.com` with `quickchart.io` in the URL. The same query parameters also work at `https://quickchart.io/gchart`.
 
 For example, the URL:
 
 <CodeWithHighlights code="https://**chart.googleapis.com**/chart?cht=bvg&chs=300x200&chd=t:5,5,5|10,10,10|15,15,15&chco=4d89f9,c6d9fd,00B88A&chds=0,20&chbh=a&chxs=0,000000,0,0,_&chxt=y&chm=N,000000,0,,10|N,000000,1,,10|N,000000,2,,10" />
 
-<Image noLazyLoad caption="Google Image Charts" src="https://chart.googleapis.com/chart?cht=bvg&chs=300x200&chd=t:5,5,5|10,10,10|15,15,15&chco=4d89f9,c6d9fd,00B88A&chds=0,20&chbh=a&chxs=0,000000,0,0,_&chxt=y&chm=N,000000,0,,10|N,000000,1,,10|N,000000,2,,10" />
 
 Should be changed to:
 
