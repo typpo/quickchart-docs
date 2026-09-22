@@ -10,6 +10,10 @@ import Admonition from '@theme/Admonition';
 
 The QR code batch API lets you render many QR codes in a single request and receive a ZIP archive of the generated images. This is useful when you need to produce QR codes in bulk without fanning out into hundreds of individual HTTP calls.
 
+<Admonition type="tip">
+  The batch API renders static QR codes. To create codes whose destination you can change later and whose scans you can track, see <a href="/documentation/qr-codes/dynamic-qr-codes/#bulk-creation">dynamic QR bulk creation</a>.
+</Admonition>
+
 ## API Endpoint
 
 <CodeWithHighlights wrap code="POST **https://quickchart.io/qr/batch**" />

@@ -8,10 +8,15 @@ tags: ['qr codes']
 import Image from '@site/documentation/components/Image';
 import CodeWithHighlights from '@site/documentation/components/CodeWithHighlights';
 import GoogleAnalyticsExample from '@site/documentation/images/qr-codes/google-analytics-utm.jpeg';
+import Admonition from '@theme/Admonition';
+
+<Admonition type="tip">
+  Want scan counts without setting up an analytics tool? <a href="/documentation/qr-codes/dynamic-qr-codes/">Dynamic QR codes</a> include built-in scan analytics by day, location, device, campaign, and tag. You can also change their destination after printing.
+</Admonition>
 
 ## How to measure QR code usage
 
-QuickChart's QR code capabilities integrate with third-party analytics like Google Analytics and Mixpanel. This enables you to track QR code scans and measure campaign performance.
+QuickChart's static QR codes integrate with third-party analytics like Google Analytics and Mixpanel. This enables you to track QR code scans and measure campaign performance.
 
 To track QR scans, use **UTM parameters**, a common tracking standard supported by third-party analytics tools. UTM parameters are tags that you can add to a URL to track the source, medium, campaign, and other information about traffic coming to your site.
 

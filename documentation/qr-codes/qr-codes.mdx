@@ -215,11 +215,17 @@ The response contains the URLs in the same order:
 
 These endpoints encode the parameters into URLs. They do not render, validate, or save the QR codes. Any `key` included in the body will appear in the returned URL; use [signed URLs](/documentation/authentication/#signing-requests) if you need to share authenticated images.
 
+## Dynamic QR codes
+
+QR codes from `/qr` are static: the text is encoded directly in the image, so changing a URL means reprinting. If you need to change a destination after printing, pause a code, or track scans, use [dynamic QR codes](/documentation/qr-codes/dynamic-qr-codes/). They're managed through a [dashboard](https://qr.quickchart.io) and API and are included with every QuickChart API key.
+
 ## Bulk QR code generator
 
 To generate many QR codes in a single request and receive them as a ZIP archive, use the [QR Code Batch API](/documentation/qr-codes/qr-batch-api/).
 
 If you're looking to generate codes quickly without writing code, try our web-based [bulk QR code generator](https://quickchart.io/bulk-qr-code-generator/).
+
+To create up to 10,000 editable, trackable codes from a CSV, use [dynamic QR bulk creation](/documentation/qr-codes/dynamic-qr-codes/#bulk-creation).
 
 ## Migrating from Google Image Charts
 
