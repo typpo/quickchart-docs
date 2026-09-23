@@ -17,7 +17,7 @@ Print a code on a menu, flyer, or package today. If the link changes next month,
 
 Manage your codes at **[qr.quickchart.io](https://qr.quickchart.io)**. Dynamic QR codes are included with every paid QuickChart plan. Developers can also manage them through the [API](#api).
 
-**[Try the demo](https://qr.quickchart.io/demo)** to see how it works. No account needed.
+**[Try the demo](https://qr.quickchart.io/demo)** to see how it works.
 
 ## Static vs. dynamic QR codes
 
