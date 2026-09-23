@@ -8,11 +8,30 @@ tags: ['qr codes']
 import Image from '@site/documentation/components/Image';
 import CodeWithHighlights from '@site/documentation/components/CodeWithHighlights';
 import GoogleAnalyticsExample from '@site/documentation/images/qr-codes/google-analytics-utm.jpeg';
-import Admonition from '@theme/Admonition';
+import DynamicQrAnalytics from '@site/documentation/images/qr-codes/dynamic-qr-analytics.png';
 
-<Admonition type="tip">
-  Want scan counts without setting up an analytics tool? <a href="/documentation/qr-codes/dynamic-qr-codes/">Dynamic QR codes</a> include built-in scan analytics by day, location, device, campaign, and tag. You can also change their destination after printing.
-</Admonition>
+## Built-in scan analytics with dynamic QR codes
+
+[Dynamic QR codes](/documentation/qr-codes/dynamic-qr-codes/) track scans for you. Each code encodes a QuickChart scan link that records the scan and then redirects to your destination, so you don't need to add UTM parameters or set up an analytics tool.
+
+<Image src={DynamicQrAnalytics} alt="Account activity in the dynamic QR dashboard, showing active codes, scans, daily unique scans, and a chart of scans by day" caption="Scan activity in the dynamic QR dashboard" />
+
+The [dashboard](https://qr.quickchart.io) shows scan activity for your whole account and for each code:
+
+- **Scans and daily unique scans** over the last 7, 30, or 60 days, with a comparison to the previous period for 7- and 30-day views
+- **Scans by day** (UTC) and, for each code, the time of the most recent scan
+- **Breakdowns** for each code by country, region, city, device, browser, operating system, referring website, and destination website
+
+You can export account or per-code activity as CSV. The [analytics API](/documentation/qr-codes/dynamic-qr-codes/#scan-analytics) returns the same data, plus your top codes, and can filter by campaign or tag to compare placements such as print, packaging, and in-store signage:
+
+```bash
+curl 'https://qr.quickchart.io/api/analytics?days=30&codeId=CODE_ID' \
+  -H "Authorization: Bearer $QUICKCHART_API_KEY"
+```
+
+Known bots are excluded by default, and counts can be sampled or delayed. No tracking cookies or raw IP addresses are stored. For details on how scans are counted, see [scan analytics](/documentation/qr-codes/dynamic-qr-codes/#scan-analytics). To look around without an account, try the [interactive demo](https://qr.quickchart.io/demo).
+
+Scan analytics count visits to the scan link. If you also want to see what people do after they reach your site, add UTM parameters to the destination URL as described below.
 
 ## How to measure QR code usage
 
