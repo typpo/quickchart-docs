@@ -7,10 +7,16 @@ tags: ['qr codes', 'dynamic qr', 'qr analytics', 'bulk qr']
 ---
 
 import Admonition from '@theme/Admonition';
+import Image from '@site/documentation/components/Image';
+import DashboardImage from '@site/documentation/images/qr-codes/dynamic-qr-dashboard.png';
+import EditImage from '@site/documentation/images/qr-codes/dynamic-qr-edit.png';
+import ActivityImage from '@site/documentation/images/qr-codes/dynamic-qr-code-activity.png';
 
-A dynamic QR code encodes a permanent QuickChart scan link instead of your final URL. When someone scans it, QuickChart redirects them to the destination you've saved. You can change the destination, pause the code, and see scan analytics without reprinting anything.
+Dynamic QR codes let you change where a QR code goes after you've printed it, and see how many people scan it.
 
-Dynamic QR codes are managed at **[qr.quickchart.io](https://qr.quickchart.io)**, through either the web dashboard or the REST API. They are included with every QuickChart API key.
+Print a code on a menu, flyer, or package today. If the link changes next month, update it in your dashboard and the same printed code takes people to the new page. You can also pause a code, and see how many scans it gets, when, and where.
+
+Manage your codes at **[qr.quickchart.io](https://qr.quickchart.io)**. Dynamic QR codes are included with every paid QuickChart plan. Developers can also manage them through the [API](#api).
 
 <Admonition type="tip">
   Want to look around first? The <a href="https://qr.quickchart.io/demo">interactive dashboard demo</a> runs in your browser and does not need an account.
@@ -41,6 +47,12 @@ From the dashboard you can:
 - Search and filter by status, campaign, or tag
 - Bulk create codes from a CSV file or a list of URLs, then download them as a ZIP
 - View scan analytics and export them as CSV
+
+<Image src={DashboardImage} alt="List of dynamic QR codes in the dashboard, each with a preview, destination, status, and campaign" caption="Your codes, with their destinations and status" />
+
+To change where a code goes, choose **Manage**, enter a new destination URL, and save. The printed code keeps working and sends people to the new page from the next scan.
+
+<Image src={EditImage} maxWidth={640} alt="Editing a dynamic QR code: name, destination URL, campaign, tags, and appearance, with a preview and download buttons" caption="Edit a code's destination and design, then download it as PNG or SVG" />
 
 ## API
 
@@ -225,6 +237,12 @@ curl https://qr.quickchart.io/api/codes/download \
 The ZIP contains one `CODE_ID.png` or `CODE_ID.svg` file per code. Each image encodes the code's scan link and uses its current saved appearance. A single request can include up to 1,000 codes and at most 450 million output pixels in total. Split larger downloads into several requests. Each image counts toward your account's rendering usage.
 
 ## Scan analytics
+
+Open a code and choose **Scan activity** to see its scans over time and where they came from. The dashboard also shows totals for your whole account.
+
+<Image src={ActivityImage} maxWidth={640} alt="Scan activity for one code: total scans, daily unique scans, last scan, a chart of scans by day, and scans by country, region, city, and device" caption="Scan activity for a single code" />
+
+To get the same data from the API:
 
 ```bash
 curl 'https://qr.quickchart.io/api/analytics?days=30&codeId=CODE_ID' \
