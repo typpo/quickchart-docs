@@ -6,7 +6,6 @@ sidebar_position: 5
 tags: ['qr codes', 'dynamic qr', 'qr analytics', 'bulk qr']
 ---
 
-import Admonition from '@theme/Admonition';
 import Image from '@site/documentation/components/Image';
 import DashboardImage from '@site/documentation/images/qr-codes/dynamic-qr-dashboard.png';
 import EditImage from '@site/documentation/images/qr-codes/dynamic-qr-edit.png';
@@ -14,13 +13,11 @@ import ActivityImage from '@site/documentation/images/qr-codes/dynamic-qr-code-a
 
 Dynamic QR codes let you change where a QR code goes after you've printed it, and see how many people scan it.
 
-Print a code on a menu, flyer, or package today. If the link changes next month, update it in your dashboard and the same printed code takes people to the new page. You can also pause a code, and see how many scans it gets, when, and where.
+Print a code on a menu, flyer, or package today. If the link changes next month, update it in your dashboard and the same printed code takes people to the new page.
 
 Manage your codes at **[qr.quickchart.io](https://qr.quickchart.io)**. Dynamic QR codes are included with every paid QuickChart plan. Developers can also manage them through the [API](#api).
 
-<Admonition type="tip">
-  Want to look around first? The <a href="https://qr.quickchart.io/demo">interactive dashboard demo</a> runs in your browser and does not need an account.
-</Admonition>
+**[Try the demo](https://qr.quickchart.io/demo)** to see how it works. No account needed.
 
 ## Static vs. dynamic QR codes
 
