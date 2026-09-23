@@ -268,7 +268,7 @@ How scans are counted:
 
 ## Limits
 
-- Up to 1,000,000 codes per account. Paused and archived codes count toward the limit. Deleted codes do not.
+- Up to 10,000 codes on the Professional plan. Paused and archived codes count toward the limit. Deleted codes do not. [Contact us](https://quickchart.io/contact/) if you need more.
 - Destinations must be public HTTP or HTTPS URLs. Private addresses, embedded credentials, and other `qr.quickchart.io` links are rejected.
 - Analytics history goes back 60 days.
 
