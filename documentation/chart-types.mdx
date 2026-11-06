@@ -301,7 +301,7 @@ See customization options at [chartjs-gauge](https://github.com/haiiaaa/chartjs-
 
 ## Box Plots and Violin Charts
 
-You can use `violin`, `boxplot`, `horizontalBoxPlot`, and `horizontalViolin` chart types. View the options at [chartjs-chart-box-and-violin-plot](https://github.com/datavisyn/chartjs-chart-box-and-violin-plot) for customization details.
+You can use `violin`, `boxplot`, `horizontalBoxplot`, and `horizontalViolin` chart types with Chart.js v2. View the options at [chartjs-chart-box-and-violin-plot](https://github.com/datavisyn/chartjs-chart-box-and-violin-plot) for customization details.
 
 <ChartExample
   alt="Example violin chart"
@@ -394,6 +394,79 @@ A sankey diagram is a flow diagram that illustrates the proportions between vari
 />
 
 A more elaborate sankey example with custom colors and position is available [here](https://quickchart-urls.ty.workers.dev/sankey-diagram).
+
+## Heatmaps
+
+Use the `matrix` chart type to draw a heatmap. It requires Chart.js v3 or v4. See the [chartjs-chart-matrix documentation](https://chartjs-chart-matrix.pages.dev/) for all options.
+
+Each data point sets a cell's position with `x` and `y`, in scale coordinates. The `v` field is available to your callbacks but doesn't set a color by itself, so choose colors in `backgroundColor`. Cell `width` and `height` are in pixels.
+
+<ChartExample
+  version="4"
+  alt="Example heatmap"
+  config={`{
+  type: 'matrix',
+  data: {
+    datasets: [
+      {
+        data: [
+          { x: 0.5, y: 0.5, v: 10 },
+          { x: 1.5, y: 0.5, v: 20 },
+          { x: 0.5, y: 1.5, v: 30 },
+          { x: 1.5, y: 1.5, v: 40 },
+        ],
+        backgroundColor: (ctx) => (ctx.raw && ctx.raw.v >= 30 ? '#08519c' : '#c6dbef'),
+        width: (ctx) => (ctx.chart.chartArea || {}).width / 2 - 2,
+        height: (ctx) => (ctx.chart.chartArea || {}).height / 2 - 2,
+      },
+    ],
+  },
+  options: {
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { min: 0, max: 2, offset: false, display: false },
+      y: { min: 0, max: 2, display: false },
+    },
+  },
+}`}
+/>
+
+## Treemaps
+
+Use the `treemap` chart type to show hierarchical data as nested rectangles. It requires Chart.js v3 or v4. See the [chartjs-chart-treemap documentation](https://chartjs-chart-treemap.pages.dev/) for all options.
+
+Put your records in `dataset.tree`. Set `key` to the numeric field, and list the hierarchy in `groups` from outermost to innermost level.
+
+<ChartExample
+  version="4"
+  alt="Example treemap"
+  config={`{
+  type: 'treemap',
+  data: {
+    datasets: [
+      {
+        tree: [
+          { department: 'Engineering', team: 'Product', value: 8 },
+          { department: 'Engineering', team: 'Platform', value: 4 },
+          { department: 'Sales', team: 'Field', value: 6 },
+          { department: 'Sales', team: 'Inside', value: 2 },
+        ],
+        key: 'value',
+        groups: ['department', 'team'],
+        backgroundColor: '#3182bd',
+        borderColor: '#ffffff',
+        borderWidth: 1,
+        spacing: 2,
+        captions: { display: true, color: '#ffffff' },
+        labels: { display: true, color: '#ffffff' },
+      },
+    ],
+  },
+  options: {
+    plugins: { legend: { display: false } },
+  },
+}`}
+/>
 
 ## Progress bars
 

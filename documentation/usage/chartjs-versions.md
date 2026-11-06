@@ -50,7 +50,7 @@ See the Chart.js [v3 migration guide](https://www.chartjs.org/docs/latest/migrat
 
 ## Plugins and chart types
 
-Plugin availability depends on the Chart.js version. Financial, sankey, and funnel charts require v3 or v4. Some plugins, including `doughnutlabel` and `piechart-outlabels`, are available only with v2. See the [plugin list](/documentation/reference/chartjs-plugins/) before changing versions.
+Plugin availability depends on the Chart.js version. Financial, sankey, funnel, matrix, and treemap charts require v3 or v4. Some plugins, including `doughnutlabel` and `piechart-outlabels`, are available only with v2. For centered doughnut text in v4, use the annotation plugin's [`doughnutLabel`](/documentation/chart-js/custom-pie-doughnut-chart-labels/) type. See the [plugin list](/documentation/reference/chartjs-plugins/) before changing versions.
 
 ## Options being ignored?
 

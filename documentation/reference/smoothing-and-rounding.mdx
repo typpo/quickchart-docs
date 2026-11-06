@@ -33,13 +33,13 @@ A built-in plugin is available to users who want to round the corners of their b
   // ...
   options: {
     plugins: {
-      roundedBars: true;
-    }
-  }
+      roundedBars: true,
+    },
+  },
 }
 ```
 
-You may also specify the pixel radius of the rounded corners using the `cornerRadius` property:
+This rounds the end of each bar and works with Chart.js v2, v3, and v4. Use the `cornerRadius` property to set the radius in pixels (the default is 10), and `allCorners` to also round the base of each bar:
 
 ```js
 {
@@ -47,12 +47,15 @@ You may also specify the pixel radius of the rounded corners using the `cornerRa
   options: {
     plugins: {
       roundedBars: {
-        cornerRadius: 20;
-      }
-    }
-  }
+        cornerRadius: 20,
+        allCorners: true,
+      },
+    },
+  },
 }
 ```
+
+In Chart.js v3 and v4 you can also set the [`borderRadius`](https://www.chartjs.org/docs/latest/charts/bar.html#borderradius) dataset property directly, which overrides `roundedBars` for that dataset.
 
 ## Data smoothing techniques
 
