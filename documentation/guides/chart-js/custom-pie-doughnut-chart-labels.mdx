@@ -320,7 +320,37 @@ Here's a quick example that includes a center doughnut labels and custom data la
 }`}
 />
 
-Note that this plugin is available for Chart.js v2 only.
+Note that this plugin is available for Chart.js v2 only. In Chart.js v4, use the annotation plugin's `doughnutLabel` type instead:
+
+<ChartExample
+  version="4"
+  showEditor
+  config={`{
+  type: 'doughnut',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May'],
+    datasets: [
+      {
+        data: [50, 60, 70, 180, 190],
+      },
+    ],
+  },
+  options: {
+    plugins: {
+      annotation: {
+        annotations: {
+          total: {
+            type: 'doughnutLabel',
+            content: ['550', 'total'],
+            font: [{ size: 32, weight: 'bold' }, { size: 16 }],
+            color: ['#222', '#666'],
+          },
+        },
+      },
+    },
+  },
+}`}
+/>
 
 ## Using the outlabeledPie plugin
 
