@@ -79,21 +79,20 @@ Example response:
 
 ## Error Responses
 
-Missing input returns HTTP 400. Fetch and decoding failures return HTTP 500, with an `error` string explaining what went wrong:
+If your client previously handled HTTP 500 for image fetch or decoding failures, update it to handle HTTP 422 for those cases. GET and POST use the same status codes.
 
-| Error | Meaning |
-| --- | --- |
-| `Could not fetch the image at that URL: ...` | The URL could not be fetched. Check that it returns an image and is publicly accessible. |
-| `Could not decode that image. Supported formats are PNG, JPEG, BMP, TIFF, and GIF.` | The downloaded or base64-decoded data is not a supported image. |
-| `No QR code was found in that image.` | The image was loaded, but the reader could not find a readable QR code. |
+| HTTP status | What happened | What to do |
+| --- | --- | --- |
+| 400 Bad Request | An input is missing or malformed, such as an invalid URL or base64 string. | For GET, supply a public HTTP or HTTPS image URL. For POST, supply a URL or raw base64 image data without a data URI prefix. |
+| 422 Unprocessable Content | QuickChart could not fetch the image, decode its bytes, or find a readable QR code. | Check that the URL serves an image. If the image host was temporarily unavailable, retry once it recovers. For decoding errors, supply a supported image with a legible QR code. |
+| 429 Too Many Requests | The request exceeded a rate limit. | Wait before retrying. See [rate limits](/documentation/usage/handling-errors/#429-too-many-requests). |
+| 500 Internal Server Error | QuickChart encountered an unexpected server error. | Retry later. |
 
-These failures use HTTP 500 for compatibility with existing clients. Check the message before retrying; sending the same unreadable image again will not help. Requests may also receive [HTTP 429](/documentation/usage/handling-errors/#429-too-many-requests) when rate limited.
-
-Example error response:
+For example, a blank PNG returns HTTP 422 with this JSON body.
 
 ```json
 {
-  "error": "Please provide either a URL or base64 encoded image"
+  "error": "No QR code was found in that image."
 }
 ```
 
